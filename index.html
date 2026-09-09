@@ -1,0 +1,213 @@
+<meta charset="utf-8">
+<title>N1 BioForge Requirements Cockpit</title>
+<div id="n1bf-requirements-cockpit">
+  <style>
+    #n1bf-requirements-cockpit {
+      color-scheme: light dark;
+      --n1bf-bg: light-dark(#f4f7f5, #101713);
+      --n1bf-surface: light-dark(#ffffff, #18221c);
+      --n1bf-text: light-dark(#17211b, #edf5ef);
+      --n1bf-muted: light-dark(#526258, #afbeb4);
+      --n1bf-border: light-dark(#cad5ce, #3a4a40);
+      --n1bf-green: light-dark(#d9f2e1, #163c24);
+      --n1bf-green-edge: #1b7f3a;
+      --n1bf-blue: light-dark(#dceeff, #153753);
+      --n1bf-blue-edge: #1769aa;
+      --n1bf-yellow: light-dark(#fff2bf, #493900);
+      --n1bf-yellow-edge: #a66b00;
+      --n1bf-red: light-dark(#fde2e1, #4b1d1a);
+      --n1bf-red-edge: #b42318;
+      --n1bf-grey: light-dark(#e9ecea, #2b332e);
+      --n1bf-grey-edge: #667085;
+      --n1bf-purple: light-dark(#eee5ff, #30234e);
+      --n1bf-purple-edge: #6941c6;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--n1bf-bg);
+      color: var(--n1bf-text);
+      padding: 24px;
+      min-height: 100%;
+    }
+    #n1bf-requirements-cockpit * { box-sizing: border-box; }
+    #n1bf-requirements-cockpit .n1bf-shell { max-width: 1180px; margin: 0 auto; }
+    #n1bf-requirements-cockpit h1 { font-size: clamp(1.55rem, 3vw, 2.25rem); margin: 0 0 6px; }
+    #n1bf-requirements-cockpit h2 { font-size: 1.15rem; margin: 30px 0 12px; }
+    #n1bf-requirements-cockpit p { line-height: 1.55; }
+    #n1bf-requirements-cockpit .n1bf-meta { color: var(--n1bf-muted); margin: 0 0 18px; }
+    #n1bf-requirements-cockpit .n1bf-here {
+      background: var(--n1bf-yellow); border: 2px solid var(--n1bf-yellow-edge);
+      border-radius: 12px; padding: 18px; margin: 18px 0 24px;
+    }
+    #n1bf-requirements-cockpit .n1bf-here strong { display: block; margin-bottom: 6px; }
+    #n1bf-requirements-cockpit .n1bf-flow {
+      display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px;
+      max-width: 760px; margin: 0 auto;
+    }
+    #n1bf-requirements-cockpit .n1bf-phase {
+      position: relative; padding: 16px 18px; border-radius: 10px;
+      border: 2px solid var(--n1bf-border); background: var(--n1bf-surface);
+    }
+    #n1bf-requirements-cockpit .n1bf-phase:not(:last-child)::after {
+      content: "↓"; position: absolute; left: 50%; bottom: -24px;
+      transform: translateX(-50%); font-size: 22px; color: var(--n1bf-muted);
+    }
+    #n1bf-requirements-cockpit .n1bf-phase-title { font-weight: 750; }
+    #n1bf-requirements-cockpit .n1bf-status { display: inline-block; margin-top: 7px; font-weight: 700; }
+    #n1bf-requirements-cockpit .approved { border-color: var(--n1bf-green-edge); background: var(--n1bf-green); }
+    #n1bf-requirements-cockpit .in_progress { border-color: var(--n1bf-blue-edge); background: var(--n1bf-blue); }
+    #n1bf-requirements-cockpit .human_gate { border-color: var(--n1bf-yellow-edge); background: var(--n1bf-yellow); }
+    #n1bf-requirements-cockpit .changes_required,
+    #n1bf-requirements-cockpit .blocked { border-color: var(--n1bf-red-edge); background: var(--n1bf-red); }
+    #n1bf-requirements-cockpit .not_started { border-color: var(--n1bf-grey-edge); background: var(--n1bf-grey); }
+    #n1bf-requirements-cockpit .n1bf-review { box-shadow: inset 6px 0 0 var(--n1bf-purple-edge); }
+    #n1bf-requirements-cockpit .n1bf-return {
+      border: 2px dashed var(--n1bf-purple-edge); background: var(--n1bf-purple);
+      border-radius: 10px; padding: 14px 18px; max-width: 760px; margin: 18px auto 0;
+    }
+    #n1bf-requirements-cockpit .n1bf-controls {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin: 12px 0 18px;
+    }
+    #n1bf-requirements-cockpit label { display: grid; gap: 5px; color: var(--n1bf-muted); font-size: .9rem; }
+    #n1bf-requirements-cockpit select {
+      min-width: 210px; padding: 9px 10px; border: 1px solid var(--n1bf-border);
+      border-radius: 7px; background: var(--n1bf-surface); color: var(--n1bf-text);
+    }
+    #n1bf-requirements-cockpit .n1bf-count { color: var(--n1bf-muted); padding-bottom: 9px; }
+    #n1bf-requirements-cockpit .n1bf-chunks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    #n1bf-requirements-cockpit .n1bf-chunk {
+      border: 2px solid var(--n1bf-border); border-radius: 12px; padding: 16px;
+      background: var(--n1bf-surface);
+    }
+    #n1bf-requirements-cockpit .n1bf-chunk h3 { font-size: 1rem; margin: 0 0 8px; }
+    #n1bf-requirements-cockpit .n1bf-chunk p { margin: 7px 0; }
+    #n1bf-requirements-cockpit .n1bf-chunk dl { display: grid; grid-template-columns: 128px 1fr; gap: 7px 12px; margin: 14px 0 0; }
+    #n1bf-requirements-cockpit .n1bf-chunk dt { color: var(--n1bf-muted); font-weight: 650; }
+    #n1bf-requirements-cockpit .n1bf-chunk dd { margin: 0; overflow-wrap: anywhere; }
+    #n1bf-requirements-cockpit code { font-size: .85em; }
+    #n1bf-requirements-cockpit details {
+      margin-top: 24px; border: 1px solid var(--n1bf-border); border-radius: 10px;
+      padding: 12px 14px; background: var(--n1bf-surface);
+    }
+    #n1bf-requirements-cockpit summary { cursor: pointer; font-weight: 700; }
+    #n1bf-requirements-cockpit .n1bf-empty { grid-column: 1 / -1; color: var(--n1bf-muted); }
+    @media (max-width: 760px) {
+      #n1bf-requirements-cockpit { padding: 16px; }
+      #n1bf-requirements-cockpit .n1bf-chunks { grid-template-columns: 1fr; }
+      #n1bf-requirements-cockpit .n1bf-chunk dl { grid-template-columns: 1fr; gap: 3px; }
+      #n1bf-requirements-cockpit .n1bf-chunk dd { margin-bottom: 7px; }
+    }
+  </style>
+  <div class="n1bf-shell">
+    <h1></h1>
+    <p class="n1bf-meta"></p>
+    <section class="n1bf-here" aria-labelledby="n1bf-here-title"></section>
+    <h2>De zeven fasen</h2>
+    <div class="n1bf-flow" aria-label="Zeven fasen in vaste verticale volgorde"></div>
+    <div class="n1bf-return"></div>
+    <h2>Requirementchunks</h2>
+    <div class="n1bf-controls">
+      <label>Status
+        <select id="n1bf-status-filter"><option value="all">Alle statussen</option></select>
+      </label>
+      <label>Fase
+        <select id="n1bf-phase-filter"><option value="all">Alle fasen</option></select>
+      </label>
+      <span class="n1bf-count" aria-live="polite"></span>
+    </div>
+    <div class="n1bf-chunks"></div>
+    <details>
+      <summary>Historie en orchestratorregels</summary>
+      <div class="n1bf-history"></div>
+      <ol class="n1bf-protocol"></ol>
+    </details>
+  </div>
+  <script type="application/json" id="n1bf-cockpit-data">{"schema_version": "1.0", "metadata": {"title": "N1 BioForge Requirements Cockpit", "planning_branch": "codex/release-1-reconciliation", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "snapshot_date": "2026-09-09", "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.", "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.", "publication": {"status": "published_public_mirror", "repository": "https://github.com/Jandesch91/n1-bioforge-requirements-cockpit", "pages_url": "https://jandesch91.github.io/n1-bioforge-requirements-cockpit/", "visibility": "public", "content_boundary": "Only generated cockpit artifacts are mirrored; the N1 BioForge source repository remains private."}}, "status_definitions": {"approved": {"icon": "✅", "label": "Goedgekeurd / klaar", "color": "green"}, "in_progress": {"icon": "🔵", "label": "Bezig", "color": "blue"}, "human_gate": {"icon": "🟨", "label": "Wacht op mens / keuze", "color": "yellow"}, "changes_required": {"icon": "❌", "label": "Changes required", "color": "red"}, "blocked": {"icon": "⛔", "label": "Geblokkeerd", "color": "red"}, "not_started": {"icon": "⬜", "label": "Niet gestart / uitgesteld", "color": "grey"}, "independent_review": {"icon": "🟣", "label": "Onafhankelijke review", "color": "purple"}}, "you_are_here": {"title": "Cockpit gereed voor menselijke inspectie; inhoudelijke Phase 4R-regeneratie is nog niet gestart", "status": "human_gate", "current_boundary": "Na de goedgekeurde Phase-3R-correctie en vóór een nieuwe Phase 4R", "what_human_does_next": "Gebruik de publieke cockpit om de planning te volgen. Geef afzonderlijk toestemming voordat inhoudelijke Phase-4R-correctie begint.", "next_allowed_action": "Na nieuwe expliciete toestemming: maak per dependency-chunk een verse Requirements/Test Designer-taak voor volledige Phase-4R-regeneratie."}, "phases": [{"id": "phase-1", "number": "1", "role": "Current-State Auditor", "plain_language": "Legt alleen vast wat aantoonbaar bestaat.", "status": "approved", "input_sha": "2bc934750fb14d73800773932886777871704ad3", "handoff": "../01-current-state.md", "evidence": ["../01-current-state.md", "../README.md"]}, {"id": "phase-2", "number": "2", "role": "Product Outcome Grill", "plain_language": "Bevestigt zichtbare uitkomsten, grenzen en menselijke keuzes.", "status": "approved", "input_sha": "2bc934750fb14d73800773932886777871704ad3", "handoff": "../02-product-decisions.md", "evidence": ["../02-product-decisions.md", "../README.md"]}, {"id": "phase-3r", "number": "3R", "role": "Ownership/Dependency Grill", "plain_language": "Bepaalt wie beslist, wat eerst moet bestaan en waar bewijsgrenzen liggen.", "status": "approved", "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5", "handoff": "../03R-technical-architecture-and-dependencies.md", "evidence": ["../03R-technical-architecture-and-dependencies.md", "../README.md"], "status_note": "Alleen de afgebakende Phase-3R-correctie is goedgekeurd; dit keurt Phase 4R, 5R, 6 of 7 niet goed."}, {"id": "phase-4r", "number": "4R", "role": "Requirements/Test Designer", "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.", "status": "changes_required", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "handoff": "../04R-requirements-and-tests/README.md", "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"], "status_note": "De bestaande 04R-package is bewijs voor regeneratie en geen adopteerbare baseline."}, {"id": "phase-5r", "number": "5R", "role": "Delivery Planner", "plain_language": "Zet goedgekeurde requirements in kleine, uitvoerbare dependency-volgorde.", "status": "blocked", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "handoff": "../05R-delivery-plan-and-working-method.md", "evidence": ["../06R-review-findings.md", "../README.md"], "status_note": "Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd."}, {"id": "phase-6", "number": "6", "role": "Independent Reviewer", "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.", "status": "changes_required", "display_kind": "independent_review", "input_sha": "edade537d55fad42bd4ad5cf1a80b1ebc32f06d5", "handoff": "../06R-review-findings.md", "evidence": ["../06-review-findings.md", "../06R-review-findings.md"], "return_to_phase": "phase-3r", "status_note": "06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd."}, {"id": "phase-7", "number": "7", "role": "Documentation Integrator", "plain_language": "Integreert uitsluitend een onafhankelijk goedgekeurde planning in één canonieke Git-baseline.", "status": "blocked", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "handoff": "Nog niet toegestaan", "evidence": ["../06R-review-findings.md", "../README.md"], "status_note": "Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA."}], "chunks": [{"id": "C00", "plain_language": "Bewaarde S0-feiten beschermen tegen bewijsinflatie", "visible_value": "Iedere latere planner ziet precies wat historisch bewezen is en wat uitdrukkelijk niet.", "req_scope": ["REQ-PLAT-001..024", "REQ-PLAT-028..033"], "current_phase": "phase-3r", "status": "approved", "blocker": "Geen; de scope moet tijdens 4R wel exact begrensd blijven.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Bewaarde evidencegrenzen in de planning-README en Phase 3R", "responsible_role": "Current-State Auditor", "responsible_task": null, "next_allowed_action": "Gebruik deze evidence alleen als voorganger; maak historische claims niet sterker.", "durable_evidence": ["../01-current-state.md", "../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]}, {"id": "C01", "plain_language": "Eén gedeelde taal en een lokale identity-providerbasis", "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.", "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "Phase 4R moet het nieuwe IdP-groundwork een nieuw ID geven zonder een gedeelde browsersessie te claimen.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Nieuwe 04R Contracts- en Platform-rijen met exacte tests en predecessors", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Start na expliciete toestemming één verse Phase-4R-taak voor deze chunk.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]}, {"id": "C02", "plain_language": "Reproduceerbare proceswaarden zonder control logic in Simulation", "visible_value": "Een mens kan dezelfde procesrespons opnieuw waarnemen voordat besturing en schermen worden toegevoegd.", "req_scope": ["owner-local REQ-SIM-* basis", "REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "REQ-SIM-021 is inhoudelijk gewijzigd onder een oud ID en de bestaande 04R-assertie is afgekapt.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Nieuwe 04R Simulation-rijen en semantisch backward-only tests", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Herstel eerst identity en exact observable gedrag in een verse Phase-4R-taak.", "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-005--two-exact-passing-results-are-incomplete-or-internally-corrupted"]}, {"id": "C03", "plain_language": "Eén echte REACT-fase met een vroege live Ignition-procesweergave", "visible_value": "De gebruiker ziet al vroeg echte fase-, PV- en freshnessinformatie zonder op MES- of Kafka-afwerking te wachten.", "req_scope": ["toepasselijke REQ-AUT-*", "eerste-fase REQ-BC-*", "row-specifieke live-view REQ-HMI-*"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "De oude 04R-rijen gebruiken blanket UI-predecessors; REQ-HMI-021 heeft bovendien een corrupte exact-testtekst.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Row-specifieke 04R Automation, Batch-Control en Ignition-rijen", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Specificeer per zichtbare waarde alleen de echte producer-, auth- en viewvoorgangers.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#row-specifieke-ui-dependencyregels-r6r-006", "../06R-review-findings.md#r6r-005--two-exact-passing-results-are-incomplete-or-internally-corrupted", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]}, {"id": "C04", "plain_language": "Een ongeldige start server-side weigeren en begrijpelijk verklaren", "visible_value": "De operator krijgt een betrouwbare afwijzing van Batch-Control zonder client-side safetybeslissing.", "req_scope": ["permissive/reject-subset van REQ-BC-*", "bijbehorende process-eventcontracten"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "De volledige 04R-package moet opnieuw worden gegenereerd en semantisch op verborgen evidence-afhankelijkheden worden gecontroleerd.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Exacte permissive/reject requirements en tests in 04R", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Maak een kleine owner-local Phase-4R-chunk met Batch-Control als primaire eigenaar.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]}, {"id": "C05", "plain_language": "MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden", "visible_value": "De databaselaag heeft één duidelijke eigenaar en elke apply-, seed- en append-only-grens is afzonderlijk bewijsbaar.", "req_scope": ["REQ-MES-036", "REQ-MES-038..041", "REQ-PLAT-025..027", "REQ-MES-037"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "Oude tests voor REQ-PLAT-025..027 gebruiken historisch S0-bewijs dat hun nieuwe gedrag niet kan bewijzen.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Owner-local MES-migratiebewijs, daarna afzonderlijke Platform apply/seed- en append-only-tests", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Regeneer de betrokken MES- en Platform-rijen met disposable PostgreSQL RED/GREEN-procedures.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-002--proposed-platform-database-work-is-assigned-historical-s0-evidence"]}, {"id": "C06", "plain_language": "Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace", "visible_value": "Een gebruiker ziet vroeg een echte batchcontext terwijl Kafka-resilience en HMI-acties nog los mogen volgen.", "req_scope": ["toepasselijke REQ-MES-*", "ERP REST-ingress-subset", "row-specifieke read-only REQ-MUI-*"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "Materieel gewijzigde MES-identiteiten hergebruiken oude IDs en de MES UI wacht in de oude planning op ongerelateerde Kafka-resilience.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Nieuwe MES/MUI/ERP-ingress-rijen met owner-local bewijs en row-specifieke predecessors", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Splits schema, runtime, dispatch, outbox en minimale workspace op echte observable grenzen.", "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]}, {"id": "C07", "plain_language": "Duurzame history en audit combineren met afzonderlijke operatorauthority", "visible_value": "Batchfacts blijven append-only en operatoracties kunnen de Batch-Control-authority niet omzeilen.", "req_scope": ["persistence-subset REQ-MES-*", "manual-control REQ-BC-*", "action-subset REQ-HMI-*"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "De volledige 04R-package moet opnieuw worden gegenereerd; HMI-acties mogen alleen hun exacte serverauthority als voorganger krijgen.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Exacte persistence-, audit-, acknowledge- en action-rijen in 04R", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Maak owner-local MES- en Batch-Control-bewijs vóór de afhankelijke HMI-actionrijen.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]}, {"id": "C08", "plain_language": "Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt", "visible_value": "Enterprise-events zijn herstelbaar zonder het MES-kernpad of vroege schermen te blokkeren.", "req_scope": ["REQ-MES-042..045", "REQ-INT-*", "REQ-ERP-*", "uitsluitend backlog/replay-gerelateerde REQ-MUI-*"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "REQ-INT-004 vereist de complete demo en stond te vroeg; blanket UI-predecessors koppelden ongerelateerde schermen aan Kafka-resilience.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Vroege owner-local Kafka/ERP-rijen, latere resilience-rijen en afzonderlijke UI-consumers", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Plaats REQ-INT-004 bij de finale demo en geef elke UI-rij alleen gebruikte resilience-voorgangers.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]}, {"id": "C09", "plain_language": "Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken", "visible_value": "Dezelfde gebruiker beweegt begrijpelijk tussen MES en Ignition zonder dat één app de andere blokkeert.", "req_scope": ["contextuele REQ-MUI-*", "contextuele REQ-HMI-*", "late REQ-PLAT-059", "nieuw owner-local auth-ID indien betekenis wijzigt"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "REQ-PLAT-059 was ten onrechte Ready en lokale authenticatie, navigatie en gedeelde sessie waren vermengd.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Afzonderlijke owner-local auth/routes plus late connected navigation- en shared-sessiongates", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Ken eerst lokale auth/routes toe en verbind ze pas daarna in expliciete late verificatierijen.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]}, {"id": "C10", "plain_language": "Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening", "visible_value": "De complete IVT-controlflow faalt zichtbaar en veilig zonder dat cosmetische of ongerelateerde UI-eisen eerdere waarde blokkeren.", "req_scope": ["resterende REQ-AUT-*", "resterende REQ-SIM-*", "resterende REQ-BC-*", "REQ-MES-031", "row-local REQ-HMI/MUI-* hardening"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "De oude 04R-package moet volledig worden herberekend zodat failure-evidence en UI-hardening uitsluitend echte predecessors gebruiken.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Exacte complete-control-, interlock-, degradation- en row-local UI-tests", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Regeneer na de vroege owner-local chunks en houd failure modes expliciet en meetbaar.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]}, {"id": "C11", "plain_language": "Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo", "visible_value": "De volledige kandidaat is controleerbaar voordat een mens afzonderlijk toestemming geeft voor elke destructieve CT 240-run.", "req_scope": ["REQ-INT-004", "final-gate REQ-PLAT-*", "EN-DEMO-READY-001", "EN-DEMO-001"], "current_phase": "phase-4r", "status": "changes_required", "blocker": "REQ-INT-004 stond te vroeg en Worker-handoffs wachtten niet op een goedgekeurde, geïntegreerde Phase-7-baseline.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Finale non-destructive gates, late no-cost test en expliciete reset/demo-autorisatiegrenzen", "responsible_role": "Requirements/Test Designer", "responsible_task": null, "next_allowed_action": "Specificeer eerst de non-destructieve candidate; plan geen reset of Worker vóór goedgekeurde Phase 6 en voltooide Phase 7.", "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#verplichte-downstreamregel-voor-phase-5r-en-phase-7", "../06R-review-findings.md#r6r-003--worker-handoff-precedes-canonical-scope-integration"]}, {"id": "GATE", "plain_language": "Eén integraal en onafhankelijk goedgekeurd planningspakket", "visible_value": "Een mens kan één betrouwbare baseline adopteren zonder losse branches of chatgeheugen te combineren.", "req_scope": ["alle actieve Release-1-rijen", "traceability", "Phase-5R-plan", "Phase-7-adoptieprocedure"], "current_phase": "phase-6", "status": "blocked", "blocker": "C01..C11 hebben nog geen geregenereerde Phase-4R-uitkomst; Phase 5R en een verse onafhankelijke review ontbreken.", "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450", "output_handoff": "Nieuwe Phase-6-reviewdispositie op exact dezelfde planning-SHA", "responsible_role": "Independent Reviewer", "responsible_task": null, "next_allowed_action": "Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review.", "durable_evidence": ["../06-review-findings.md", "../06R-review-findings.md", "../README.md"]}], "orchestrator_protocol": ["Maak precies één verse taak per rol en chunk; combineer geen rollen in één taak.", "Gebruik alleen duurzame, gecommitteerde input en registreer input-SHA en ref vóór de taak start.", "Registreer taaklink, status, output/handoff en output-SHA terug in deze statusbron nadat de roltaak stopt.", "Declareer vooraf de schrijfset; er mag nooit meer dan één actieve schrijver op hetzelfde bestand staan.", "Bij CHANGES REQUIRED wijst return_to_phase naar de vroegste defecte fase en start daar een nieuwe verse taak.", "Behoud iedere expliciete menselijke approval gate, vooral requirementidentiteit, Phase-7-adoptie en elke destructieve CT 240-handeling.", "Worker, Reviewer en orchestrator mergen nooit automatisch; alleen een mens merge.", "Chatgeschiedenis is nooit bewijs en mag niet als vervanging voor een duurzame handoff worden gebruikt."], "gates": {"green_requires_durable_evidence": true, "phase_7_requires_phase_6_approved": true, "phase_7_requires_same_reviewed_sha": true, "automatic_merge": false, "destructive_ct240_requires_separate_human_approval": true, "maximum_active_writers_per_file": 1}, "active_tasks": [], "history": [{"label": "Phase 3", "status": "superseded", "handoff": "../03-ownership-and-dependencies.md"}, {"label": "Phase 4", "status": "superseded", "handoff": "../04-requirements-and-tests/README.md"}, {"label": "Phase 5", "status": "superseded", "handoff": "../05-delivery-plan-and-working-method.md"}, {"label": "Phase 6", "status": "changes_required", "handoff": "../06-review-findings.md"}, {"label": "Phase 6R", "status": "changes_required", "handoff": "../06R-review-findings.md"}]}</script>
+  <script>
+    (() => {
+      const root = document.getElementById("n1bf-requirements-cockpit");
+      const data = JSON.parse(document.getElementById("n1bf-cockpit-data").textContent);
+      const escapeText = value => String(value ?? "");
+      const badge = status => {
+        const item = data.status_definitions[status];
+        return `${item.icon} ${item.label}`;
+      };
+      root.querySelector("h1").textContent = data.metadata.title;
+      root.querySelector(".n1bf-meta").textContent = `${data.metadata.planning_branch} · ${data.metadata.input_sha.slice(0, 8)} · ${data.metadata.snapshot_date}`;
+      const here = data.you_are_here;
+      root.querySelector(".n1bf-here").innerHTML = `<strong id="n1bf-here-title">${badge(here.status)} — YOU ARE HERE</strong><div>${escapeText(here.title)}</div><p><b>Wat u nu doet:</b> ${escapeText(here.what_human_does_next)}</p><p><b>Volgende toegestane actie:</b> ${escapeText(here.next_allowed_action)}</p>`;
+
+      const flow = root.querySelector(".n1bf-flow");
+      data.phases.forEach(phase => {
+        const node = document.createElement("section");
+        node.className = `n1bf-phase ${phase.status}${phase.display_kind === "independent_review" ? " n1bf-review" : ""}`;
+        node.innerHTML = `<div class="n1bf-phase-title">${escapeText(phase.number)} · ${escapeText(phase.role)}</div><div>${escapeText(phase.plain_language)}</div><span class="n1bf-status">${phase.display_kind === "independent_review" ? "🟣 " : ""}${badge(phase.status)}</span>`;
+        flow.appendChild(node);
+      });
+      const review = data.phases.find(phase => phase.id === "phase-6");
+      const target = data.phases.find(phase => phase.id === review.return_to_phase);
+      root.querySelector(".n1bf-return").textContent = `↩ Bij CHANGES REQUIRED gaat een nieuwe verse taak terug naar de vroegste defecte fase. Huidige 06R-teruglus: ${target.number} · ${target.role}.`;
+
+      const statusFilter = root.querySelector("#n1bf-status-filter");
+      Object.entries(data.status_definitions).forEach(([key, item]) => {
+        if (key === "independent_review") return;
+        const option = document.createElement("option");
+        option.value = key;
+        option.textContent = `${item.icon} ${item.label}`;
+        statusFilter.appendChild(option);
+      });
+      const phaseFilter = root.querySelector("#n1bf-phase-filter");
+      data.phases.forEach(phase => {
+        const option = document.createElement("option");
+        option.value = phase.id;
+        option.textContent = `${phase.number} · ${phase.role}`;
+        phaseFilter.appendChild(option);
+      });
+
+      const chunks = root.querySelector(".n1bf-chunks");
+      const renderChunks = () => {
+        const selectedStatus = statusFilter.value;
+        const selectedPhase = phaseFilter.value;
+        const visible = data.chunks.filter(chunk =>
+          (selectedStatus === "all" || chunk.status === selectedStatus) &&
+          (selectedPhase === "all" || chunk.current_phase === selectedPhase)
+        );
+        chunks.replaceChildren();
+        visible.forEach(chunk => {
+          const phase = data.phases.find(item => item.id === chunk.current_phase);
+          const card = document.createElement("article");
+          card.className = `n1bf-chunk ${chunk.status}`;
+          const task = chunk.responsible_task || "Nog geen verse taak";
+          card.innerHTML = `<h3>${badge(chunk.status)} · ${escapeText(chunk.id)} — ${escapeText(chunk.plain_language)}</h3>
+            <p>${escapeText(chunk.visible_value)}</p>
+            <dl>
+              <dt>REQ-scope</dt><dd>${chunk.req_scope.map(item => `<code>${escapeText(item)}</code>`).join("<br>")}</dd>
+              <dt>Huidige fase</dt><dd>${escapeText(phase.number)} · ${escapeText(phase.role)}</dd>
+              <dt>Blocker</dt><dd>${escapeText(chunk.blocker)}</dd>
+              <dt>Input-SHA</dt><dd><code>${escapeText(chunk.input_sha)}</code></dd>
+              <dt>Output</dt><dd>${escapeText(chunk.output_handoff)}</dd>
+              <dt>Rol / taak</dt><dd>${escapeText(chunk.responsible_role)} · ${escapeText(task)}</dd>
+              <dt>Volgende actie</dt><dd>${escapeText(chunk.next_allowed_action)}</dd>
+            </dl>`;
+          chunks.appendChild(card);
+        });
+        if (!visible.length) {
+          const empty = document.createElement("p");
+          empty.className = "n1bf-empty";
+          empty.textContent = "Geen chunks voldoen aan deze combinatie.";
+          chunks.appendChild(empty);
+        }
+        root.querySelector(".n1bf-count").textContent = `${visible.length} van ${data.chunks.length} chunks`;
+      };
+      statusFilter.addEventListener("change", renderChunks);
+      phaseFilter.addEventListener("change", renderChunks);
+      renderChunks();
+
+      root.querySelector(".n1bf-history").innerHTML = `<h3>Duurzame historie blijft behouden</h3><ul>${data.history.map(item => `<li><b>${escapeText(item.label)}</b> — ${escapeText(item.status)} — <code>${escapeText(item.handoff)}</code></li>`).join("")}</ul>`;
+      const protocol = root.querySelector(".n1bf-protocol");
+      data.orchestrator_protocol.forEach(rule => {
+        const li = document.createElement("li");
+        li.textContent = rule;
+        protocol.appendChild(li);
+      });
+    })();
+  </script>
+</div>

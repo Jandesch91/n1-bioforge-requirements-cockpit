@@ -1,0 +1,24 @@
+%%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 60, "rankSpacing": 70, "htmlLabels": true}}}%%
+flowchart TB
+    %% A vertical main lane prevents crossing arrows. The review return uses one side lane.
+    phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
+    phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_4r["4R · Requirements/Test Designer<br/>❌ Changes required"]
+    phase_5r["5R · Delivery Planner<br/>⛔ Geblokkeerd"]
+    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
+    phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
+    phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
+    review_decision{"🟣 Reviewdispositie"}
+    phase_6 --> review_decision
+    review_decision -->|"✅ APPROVED op dezelfde SHA"| phase_7
+    review_decision -.->|"❌ terug naar vroegste defect: 3R"| return_lane["↩ Nieuwe verse taak in Ownership/Dependency Grill"]
+    return_lane -.-> phase_3r
+    classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
+    classDef changes fill:#FDE2E1,stroke:#B42318,color:#5D1712,stroke-width:2px
+    classDef blocked fill:#FDE2E1,stroke:#B42318,color:#5D1712,stroke-width:2px
+    classDef review fill:#EEE5FF,stroke:#6941C6,color:#321B69,stroke-width:2px
+    class phase_1,phase_2,phase_3r approved
+    class phase_4r changes
+    class phase_5r,phase_7,return_lane blocked
+    class phase_6,review_decision review
