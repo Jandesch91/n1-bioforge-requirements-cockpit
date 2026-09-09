@@ -3,7 +3,7 @@
   "metadata": {
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
-    "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+    "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
     "snapshot_date": "2026-09-09",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Cockpit gereed voor menselijke inspectie; inhoudelijke Phase 4R-regeneratie is nog niet gestart",
-    "status": "human_gate",
-    "active_chunk": null,
-    "next_chunk": "C01",
-    "current_boundary": "Na de goedgekeurde Phase-3R-correctie en vóór een nieuwe Phase 4R",
-    "what_human_does_next": "Gebruik de publieke cockpit om de planning te volgen. Geef afzonderlijk toestemming voordat inhoudelijke Phase-4R-correctie begint.",
-    "next_allowed_action": "Na nieuwe expliciete toestemming: maak per dependency-chunk een verse Requirements/Test Designer-taak voor volledige Phase-4R-regeneratie."
+    "title": "Verse Requirements/Test Designer werkt aan Phase-4R-chunk C01",
+    "status": "in_progress",
+    "active_chunk": "C01",
+    "next_chunk": "C02",
+    "current_boundary": "Phase 4R-regeneratie is gestart bij C01 na de goedgekeurde Phase-3R-correctie",
+    "what_human_does_next": "Geen actie vereist zolang de C01-taak binnen scope en onder de Codex-gebruiksgrens blijft.",
+    "next_allowed_action": "Valideer de duurzame C01-handoff; start daarna alleen de eerstvolgende toegestane chunk."
   },
   "phases": [
     {
@@ -98,11 +98,11 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "changes_required",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "De bestaande 04R-package is bewijs voor regeneratie en geen adopteerbare baseline."
+      "status_note": "C01 is actief; de bestaande 04R-package blijft bewijs voor regeneratie en is nog geen adopteerbare baseline."
     },
     {
       "id": "phase-5r",
@@ -164,13 +164,13 @@
       "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.",
       "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
-      "blocker": "Phase 4R moet het nieuwe IdP-groundwork een nieuw ID geven zonder een gedeelde browsersessie te claimen.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen generieke blocker; de verse taak wordt na afloop op scope, bewijs en requirementidentiteit gevalideerd.",
+      "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
       "output_handoff": "Nieuwe 04R Contracts- en Platform-rijen met exacte tests en predecessors",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Start na expliciete toestemming één verse Phase-4R-taak voor deze chunk.",
+      "responsible_task": "phase4r-c01-20260909-01",
+      "next_allowed_action": "Wacht op de verse C01-handoff en valideer die vóór een volgende chunk.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -368,7 +368,21 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [],
+  "active_tasks": [
+    {
+      "id": "phase4r-c01-20260909-01",
+      "role": "Requirements/Test Designer",
+      "chunk": "C01",
+      "status": "in_progress",
+      "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
+      "write_set": [
+        "private:phase4r:c01:contracts",
+        "private:phase4r:c01:platform",
+        "private:phase4r:c01:index",
+        "private:phase4r:c01:traceability"
+      ]
+    }
+  ],
   "history": [
     {
       "label": "Phase 3",
