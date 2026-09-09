@@ -55,6 +55,8 @@
   "you_are_here": {
     "title": "Cockpit gereed voor menselijke inspectie; inhoudelijke Phase 4R-regeneratie is nog niet gestart",
     "status": "human_gate",
+    "active_chunk": null,
+    "next_chunk": "C01",
     "current_boundary": "Na de goedgekeurde Phase-3R-correctie en vóór een nieuwe Phase 4R",
     "what_human_does_next": "Gebruik de publieke cockpit om de planning te volgen. Geef afzonderlijk toestemming voordat inhoudelijke Phase-4R-correctie begint.",
     "next_allowed_action": "Na nieuwe expliciete toestemming: maak per dependency-chunk een verse Requirements/Test Designer-taak voor volledige Phase-4R-regeneratie."
@@ -141,6 +143,7 @@
   "chunks": [
     {
       "id": "C00",
+      "sequence": 0,
       "plain_language": "Bewaarde S0-feiten beschermen tegen bewijsinflatie",
       "visible_value": "Iedere latere planner ziet precies wat historisch bewezen is en wat uitdrukkelijk niet.",
       "req_scope": ["REQ-PLAT-001..024", "REQ-PLAT-028..033"],
@@ -156,6 +159,7 @@
     },
     {
       "id": "C01",
+      "sequence": 1,
       "plain_language": "Eén gedeelde taal en een lokale identity-providerbasis",
       "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.",
       "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"],
@@ -171,6 +175,7 @@
     },
     {
       "id": "C02",
+      "sequence": 2,
       "plain_language": "Reproduceerbare proceswaarden zonder control logic in Simulation",
       "visible_value": "Een mens kan dezelfde procesrespons opnieuw waarnemen voordat besturing en schermen worden toegevoegd.",
       "req_scope": ["owner-local REQ-SIM-* basis", "REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie"],
@@ -186,6 +191,7 @@
     },
     {
       "id": "C03",
+      "sequence": 3,
       "plain_language": "Eén echte REACT-fase met een vroege live Ignition-procesweergave",
       "visible_value": "De gebruiker ziet al vroeg echte fase-, PV- en freshnessinformatie zonder op MES- of Kafka-afwerking te wachten.",
       "req_scope": ["toepasselijke REQ-AUT-*", "eerste-fase REQ-BC-*", "row-specifieke live-view REQ-HMI-*"],
@@ -201,6 +207,7 @@
     },
     {
       "id": "C04",
+      "sequence": 4,
       "plain_language": "Een ongeldige start server-side weigeren en begrijpelijk verklaren",
       "visible_value": "De operator krijgt een betrouwbare afwijzing van Batch-Control zonder client-side safetybeslissing.",
       "req_scope": ["permissive/reject-subset van REQ-BC-*", "bijbehorende process-eventcontracten"],
@@ -216,6 +223,7 @@
     },
     {
       "id": "C05",
+      "sequence": 5,
       "plain_language": "MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden",
       "visible_value": "De databaselaag heeft één duidelijke eigenaar en elke apply-, seed- en append-only-grens is afzonderlijk bewijsbaar.",
       "req_scope": ["REQ-MES-036", "REQ-MES-038..041", "REQ-PLAT-025..027", "REQ-MES-037"],
@@ -231,6 +239,7 @@
     },
     {
       "id": "C06",
+      "sequence": 6,
       "plain_language": "Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace",
       "visible_value": "Een gebruiker ziet vroeg een echte batchcontext terwijl Kafka-resilience en HMI-acties nog los mogen volgen.",
       "req_scope": ["toepasselijke REQ-MES-*", "ERP REST-ingress-subset", "row-specifieke read-only REQ-MUI-*"],
@@ -246,6 +255,7 @@
     },
     {
       "id": "C07",
+      "sequence": 7,
       "plain_language": "Duurzame history en audit combineren met afzonderlijke operatorauthority",
       "visible_value": "Batchfacts blijven append-only en operatoracties kunnen de Batch-Control-authority niet omzeilen.",
       "req_scope": ["persistence-subset REQ-MES-*", "manual-control REQ-BC-*", "action-subset REQ-HMI-*"],
@@ -261,6 +271,7 @@
     },
     {
       "id": "C08",
+      "sequence": 8,
       "plain_language": "Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt",
       "visible_value": "Enterprise-events zijn herstelbaar zonder het MES-kernpad of vroege schermen te blokkeren.",
       "req_scope": ["REQ-MES-042..045", "REQ-INT-*", "REQ-ERP-*", "uitsluitend backlog/replay-gerelateerde REQ-MUI-*"],
@@ -276,6 +287,7 @@
     },
     {
       "id": "C09",
+      "sequence": 9,
       "plain_language": "Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken",
       "visible_value": "Dezelfde gebruiker beweegt begrijpelijk tussen MES en Ignition zonder dat één app de andere blokkeert.",
       "req_scope": ["contextuele REQ-MUI-*", "contextuele REQ-HMI-*", "late REQ-PLAT-059", "nieuw owner-local auth-ID indien betekenis wijzigt"],
@@ -291,6 +303,7 @@
     },
     {
       "id": "C10",
+      "sequence": 10,
       "plain_language": "Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening",
       "visible_value": "De complete IVT-controlflow faalt zichtbaar en veilig zonder dat cosmetische of ongerelateerde UI-eisen eerdere waarde blokkeren.",
       "req_scope": ["resterende REQ-AUT-*", "resterende REQ-SIM-*", "resterende REQ-BC-*", "REQ-MES-031", "row-local REQ-HMI/MUI-* hardening"],
@@ -306,6 +319,7 @@
     },
     {
       "id": "C11",
+      "sequence": 11,
       "plain_language": "Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo",
       "visible_value": "De volledige kandidaat is controleerbaar voordat een mens afzonderlijk toestemming geeft voor elke destructieve CT 240-run.",
       "req_scope": ["REQ-INT-004", "final-gate REQ-PLAT-*", "EN-DEMO-READY-001", "EN-DEMO-001"],
@@ -321,6 +335,7 @@
     },
     {
       "id": "GATE",
+      "sequence": 12,
       "plain_language": "Eén integraal en onafhankelijk goedgekeurd planningspakket",
       "visible_value": "Een mens kan één betrouwbare baseline adopteren zonder losse branches of chatgeheugen te combineren.",
       "req_scope": ["alle actieve Release-1-rijen", "traceability", "Phase-5R-plan", "Phase-7-adoptieprocedure"],
