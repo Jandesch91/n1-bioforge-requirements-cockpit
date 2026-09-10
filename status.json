@@ -3,7 +3,7 @@
   "metadata": {
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
-    "input_sha": "14dd5313fec2ff20d572aedd3ca9fbffd41079ea",
+    "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
     "snapshot_date": "2026-09-10",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C03 — verse hervatting actief",
-    "status": "in_progress",
-    "active_chunk": "C03",
+    "title": "Phase 4R C03 klaar — private overdracht gereed",
+    "status": "human_gate",
+    "active_chunk": null,
     "next_chunk": "C04",
-    "current_boundary": "C01 en C02 zijn duurzaam gevalideerd; C03 draait met een eenmalige menselijk toegestane uitzondering voor het secundaire gebruiksvenster",
-    "what_human_does_next": "Gebruik na de gecontroleerde C03-stop de duurzame private overdracht voor de volgende uitvoerder.",
-    "next_allowed_action": "Rond C03 af op een herkenbaar controlepunt; start in deze orchestrator geen C04."
+    "current_boundary": "C01, C02 en C03 zijn duurzaam gevalideerd; er is geen actieve schrijftask",
+    "what_human_does_next": "Laat de volgende uitvoerder de private overdracht lezen en de duurzame staat opnieuw controleren.",
+    "next_allowed_action": "Start daarna precies één verse Requirements/Test Designer voor C04; begin geen applicatie-implementatie."
   },
   "phases": [
     {
@@ -98,11 +98,11 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "in_progress",
+      "status": "human_gate",
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 en C02 zijn duurzaam gevalideerd; C03 rondt gecontroleerd af voor overdracht en deze orchestrator start daarna geen C04."
+      "status_note": "C01, C02 en C03 zijn duurzaam gevalideerd. C04 is de eerstvolgende inhoudstaak en is nog niet gestart."
     },
     {
       "id": "phase-5r",
@@ -198,13 +198,14 @@
       "visible_value": "De gebruiker ziet al vroeg echte fase-, PV- en freshnessinformatie zonder op MES- of Kafka-afwerking te wachten.",
       "req_scope": ["toepasselijke REQ-AUT-*", "eerste-fase REQ-BC-*", "row-specifieke live-view REQ-HMI-*"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; voor alleen deze poging is een tijdelijke menselijke uitzondering op het secundaire gebruiksvenster actief.",
+      "status": "approved",
+      "blocker": "Geen; de C03-handoff is duurzaam gevalideerd.",
       "input_sha": "14dd5313fec2ff20d572aedd3ca9fbffd41079ea",
+      "output_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
       "output_handoff": "Row-specifieke 04R Automation, Batch-Control en Ignition-rijen",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c03-20260910-02",
-      "next_allowed_action": "Breng C03 naar het eerstvolgende consistente controlepunt en maak daarna een duurzame private overdracht; start geen C04.",
+      "next_allowed_action": "Behoud C03 als voorganger; de volgende uitvoerder start na preflight één verse C04-taak.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#row-specifieke-ui-dependencyregels-r6r-006", "../06R-review-findings.md#r6r-005--two-exact-passing-results-are-incomplete-or-internally-corrupted", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
