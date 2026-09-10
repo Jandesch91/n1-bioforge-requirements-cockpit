@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C05 — verse requirementtaak actief",
+    "title": "Phase 4R C06 — verse requirementtaak actief",
     "status": "in_progress",
-    "active_chunk": "C05",
-    "next_chunk": "C06",
-    "current_boundary": "C01 t/m C04 zijn duurzaam gevalideerd; C05 is gestart vanaf de duurzame C04-handoff",
+    "active_chunk": "C06",
+    "next_chunk": "C07",
+    "current_boundary": "C01 t/m C05 zijn duurzaam gevalideerd; C06 is gestart vanaf de duurzame C05-handoff",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer en commit alleen geldige C05-output; start daarna pas een verse C06-taak."
+    "next_allowed_action": "Valideer en commit alleen geldige C06-output; C07 start pas nadat de open C07-vraag is beantwoord."
   },
   "phases": [
     {
@@ -102,7 +102,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C04 zijn duurzaam gevalideerd; één verse C05-taak is actief."
+      "status_note": "C01 t/m C05 zijn duurzaam gevalideerd; één verse C06-taak is actief."
     },
     {
       "id": "phase-5r",
@@ -232,13 +232,14 @@
       "visible_value": "De databaselaag heeft één duidelijke eigenaar en elke apply-, seed- en append-only-grens is afzonderlijk bewijsbaar.",
       "req_scope": ["REQ-MES-036", "REQ-MES-038..041", "REQ-PLAT-025..027", "REQ-MES-037"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak vervangt het historische S0-testtype door echte disposable PostgreSQL-tests.",
+      "status": "approved",
+      "blocker": "Geen; de C05-handoff is duurzaam gevalideerd. REQ-MES-037 en REQ-PLAT-026 zijn naar C07 verplaatst.",
       "input_sha": "d42c0976c2d80d04f6ca7e364117fedaa43c734c",
+      "output_sha": "0f154ae9aef6825b665f73cf81dc4c0aea0afb26",
       "output_handoff": "Owner-local MES-migratiebewijs, daarna afzonderlijke Platform apply/seed- en append-only-tests",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c05-20260910-01",
-      "next_allowed_action": "Laat alleen de verse C05-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C05 als voorganger; start daarna één verse C06-taak.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-002--proposed-platform-database-work-is-assigned-historical-s0-evidence"]
     },
     {
@@ -248,13 +249,13 @@
       "visible_value": "Een gebruiker ziet vroeg een echte batchcontext terwijl Kafka-resilience en HMI-acties nog los mogen volgen.",
       "req_scope": ["toepasselijke REQ-MES-*", "ERP REST-ingress-subset", "row-specifieke read-only REQ-MUI-*"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
-      "blocker": "Materieel gewijzigde MES-identiteiten hergebruiken oude IDs en de MES UI wacht in de oude planning op ongerelateerde Kafka-resilience.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak geeft gewijzigde MES-betekenissen nieuwe IDs en de MES UI alleen row-specifieke voorgangers.",
+      "input_sha": "0f154ae9aef6825b665f73cf81dc4c0aea0afb26",
       "output_handoff": "Nieuwe MES/MUI/ERP-ingress-rijen met owner-local bewijs en row-specifieke predecessors",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Splits schema, runtime, dispatch, outbox en minimale workspace op echte observable grenzen.",
+      "responsible_task": "phase4r-c06-20260910-01",
+      "next_allowed_action": "Laat alleen de verse C06-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -262,7 +263,7 @@
       "sequence": 7,
       "plain_language": "Duurzame history en audit combineren met afzonderlijke operatorauthority",
       "visible_value": "Batchfacts blijven append-only en operatoracties kunnen de Batch-Control-authority niet omzeilen.",
-      "req_scope": ["persistence-subset REQ-MES-*", "manual-control REQ-BC-*", "action-subset REQ-HMI-*"],
+      "req_scope": ["persistence-subset REQ-MES-*", "REQ-MES-037 en REQ-PLAT-026 (uit C05)", "manual-control REQ-BC-*", "action-subset REQ-HMI-*"],
       "current_phase": "phase-4r",
       "status": "changes_required",
       "blocker": "De volledige 04R-package moet opnieuw worden gegenereerd; HMI-acties mogen alleen hun exacte serverauthority als voorganger krijgen.",
@@ -374,16 +375,17 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c05-20260910-01",
+      "task_id": "phase4r-c06-20260910-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C05",
+      "chunk": "C06",
       "status": "in_progress",
-      "input_sha": "d42c0976c2d80d04f6ca7e364117fedaa43c734c",
+      "input_sha": "0f154ae9aef6825b665f73cf81dc4c0aea0afb26",
       "write_set": [
-        "private:phase4r:c05:mes",
-        "private:phase4r:c05:platform",
-        "private:phase4r:c05:index",
-        "private:phase4r:c05:traceability"
+        "private:phase4r:c06:mes",
+        "private:phase4r:c06:mes-web-ui",
+        "private:phase4r:c06:erp-mock",
+        "private:phase4r:c06:index",
+        "private:phase4r:c06:traceability"
       ]
     }
   ],
