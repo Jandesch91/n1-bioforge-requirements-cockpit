@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R — Contracts-aanvulling actief (terugloop vanuit C06)",
+    "title": "Phase 2 — begrensde productaanvulling actief (terugloop vanuit C06)",
     "status": "in_progress",
-    "active_chunk": "C01",
+    "active_chunk": null,
     "next_chunk": "C06",
-    "current_boundary": "C02 t/m C05 zijn gevalideerd; C06 is vastgelegd maar vraagt correctie na een ontbrekend gedeeld contract",
-    "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer de Contracts-aanvulling, corrigeer daarna C06 in een verse taak en start pas dan C07."
+    "current_boundary": "C01 t/m C05 zijn gevalideerd; C06 vraagt correctie; een nieuwe scopekeuze (RFID later in Release 1) loopt eerst door Phase 2 en 3R",
+    "what_human_does_next": "Keur straks de Phase-2-aanvulling en daarna de Phase-3R-aanvulling expliciet goed.",
+    "next_allowed_action": "Valideer de Phase-2-aanvulling; na menselijke goedkeuring volgt een verse Phase-3R-aanvulling, dan Contracts en de C06-correctie."
   },
   "phases": [
     {
@@ -77,10 +77,11 @@
       "number": "2",
       "role": "Product Outcome Grill",
       "plain_language": "Bevestigt zichtbare uitkomsten, grenzen en menselijke keuzes.",
-      "status": "approved",
+      "status": "in_progress",
       "input_sha": "2bc934750fb14d73800773932886777871704ad3",
       "handoff": "../02-product-decisions.md",
-      "evidence": ["../02-product-decisions.md", "../README.md"]
+      "evidence": ["../02-product-decisions.md", "../README.md"],
+      "status_note": "Begrensde aanvulling actief: menselijke productkeuzes, waaronder een latere gesimuleerde RFID-lotdetectie, worden vastgelegd. Daarna is opnieuw menselijke goedkeuring nodig."
     },
     {
       "id": "phase-3r",
@@ -91,7 +92,7 @@
       "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5",
       "handoff": "../03R-technical-architecture-and-dependencies.md",
       "evidence": ["../03R-technical-architecture-and-dependencies.md", "../README.md"],
-      "status_note": "Alleen de afgebakende Phase-3R-correctie is goedgekeurd; dit keurt Phase 4R, 5R, 6 of 7 niet goed."
+      "status_note": "Alleen de afgebakende Phase-3R-correctie is goedgekeurd. Een begrensde aanvulling voor de RFID-lezer volgt na de Phase-2-aanvulling."
     },
     {
       "id": "phase-4r",
@@ -102,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C02 t/m C05 gevalideerd; Contracts-aanvulling actief; C06 wacht op correctie."
+      "status_note": "C01 t/m C05 gevalideerd; C06 wacht op correctie na de Phase-2/3R- en Contracts-aanvullingen."
     },
     {
       "id": "phase-5r",
@@ -164,14 +165,14 @@
       "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.",
       "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; een begrensde aanvulling voegt alleen nieuwe contract-IDs toe. Bestaande C01-rijen blijven ongewijzigd.",
+      "status": "approved",
+      "blocker": "Geen voor bestaande rijen. Een Contracts-aanvulling volgt pas na de Phase-2- en Phase-3R-aanvullingen.",
       "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
       "output_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "output_handoff": "Nieuwe 04R Contracts- en Platform-rijen met exacte tests en predecessors",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c01a-20260910-01",
-      "next_allowed_action": "Valideer de Contracts-aanvulling; start daarna de C06-correctie.",
+      "responsible_task": "phase4r-c01-20260909-01",
+      "next_allowed_action": "Behoud C01; voeg na goedgekeurde Phase-2/3R-aanvullingen alleen nieuwe contract-IDs toe.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -256,7 +257,7 @@
       "output_handoff": "Nieuwe MES/MUI/ERP-ingress-rijen met owner-local bewijs en row-specifieke predecessors",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c06-20260910-01",
-      "next_allowed_action": "Start na de gevalideerde Contracts-aanvulling één verse C06-correctietaak; C07 wacht daarop.",
+      "next_allowed_action": "Corrigeer C06 na de Phase-2-, Phase-3R- en Contracts-aanvullingen in een verse taak; C07 wacht daarop.",
       "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -376,15 +377,13 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c01a-20260910-01",
-      "role": "Requirements / Test Designer",
-      "chunk": "C01",
+      "task_id": "phase2-addendum-20260910-01",
+      "role": "Product Outcome Grill",
+      "chunk": null,
       "status": "in_progress",
       "input_sha": "133e40fb51556a7f7d3e5b74503ae215ff484115",
       "write_set": [
-        "private:phase4r:c01a:contracts",
-        "private:phase4r:c01a:index",
-        "private:phase4r:c01a:traceability"
+        "private:phase2:product-record"
       ]
     }
   ],
