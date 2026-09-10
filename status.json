@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C06 — verse requirementtaak actief",
+    "title": "Phase 4R — Contracts-aanvulling actief (terugloop vanuit C06)",
     "status": "in_progress",
-    "active_chunk": "C06",
-    "next_chunk": "C07",
-    "current_boundary": "C01 t/m C05 zijn duurzaam gevalideerd; C06 is gestart vanaf de duurzame C05-handoff",
+    "active_chunk": "C01",
+    "next_chunk": "C06",
+    "current_boundary": "C02 t/m C05 zijn gevalideerd; C06 is vastgelegd maar vraagt correctie na een ontbrekend gedeeld contract",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer en commit alleen geldige C06-output; C07 start pas nadat de open C07-vraag is beantwoord."
+    "next_allowed_action": "Valideer de Contracts-aanvulling, corrigeer daarna C06 in een verse taak en start pas dan C07."
   },
   "phases": [
     {
@@ -102,7 +102,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C05 zijn duurzaam gevalideerd; één verse C06-taak is actief."
+      "status_note": "C02 t/m C05 gevalideerd; Contracts-aanvulling actief; C06 wacht op correctie."
     },
     {
       "id": "phase-5r",
@@ -164,14 +164,14 @@
       "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.",
       "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"],
       "current_phase": "phase-4r",
-      "status": "approved",
-      "blocker": "Geen; de C01-handoff is duurzaam gevalideerd.",
+      "status": "in_progress",
+      "blocker": "Geen; een begrensde aanvulling voegt alleen nieuwe contract-IDs toe. Bestaande C01-rijen blijven ongewijzigd.",
       "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
       "output_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "output_handoff": "Nieuwe 04R Contracts- en Platform-rijen met exacte tests en predecessors",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c01-20260909-01",
-      "next_allowed_action": "Behoud C01 als voorganger voor alle volgende chunks.",
+      "responsible_task": "phase4r-c01a-20260910-01",
+      "next_allowed_action": "Valideer de Contracts-aanvulling; start daarna de C06-correctie.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -249,13 +249,14 @@
       "visible_value": "Een gebruiker ziet vroeg een echte batchcontext terwijl Kafka-resilience en HMI-acties nog los mogen volgen.",
       "req_scope": ["toepasselijke REQ-MES-*", "ERP REST-ingress-subset", "row-specifieke read-only REQ-MUI-*"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak geeft gewijzigde MES-betekenissen nieuwe IDs en de MES UI alleen row-specifieke voorgangers.",
+      "status": "changes_required",
+      "blocker": "De C06-output is vastgelegd, maar een gedeeld order- en startcontract ontbreekt; menselijke keuzes zijn gemaakt en enkele rijen moeten na de Contracts-aanvulling opnieuw worden gespecificeerd.",
       "input_sha": "0f154ae9aef6825b665f73cf81dc4c0aea0afb26",
+      "output_sha": "133e40fb51556a7f7d3e5b74503ae215ff484115",
       "output_handoff": "Nieuwe MES/MUI/ERP-ingress-rijen met owner-local bewijs en row-specifieke predecessors",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c06-20260910-01",
-      "next_allowed_action": "Laat alleen de verse C06-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Start na de gevalideerde Contracts-aanvulling één verse C06-correctietaak; C07 wacht daarop.",
       "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -375,17 +376,15 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c06-20260910-01",
+      "task_id": "phase4r-c01a-20260910-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C06",
+      "chunk": "C01",
       "status": "in_progress",
-      "input_sha": "0f154ae9aef6825b665f73cf81dc4c0aea0afb26",
+      "input_sha": "133e40fb51556a7f7d3e5b74503ae215ff484115",
       "write_set": [
-        "private:phase4r:c06:mes",
-        "private:phase4r:c06:mes-web-ui",
-        "private:phase4r:c06:erp-mock",
-        "private:phase4r:c06:index",
-        "private:phase4r:c06:traceability"
+        "private:phase4r:c01a:contracts",
+        "private:phase4r:c01a:index",
+        "private:phase4r:c01a:traceability"
       ]
     }
   ],
