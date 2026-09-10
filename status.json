@@ -57,7 +57,7 @@
     "status": "in_progress",
     "active_chunk": "C03",
     "next_chunk": "C04",
-    "current_boundary": "C01 en C02 zijn duurzaam gevalideerd; C03 is na expliciete hervatting opnieuw gestart zonder gedeeltelijke output te hergebruiken",
+    "current_boundary": "C01 en C02 zijn duurzaam gevalideerd; C03 draait met een eenmalige menselijk toegestane uitzondering voor het secundaire gebruiksvenster",
     "what_human_does_next": "Geen actie nodig zolang beide gebruiksvensters onder 90% blijven.",
     "next_allowed_action": "Valideer en commit alleen geldige C03-output; start daarna pas een verse C04-taak."
   },
@@ -102,7 +102,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 en C02 zijn duurzaam gevalideerd; een nieuwe verse C03-taak draait na expliciete hervatting."
+      "status_note": "C01 en C02 zijn duurzaam gevalideerd; een verse C03-taak draait met een eenmalige menselijke gebruiksuitzondering voor alleen deze poging."
     },
     {
       "id": "phase-5r",
@@ -199,7 +199,7 @@
       "req_scope": ["toepasselijke REQ-AUT-*", "eerste-fase REQ-BC-*", "row-specifieke live-view REQ-HMI-*"],
       "current_phase": "phase-4r",
       "status": "in_progress",
-      "blocker": "Geen; expliciete hervatting is ontvangen en beide gebruiksvensters waren bij start onder 90%.",
+      "blocker": "Geen; voor alleen deze poging is een tijdelijke menselijke uitzondering op het secundaire gebruiksvenster actief.",
       "input_sha": "14dd5313fec2ff20d572aedd3ca9fbffd41079ea",
       "output_handoff": "Row-specifieke 04R Automation, Batch-Control en Ignition-rijen",
       "responsible_role": "Requirements/Test Designer",

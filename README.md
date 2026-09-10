@@ -3,7 +3,7 @@
 
 > **🔵 Bezig — YOU ARE HERE**<br>
 > Phase 4R C03 — verse hervatting actief<br>
-> **Grens:** C01 en C02 zijn duurzaam gevalideerd; C03 is na expliciete hervatting opnieuw gestart zonder gedeeltelijke output te hergebruiken<br>
+> **Grens:** C01 en C02 zijn duurzaam gevalideerd; C03 draait met een eenmalige menselijk toegestane uitzondering voor het secundaire gebruiksvenster<br>
 > **Wat de mens nu doet:** Geen actie nodig zolang beide gebruiksvensters onder 90% blijven.<br>
 > **Volgende toegestane actie:** Valideer en commit alleen geldige C03-output; start daarna pas een verse C04-taak.
 
@@ -96,7 +96,7 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar |  |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alleen de afgebakende Phase-3R-correctie is goedgekeurd; dit keurt Phase 4R, 5R, 6 of 7 niet goed. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 en C02 zijn duurzaam gevalideerd; een nieuwe verse C03-taak draait na expliciete hervatting. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 en C02 zijn duurzaam gevalideerd; een verse C03-taak draait met een eenmalige menselijke gebruiksuitzondering voor alleen deze poging. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
