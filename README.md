@@ -2,8 +2,8 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 4R C02 — verse Requirements/Test Designer actief<br>
-> **Grens:** C01 is duurzaam gecommit; C02 is na expliciete hervatting opnieuw gestart vanuit de laatste duurzame input-SHA<br>
+> Phase 4R C02 — verse correctietaak actief<br>
+> **Grens:** C01 is duurzaam gecommit; de vorige C02-output voldeed niet aan de exacte-testgrens en is niet gecommit<br>
 > **Wat de mens nu doet:** Geen actie nodig zolang de taak onder de gebruiksgrens blijft.<br>
 > **Volgende toegestane actie:** Valideer en commit uitsluitend geldige C02-output; start daarna pas een verse C03-taak.
 
@@ -96,7 +96,7 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar |  |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alleen de afgebakende Phase-3R-correctie is goedgekeurd; dit keurt Phase 4R, 5R, 6 of 7 niet goed. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 is duurzaam gevalideerd; een verse C02-taak draait na expliciete menselijke hervatting. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 is duurzaam gevalideerd; een verse C02-correctietaak draait nadat eerdere output de exacte-testvalidatie niet haalde. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -107,7 +107,7 @@ flowchart TB
 |---:|---|---|---|---|---|---|
 | 0 | `C00` | Bewaarde S0-feiten beschermen tegen bewijsinflatie | `REQ-PLAT-001..024`<br>`REQ-PLAT-028..033` | ✅ Goedgekeurd / klaar | Current-State Auditor<br>Nog geen verse taak | Gebruik deze evidence alleen als voorganger; maak historische claims niet sterker. |
 | 1 | `C01` | Eén gedeelde taal en een lokale identity-providerbasis | `REQ-CTR-001..030`<br>`REQ-PLAT-063..064`<br>`nieuw IdP-groundwork-ID door Phase 4R toe te kennen` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c01-20260909-01 | Behoud C01 als voorganger; C02 is nu de enige actieve inhoudelijke taak. |
-| 2 | `C02` | Reproduceerbare proceswaarden zonder control logic in Simulation | `owner-local REQ-SIM-* basis`<br>`REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c02-20260910-02 | Laat alleen deze verse C02-taak de gedeclareerde private handoffbestanden bijwerken en valideer daarna de volledige diff. |
+| 2 | `C02` | Reproduceerbare proceswaarden zonder control logic in Simulation | `owner-local REQ-SIM-* basis`<br>`REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c02-20260910-03 | Laat alleen deze verse C02-taak de gedeclareerde private handoffbestanden bijwerken en valideer daarna de volledige diff. |
 | 3 | `C03` | Eén echte REACT-fase met een vroege live Ignition-procesweergave | `toepasselijke REQ-AUT-*`<br>`eerste-fase REQ-BC-*`<br>`row-specifieke live-view REQ-HMI-*` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Specificeer per zichtbare waarde alleen de echte producer-, auth- en viewvoorgangers. |
 | 4 | `C04` | Een ongeldige start server-side weigeren en begrijpelijk verklaren | `permissive/reject-subset van REQ-BC-*`<br>`bijbehorende process-eventcontracten` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Maak een kleine owner-local Phase-4R-chunk met Batch-Control als primaire eigenaar. |
 | 5 | `C05` | MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden | `REQ-MES-036`<br>`REQ-MES-038..041`<br>`REQ-PLAT-025..027`<br>`REQ-MES-037` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Regeneer de betrokken MES- en Platform-rijen met disposable PostgreSQL RED/GREEN-procedures. |
