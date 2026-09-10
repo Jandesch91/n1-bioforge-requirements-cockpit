@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C03 — verse requirementtaak actief",
-    "status": "in_progress",
+    "title": "Phase 4R C03 — gepauzeerd door Codex-gebruiksgrens",
+    "status": "human_gate",
     "active_chunk": "C03",
-    "next_chunk": "C04",
-    "current_boundary": "C01 en C02 zijn duurzaam gevalideerd; C03 is gestart vanaf de duurzame C02-handoff",
-    "what_human_does_next": "Geen actie nodig zolang de gebruiksvensters onder 90% blijven.",
-    "next_allowed_action": "Valideer en commit alleen geldige C03-output; start daarna pas een verse C04-taak."
+    "next_chunk": "C03",
+    "current_boundary": "C01 en C02 zijn duurzaam gevalideerd; gedeeltelijke C03-output is verworpen en niet gecommit",
+    "what_human_does_next": "Hervat C03 later expliciet nadat de Codex-gebruiksgrens opnieuw is gecontroleerd.",
+    "next_allowed_action": "PAUSED — CODEX USAGE GUARD >= 90%. Start niets automatisch."
   },
   "phases": [
     {
@@ -98,11 +98,11 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "in_progress",
+      "status": "human_gate",
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 en C02 zijn duurzaam gevalideerd; één verse C03-taak is actief."
+      "status_note": "C01 en C02 zijn duurzaam gevalideerd; C03 is zonder canonieke output onderbroken bij de gebruiksgrens en vereist expliciete hervatting."
     },
     {
       "id": "phase-5r",
@@ -198,13 +198,13 @@
       "visible_value": "De gebruiker ziet al vroeg echte fase-, PV- en freshnessinformatie zonder op MES- of Kafka-afwerking te wachten.",
       "req_scope": ["toepasselijke REQ-AUT-*", "eerste-fase REQ-BC-*", "row-specifieke live-view REQ-HMI-*"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak corrigeert de oude blanket UI-predecessors en de REQ-HMI-021-identiteit.",
+      "status": "human_gate",
+      "blocker": "PAUSED — CODEX USAGE GUARD >= 90%. Gedeeltelijke output is verworpen.",
       "input_sha": "14dd5313fec2ff20d572aedd3ca9fbffd41079ea",
       "output_handoff": "Row-specifieke 04R Automation, Batch-Control en Ignition-rijen",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c03-20260910-01",
-      "next_allowed_action": "Laat alleen de verse C03-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Wacht op expliciete menselijke hervatting; controleer dan eerst opnieuw beide gebruiksvensters en start één nieuwe verse C03-taak.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#row-specifieke-ui-dependencyregels-r6r-006", "../06R-review-findings.md#r6r-005--two-exact-passing-results-are-incomplete-or-internally-corrupted", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -370,23 +370,7 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [
-    {
-      "task_id": "phase4r-c03-20260910-01",
-      "role": "Requirements / Test Designer",
-      "chunk": "C03",
-      "status": "in_progress",
-      "input_sha": "14dd5313fec2ff20d572aedd3ca9fbffd41079ea",
-      "write_set": [
-        "private:phase4r:c03:automation",
-        "private:phase4r:c03:batch-control",
-        "private:phase4r:c03:ignition",
-        "private:phase4r:c03:simulation-connected-row",
-        "private:phase4r:c03:index",
-        "private:phase4r:c03:traceability"
-      ]
-    }
-  ],
+  "active_tasks": [],
   "history": [
     {
       "label": "Phase 3",
