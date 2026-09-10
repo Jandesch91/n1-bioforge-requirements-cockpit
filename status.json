@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C03 klaar — private overdracht gereed",
-    "status": "human_gate",
-    "active_chunk": null,
-    "next_chunk": "C04",
-    "current_boundary": "C01, C02 en C03 zijn duurzaam gevalideerd; er is geen actieve schrijftask",
-    "what_human_does_next": "Laat de volgende uitvoerder de private overdracht lezen en de duurzame staat opnieuw controleren.",
-    "next_allowed_action": "Start daarna precies één verse Requirements/Test Designer voor C04; begin geen applicatie-implementatie."
+    "title": "Phase 4R C04 — verse requirementtaak actief",
+    "status": "in_progress",
+    "active_chunk": "C04",
+    "next_chunk": "C05",
+    "current_boundary": "C01, C02 en C03 zijn duurzaam gevalideerd; C04 is gestart vanaf de duurzame C03-handoff",
+    "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
+    "next_allowed_action": "Valideer en commit alleen geldige C04-output; start daarna pas een verse C05-taak."
   },
   "phases": [
     {
@@ -98,11 +98,11 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "human_gate",
+      "status": "in_progress",
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01, C02 en C03 zijn duurzaam gevalideerd. C04 is de eerstvolgende inhoudstaak en is nog niet gestart."
+      "status_note": "C01, C02 en C03 zijn duurzaam gevalideerd; één verse C04-taak is actief."
     },
     {
       "id": "phase-5r",
@@ -215,13 +215,13 @@
       "visible_value": "De operator krijgt een betrouwbare afwijzing van Batch-Control zonder client-side safetybeslissing.",
       "req_scope": ["permissive/reject-subset van REQ-BC-*", "bijbehorende process-eventcontracten"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
-      "blocker": "De volledige 04R-package moet opnieuw worden gegenereerd en semantisch op verborgen evidence-afhankelijkheden worden gecontroleerd.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak specificeert de server-side weigering met Batch-Control als enige permissive-autoriteit.",
+      "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
       "output_handoff": "Exacte permissive/reject requirements en tests in 04R",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Maak een kleine owner-local Phase-4R-chunk met Batch-Control als primaire eigenaar.",
+      "responsible_task": "phase4r-c04-20260910-01",
+      "next_allowed_action": "Laat alleen de verse C04-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
     {
@@ -373,18 +373,16 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c03-20260910-02",
+      "task_id": "phase4r-c04-20260910-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C03",
+      "chunk": "C04",
       "status": "in_progress",
-      "input_sha": "14dd5313fec2ff20d572aedd3ca9fbffd41079ea",
+      "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
       "write_set": [
-        "private:phase4r:c03:automation",
-        "private:phase4r:c03:batch-control",
-        "private:phase4r:c03:ignition",
-        "private:phase4r:c03:simulation-connected-row",
-        "private:phase4r:c03:index",
-        "private:phase4r:c03:traceability"
+        "private:phase4r:c04:batch-control",
+        "private:phase4r:c04:automation-permissive-rows",
+        "private:phase4r:c04:index",
+        "private:phase4r:c04:traceability"
       ]
     }
   ],
