@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C04 — verse requirementtaak actief",
+    "title": "Phase 4R C05 — verse requirementtaak actief",
     "status": "in_progress",
-    "active_chunk": "C04",
-    "next_chunk": "C05",
-    "current_boundary": "C01, C02 en C03 zijn duurzaam gevalideerd; C04 is gestart vanaf de duurzame C03-handoff",
+    "active_chunk": "C05",
+    "next_chunk": "C06",
+    "current_boundary": "C01 t/m C04 zijn duurzaam gevalideerd; C05 is gestart vanaf de duurzame C04-handoff",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer en commit alleen geldige C04-output; start daarna pas een verse C05-taak."
+    "next_allowed_action": "Valideer en commit alleen geldige C05-output; start daarna pas een verse C06-taak."
   },
   "phases": [
     {
@@ -102,7 +102,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01, C02 en C03 zijn duurzaam gevalideerd; één verse C04-taak is actief."
+      "status_note": "C01 t/m C04 zijn duurzaam gevalideerd; één verse C05-taak is actief."
     },
     {
       "id": "phase-5r",
@@ -215,13 +215,14 @@
       "visible_value": "De operator krijgt een betrouwbare afwijzing van Batch-Control zonder client-side safetybeslissing.",
       "req_scope": ["permissive/reject-subset van REQ-BC-*", "bijbehorende process-eventcontracten"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak specificeert de server-side weigering met Batch-Control als enige permissive-autoriteit.",
+      "status": "approved",
+      "blocker": "Geen; de C04-handoff is duurzaam gevalideerd. Open vragen voor latere chunks staan privé geregistreerd.",
       "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
+      "output_sha": "d42c0976c2d80d04f6ca7e364117fedaa43c734c",
       "output_handoff": "Exacte permissive/reject requirements en tests in 04R",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c04-20260910-01",
-      "next_allowed_action": "Laat alleen de verse C04-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C04 als voorganger; start daarna één verse C05-taak.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
     {
@@ -231,13 +232,13 @@
       "visible_value": "De databaselaag heeft één duidelijke eigenaar en elke apply-, seed- en append-only-grens is afzonderlijk bewijsbaar.",
       "req_scope": ["REQ-MES-036", "REQ-MES-038..041", "REQ-PLAT-025..027", "REQ-MES-037"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
-      "blocker": "Oude tests voor REQ-PLAT-025..027 gebruiken historisch S0-bewijs dat hun nieuwe gedrag niet kan bewijzen.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak vervangt het historische S0-testtype door echte disposable PostgreSQL-tests.",
+      "input_sha": "d42c0976c2d80d04f6ca7e364117fedaa43c734c",
       "output_handoff": "Owner-local MES-migratiebewijs, daarna afzonderlijke Platform apply/seed- en append-only-tests",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Regeneer de betrokken MES- en Platform-rijen met disposable PostgreSQL RED/GREEN-procedures.",
+      "responsible_task": "phase4r-c05-20260910-01",
+      "next_allowed_action": "Laat alleen de verse C05-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-002--proposed-platform-database-work-is-assigned-historical-s0-evidence"]
     },
     {
@@ -373,16 +374,16 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c04-20260910-01",
+      "task_id": "phase4r-c05-20260910-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C04",
+      "chunk": "C05",
       "status": "in_progress",
-      "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
+      "input_sha": "d42c0976c2d80d04f6ca7e364117fedaa43c734c",
       "write_set": [
-        "private:phase4r:c04:batch-control",
-        "private:phase4r:c04:automation-permissive-rows",
-        "private:phase4r:c04:index",
-        "private:phase4r:c04:traceability"
+        "private:phase4r:c05:mes",
+        "private:phase4r:c05:platform",
+        "private:phase4r:c05:index",
+        "private:phase4r:c05:traceability"
       ]
     }
   ],
