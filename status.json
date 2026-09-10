@@ -4,7 +4,7 @@
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
     "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
-    "snapshot_date": "2026-09-09",
+    "snapshot_date": "2026-09-10",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
     "publication": {
@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "PAUSED — CODEX USAGE GUARD >= 90%",
-    "status": "human_gate",
-    "active_chunk": null,
-    "next_chunk": "C02",
-    "current_boundary": "C01 is duurzaam gecommit; de eerste C02-taak is onder de gebruiksgrens gestopt zonder canonieke output",
-    "what_human_does_next": "Wacht tot de gebruiksruimte hersteld is en geef daarna expliciet opdracht om te hervatten.",
-    "next_allowed_action": "Start niets automatisch; na expliciete menselijke hervatting begint C02 opnieuw in een verse taak."
+    "title": "Phase 4R C02 — verse Requirements/Test Designer actief",
+    "status": "in_progress",
+    "active_chunk": "C02",
+    "next_chunk": "C03",
+    "current_boundary": "C01 is duurzaam gecommit; C02 is na expliciete hervatting opnieuw gestart vanuit de laatste duurzame input-SHA",
+    "what_human_does_next": "Geen actie nodig zolang de taak onder de gebruiksgrens blijft.",
+    "next_allowed_action": "Valideer en commit uitsluitend geldige C02-output; start daarna pas een verse C03-taak."
   },
   "phases": [
     {
@@ -98,11 +98,11 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "human_gate",
+      "status": "in_progress",
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 is duurzaam gevalideerd; C02 is zonder canonieke output gestopt door de Codex-gebruiksgrens."
+      "status_note": "C01 is duurzaam gevalideerd; een verse C02-taak draait na expliciete menselijke hervatting."
     },
     {
       "id": "phase-5r",
@@ -181,13 +181,13 @@
       "visible_value": "Een mens kan dezelfde procesrespons opnieuw waarnemen voordat besturing en schermen worden toegevoegd.",
       "req_scope": ["owner-local REQ-SIM-* basis", "REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie"],
       "current_phase": "phase-4r",
-      "status": "human_gate",
-      "blocker": "PAUSED — CODEX USAGE GUARD >= 90%",
+      "status": "in_progress",
+      "blocker": "Geen; de hervatting is expliciet geautoriseerd en de gebruiksvensters zijn onder 90%.",
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "output_handoff": "Nieuwe 04R Simulation-rijen en semantisch backward-only tests",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c02-20260909-01",
-      "next_allowed_action": "Na expliciete menselijke hervatting: start C02 opnieuw in een verse taak vanaf de laatste duurzame input-SHA.",
+      "responsible_task": "phase4r-c02-20260910-02",
+      "next_allowed_action": "Laat alleen deze verse C02-taak de gedeclareerde private handoffbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-005--two-exact-passing-results-are-incomplete-or-internally-corrupted"]
     },
     {
@@ -369,7 +369,20 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [],
+  "active_tasks": [
+    {
+      "task_id": "phase4r-c02-20260910-02",
+      "role": "Requirements / Test Designer",
+      "chunk": "C02",
+      "status": "in_progress",
+      "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
+      "write_set": [
+        "private:phase4r:c02:simulation",
+        "private:phase4r:c02:index",
+        "private:phase4r:c02:traceability"
+      ]
+    }
+  ],
   "history": [
     {
       "label": "Phase 3",
