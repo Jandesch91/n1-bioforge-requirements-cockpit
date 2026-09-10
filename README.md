@@ -4,8 +4,8 @@
 > **🔵 Bezig — YOU ARE HERE**<br>
 > Phase 4R C03 — verse hervatting actief<br>
 > **Grens:** C01 en C02 zijn duurzaam gevalideerd; C03 draait met een eenmalige menselijk toegestane uitzondering voor het secundaire gebruiksvenster<br>
-> **Wat de mens nu doet:** Geen actie nodig zolang beide gebruiksvensters onder 90% blijven.<br>
-> **Volgende toegestane actie:** Valideer en commit alleen geldige C03-output; start daarna pas een verse C04-taak.
+> **Wat de mens nu doet:** Gebruik na de gecontroleerde C03-stop de duurzame private overdracht voor de volgende uitvoerder.<br>
+> **Volgende toegestane actie:** Rond C03 af op een herkenbaar controlepunt; start in deze orchestrator geen C04.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `14dd5313fec2ff20d572aedd3ca9fbffd41079ea`
@@ -96,7 +96,7 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar |  |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alleen de afgebakende Phase-3R-correctie is goedgekeurd; dit keurt Phase 4R, 5R, 6 of 7 niet goed. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 en C02 zijn duurzaam gevalideerd; een verse C03-taak draait met een eenmalige menselijke gebruiksuitzondering voor alleen deze poging. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 en C02 zijn duurzaam gevalideerd; C03 rondt gecontroleerd af voor overdracht en deze orchestrator start daarna geen C04. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -108,7 +108,7 @@ flowchart TB
 | 0 | `C00` | Bewaarde S0-feiten beschermen tegen bewijsinflatie | `REQ-PLAT-001..024`<br>`REQ-PLAT-028..033` | ✅ Goedgekeurd / klaar | Current-State Auditor<br>Nog geen verse taak | Gebruik deze evidence alleen als voorganger; maak historische claims niet sterker. |
 | 1 | `C01` | Eén gedeelde taal en een lokale identity-providerbasis | `REQ-CTR-001..030`<br>`REQ-PLAT-063..064`<br>`nieuw IdP-groundwork-ID door Phase 4R toe te kennen` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c01-20260909-01 | Behoud C01 als voorganger voor alle volgende chunks. |
 | 2 | `C02` | Reproduceerbare proceswaarden zonder control logic in Simulation | `owner-local REQ-SIM-* basis`<br>`REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c02-20260910-04 | Behoud C02 als voorganger; start daarna één verse C03-taak. |
-| 3 | `C03` | Eén echte REACT-fase met een vroege live Ignition-procesweergave | `toepasselijke REQ-AUT-*`<br>`eerste-fase REQ-BC-*`<br>`row-specifieke live-view REQ-HMI-*` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c03-20260910-02 | Laat alleen deze verse C03-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
+| 3 | `C03` | Eén echte REACT-fase met een vroege live Ignition-procesweergave | `toepasselijke REQ-AUT-*`<br>`eerste-fase REQ-BC-*`<br>`row-specifieke live-view REQ-HMI-*` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c03-20260910-02 | Breng C03 naar het eerstvolgende consistente controlepunt en maak daarna een duurzame private overdracht; start geen C04. |
 | 4 | `C04` | Een ongeldige start server-side weigeren en begrijpelijk verklaren | `permissive/reject-subset van REQ-BC-*`<br>`bijbehorende process-eventcontracten` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Maak een kleine owner-local Phase-4R-chunk met Batch-Control als primaire eigenaar. |
 | 5 | `C05` | MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden | `REQ-MES-036`<br>`REQ-MES-038..041`<br>`REQ-PLAT-025..027`<br>`REQ-MES-037` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Regeneer de betrokken MES- en Platform-rijen met disposable PostgreSQL RED/GREEN-procedures. |
 | 6 | `C06` | Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace | `toepasselijke REQ-MES-*`<br>`ERP REST-ingress-subset`<br>`row-specifieke read-only REQ-MUI-*` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Splits schema, runtime, dispatch, outbox en minimale workspace op echte observable grenzen. |

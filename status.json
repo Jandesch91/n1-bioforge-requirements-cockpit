@@ -58,8 +58,8 @@
     "active_chunk": "C03",
     "next_chunk": "C04",
     "current_boundary": "C01 en C02 zijn duurzaam gevalideerd; C03 draait met een eenmalige menselijk toegestane uitzondering voor het secundaire gebruiksvenster",
-    "what_human_does_next": "Geen actie nodig zolang beide gebruiksvensters onder 90% blijven.",
-    "next_allowed_action": "Valideer en commit alleen geldige C03-output; start daarna pas een verse C04-taak."
+    "what_human_does_next": "Gebruik na de gecontroleerde C03-stop de duurzame private overdracht voor de volgende uitvoerder.",
+    "next_allowed_action": "Rond C03 af op een herkenbaar controlepunt; start in deze orchestrator geen C04."
   },
   "phases": [
     {
@@ -102,7 +102,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 en C02 zijn duurzaam gevalideerd; een verse C03-taak draait met een eenmalige menselijke gebruiksuitzondering voor alleen deze poging."
+      "status_note": "C01 en C02 zijn duurzaam gevalideerd; C03 rondt gecontroleerd af voor overdracht en deze orchestrator start daarna geen C04."
     },
     {
       "id": "phase-5r",
@@ -204,7 +204,7 @@
       "output_handoff": "Row-specifieke 04R Automation, Batch-Control en Ignition-rijen",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c03-20260910-02",
-      "next_allowed_action": "Laat alleen deze verse C03-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Breng C03 naar het eerstvolgende consistente controlepunt en maak daarna een duurzame private overdracht; start geen C04.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#row-specifieke-ui-dependencyregels-r6r-006", "../06R-review-findings.md#r6r-005--two-exact-passing-results-are-incomplete-or-internally-corrupted", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
