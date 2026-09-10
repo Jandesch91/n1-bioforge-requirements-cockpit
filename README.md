@@ -2,13 +2,13 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 4R C02 — verse correctietaak actief<br>
-> **Grens:** C01 is duurzaam gecommit; C02 is na expliciete hervatting opnieuw gestart zonder gedeeltelijke output te hergebruiken<br>
-> **Wat de mens nu doet:** Geen actie nodig zolang de taak onder de gebruiksgrens blijft.<br>
-> **Volgende toegestane actie:** Valideer en commit uitsluitend geldige C02-output; start daarna pas een verse C03-taak.
+> Phase 4R C02 afgerond — C03 is de volgende stap<br>
+> **Grens:** C01 en C02 zijn duurzaam gevalideerd en gecommit; C03 is nog niet gestart<br>
+> **Wat de mens nu doet:** Geen actie nodig zolang de gebruiksvensters onder 90% blijven.<br>
+> **Volgende toegestane actie:** Start één verse Requirements/Test Designer-taak voor C03 vanaf de C02-output-SHA.
 
 - Planning branch: `codex/release-1-reconciliation`
-- Input-SHA: `241f4452fbb205f9449165790ba9e1f0b61c31a3`
+- Input-SHA: `14dd5313fec2ff20d572aedd3ca9fbffd41079ea`
 - Snapshot: `2026-09-10`
 - Scope: Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.
 
@@ -45,7 +45,7 @@ flowchart TB
 
 ## YOU ARE HERE en geplande chunkvolgorde
 
-Chunk **`C02`** is actief. `C03` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
+Er is nu **geen requirementchunk actief**. `C03` is de eerstvolgende toegestane chunk. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 55, "rankSpacing": 65, "htmlLabels": true}}}%%
@@ -53,7 +53,7 @@ flowchart TB
     %% One vertical lane: order is explicit and no dependency arrows cross.
     chunk_0["0 · C00<br/>Bewaarde S0-feiten beschermen tegen bewijsinflatie<br/>✅ Goedgekeurd / klaar"]
     chunk_1["1 · C01<br/>Eén gedeelde taal en een lokale identity-providerbasis<br/>✅ Goedgekeurd / klaar"]
-    chunk_2["2 · C02<br/>Reproduceerbare proceswaarden zonder control logic in Simulation<br/>🔵 Bezig"]
+    chunk_2["2 · C02<br/>Reproduceerbare proceswaarden zonder control logic in Simulation<br/>✅ Goedgekeurd / klaar"]
     chunk_3["3 · C03 · ⏭ VOLGENDE<br/>Eén echte REACT-fase met een vroege live Ignition-procesweergave<br/>❌ Changes required"]
     chunk_4["4 · C04<br/>Een ongeldige start server-side weigeren en begrijpelijk verklaren<br/>❌ Changes required"]
     chunk_5["5 · C05<br/>MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden<br/>❌ Changes required"]
@@ -64,8 +64,8 @@ flowchart TB
     chunk_10["10 · C10<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>❌ Changes required"]
     chunk_11["11 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
     chunk_12["12 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>C02<br/>Volgende: C03"]
-    chunk_0 --> chunk_1 --> current_marker --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
+    current_marker["🔵 YOU ARE HERE<br/>geen requirementchunk actief<br/>Volgende: C03"]
+    chunk_0 --> chunk_1 --> chunk_2 --> current_marker --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -75,7 +75,7 @@ flowchart TB
     classDef current fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:3px
     class chunk_0 approved
     class chunk_1 approved
-    class chunk_2 inprogress
+    class chunk_2 approved
     class chunk_3 changes
     class chunk_4 changes
     class chunk_5 changes
@@ -96,7 +96,7 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar |  |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alleen de afgebakende Phase-3R-correctie is goedgekeurd; dit keurt Phase 4R, 5R, 6 of 7 niet goed. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 is duurzaam gevalideerd; een verse C02-correctietaak draait na expliciete menselijke hervatting. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 en C02 zijn duurzaam gevalideerd; C03 is de volgende toegestane requirementchunk. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -106,8 +106,8 @@ flowchart TB
 | Volgorde | Chunk | Gewone-mensentaal | REQ-IDs of families | Status | Verantwoordelijke rol/taak | Volgende toegestane actie |
 |---:|---|---|---|---|---|---|
 | 0 | `C00` | Bewaarde S0-feiten beschermen tegen bewijsinflatie | `REQ-PLAT-001..024`<br>`REQ-PLAT-028..033` | ✅ Goedgekeurd / klaar | Current-State Auditor<br>Nog geen verse taak | Gebruik deze evidence alleen als voorganger; maak historische claims niet sterker. |
-| 1 | `C01` | Eén gedeelde taal en een lokale identity-providerbasis | `REQ-CTR-001..030`<br>`REQ-PLAT-063..064`<br>`nieuw IdP-groundwork-ID door Phase 4R toe te kennen` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c01-20260909-01 | Behoud C01 als voorganger; C02 is nu de enige actieve inhoudelijke taak. |
-| 2 | `C02` | Reproduceerbare proceswaarden zonder control logic in Simulation | `owner-local REQ-SIM-* basis`<br>`REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c02-20260910-04 | Laat alleen deze verse C02-taak de gedeclareerde private handoffbestanden bijwerken en valideer daarna de volledige diff. |
+| 1 | `C01` | Eén gedeelde taal en een lokale identity-providerbasis | `REQ-CTR-001..030`<br>`REQ-PLAT-063..064`<br>`nieuw IdP-groundwork-ID door Phase 4R toe te kennen` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c01-20260909-01 | Behoud C01 als voorganger voor alle volgende chunks. |
+| 2 | `C02` | Reproduceerbare proceswaarden zonder control logic in Simulation | `owner-local REQ-SIM-* basis`<br>`REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c02-20260910-04 | Behoud C02 als voorganger; start daarna één verse C03-taak. |
 | 3 | `C03` | Eén echte REACT-fase met een vroege live Ignition-procesweergave | `toepasselijke REQ-AUT-*`<br>`eerste-fase REQ-BC-*`<br>`row-specifieke live-view REQ-HMI-*` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Specificeer per zichtbare waarde alleen de echte producer-, auth- en viewvoorgangers. |
 | 4 | `C04` | Een ongeldige start server-side weigeren en begrijpelijk verklaren | `permissive/reject-subset van REQ-BC-*`<br>`bijbehorende process-eventcontracten` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Maak een kleine owner-local Phase-4R-chunk met Batch-Control als primaire eigenaar. |
 | 5 | `C05` | MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden | `REQ-MES-036`<br>`REQ-MES-038..041`<br>`REQ-PLAT-025..027`<br>`REQ-MES-037` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Regeneer de betrokken MES- en Platform-rijen met disposable PostgreSQL RED/GREEN-procedures. |
