@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R — Contracts- en Platform-aanvulling actief (correctieronde)",
+    "title": "Phase 4R — C05-correctie actief (correctieronde)",
     "status": "in_progress",
-    "active_chunk": "C01",
-    "next_chunk": "C05",
+    "active_chunk": "C05",
+    "next_chunk": "C06",
     "current_boundary": "Phase 2 en 3R-aanvullingen zijn goedgekeurd; C02–C04 blijven geldig; C05 en C06 worden gecorrigeerd",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer de Contracts/Platform-aanvulling; daarna volgen verse C05- en C06-correcties en pas dan C07."
+    "next_allowed_action": "Valideer de C05-correctie; daarna volgt een verse C06-correctie en pas dan C07."
   },
   "phases": [
     {
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "Correctieronde: Contracts/Platform-aanvulling actief; C05 en C06 worden daarna gecorrigeerd."
+      "status_note": "Correctieronde: C01A gevalideerd; C05-correctie actief; C06 volgt."
     },
     {
       "id": "phase-5r",
@@ -165,14 +165,14 @@
       "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.",
       "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; een begrensde aanvulling voegt nieuwe contract- en Platform-IDs toe. Bestaande rijen blijven ongewijzigd.",
+      "status": "approved",
+      "blocker": "Geen; C01 en de C01A-aanvulling (order- en startcontract, ERP-mock-client) zijn duurzaam gevalideerd.",
       "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
-      "output_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
+      "output_sha": "3e5052f34825666a21568483c4edc925be47faac",
       "output_handoff": "Nieuwe 04R Contracts- en Platform-rijen met exacte tests en predecessors",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c01a-20260911-02",
-      "next_allowed_action": "Valideer de aanvulling; start daarna de C05-correctie.",
+      "next_allowed_action": "Behoud C01/C01A als voorganger voor alle volgende chunks.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -233,14 +233,14 @@
       "visible_value": "De databaselaag heeft één duidelijke eigenaar en elke apply-, seed- en append-only-grens is afzonderlijk bewijsbaar.",
       "req_scope": ["REQ-MES-036", "REQ-MES-038..041", "REQ-PLAT-025..027", "REQ-MES-037"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
+      "status": "in_progress",
       "blocker": "Heropend door de goedgekeurde 3R-aanvulling: één extra MES-kolom voor de capturemethode. REQ-MES-037 en REQ-PLAT-026 blijven in C07.",
-      "input_sha": "d42c0976c2d80d04f6ca7e364117fedaa43c734c",
+      "input_sha": "3e5052f34825666a21568483c4edc925be47faac",
       "output_sha": "0f154ae9aef6825b665f73cf81dc4c0aea0afb26",
       "output_handoff": "Owner-local MES-migratiebewijs, daarna afzonderlijke Platform apply/seed- en append-only-tests",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c05-20260910-01",
-      "next_allowed_action": "Corrigeer C05 in een verse taak na de Contracts/Platform-aanvulling.",
+      "responsible_task": "phase4r-c05-20260911-02",
+      "next_allowed_action": "Laat alleen de verse C05-correctietaak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-002--proposed-platform-database-work-is-assigned-historical-s0-evidence"]
     },
     {
@@ -377,16 +377,16 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c01a-20260911-02",
+      "task_id": "phase4r-c05-20260911-02",
       "role": "Requirements / Test Designer",
-      "chunk": "C01",
+      "chunk": "C05",
       "status": "in_progress",
-      "input_sha": "133e40fb51556a7f7d3e5b74503ae215ff484115",
+      "input_sha": "3e5052f34825666a21568483c4edc925be47faac",
       "write_set": [
-        "private:phase4r:c01a:contracts",
-        "private:phase4r:c01a:platform",
-        "private:phase4r:c01a:index",
-        "private:phase4r:c01a:traceability"
+        "private:phase4r:c05b:mes",
+        "private:phase4r:c05b:platform",
+        "private:phase4r:c05b:index",
+        "private:phase4r:c05b:traceability"
       ]
     }
   ],
