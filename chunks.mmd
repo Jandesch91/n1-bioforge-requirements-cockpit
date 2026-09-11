@@ -4,18 +4,18 @@ flowchart TB
     chunk_0["0 · C00<br/>Bewaarde S0-feiten beschermen tegen bewijsinflatie<br/>✅ Goedgekeurd / klaar"]
     chunk_1["1 · C01<br/>Eén gedeelde taal en een lokale identity-providerbasis<br/>✅ Goedgekeurd / klaar"]
     chunk_2["2 · C02<br/>Reproduceerbare proceswaarden zonder control logic in Simulation<br/>✅ Goedgekeurd / klaar"]
-    chunk_3["3 · C03<br/>Eén echte REACT-fase met een vroege live Ignition-procesweergave<br/>✅ Goedgekeurd / klaar"]
+    chunk_3["3 · C03<br/>Eén echte REACT-fase met een vroege live Ignition-procesweergave<br/>🔵 Bezig"]
     chunk_4["4 · C04<br/>Een ongeldige start server-side weigeren en begrijpelijk verklaren<br/>✅ Goedgekeurd / klaar"]
     chunk_5["5 · C05<br/>MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden<br/>✅ Goedgekeurd / klaar"]
     chunk_6["6 · C06<br/>Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace<br/>✅ Goedgekeurd / klaar"]
-    chunk_7["7 · C07<br/>Duurzame history en audit combineren met afzonderlijke operatorauthority<br/>🔵 Bezig"]
+    chunk_7["7 · C07<br/>Duurzame history en audit combineren met afzonderlijke operatorauthority<br/>✅ Goedgekeurd / klaar"]
     chunk_8["8 · C08 · ⏭ VOLGENDE<br/>Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt<br/>❌ Changes required"]
     chunk_9["9 · C09<br/>Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken<br/>❌ Changes required"]
     chunk_10["10 · C10<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>❌ Changes required"]
     chunk_11["11 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
     chunk_12["12 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>C07<br/>Volgende: C08"]
-    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> current_marker --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
+    current_marker["🔵 YOU ARE HERE<br/>C03<br/>Volgende: C08"]
+    chunk_0 --> chunk_1 --> chunk_2 --> current_marker --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -26,11 +26,11 @@ flowchart TB
     class chunk_0 approved
     class chunk_1 approved
     class chunk_2 approved
-    class chunk_3 approved
+    class chunk_3 inprogress
     class chunk_4 approved
     class chunk_5 approved
     class chunk_6 approved
-    class chunk_7 inprogress
+    class chunk_7 approved
     class chunk_8 changes
     class chunk_9 changes
     class chunk_10 changes

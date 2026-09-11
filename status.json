@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C07 — verse requirementtaak actief",
+    "title": "Phase 4R — kleine C03-correctie actief na C07",
     "status": "in_progress",
-    "active_chunk": "C07",
+    "active_chunk": "C03",
     "next_chunk": "C08",
-    "current_boundary": "C01 t/m C06 zijn (na correctie) duurzaam gevalideerd; C07 is gestart",
-    "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer en commit alleen geldige C07-output; start daarna pas een verse C08-taak."
+    "current_boundary": "C01 t/m C07 zijn duurzaam gevalideerd; één C03-test wordt begrensd gecorrigeerd",
+    "what_human_does_next": "Beantwoord de productvragen uit C07 (bediening, statussen, rechten).",
+    "next_allowed_action": "Valideer de C03-correctie; start daarna één verse C08-taak."
   },
   "phases": [
     {
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C06 gevalideerd (incl. correcties); één verse C07-taak is actief."
+      "status_note": "C01 t/m C07 gevalideerd; kleine C03-correctie actief; C08 volgt."
     },
     {
       "id": "phase-5r",
@@ -199,14 +199,14 @@
       "visible_value": "De gebruiker ziet al vroeg echte fase-, PV- en freshnessinformatie zonder op MES- of Kafka-afwerking te wachten.",
       "req_scope": ["toepasselijke REQ-AUT-*", "eerste-fase REQ-BC-*", "row-specifieke live-view REQ-HMI-*"],
       "current_phase": "phase-4r",
-      "status": "approved",
-      "blocker": "Geen; de C03-handoff is duurzaam gevalideerd.",
+      "status": "in_progress",
+      "blocker": "Geen; een kleine correctie maakt één C03-test verenigbaar met de operatoracties uit C07.",
       "input_sha": "14dd5313fec2ff20d572aedd3ca9fbffd41079ea",
       "output_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
       "output_handoff": "Row-specifieke 04R Automation, Batch-Control en Ignition-rijen",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c03-20260910-02",
-      "next_allowed_action": "Behoud C03 als voorganger; de volgende uitvoerder start na preflight één verse C04-taak.",
+      "responsible_task": "phase4r-c03-20260911-03",
+      "next_allowed_action": "Valideer de kleine C03-correctie; start daarna C08.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#row-specifieke-ui-dependencyregels-r6r-006", "../06R-review-findings.md#r6r-005--two-exact-passing-results-are-incomplete-or-internally-corrupted", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -267,13 +267,14 @@
       "visible_value": "Batchfacts blijven append-only en operatoracties kunnen de Batch-Control-authority niet omzeilen.",
       "req_scope": ["persistence-subset REQ-MES-*", "REQ-MES-037 en REQ-PLAT-026 (uit C05)", "manual-control REQ-BC-*", "action-subset REQ-HMI-*"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak specificeert history/audit en operatorautoriteit, met HMI-acties pas na hun serverautoriteit.",
+      "status": "approved",
+      "blocker": "Geen; de C07-handoff is duurzaam gevalideerd. Open vragen voor latere chunks staan privé geregistreerd.",
       "input_sha": "dae2f0b7a473aee88c61cbe16b75111eb97e5e3f",
+      "output_sha": "0d464471ec331986c634aef4ee42383b96b0bfc3",
       "output_handoff": "Exacte persistence-, audit-, acknowledge- en action-rijen in 04R",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c07-20260911-02",
-      "next_allowed_action": "Laat alleen de verse C07-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C07 als voorganger; start na de kleine C03-correctie één verse C08-taak.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
     {
@@ -377,20 +378,15 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c07-20260911-02",
+      "task_id": "phase4r-c03-20260911-03",
       "role": "Requirements / Test Designer",
-      "chunk": "C07",
+      "chunk": "C03",
       "status": "in_progress",
-      "input_sha": "dae2f0b7a473aee88c61cbe16b75111eb97e5e3f",
+      "input_sha": "0d464471ec331986c634aef4ee42383b96b0bfc3",
       "write_set": [
-        "private:phase4r:c07:mes",
-        "private:phase4r:c07:platform",
-        "private:phase4r:c07:batch-control",
-        "private:phase4r:c07:automation",
-        "private:phase4r:c07:ignition",
-        "private:phase4r:c07:mes-web-ui",
-        "private:phase4r:c07:index",
-        "private:phase4r:c07:traceability"
+        "private:phase4r:c03c:ignition",
+        "private:phase4r:c03c:index",
+        "private:phase4r:c03c:traceability"
       ]
     }
   ],
