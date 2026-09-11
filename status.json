@@ -256,7 +256,7 @@
       "output_sha": "133e40fb51556a7f7d3e5b74503ae215ff484115",
       "output_handoff": "Nieuwe MES/MUI/ERP-ingress-rijen met owner-local bewijs en row-specifieke predecessors",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c06-20260911-02",
+      "responsible_task": "phase4r-c06-20260911-03",
       "next_allowed_action": "Laat alleen de verse C06-correctietaak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
@@ -377,7 +377,7 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c06-20260911-02",
+      "task_id": "phase4r-c06-20260911-03",
       "role": "Requirements / Test Designer",
       "chunk": "C06",
       "status": "in_progress",
