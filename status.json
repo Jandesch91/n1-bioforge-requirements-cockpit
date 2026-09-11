@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 3R — begrensde architectuuraanvulling actief (terugloop vanuit C06)",
+    "title": "Phase 4R — Contracts- en Platform-aanvulling actief (correctieronde)",
     "status": "in_progress",
-    "active_chunk": null,
-    "next_chunk": "C06",
-    "current_boundary": "C01 t/m C05 zijn gevalideerd; C06 vraagt correctie; een nieuwe scopekeuze (RFID later in Release 1) loopt eerst door Phase 2 en 3R",
-    "what_human_does_next": "Keur straks de Phase-3R-aanvulling expliciet goed.",
-    "next_allowed_action": "Valideer de Phase-3R-aanvulling; na menselijke goedkeuring volgen de Phase-4R-correcties, te beginnen met Contracts en C06."
+    "active_chunk": "C01",
+    "next_chunk": "C05",
+    "current_boundary": "Phase 2 en 3R-aanvullingen zijn goedgekeurd; C02–C04 blijven geldig; C05 en C06 worden gecorrigeerd",
+    "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
+    "next_allowed_action": "Valideer de Contracts/Platform-aanvulling; daarna volgen verse C05- en C06-correcties en pas dan C07."
   },
   "phases": [
     {
@@ -88,11 +88,11 @@
       "number": "3R",
       "role": "Ownership/Dependency Grill",
       "plain_language": "Bepaalt wie beslist, wat eerst moet bestaan en waar bewijsgrenzen liggen.",
-      "status": "in_progress",
+      "status": "approved",
       "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5",
       "handoff": "../03R-technical-architecture-and-dependencies.md",
       "evidence": ["../03R-technical-architecture-and-dependencies.md", "../README.md"],
-      "status_note": "Begrensde aanvulling actief voor de start vanuit het MES-scherm, lotregistratie (scan/handmatig, later RFID) en ingelogde aanroepers. Daarna is opnieuw menselijke goedkeuring nodig."
+      "status_note": "Aanvulling van 2026-09-11 (start vanuit het MES-scherm, lotregistratie, ingelogde aanroepers, latere RFID-lezer) is door de mens goedgekeurd. Een kleine aanvulling voor de demoschakelaar volgt vóór C10."
     },
     {
       "id": "phase-4r",
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C05 gevalideerd; C06 wacht op correctie na de Phase-2/3R- en Contracts-aanvullingen."
+      "status_note": "Correctieronde: Contracts/Platform-aanvulling actief; C05 en C06 worden daarna gecorrigeerd."
     },
     {
       "id": "phase-5r",
@@ -165,14 +165,14 @@
       "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.",
       "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"],
       "current_phase": "phase-4r",
-      "status": "approved",
-      "blocker": "Geen voor bestaande rijen. Een Contracts-aanvulling volgt pas na de Phase-2- en Phase-3R-aanvullingen.",
+      "status": "in_progress",
+      "blocker": "Geen; een begrensde aanvulling voegt nieuwe contract- en Platform-IDs toe. Bestaande rijen blijven ongewijzigd.",
       "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
       "output_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "output_handoff": "Nieuwe 04R Contracts- en Platform-rijen met exacte tests en predecessors",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c01-20260909-01",
-      "next_allowed_action": "Behoud C01; voeg na goedgekeurde Phase-2/3R-aanvullingen alleen nieuwe contract-IDs toe.",
+      "responsible_task": "phase4r-c01a-20260911-02",
+      "next_allowed_action": "Valideer de aanvulling; start daarna de C05-correctie.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -233,14 +233,14 @@
       "visible_value": "De databaselaag heeft één duidelijke eigenaar en elke apply-, seed- en append-only-grens is afzonderlijk bewijsbaar.",
       "req_scope": ["REQ-MES-036", "REQ-MES-038..041", "REQ-PLAT-025..027", "REQ-MES-037"],
       "current_phase": "phase-4r",
-      "status": "approved",
-      "blocker": "Geen; de C05-handoff is duurzaam gevalideerd. REQ-MES-037 en REQ-PLAT-026 zijn naar C07 verplaatst.",
+      "status": "changes_required",
+      "blocker": "Heropend door de goedgekeurde 3R-aanvulling: één extra MES-kolom voor de capturemethode. REQ-MES-037 en REQ-PLAT-026 blijven in C07.",
       "input_sha": "d42c0976c2d80d04f6ca7e364117fedaa43c734c",
       "output_sha": "0f154ae9aef6825b665f73cf81dc4c0aea0afb26",
       "output_handoff": "Owner-local MES-migratiebewijs, daarna afzonderlijke Platform apply/seed- en append-only-tests",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c05-20260910-01",
-      "next_allowed_action": "Behoud C05 als voorganger; start daarna één verse C06-taak.",
+      "next_allowed_action": "Corrigeer C05 in een verse taak na de Contracts/Platform-aanvulling.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-002--proposed-platform-database-work-is-assigned-historical-s0-evidence"]
     },
     {
@@ -257,7 +257,7 @@
       "output_handoff": "Nieuwe MES/MUI/ERP-ingress-rijen met owner-local bewijs en row-specifieke predecessors",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c06-20260910-01",
-      "next_allowed_action": "Corrigeer C06 na de Phase-2-, Phase-3R- en Contracts-aanvullingen in een verse taak; C07 wacht daarop.",
+      "next_allowed_action": "Corrigeer C06 in een verse taak na de C05-correctie; C07 wacht daarop.",
       "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -377,13 +377,16 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase3r-addendum-20260911-02",
-      "role": "Ownership / Dependency Grill",
-      "chunk": null,
+      "task_id": "phase4r-c01a-20260911-02",
+      "role": "Requirements / Test Designer",
+      "chunk": "C01",
       "status": "in_progress",
       "input_sha": "133e40fb51556a7f7d3e5b74503ae215ff484115",
       "write_set": [
-        "private:phase3r:architecture-record"
+        "private:phase4r:c01a:contracts",
+        "private:phase4r:c01a:platform",
+        "private:phase4r:c01a:index",
+        "private:phase4r:c01a:traceability"
       ]
     }
   ],

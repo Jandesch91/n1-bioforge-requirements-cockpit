@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 3R — begrensde architectuuraanvulling actief (terugloop vanuit C06)<br>
-> **Grens:** C01 t/m C05 zijn gevalideerd; C06 vraagt correctie; een nieuwe scopekeuze (RFID later in Release 1) loopt eerst door Phase 2 en 3R<br>
-> **Wat de mens nu doet:** Keur straks de Phase-3R-aanvulling expliciet goed.<br>
-> **Volgende toegestane actie:** Valideer de Phase-3R-aanvulling; na menselijke goedkeuring volgen de Phase-4R-correcties, te beginnen met Contracts en C06.
+> Phase 4R — Contracts- en Platform-aanvulling actief (correctieronde)<br>
+> **Grens:** Phase 2 en 3R-aanvullingen zijn goedgekeurd; C02–C04 blijven geldig; C05 en C06 worden gecorrigeerd<br>
+> **Wat de mens nu doet:** Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.<br>
+> **Volgende toegestane actie:** Valideer de Contracts/Platform-aanvulling; daarna volgen verse C05- en C06-correcties en pas dan C07.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
@@ -22,7 +22,7 @@ flowchart TB
     %% A vertical main lane prevents crossing arrows. The review return uses one side lane.
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
     phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
-    phase_3r["3R · Ownership/Dependency Grill<br/>🔵 Bezig"]
+    phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
     phase_4r["4R · Requirements/Test Designer<br/>🔵 Bezig"]
     phase_5r["5R · Delivery Planner<br/>⛔ Geblokkeerd"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
@@ -45,27 +45,27 @@ flowchart TB
 
 ## YOU ARE HERE en geplande chunkvolgorde
 
-Er is nu **geen requirementchunk actief**. `C06` is de eerstvolgende toegestane chunk. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
+Chunk **`C01`** is actief. `C05` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 55, "rankSpacing": 65, "htmlLabels": true}}}%%
 flowchart TB
     %% One vertical lane: order is explicit and no dependency arrows cross.
     chunk_0["0 · C00<br/>Bewaarde S0-feiten beschermen tegen bewijsinflatie<br/>✅ Goedgekeurd / klaar"]
-    chunk_1["1 · C01<br/>Eén gedeelde taal en een lokale identity-providerbasis<br/>✅ Goedgekeurd / klaar"]
+    chunk_1["1 · C01<br/>Eén gedeelde taal en een lokale identity-providerbasis<br/>🔵 Bezig"]
     chunk_2["2 · C02<br/>Reproduceerbare proceswaarden zonder control logic in Simulation<br/>✅ Goedgekeurd / klaar"]
     chunk_3["3 · C03<br/>Eén echte REACT-fase met een vroege live Ignition-procesweergave<br/>✅ Goedgekeurd / klaar"]
     chunk_4["4 · C04<br/>Een ongeldige start server-side weigeren en begrijpelijk verklaren<br/>✅ Goedgekeurd / klaar"]
-    chunk_5["5 · C05<br/>MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden<br/>✅ Goedgekeurd / klaar"]
-    chunk_6["6 · C06 · ⏭ VOLGENDE<br/>Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace<br/>❌ Changes required"]
+    chunk_5["5 · C05 · ⏭ VOLGENDE<br/>MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden<br/>❌ Changes required"]
+    chunk_6["6 · C06<br/>Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace<br/>❌ Changes required"]
     chunk_7["7 · C07<br/>Duurzame history en audit combineren met afzonderlijke operatorauthority<br/>❌ Changes required"]
     chunk_8["8 · C08<br/>Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt<br/>❌ Changes required"]
     chunk_9["9 · C09<br/>Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken<br/>❌ Changes required"]
     chunk_10["10 · C10<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>❌ Changes required"]
     chunk_11["11 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
     chunk_12["12 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>geen requirementchunk actief<br/>Volgende: C06"]
-    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> current_marker --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
+    current_marker["🔵 YOU ARE HERE<br/>C01<br/>Volgende: C05"]
+    chunk_0 --> current_marker --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -74,11 +74,11 @@ flowchart TB
     classDef notstarted fill:#F2F4F7,stroke:#667085,color:#344054,stroke-width:2px
     classDef current fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:3px
     class chunk_0 approved
-    class chunk_1 approved
+    class chunk_1 inprogress
     class chunk_2 approved
     class chunk_3 approved
     class chunk_4 approved
-    class chunk_5 approved
+    class chunk_5 changes
     class chunk_6 changes
     class chunk_7 changes
     class chunk_8 changes
@@ -95,8 +95,8 @@ flowchart TB
 |---|---|---|---|
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie. |
-| 3R | Ownership/Dependency Grill | 🔵 Bezig | Begrensde aanvulling actief voor de start vanuit het MES-scherm, lotregistratie (scan/handmatig, later RFID) en ingelogde aanroepers. Daarna is opnieuw menselijke goedkeuring nodig. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C05 gevalideerd; C06 wacht op correctie na de Phase-2/3R- en Contracts-aanvullingen. |
+| 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-11 (start vanuit het MES-scherm, lotregistratie, ingelogde aanroepers, latere RFID-lezer) is door de mens goedgekeurd. Een kleine aanvulling voor de demoschakelaar volgt vóór C10. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | Correctieronde: Contracts/Platform-aanvulling actief; C05 en C06 worden daarna gecorrigeerd. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -106,12 +106,12 @@ flowchart TB
 | Volgorde | Chunk | Gewone-mensentaal | REQ-IDs of families | Status | Verantwoordelijke rol/taak | Volgende toegestane actie |
 |---:|---|---|---|---|---|---|
 | 0 | `C00` | Bewaarde S0-feiten beschermen tegen bewijsinflatie | `REQ-PLAT-001..024`<br>`REQ-PLAT-028..033` | ✅ Goedgekeurd / klaar | Current-State Auditor<br>Nog geen verse taak | Gebruik deze evidence alleen als voorganger; maak historische claims niet sterker. |
-| 1 | `C01` | Eén gedeelde taal en een lokale identity-providerbasis | `REQ-CTR-001..030`<br>`REQ-PLAT-063..064`<br>`nieuw IdP-groundwork-ID door Phase 4R toe te kennen` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c01-20260909-01 | Behoud C01; voeg na goedgekeurde Phase-2/3R-aanvullingen alleen nieuwe contract-IDs toe. |
+| 1 | `C01` | Eén gedeelde taal en een lokale identity-providerbasis | `REQ-CTR-001..030`<br>`REQ-PLAT-063..064`<br>`nieuw IdP-groundwork-ID door Phase 4R toe te kennen` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c01a-20260911-02 | Valideer de aanvulling; start daarna de C05-correctie. |
 | 2 | `C02` | Reproduceerbare proceswaarden zonder control logic in Simulation | `owner-local REQ-SIM-* basis`<br>`REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c02-20260910-04 | Behoud C02 als voorganger; start daarna één verse C03-taak. |
 | 3 | `C03` | Eén echte REACT-fase met een vroege live Ignition-procesweergave | `toepasselijke REQ-AUT-*`<br>`eerste-fase REQ-BC-*`<br>`row-specifieke live-view REQ-HMI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c03-20260910-02 | Behoud C03 als voorganger; de volgende uitvoerder start na preflight één verse C04-taak. |
 | 4 | `C04` | Een ongeldige start server-side weigeren en begrijpelijk verklaren | `permissive/reject-subset van REQ-BC-*`<br>`bijbehorende process-eventcontracten` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c04-20260910-01 | Behoud C04 als voorganger; start daarna één verse C05-taak. |
-| 5 | `C05` | MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden | `REQ-MES-036`<br>`REQ-MES-038..041`<br>`REQ-PLAT-025..027`<br>`REQ-MES-037` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c05-20260910-01 | Behoud C05 als voorganger; start daarna één verse C06-taak. |
-| 6 | `C06` | Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace | `toepasselijke REQ-MES-*`<br>`ERP REST-ingress-subset`<br>`row-specifieke read-only REQ-MUI-*` | ❌ Changes required | Requirements/Test Designer<br>phase4r-c06-20260910-01 | Corrigeer C06 na de Phase-2-, Phase-3R- en Contracts-aanvullingen in een verse taak; C07 wacht daarop. |
+| 5 | `C05` | MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden | `REQ-MES-036`<br>`REQ-MES-038..041`<br>`REQ-PLAT-025..027`<br>`REQ-MES-037` | ❌ Changes required | Requirements/Test Designer<br>phase4r-c05-20260910-01 | Corrigeer C05 in een verse taak na de Contracts/Platform-aanvulling. |
+| 6 | `C06` | Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace | `toepasselijke REQ-MES-*`<br>`ERP REST-ingress-subset`<br>`row-specifieke read-only REQ-MUI-*` | ❌ Changes required | Requirements/Test Designer<br>phase4r-c06-20260910-01 | Corrigeer C06 in een verse taak na de C05-correctie; C07 wacht daarop. |
 | 7 | `C07` | Duurzame history en audit combineren met afzonderlijke operatorauthority | `persistence-subset REQ-MES-*`<br>`REQ-MES-037 en REQ-PLAT-026 (uit C05)`<br>`manual-control REQ-BC-*`<br>`action-subset REQ-HMI-*` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Maak owner-local MES- en Batch-Control-bewijs vóór de afhankelijke HMI-actionrijen. |
 | 8 | `C08` | Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt | `REQ-MES-042..045`<br>`REQ-INT-*`<br>`REQ-ERP-*`<br>`uitsluitend backlog/replay-gerelateerde REQ-MUI-*` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Plaats REQ-INT-004 bij de finale demo en geef elke UI-rij alleen gebruikte resilience-voorgangers. |
 | 9 | `C09` | Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken | `contextuele REQ-MUI-*`<br>`contextuele REQ-HMI-*`<br>`late REQ-PLAT-059`<br>`nieuw owner-local auth-ID indien betekenis wijzigt` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Ken eerst lokale auth/routes toe en verbind ze pas daarna in expliciete late verificatierijen. |
