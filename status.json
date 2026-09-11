@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R — kleine C03-correctie actief na C07",
+    "title": "Phase 4R C08 — verse requirementtaak actief",
     "status": "in_progress",
-    "active_chunk": "C03",
-    "next_chunk": "C08",
-    "current_boundary": "C01 t/m C07 zijn duurzaam gevalideerd; één C03-test wordt begrensd gecorrigeerd",
-    "what_human_does_next": "Beantwoord de productvragen uit C07 (bediening, statussen, rechten).",
-    "next_allowed_action": "Valideer de C03-correctie; start daarna één verse C08-taak."
+    "active_chunk": "C08",
+    "next_chunk": "C09",
+    "current_boundary": "C01 t/m C07 zijn duurzaam gevalideerd (inclusief correcties); C08 is gestart",
+    "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
+    "next_allowed_action": "Valideer en commit alleen geldige C08-output; start daarna pas een verse C09-taak."
   },
   "phases": [
     {
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C07 gevalideerd; kleine C03-correctie actief; C08 volgt."
+      "status_note": "C01 t/m C07 gevalideerd; één verse C08-taak is actief."
     },
     {
       "id": "phase-5r",
@@ -199,14 +199,14 @@
       "visible_value": "De gebruiker ziet al vroeg echte fase-, PV- en freshnessinformatie zonder op MES- of Kafka-afwerking te wachten.",
       "req_scope": ["toepasselijke REQ-AUT-*", "eerste-fase REQ-BC-*", "row-specifieke live-view REQ-HMI-*"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; een kleine correctie maakt één C03-test verenigbaar met de operatoracties uit C07.",
+      "status": "approved",
+      "blocker": "Geen; C03 inclusief de kleine correctie van één test is duurzaam gevalideerd.",
       "input_sha": "14dd5313fec2ff20d572aedd3ca9fbffd41079ea",
-      "output_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
+      "output_sha": "2ddcb9845ed02967c64fc297ad9cfe24c28d5291",
       "output_handoff": "Row-specifieke 04R Automation, Batch-Control en Ignition-rijen",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c03-20260911-03",
-      "next_allowed_action": "Valideer de kleine C03-correctie; start daarna C08.",
+      "next_allowed_action": "Behoud C03 als voorganger.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#row-specifieke-ui-dependencyregels-r6r-006", "../06R-review-findings.md#r6r-005--two-exact-passing-results-are-incomplete-or-internally-corrupted", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -274,7 +274,7 @@
       "output_handoff": "Exacte persistence-, audit-, acknowledge- en action-rijen in 04R",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c07-20260911-02",
-      "next_allowed_action": "Behoud C07 als voorganger; start na de kleine C03-correctie één verse C08-taak.",
+      "next_allowed_action": "Behoud C07 als voorganger.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
     {
@@ -284,13 +284,13 @@
       "visible_value": "Enterprise-events zijn herstelbaar zonder het MES-kernpad of vroege schermen te blokkeren.",
       "req_scope": ["REQ-MES-042..045", "REQ-INT-*", "REQ-ERP-*", "uitsluitend backlog/replay-gerelateerde REQ-MUI-*"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
-      "blocker": "REQ-INT-004 vereist de complete demo en stond te vroeg; blanket UI-predecessors koppelden ongerelateerde schermen aan Kafka-resilience.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak houdt REQ-INT-004 bij de finale demo en geeft UI-rijen alleen gebruikte resilience-voorgangers.",
+      "input_sha": "2ddcb9845ed02967c64fc297ad9cfe24c28d5291",
       "output_handoff": "Vroege owner-local Kafka/ERP-rijen, latere resilience-rijen en afzonderlijke UI-consumers",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Plaats REQ-INT-004 bij de finale demo en geef elke UI-rij alleen gebruikte resilience-voorgangers.",
+      "responsible_task": "phase4r-c08-20260911-01",
+      "next_allowed_action": "Laat alleen de verse C08-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -378,15 +378,19 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c03-20260911-03",
+      "task_id": "phase4r-c08-20260911-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C03",
+      "chunk": "C08",
       "status": "in_progress",
-      "input_sha": "0d464471ec331986c634aef4ee42383b96b0bfc3",
+      "input_sha": "2ddcb9845ed02967c64fc297ad9cfe24c28d5291",
       "write_set": [
-        "private:phase4r:c03c:ignition",
-        "private:phase4r:c03c:index",
-        "private:phase4r:c03c:traceability"
+        "private:phase4r:c08:enterprise-event-integration",
+        "private:phase4r:c08:erp-mock",
+        "private:phase4r:c08:mes",
+        "private:phase4r:c08:mes-web-ui",
+        "private:phase4r:c08:platform",
+        "private:phase4r:c08:index",
+        "private:phase4r:c08:traceability"
       ]
     }
   ],
