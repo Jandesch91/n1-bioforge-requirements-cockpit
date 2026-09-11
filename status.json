@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R — C06-correctie actief (correctieronde)",
+    "title": "Phase 4R C07 — verse requirementtaak actief",
     "status": "in_progress",
-    "active_chunk": "C06",
-    "next_chunk": "C07",
-    "current_boundary": "C01 t/m C05 zijn (na correctie) duurzaam gevalideerd; C06 wordt gecorrigeerd",
+    "active_chunk": "C07",
+    "next_chunk": "C08",
+    "current_boundary": "C01 t/m C06 zijn (na correctie) duurzaam gevalideerd; C07 is gestart",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer de C06-correctie; start daarna één verse C07-taak."
+    "next_allowed_action": "Valideer en commit alleen geldige C07-output; start daarna pas een verse C08-taak."
   },
   "phases": [
     {
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "Correctieronde: C01A en C05-correctie gevalideerd; C06-correctie actief."
+      "status_note": "C01 t/m C06 gevalideerd (incl. correcties); één verse C07-taak is actief."
     },
     {
       "id": "phase-5r",
@@ -250,14 +250,14 @@
       "visible_value": "Een gebruiker ziet vroeg een echte batchcontext terwijl Kafka-resilience en HMI-acties nog los mogen volgen.",
       "req_scope": ["toepasselijke REQ-MES-*", "ERP REST-ingress-subset", "row-specifieke read-only REQ-MUI-*"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse correctietaak verwerkt de nieuwe contracten, logins, de startknop en de gecorrigeerde C05-kolom.",
+      "status": "approved",
+      "blocker": "Geen; de C06-correctie (logins, startknop met scan/handmatig, gecorrigeerde C05-kolom) is duurzaam gevalideerd.",
       "input_sha": "a24ade0edbe9f65f30336f8f56eb6c8c3511cc82",
-      "output_sha": "133e40fb51556a7f7d3e5b74503ae215ff484115",
+      "output_sha": "dae2f0b7a473aee88c61cbe16b75111eb97e5e3f",
       "output_handoff": "Nieuwe MES/MUI/ERP-ingress-rijen met owner-local bewijs en row-specifieke predecessors",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c06-20260911-03",
-      "next_allowed_action": "Laat alleen de verse C06-correctietaak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C06 als voorganger; start daarna één verse C07-taak.",
       "durable_evidence": ["../06R-review-findings.md#r6r-004--materially-changed-requirement-meanings-reuse-historical-ids", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -267,13 +267,13 @@
       "visible_value": "Batchfacts blijven append-only en operatoracties kunnen de Batch-Control-authority niet omzeilen.",
       "req_scope": ["persistence-subset REQ-MES-*", "REQ-MES-037 en REQ-PLAT-026 (uit C05)", "manual-control REQ-BC-*", "action-subset REQ-HMI-*"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
-      "blocker": "De volledige 04R-package moet opnieuw worden gegenereerd; HMI-acties mogen alleen hun exacte serverauthority als voorganger krijgen.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak specificeert history/audit en operatorautoriteit, met HMI-acties pas na hun serverautoriteit.",
+      "input_sha": "dae2f0b7a473aee88c61cbe16b75111eb97e5e3f",
       "output_handoff": "Exacte persistence-, audit-, acknowledge- en action-rijen in 04R",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Maak owner-local MES- en Batch-Control-bewijs vóór de afhankelijke HMI-actionrijen.",
+      "responsible_task": "phase4r-c07-20260911-01",
+      "next_allowed_action": "Laat alleen de verse C07-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
     {
@@ -377,17 +377,20 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c06-20260911-03",
+      "task_id": "phase4r-c07-20260911-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C06",
+      "chunk": "C07",
       "status": "in_progress",
-      "input_sha": "a24ade0edbe9f65f30336f8f56eb6c8c3511cc82",
+      "input_sha": "dae2f0b7a473aee88c61cbe16b75111eb97e5e3f",
       "write_set": [
-        "private:phase4r:c06b:mes",
-        "private:phase4r:c06b:mes-web-ui",
-        "private:phase4r:c06b:erp-mock",
-        "private:phase4r:c06b:index",
-        "private:phase4r:c06b:traceability"
+        "private:phase4r:c07:mes",
+        "private:phase4r:c07:platform",
+        "private:phase4r:c07:batch-control",
+        "private:phase4r:c07:automation",
+        "private:phase4r:c07:ignition",
+        "private:phase4r:c07:mes-web-ui",
+        "private:phase4r:c07:index",
+        "private:phase4r:c07:traceability"
       ]
     }
   ],
