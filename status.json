@@ -4,7 +4,7 @@
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
     "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
-    "snapshot_date": "2026-09-10",
+    "snapshot_date": "2026-09-11",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
     "publication": {
@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 2 — begrensde productaanvulling actief (terugloop vanuit C06)",
+    "title": "Phase 3R — begrensde architectuuraanvulling actief (terugloop vanuit C06)",
     "status": "in_progress",
     "active_chunk": null,
     "next_chunk": "C06",
     "current_boundary": "C01 t/m C05 zijn gevalideerd; C06 vraagt correctie; een nieuwe scopekeuze (RFID later in Release 1) loopt eerst door Phase 2 en 3R",
-    "what_human_does_next": "Keur straks de Phase-2-aanvulling en daarna de Phase-3R-aanvulling expliciet goed.",
-    "next_allowed_action": "Valideer de Phase-2-aanvulling; na menselijke goedkeuring volgt een verse Phase-3R-aanvulling, dan Contracts en de C06-correctie."
+    "what_human_does_next": "Keur straks de Phase-3R-aanvulling expliciet goed.",
+    "next_allowed_action": "Valideer de Phase-3R-aanvulling; na menselijke goedkeuring volgen de Phase-4R-correcties, te beginnen met Contracts en C06."
   },
   "phases": [
     {
@@ -77,22 +77,22 @@
       "number": "2",
       "role": "Product Outcome Grill",
       "plain_language": "Bevestigt zichtbare uitkomsten, grenzen en menselijke keuzes.",
-      "status": "in_progress",
+      "status": "approved",
       "input_sha": "2bc934750fb14d73800773932886777871704ad3",
       "handoff": "../02-product-decisions.md",
       "evidence": ["../02-product-decisions.md", "../README.md"],
-      "status_note": "Begrensde aanvulling actief: menselijke productkeuzes, waaronder een latere gesimuleerde RFID-lotdetectie, worden vastgelegd. Daarna is opnieuw menselijke goedkeuring nodig."
+      "status_note": "Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie."
     },
     {
       "id": "phase-3r",
       "number": "3R",
       "role": "Ownership/Dependency Grill",
       "plain_language": "Bepaalt wie beslist, wat eerst moet bestaan en waar bewijsgrenzen liggen.",
-      "status": "approved",
+      "status": "in_progress",
       "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5",
       "handoff": "../03R-technical-architecture-and-dependencies.md",
       "evidence": ["../03R-technical-architecture-and-dependencies.md", "../README.md"],
-      "status_note": "Alleen de afgebakende Phase-3R-correctie is goedgekeurd. Een begrensde aanvulling voor de RFID-lezer volgt na de Phase-2-aanvulling."
+      "status_note": "Begrensde aanvulling actief voor de start vanuit het MES-scherm, lotregistratie (scan/handmatig, later RFID) en ingelogde aanroepers. Daarna is opnieuw menselijke goedkeuring nodig."
     },
     {
       "id": "phase-4r",
@@ -377,13 +377,13 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase2-addendum-20260910-01",
-      "role": "Product Outcome Grill",
+      "task_id": "phase3r-addendum-20260911-01",
+      "role": "Ownership / Dependency Grill",
       "chunk": null,
       "status": "in_progress",
       "input_sha": "133e40fb51556a7f7d3e5b74503ae215ff484115",
       "write_set": [
-        "private:phase2:product-record"
+        "private:phase3r:architecture-record"
       ]
     }
   ],

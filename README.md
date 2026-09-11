@@ -2,14 +2,14 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 2 — begrensde productaanvulling actief (terugloop vanuit C06)<br>
+> Phase 3R — begrensde architectuuraanvulling actief (terugloop vanuit C06)<br>
 > **Grens:** C01 t/m C05 zijn gevalideerd; C06 vraagt correctie; een nieuwe scopekeuze (RFID later in Release 1) loopt eerst door Phase 2 en 3R<br>
-> **Wat de mens nu doet:** Keur straks de Phase-2-aanvulling en daarna de Phase-3R-aanvulling expliciet goed.<br>
-> **Volgende toegestane actie:** Valideer de Phase-2-aanvulling; na menselijke goedkeuring volgt een verse Phase-3R-aanvulling, dan Contracts en de C06-correctie.
+> **Wat de mens nu doet:** Keur straks de Phase-3R-aanvulling expliciet goed.<br>
+> **Volgende toegestane actie:** Valideer de Phase-3R-aanvulling; na menselijke goedkeuring volgen de Phase-4R-correcties, te beginnen met Contracts en C06.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
-- Snapshot: `2026-09-10`
+- Snapshot: `2026-09-11`
 - Scope: Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.
 
 ## Zeven fasen en teruglus
@@ -21,8 +21,8 @@ De hoofdlijn staat bewust verticaal met ruime afstand. Alleen de reviewbeslissin
 flowchart TB
     %% A vertical main lane prevents crossing arrows. The review return uses one side lane.
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
-    phase_2["2 · Product Outcome Grill<br/>🔵 Bezig"]
-    phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_3r["3R · Ownership/Dependency Grill<br/>🔵 Bezig"]
     phase_4r["4R · Requirements/Test Designer<br/>🔵 Bezig"]
     phase_5r["5R · Delivery Planner<br/>⛔ Geblokkeerd"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
@@ -94,8 +94,8 @@ flowchart TB
 | Fase | Rol | Status | Betekenis nu |
 |---|---|---|---|
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
-| 2 | Product Outcome Grill | 🔵 Bezig | Begrensde aanvulling actief: menselijke productkeuzes, waaronder een latere gesimuleerde RFID-lotdetectie, worden vastgelegd. Daarna is opnieuw menselijke goedkeuring nodig. |
-| 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alleen de afgebakende Phase-3R-correctie is goedgekeurd. Een begrensde aanvulling voor de RFID-lezer volgt na de Phase-2-aanvulling. |
+| 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie. |
+| 3R | Ownership/Dependency Grill | 🔵 Bezig | Begrensde aanvulling actief voor de start vanuit het MES-scherm, lotregistratie (scan/handmatig, later RFID) en ingelogde aanroepers. Daarna is opnieuw menselijke goedkeuring nodig. |
 | 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C05 gevalideerd; C06 wacht op correctie na de Phase-2/3R- en Contracts-aanvullingen. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
