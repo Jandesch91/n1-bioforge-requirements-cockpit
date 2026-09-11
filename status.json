@@ -272,7 +272,7 @@
       "input_sha": "dae2f0b7a473aee88c61cbe16b75111eb97e5e3f",
       "output_handoff": "Exacte persistence-, audit-, acknowledge- en action-rijen in 04R",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c07-20260911-01",
+      "responsible_task": "phase4r-c07-20260911-02",
       "next_allowed_action": "Laat alleen de verse C07-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
@@ -377,7 +377,7 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c07-20260911-01",
+      "task_id": "phase4r-c07-20260911-02",
       "role": "Requirements / Test Designer",
       "chunk": "C07",
       "status": "in_progress",
