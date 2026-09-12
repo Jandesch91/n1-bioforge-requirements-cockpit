@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 4R C10b — resterende UI-hardening actief<br>
-> **Grens:** C01 t/m C09 en C10a (controlflow, interlocks, degradatie, demoschakelaar) zijn gevalideerd; C10b doet de resterende UI-hardening<br>
+> Phase 4R C10E — eerste end-to-end run gate actief<br>
+> **Grens:** C01 t/m C10 zijn duurzaam gevalideerd; de eerste end-to-end verificatie is gestart<br>
 > **Wat de mens nu doet:** Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.<br>
-> **Volgende toegestane actie:** Valideer en commit alleen geldige C10-output; start daarna pas een verse C11-taak.
+> **Volgende toegestane actie:** Valideer C10E; daarna volgen de RFID-stap en pas dan C11.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
@@ -45,7 +45,7 @@ flowchart TB
 
 ## YOU ARE HERE en geplande chunkvolgorde
 
-Chunk **`C10`** is actief. `C11` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
+Chunk **`C10E`** is actief. `C10R` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 55, "rankSpacing": 65, "htmlLabels": true}}}%%
@@ -61,11 +61,13 @@ flowchart TB
     chunk_7["7 · C07<br/>Duurzame history en audit combineren met afzonderlijke operatorauthority<br/>✅ Goedgekeurd / klaar"]
     chunk_8["8 · C08<br/>Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt<br/>✅ Goedgekeurd / klaar"]
     chunk_9["9 · C09<br/>Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken<br/>✅ Goedgekeurd / klaar"]
-    chunk_10["10 · C10<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>🔵 Bezig"]
-    chunk_11["11 · C11 · ⏭ VOLGENDE<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
-    chunk_12["12 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>C10<br/>Volgende: C11"]
-    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> current_marker --> chunk_10 --> chunk_11 --> chunk_12
+    chunk_10["10 · C10<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>✅ Goedgekeurd / klaar"]
+    chunk_11["11 · C10E<br/>Eén complete batch door de echte keten heen<br/>🔵 Bezig"]
+    chunk_12["12 · C10R · ⏭ VOLGENDE<br/>Gesimuleerde RFID-lotdetectie als derde registratiemethode<br/>⬜ Niet gestart / uitgesteld"]
+    chunk_13["13 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
+    chunk_14["14 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
+    current_marker["🔵 YOU ARE HERE<br/>C10E<br/>Volgende: C10R"]
+    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> current_marker --> chunk_11 --> chunk_12 --> chunk_13 --> chunk_14
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -83,9 +85,11 @@ flowchart TB
     class chunk_7 approved
     class chunk_8 approved
     class chunk_9 approved
-    class chunk_10 inprogress
-    class chunk_11 changes
-    class chunk_12 blocked
+    class chunk_10 approved
+    class chunk_11 inprogress
+    class chunk_12 notstarted
+    class chunk_13 changes
+    class chunk_14 blocked
     class current_marker current
 ```
 
@@ -96,7 +100,7 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie. |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Beide aanvullingen (2026-09-11 en 2026-09-12) zijn door de mens goedgekeurd. De demoschakelaar en de drie startcondities zijn geplaatst; Simulation rapporteert, Batch-Control beslist. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C09 en C10a gevalideerd; C10b (UI-hardening) is actief. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C10 gevalideerd; C10E (eerste end-to-end run) is actief; daarna C10R (RFID) en C11. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -115,9 +119,11 @@ flowchart TB
 | 7 | `C07` | Duurzame history en audit combineren met afzonderlijke operatorauthority | `persistence-subset REQ-MES-*`<br>`REQ-MES-037 en REQ-PLAT-026 (uit C05)`<br>`manual-control REQ-BC-*`<br>`action-subset REQ-HMI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c07-20260912-03 | Behoud C07 als voorganger. |
 | 8 | `C08` | Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt | `REQ-MES-042..045`<br>`REQ-INT-*`<br>`REQ-ERP-*`<br>`uitsluitend backlog/replay-gerelateerde REQ-MUI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c08-20260912-02 | Behoud C08 als voorganger; start daarna één verse C09-taak. |
 | 9 | `C09` | Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken | `contextuele REQ-MUI-*`<br>`contextuele REQ-HMI-*`<br>`late REQ-PLAT-059`<br>`nieuw owner-local auth-ID indien betekenis wijzigt` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c09-20260912-01 | Behoud C09 als voorganger; corrigeer daarna de C07-abortrij en start vóór C10 de kleine 3R-aanvulling. |
-| 10 | `C10` | Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening | `resterende REQ-AUT-*`<br>`resterende REQ-SIM-*`<br>`resterende REQ-BC-*`<br>`REQ-MES-031`<br>`row-local REQ-HMI/MUI-* hardening` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c10-20260912-03 | Laat alleen de verse C10-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
-| 11 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Specificeer eerst de non-destructieve candidate; plan geen reset of Worker vóór goedgekeurde Phase 6 en voltooide Phase 7. |
-| 12 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ⛔ Geblokkeerd | Independent Reviewer<br>Nog geen verse taak | Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review. |
+| 10 | `C10` | Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening | `resterende REQ-AUT-*`<br>`resterende REQ-SIM-*`<br>`resterende REQ-BC-*`<br>`REQ-MES-031`<br>`row-local REQ-HMI/MUI-* hardening` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c10-20260912-03 | Behoud C10 als voorganger; start daarna de eerste end-to-end verificatie. |
+| 11 | `C10E` | Eén complete batch door de echte keten heen | `connected gate-rij`<br>`REQ-HMI-025`<br>`REQ-HMI-029`<br>`REQ-MES-030` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c10e-20260912-01 | Laat alleen de verse C10E-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
+| 12 | `C10R` | Gesimuleerde RFID-lotdetectie als derde registratiemethode | `Contracts RFID-topic/payload`<br>`Simulation RFID-reader`<br>`MES RFID-binding`<br>`connected RFID-verificatie`<br>`RFID-weergave in de MES-UI` | ⬜ Niet gestart / uitgesteld | Requirements/Test Designer<br>Nog geen verse taak | Start deze stap pas na een gevalideerde C10E en houd RFID buiten iedere eerdere rij. |
+| 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Specificeer eerst de non-destructieve candidate; plan geen reset of Worker vóór goedgekeurde Phase 6 en voltooide Phase 7. |
+| 14 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ⛔ Geblokkeerd | Independent Reviewer<br>Nog geen verse taak | Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review. |
 
 ## Statuslegenda
 
