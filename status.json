@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R — kleine C07-correctie actief na C09",
+    "title": "Phase 3R — tweede begrensde aanvulling actief (demoschakelaar)",
     "status": "in_progress",
-    "active_chunk": "C07",
+    "active_chunk": null,
     "next_chunk": "C10",
-    "current_boundary": "C01 t/m C09 zijn duurzaam gevalideerd; één C07-rij wordt begrensd gecorrigeerd",
-    "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer de C07-correctie; daarna volgt de kleine 3R-aanvulling voor de demoschakelaar en pas dan C10."
+    "current_boundary": "C01 t/m C09 zijn duurzaam gevalideerd; de demoschakelaar wordt eerst architectureel geplaatst",
+    "what_human_does_next": "Keur straks de tweede Phase-3R-aanvulling expliciet goed.",
+    "next_allowed_action": "Valideer de tweede 3R-aanvulling; start C10 pas na menselijke goedkeuring."
   },
   "phases": [
     {
@@ -88,11 +88,11 @@
       "number": "3R",
       "role": "Ownership/Dependency Grill",
       "plain_language": "Bepaalt wie beslist, wat eerst moet bestaan en waar bewijsgrenzen liggen.",
-      "status": "approved",
+      "status": "in_progress",
       "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5",
       "handoff": "../03R-technical-architecture-and-dependencies.md",
       "evidence": ["../03R-technical-architecture-and-dependencies.md", "../README.md"],
-      "status_note": "Aanvulling van 2026-09-11 (start vanuit het MES-scherm, lotregistratie, ingelogde aanroepers, latere RFID-lezer) is door de mens goedgekeurd. Een kleine aanvulling voor de demoschakelaar volgt vóór C10."
+      "status_note": "De aanvulling van 2026-09-11 is goedgekeurd. Een tweede begrensde aanvulling plaatst nu de presenter-demoschakelaar en de bronnen van de drie startcondities; die vraagt opnieuw menselijke goedkeuring vóór C10."
     },
     {
       "id": "phase-4r",
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C09 gevalideerd; kleine C07-correctie actief; daarna 3R-aanvulling en C10."
+      "status_note": "C01 t/m C09 gevalideerd; de tweede 3R-aanvulling loopt vóór C10."
     },
     {
       "id": "phase-5r",
@@ -267,14 +267,14 @@
       "visible_value": "Batchfacts blijven append-only en operatoracties kunnen de Batch-Control-authority niet omzeilen.",
       "req_scope": ["persistence-subset REQ-MES-*", "REQ-MES-037 en REQ-PLAT-026 (uit C05)", "manual-control REQ-BC-*", "action-subset REQ-HMI-*"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; een kleine correctie maakt de abortactie verenigbaar met de menselijke keuze dat alleen een supervisor mag afbreken.",
+      "status": "approved",
+      "blocker": "Geen; C07 inclusief de abortcorrectie is duurzaam gevalideerd.",
       "input_sha": "dae2f0b7a473aee88c61cbe16b75111eb97e5e3f",
-      "output_sha": "0d464471ec331986c634aef4ee42383b96b0bfc3",
+      "output_sha": "059bb15b93b7ebaeb5b4c9069fc27fea2b3f5b2c",
       "output_handoff": "Exacte persistence-, audit-, acknowledge- en action-rijen in 04R",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c07-20260912-03",
-      "next_allowed_action": "Valideer de kleine C07-correctie; start daarna de 3R-aanvulling en C10.",
+      "next_allowed_action": "Behoud C07 als voorganger.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
     {
@@ -380,15 +380,13 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c07-20260912-03",
-      "role": "Requirements / Test Designer",
-      "chunk": "C07",
+      "task_id": "phase3r-addendum2-20260912-01",
+      "role": "Ownership / Dependency Grill",
+      "chunk": null,
       "status": "in_progress",
-      "input_sha": "dcf1d4615f3a61ec5557d3eabded0cd9802ee989",
+      "input_sha": "059bb15b93b7ebaeb5b4c9069fc27fea2b3f5b2c",
       "write_set": [
-        "private:phase4r:c07c:ignition",
-        "private:phase4r:c07c:index",
-        "private:phase4r:c07c:traceability"
+        "private:phase3r:architecture-record"
       ]
     }
   ],

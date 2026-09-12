@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 4R — kleine C07-correctie actief na C09<br>
-> **Grens:** C01 t/m C09 zijn duurzaam gevalideerd; één C07-rij wordt begrensd gecorrigeerd<br>
-> **Wat de mens nu doet:** Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.<br>
-> **Volgende toegestane actie:** Valideer de C07-correctie; daarna volgt de kleine 3R-aanvulling voor de demoschakelaar en pas dan C10.
+> Phase 3R — tweede begrensde aanvulling actief (demoschakelaar)<br>
+> **Grens:** C01 t/m C09 zijn duurzaam gevalideerd; de demoschakelaar wordt eerst architectureel geplaatst<br>
+> **Wat de mens nu doet:** Keur straks de tweede Phase-3R-aanvulling expliciet goed.<br>
+> **Volgende toegestane actie:** Valideer de tweede 3R-aanvulling; start C10 pas na menselijke goedkeuring.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
@@ -22,7 +22,7 @@ flowchart TB
     %% A vertical main lane prevents crossing arrows. The review return uses one side lane.
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
     phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
-    phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_3r["3R · Ownership/Dependency Grill<br/>🔵 Bezig"]
     phase_4r["4R · Requirements/Test Designer<br/>🔵 Bezig"]
     phase_5r["5R · Delivery Planner<br/>⛔ Geblokkeerd"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
@@ -45,7 +45,7 @@ flowchart TB
 
 ## YOU ARE HERE en geplande chunkvolgorde
 
-Chunk **`C07`** is actief. `C10` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
+Er is nu **geen requirementchunk actief**. `C10` is de eerstvolgende toegestane chunk. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 55, "rankSpacing": 65, "htmlLabels": true}}}%%
@@ -58,14 +58,14 @@ flowchart TB
     chunk_4["4 · C04<br/>Een ongeldige start server-side weigeren en begrijpelijk verklaren<br/>✅ Goedgekeurd / klaar"]
     chunk_5["5 · C05<br/>MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden<br/>✅ Goedgekeurd / klaar"]
     chunk_6["6 · C06<br/>Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace<br/>✅ Goedgekeurd / klaar"]
-    chunk_7["7 · C07<br/>Duurzame history en audit combineren met afzonderlijke operatorauthority<br/>🔵 Bezig"]
+    chunk_7["7 · C07<br/>Duurzame history en audit combineren met afzonderlijke operatorauthority<br/>✅ Goedgekeurd / klaar"]
     chunk_8["8 · C08<br/>Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt<br/>✅ Goedgekeurd / klaar"]
     chunk_9["9 · C09<br/>Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken<br/>✅ Goedgekeurd / klaar"]
     chunk_10["10 · C10 · ⏭ VOLGENDE<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>❌ Changes required"]
     chunk_11["11 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
     chunk_12["12 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>C07<br/>Volgende: C10"]
-    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> current_marker --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
+    current_marker["🔵 YOU ARE HERE<br/>geen requirementchunk actief<br/>Volgende: C10"]
+    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> current_marker --> chunk_10 --> chunk_11 --> chunk_12
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -80,7 +80,7 @@ flowchart TB
     class chunk_4 approved
     class chunk_5 approved
     class chunk_6 approved
-    class chunk_7 inprogress
+    class chunk_7 approved
     class chunk_8 approved
     class chunk_9 approved
     class chunk_10 changes
@@ -95,8 +95,8 @@ flowchart TB
 |---|---|---|---|
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie. |
-| 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-11 (start vanuit het MES-scherm, lotregistratie, ingelogde aanroepers, latere RFID-lezer) is door de mens goedgekeurd. Een kleine aanvulling voor de demoschakelaar volgt vóór C10. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C09 gevalideerd; kleine C07-correctie actief; daarna 3R-aanvulling en C10. |
+| 3R | Ownership/Dependency Grill | 🔵 Bezig | De aanvulling van 2026-09-11 is goedgekeurd. Een tweede begrensde aanvulling plaatst nu de presenter-demoschakelaar en de bronnen van de drie startcondities; die vraagt opnieuw menselijke goedkeuring vóór C10. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C09 gevalideerd; de tweede 3R-aanvulling loopt vóór C10. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -112,7 +112,7 @@ flowchart TB
 | 4 | `C04` | Een ongeldige start server-side weigeren en begrijpelijk verklaren | `permissive/reject-subset van REQ-BC-*`<br>`bijbehorende process-eventcontracten` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c04-20260910-01 | Behoud C04 als voorganger; start daarna één verse C05-taak. |
 | 5 | `C05` | MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden | `REQ-MES-036`<br>`REQ-MES-038..041`<br>`REQ-PLAT-025..027`<br>`REQ-MES-037` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c05-20260911-02 | Behoud C05 als voorganger; corrigeer daarna C06. |
 | 6 | `C06` | Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace | `toepasselijke REQ-MES-*`<br>`ERP REST-ingress-subset`<br>`row-specifieke read-only REQ-MUI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c06-20260911-03 | Behoud C06 als voorganger; start daarna één verse C07-taak. |
-| 7 | `C07` | Duurzame history en audit combineren met afzonderlijke operatorauthority | `persistence-subset REQ-MES-*`<br>`REQ-MES-037 en REQ-PLAT-026 (uit C05)`<br>`manual-control REQ-BC-*`<br>`action-subset REQ-HMI-*` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c07-20260912-03 | Valideer de kleine C07-correctie; start daarna de 3R-aanvulling en C10. |
+| 7 | `C07` | Duurzame history en audit combineren met afzonderlijke operatorauthority | `persistence-subset REQ-MES-*`<br>`REQ-MES-037 en REQ-PLAT-026 (uit C05)`<br>`manual-control REQ-BC-*`<br>`action-subset REQ-HMI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c07-20260912-03 | Behoud C07 als voorganger. |
 | 8 | `C08` | Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt | `REQ-MES-042..045`<br>`REQ-INT-*`<br>`REQ-ERP-*`<br>`uitsluitend backlog/replay-gerelateerde REQ-MUI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c08-20260912-02 | Behoud C08 als voorganger; start daarna één verse C09-taak. |
 | 9 | `C09` | Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken | `contextuele REQ-MUI-*`<br>`contextuele REQ-HMI-*`<br>`late REQ-PLAT-059`<br>`nieuw owner-local auth-ID indien betekenis wijzigt` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c09-20260912-01 | Behoud C09 als voorganger; corrigeer daarna de C07-abortrij en start vóór C10 de kleine 3R-aanvulling. |
 | 10 | `C10` | Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening | `resterende REQ-AUT-*`<br>`resterende REQ-SIM-*`<br>`resterende REQ-BC-*`<br>`REQ-MES-031`<br>`row-local REQ-HMI/MUI-* hardening` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Regeneer na de vroege owner-local chunks en houd failure modes expliciet en meetbaar. |
