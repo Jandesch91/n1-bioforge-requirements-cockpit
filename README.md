@@ -2,8 +2,8 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 4R C10 — verse requirementtaak actief<br>
-> **Grens:** C01 t/m C09 zijn duurzaam gevalideerd inclusief beide Contracts-aanvullingen; C10 is gestart<br>
+> Phase 4R C10b — resterende UI-hardening actief<br>
+> **Grens:** C01 t/m C09 en C10a (controlflow, interlocks, degradatie, demoschakelaar) zijn gevalideerd; C10b doet de resterende UI-hardening<br>
 > **Wat de mens nu doet:** Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.<br>
 > **Volgende toegestane actie:** Valideer en commit alleen geldige C10-output; start daarna pas een verse C11-taak.
 
@@ -96,7 +96,7 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie. |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Beide aanvullingen (2026-09-11 en 2026-09-12) zijn door de mens goedgekeurd. De demoschakelaar en de drie startcondities zijn geplaatst; Simulation rapporteert, Batch-Control beslist. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C09 gevalideerd; één verse C10-taak is actief. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C09 en C10a gevalideerd; C10b (UI-hardening) is actief. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -115,7 +115,7 @@ flowchart TB
 | 7 | `C07` | Duurzame history en audit combineren met afzonderlijke operatorauthority | `persistence-subset REQ-MES-*`<br>`REQ-MES-037 en REQ-PLAT-026 (uit C05)`<br>`manual-control REQ-BC-*`<br>`action-subset REQ-HMI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c07-20260912-03 | Behoud C07 als voorganger. |
 | 8 | `C08` | Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt | `REQ-MES-042..045`<br>`REQ-INT-*`<br>`REQ-ERP-*`<br>`uitsluitend backlog/replay-gerelateerde REQ-MUI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c08-20260912-02 | Behoud C08 als voorganger; start daarna één verse C09-taak. |
 | 9 | `C09` | Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken | `contextuele REQ-MUI-*`<br>`contextuele REQ-HMI-*`<br>`late REQ-PLAT-059`<br>`nieuw owner-local auth-ID indien betekenis wijzigt` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c09-20260912-01 | Behoud C09 als voorganger; corrigeer daarna de C07-abortrij en start vóór C10 de kleine 3R-aanvulling. |
-| 10 | `C10` | Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening | `resterende REQ-AUT-*`<br>`resterende REQ-SIM-*`<br>`resterende REQ-BC-*`<br>`REQ-MES-031`<br>`row-local REQ-HMI/MUI-* hardening` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c10-20260912-02 | Laat alleen de verse C10-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
+| 10 | `C10` | Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening | `resterende REQ-AUT-*`<br>`resterende REQ-SIM-*`<br>`resterende REQ-BC-*`<br>`REQ-MES-031`<br>`row-local REQ-HMI/MUI-* hardening` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c10-20260912-03 | Laat alleen de verse C10-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
 | 11 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Specificeer eerst de non-destructieve candidate; plan geen reset of Worker vóór goedgekeurde Phase 6 en voltooide Phase 7. |
 | 12 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ⛔ Geblokkeerd | Independent Reviewer<br>Nog geen verse taak | Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review. |
 

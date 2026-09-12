@@ -53,11 +53,11 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C10 — verse requirementtaak actief",
+    "title": "Phase 4R C10b — resterende UI-hardening actief",
     "status": "in_progress",
     "active_chunk": "C10",
     "next_chunk": "C11",
-    "current_boundary": "C01 t/m C09 zijn duurzaam gevalideerd inclusief beide Contracts-aanvullingen; C10 is gestart",
+    "current_boundary": "C01 t/m C09 en C10a (controlflow, interlocks, degradatie, demoschakelaar) zijn gevalideerd; C10b doet de resterende UI-hardening",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
     "next_allowed_action": "Valideer en commit alleen geldige C10-output; start daarna pas een verse C11-taak."
   },
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C09 gevalideerd; één verse C10-taak is actief."
+      "status_note": "C01 t/m C09 en C10a gevalideerd; C10b (UI-hardening) is actief."
     },
     {
       "id": "phase-5r",
@@ -323,7 +323,7 @@
       "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "output_handoff": "Exacte complete-control-, interlock-, degradation- en row-local UI-tests",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c10-20260912-02",
+      "responsible_task": "phase4r-c10-20260912-03",
       "next_allowed_action": "Laat alleen de verse C10-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
@@ -380,20 +380,16 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c10-20260912-02",
+      "task_id": "phase4r-c10-20260912-03",
       "role": "Requirements / Test Designer",
       "chunk": "C10",
       "status": "in_progress",
-      "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
+      "input_sha": "7d667babbe666f9ac869354bf813ce733d97ad5b",
       "write_set": [
-        "private:phase4r:c10:automation",
-        "private:phase4r:c10:batch-control",
-        "private:phase4r:c10:simulation",
-        "private:phase4r:c10:ignition",
-        "private:phase4r:c10:mes",
-        "private:phase4r:c10:platform",
-        "private:phase4r:c10:index",
-        "private:phase4r:c10:traceability"
+        "private:phase4r:c10b:mes-web-ui",
+        "private:phase4r:c10b:ignition",
+        "private:phase4r:c10b:index",
+        "private:phase4r:c10b:traceability"
       ]
     }
   ],
