@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R — tweede Contracts-aanvulling actief vóór C10",
+    "title": "Phase 4R C10 — verse requirementtaak actief",
     "status": "in_progress",
-    "active_chunk": "C01",
-    "next_chunk": "C10",
-    "current_boundary": "C01 t/m C09 zijn duurzaam gevalideerd; beide 3R-aanvullingen zijn goedgekeurd; de contracten voor readiness en bewaarde prompt worden toegevoegd",
+    "active_chunk": "C10",
+    "next_chunk": "C11",
+    "current_boundary": "C01 t/m C09 zijn duurzaam gevalideerd inclusief beide Contracts-aanvullingen; C10 is gestart",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer de Contracts-aanvulling; start daarna één verse C10-taak."
+    "next_allowed_action": "Valideer en commit alleen geldige C10-output; start daarna pas een verse C11-taak."
   },
   "phases": [
     {
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C09 gevalideerd; tweede Contracts-aanvulling actief vóór C10."
+      "status_note": "C01 t/m C09 gevalideerd; één verse C10-taak is actief."
     },
     {
       "id": "phase-5r",
@@ -165,14 +165,14 @@
       "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.",
       "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; een tweede begrensde aanvulling voegt het readiness-topic en de bewaarde promptstatus toe. Bestaande rijen blijven ongewijzigd.",
+      "status": "approved",
+      "blocker": "Geen; C01 met beide aanvullingen (order/start, ERP-client, readiness-topic, bewaarde promptstatus) is duurzaam gevalideerd.",
       "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
-      "output_sha": "3e5052f34825666a21568483c4edc925be47faac",
+      "output_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "output_handoff": "Nieuwe 04R Contracts- en Platform-rijen met exacte tests en predecessors",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c01b-20260912-01",
-      "next_allowed_action": "Valideer de tweede Contracts-aanvulling; start daarna C10.",
+      "next_allowed_action": "Behoud C01 en beide aanvullingen als voorganger.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -318,13 +318,13 @@
       "visible_value": "De complete IVT-controlflow faalt zichtbaar en veilig zonder dat cosmetische of ongerelateerde UI-eisen eerdere waarde blokkeren.",
       "req_scope": ["resterende REQ-AUT-*", "resterende REQ-SIM-*", "resterende REQ-BC-*", "REQ-MES-031", "row-local REQ-HMI/MUI-* hardening"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
-      "blocker": "De oude 04R-package moet volledig worden herberekend zodat failure-evidence en UI-hardening uitsluitend echte predecessors gebruiken.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak specificeert de volledige controlflow, interlocks, degradatie, de demoschakelaar en de resterende UI-hardening.",
+      "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "output_handoff": "Exacte complete-control-, interlock-, degradation- en row-local UI-tests",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Regeneer na de vroege owner-local chunks en houd failure modes expliciet en meetbaar.",
+      "responsible_task": "phase4r-c10-20260912-01",
+      "next_allowed_action": "Laat alleen de verse C10-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
     {
@@ -380,15 +380,21 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c01b-20260912-01",
+      "task_id": "phase4r-c10-20260912-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C01",
+      "chunk": "C10",
       "status": "in_progress",
-      "input_sha": "059bb15b93b7ebaeb5b4c9069fc27fea2b3f5b2c",
+      "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "write_set": [
-        "private:phase4r:c01b:contracts",
-        "private:phase4r:c01b:index",
-        "private:phase4r:c01b:traceability"
+        "private:phase4r:c10:automation",
+        "private:phase4r:c10:batch-control",
+        "private:phase4r:c10:simulation",
+        "private:phase4r:c10:ignition",
+        "private:phase4r:c10:mes",
+        "private:phase4r:c10:mes-web-ui",
+        "private:phase4r:c10:platform",
+        "private:phase4r:c10:index",
+        "private:phase4r:c10:traceability"
       ]
     }
   ],
