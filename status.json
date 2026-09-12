@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 3R — tweede begrensde aanvulling actief (demoschakelaar)",
+    "title": "Phase 4R — tweede Contracts-aanvulling actief vóór C10",
     "status": "in_progress",
-    "active_chunk": null,
+    "active_chunk": "C01",
     "next_chunk": "C10",
-    "current_boundary": "C01 t/m C09 zijn duurzaam gevalideerd; de demoschakelaar wordt eerst architectureel geplaatst",
-    "what_human_does_next": "Keur straks de tweede Phase-3R-aanvulling expliciet goed.",
-    "next_allowed_action": "Valideer de tweede 3R-aanvulling; start C10 pas na menselijke goedkeuring."
+    "current_boundary": "C01 t/m C09 zijn duurzaam gevalideerd; beide 3R-aanvullingen zijn goedgekeurd; de contracten voor readiness en bewaarde prompt worden toegevoegd",
+    "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
+    "next_allowed_action": "Valideer de Contracts-aanvulling; start daarna één verse C10-taak."
   },
   "phases": [
     {
@@ -88,11 +88,11 @@
       "number": "3R",
       "role": "Ownership/Dependency Grill",
       "plain_language": "Bepaalt wie beslist, wat eerst moet bestaan en waar bewijsgrenzen liggen.",
-      "status": "in_progress",
+      "status": "approved",
       "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5",
       "handoff": "../03R-technical-architecture-and-dependencies.md",
       "evidence": ["../03R-technical-architecture-and-dependencies.md", "../README.md"],
-      "status_note": "De aanvulling van 2026-09-11 is goedgekeurd. Een tweede begrensde aanvulling plaatst nu de presenter-demoschakelaar en de bronnen van de drie startcondities; die vraagt opnieuw menselijke goedkeuring vóór C10."
+      "status_note": "Beide aanvullingen (2026-09-11 en 2026-09-12) zijn door de mens goedgekeurd. De demoschakelaar en de drie startcondities zijn geplaatst; Simulation rapporteert, Batch-Control beslist."
     },
     {
       "id": "phase-4r",
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C09 gevalideerd; de tweede 3R-aanvulling loopt vóór C10."
+      "status_note": "C01 t/m C09 gevalideerd; tweede Contracts-aanvulling actief vóór C10."
     },
     {
       "id": "phase-5r",
@@ -165,14 +165,14 @@
       "visible_value": "Alle services delen dezelfde IDs, berichten, tijden en statusbetekenis voordat functioneel gedrag wordt gespecificeerd.",
       "req_scope": ["REQ-CTR-001..030", "REQ-PLAT-063..064", "nieuw IdP-groundwork-ID door Phase 4R toe te kennen"],
       "current_phase": "phase-4r",
-      "status": "approved",
-      "blocker": "Geen; C01 en de C01A-aanvulling (order- en startcontract, ERP-mock-client) zijn duurzaam gevalideerd.",
+      "status": "in_progress",
+      "blocker": "Geen; een tweede begrensde aanvulling voegt het readiness-topic en de bewaarde promptstatus toe. Bestaande rijen blijven ongewijzigd.",
       "input_sha": "2f8b198a2bd2dfec6ade2b7ef6a840d3d28eb253",
       "output_sha": "3e5052f34825666a21568483c4edc925be47faac",
       "output_handoff": "Nieuwe 04R Contracts- en Platform-rijen met exacte tests en predecessors",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c01a-20260911-02",
-      "next_allowed_action": "Behoud C01/C01A als voorganger voor alle volgende chunks.",
+      "responsible_task": "phase4r-c01b-20260912-01",
+      "next_allowed_action": "Valideer de tweede Contracts-aanvulling; start daarna C10.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -380,13 +380,15 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase3r-addendum2-20260912-01",
-      "role": "Ownership / Dependency Grill",
-      "chunk": null,
+      "task_id": "phase4r-c01b-20260912-01",
+      "role": "Requirements / Test Designer",
+      "chunk": "C01",
       "status": "in_progress",
       "input_sha": "059bb15b93b7ebaeb5b4c9069fc27fea2b3f5b2c",
       "write_set": [
-        "private:phase3r:architecture-record"
+        "private:phase4r:c01b:contracts",
+        "private:phase4r:c01b:index",
+        "private:phase4r:c01b:traceability"
       ]
     }
   ],

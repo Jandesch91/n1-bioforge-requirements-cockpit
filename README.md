@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 3R — tweede begrensde aanvulling actief (demoschakelaar)<br>
-> **Grens:** C01 t/m C09 zijn duurzaam gevalideerd; de demoschakelaar wordt eerst architectureel geplaatst<br>
-> **Wat de mens nu doet:** Keur straks de tweede Phase-3R-aanvulling expliciet goed.<br>
-> **Volgende toegestane actie:** Valideer de tweede 3R-aanvulling; start C10 pas na menselijke goedkeuring.
+> Phase 4R — tweede Contracts-aanvulling actief vóór C10<br>
+> **Grens:** C01 t/m C09 zijn duurzaam gevalideerd; beide 3R-aanvullingen zijn goedgekeurd; de contracten voor readiness en bewaarde prompt worden toegevoegd<br>
+> **Wat de mens nu doet:** Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.<br>
+> **Volgende toegestane actie:** Valideer de Contracts-aanvulling; start daarna één verse C10-taak.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
@@ -22,7 +22,7 @@ flowchart TB
     %% A vertical main lane prevents crossing arrows. The review return uses one side lane.
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
     phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
-    phase_3r["3R · Ownership/Dependency Grill<br/>🔵 Bezig"]
+    phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
     phase_4r["4R · Requirements/Test Designer<br/>🔵 Bezig"]
     phase_5r["5R · Delivery Planner<br/>⛔ Geblokkeerd"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
@@ -45,14 +45,14 @@ flowchart TB
 
 ## YOU ARE HERE en geplande chunkvolgorde
 
-Er is nu **geen requirementchunk actief**. `C10` is de eerstvolgende toegestane chunk. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
+Chunk **`C01`** is actief. `C10` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 55, "rankSpacing": 65, "htmlLabels": true}}}%%
 flowchart TB
     %% One vertical lane: order is explicit and no dependency arrows cross.
     chunk_0["0 · C00<br/>Bewaarde S0-feiten beschermen tegen bewijsinflatie<br/>✅ Goedgekeurd / klaar"]
-    chunk_1["1 · C01<br/>Eén gedeelde taal en een lokale identity-providerbasis<br/>✅ Goedgekeurd / klaar"]
+    chunk_1["1 · C01<br/>Eén gedeelde taal en een lokale identity-providerbasis<br/>🔵 Bezig"]
     chunk_2["2 · C02<br/>Reproduceerbare proceswaarden zonder control logic in Simulation<br/>✅ Goedgekeurd / klaar"]
     chunk_3["3 · C03<br/>Eén echte REACT-fase met een vroege live Ignition-procesweergave<br/>✅ Goedgekeurd / klaar"]
     chunk_4["4 · C04<br/>Een ongeldige start server-side weigeren en begrijpelijk verklaren<br/>✅ Goedgekeurd / klaar"]
@@ -64,8 +64,8 @@ flowchart TB
     chunk_10["10 · C10 · ⏭ VOLGENDE<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>❌ Changes required"]
     chunk_11["11 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
     chunk_12["12 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>geen requirementchunk actief<br/>Volgende: C10"]
-    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> current_marker --> chunk_10 --> chunk_11 --> chunk_12
+    current_marker["🔵 YOU ARE HERE<br/>C01<br/>Volgende: C10"]
+    chunk_0 --> current_marker --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -74,7 +74,7 @@ flowchart TB
     classDef notstarted fill:#F2F4F7,stroke:#667085,color:#344054,stroke-width:2px
     classDef current fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:3px
     class chunk_0 approved
-    class chunk_1 approved
+    class chunk_1 inprogress
     class chunk_2 approved
     class chunk_3 approved
     class chunk_4 approved
@@ -95,8 +95,8 @@ flowchart TB
 |---|---|---|---|
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie. |
-| 3R | Ownership/Dependency Grill | 🔵 Bezig | De aanvulling van 2026-09-11 is goedgekeurd. Een tweede begrensde aanvulling plaatst nu de presenter-demoschakelaar en de bronnen van de drie startcondities; die vraagt opnieuw menselijke goedkeuring vóór C10. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C09 gevalideerd; de tweede 3R-aanvulling loopt vóór C10. |
+| 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Beide aanvullingen (2026-09-11 en 2026-09-12) zijn door de mens goedgekeurd. De demoschakelaar en de drie startcondities zijn geplaatst; Simulation rapporteert, Batch-Control beslist. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C09 gevalideerd; tweede Contracts-aanvulling actief vóór C10. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -106,7 +106,7 @@ flowchart TB
 | Volgorde | Chunk | Gewone-mensentaal | REQ-IDs of families | Status | Verantwoordelijke rol/taak | Volgende toegestane actie |
 |---:|---|---|---|---|---|---|
 | 0 | `C00` | Bewaarde S0-feiten beschermen tegen bewijsinflatie | `REQ-PLAT-001..024`<br>`REQ-PLAT-028..033` | ✅ Goedgekeurd / klaar | Current-State Auditor<br>Nog geen verse taak | Gebruik deze evidence alleen als voorganger; maak historische claims niet sterker. |
-| 1 | `C01` | Eén gedeelde taal en een lokale identity-providerbasis | `REQ-CTR-001..030`<br>`REQ-PLAT-063..064`<br>`nieuw IdP-groundwork-ID door Phase 4R toe te kennen` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c01a-20260911-02 | Behoud C01/C01A als voorganger voor alle volgende chunks. |
+| 1 | `C01` | Eén gedeelde taal en een lokale identity-providerbasis | `REQ-CTR-001..030`<br>`REQ-PLAT-063..064`<br>`nieuw IdP-groundwork-ID door Phase 4R toe te kennen` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c01b-20260912-01 | Valideer de tweede Contracts-aanvulling; start daarna C10. |
 | 2 | `C02` | Reproduceerbare proceswaarden zonder control logic in Simulation | `owner-local REQ-SIM-* basis`<br>`REQ-SIM-021 opvolging met correcte identiteit en volledige failure-assertie` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c02-20260910-04 | Behoud C02 als voorganger; start daarna één verse C03-taak. |
 | 3 | `C03` | Eén echte REACT-fase met een vroege live Ignition-procesweergave | `toepasselijke REQ-AUT-*`<br>`eerste-fase REQ-BC-*`<br>`row-specifieke live-view REQ-HMI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c03-20260911-03 | Behoud C03 als voorganger. |
 | 4 | `C04` | Een ongeldige start server-side weigeren en begrijpelijk verklaren | `permissive/reject-subset van REQ-BC-*`<br>`bijbehorende process-eventcontracten` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c04-20260910-01 | Behoud C04 als voorganger; start daarna één verse C05-taak. |
