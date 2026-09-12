@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C09 — verse requirementtaak actief",
+    "title": "Phase 4R — kleine C07-correctie actief na C09",
     "status": "in_progress",
-    "active_chunk": "C09",
+    "active_chunk": "C07",
     "next_chunk": "C10",
-    "current_boundary": "C01 t/m C08 zijn duurzaam gevalideerd; C09 is gestart",
+    "current_boundary": "C01 t/m C09 zijn duurzaam gevalideerd; één C07-rij wordt begrensd gecorrigeerd",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer en commit alleen geldige C09-output; vóór C10 volgt eerst een kleine 3R-aanvulling voor de demoschakelaar."
+    "next_allowed_action": "Valideer de C07-correctie; daarna volgt de kleine 3R-aanvulling voor de demoschakelaar en pas dan C10."
   },
   "phases": [
     {
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C08 gevalideerd; één verse C09-taak is actief."
+      "status_note": "C01 t/m C09 gevalideerd; kleine C07-correctie actief; daarna 3R-aanvulling en C10."
     },
     {
       "id": "phase-5r",
@@ -267,14 +267,14 @@
       "visible_value": "Batchfacts blijven append-only en operatoracties kunnen de Batch-Control-authority niet omzeilen.",
       "req_scope": ["persistence-subset REQ-MES-*", "REQ-MES-037 en REQ-PLAT-026 (uit C05)", "manual-control REQ-BC-*", "action-subset REQ-HMI-*"],
       "current_phase": "phase-4r",
-      "status": "approved",
-      "blocker": "Geen; de C07-handoff is duurzaam gevalideerd. Open vragen voor latere chunks staan privé geregistreerd.",
+      "status": "in_progress",
+      "blocker": "Geen; een kleine correctie maakt de abortactie verenigbaar met de menselijke keuze dat alleen een supervisor mag afbreken.",
       "input_sha": "dae2f0b7a473aee88c61cbe16b75111eb97e5e3f",
       "output_sha": "0d464471ec331986c634aef4ee42383b96b0bfc3",
       "output_handoff": "Exacte persistence-, audit-, acknowledge- en action-rijen in 04R",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c07-20260911-02",
-      "next_allowed_action": "Behoud C07 als voorganger.",
+      "responsible_task": "phase4r-c07-20260912-03",
+      "next_allowed_action": "Valideer de kleine C07-correctie; start daarna de 3R-aanvulling en C10.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
     {
@@ -301,13 +301,14 @@
       "visible_value": "Dezelfde gebruiker beweegt begrijpelijk tussen MES en Ignition zonder dat één app de andere blokkeert.",
       "req_scope": ["contextuele REQ-MUI-*", "contextuele REQ-HMI-*", "late REQ-PLAT-059", "nieuw owner-local auth-ID indien betekenis wijzigt"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak scheidt lokale auth van navigatie en houdt REQ-PLAT-059 als late gate.",
+      "status": "approved",
+      "blocker": "Geen; de C09-handoff is duurzaam gevalideerd. Eén C07-rij wordt nog begrensd gecorrigeerd voor de supervisorrol.",
       "input_sha": "72e9fd0c44cf716d638a3d111bfdf474561b15fb",
+      "output_sha": "dcf1d4615f3a61ec5557d3eabded0cd9802ee989",
       "output_handoff": "Afzonderlijke owner-local auth/routes plus late connected navigation- en shared-sessiongates",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c09-20260912-01",
-      "next_allowed_action": "Laat alleen de verse C09-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C09 als voorganger; corrigeer daarna de C07-abortrij en start vóór C10 de kleine 3R-aanvulling.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -379,17 +380,15 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c09-20260912-01",
+      "task_id": "phase4r-c07-20260912-03",
       "role": "Requirements / Test Designer",
-      "chunk": "C09",
+      "chunk": "C07",
       "status": "in_progress",
-      "input_sha": "72e9fd0c44cf716d638a3d111bfdf474561b15fb",
+      "input_sha": "dcf1d4615f3a61ec5557d3eabded0cd9802ee989",
       "write_set": [
-        "private:phase4r:c09:mes-web-ui",
-        "private:phase4r:c09:ignition",
-        "private:phase4r:c09:platform",
-        "private:phase4r:c09:index",
-        "private:phase4r:c09:traceability"
+        "private:phase4r:c07c:ignition",
+        "private:phase4r:c07c:index",
+        "private:phase4r:c07c:traceability"
       ]
     }
   ],
