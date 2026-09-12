@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C10E — eerste end-to-end run gate actief",
+    "title": "Phase 4R C10R — RFID-stap actief",
     "status": "in_progress",
-    "active_chunk": "C10E",
-    "next_chunk": "C10R",
-    "current_boundary": "C01 t/m C10 zijn duurzaam gevalideerd; de eerste end-to-end verificatie is gestart",
+    "active_chunk": "C10R",
+    "next_chunk": "C11",
+    "current_boundary": "C01 t/m C10 en de eerste end-to-end run zijn duurzaam gevalideerd; de RFID-stap is gestart",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer C10E; daarna volgen de RFID-stap en pas dan C11."
+    "next_allowed_action": "Valideer C10R; start daarna één verse C11-taak voor de niet-destructieve kandidaat."
   },
   "phases": [
     {
@@ -115,7 +115,7 @@
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "C01 t/m C10 gevalideerd; C10E (eerste end-to-end run) is actief; daarna C10R (RFID) en C11."
+      "status_note": "C01 t/m C10 en C10E gevalideerd; C10R (RFID) is actief; daarna C11."
     },
     {
       "id": "phase-5r",
@@ -445,17 +445,18 @@
         "REQ-MES-030"
       ],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak specificeert de eerste end-to-end verificatie.",
+      "status": "approved",
+      "blocker": "Geen; de eerste end-to-end verificatie is duurzaam gevalideerd, zonder RFID in haar afhankelijkheden.",
       "input_sha": "69ca795f45f741dccd2a80707e822396122ad33d",
       "output_handoff": "Nieuwe 04R-rijen voor deze stap",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c10e-20260912-01",
-      "next_allowed_action": "Laat alleen de verse C10E-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C10E als voorganger; start daarna de RFID-stap.",
       "durable_evidence": [
         "../03R-technical-architecture-and-dependencies.md#addendum-van-2026-09-11",
         "../03R-technical-architecture-and-dependencies.md#addendum-van-2026-09-12"
-      ]
+      ],
+      "output_sha": "b7c8168ba64e623d80b6d0d671758dabbc3ccb95"
     },
     {
       "id": "C10R",
@@ -470,13 +471,13 @@
         "RFID-weergave in de MES-UI"
       ],
       "current_phase": "phase-4r",
-      "status": "not_started",
-      "blocker": "Geen; deze stap volgt na de eerste end-to-end run en vóór de finale kandidaat.",
-      "input_sha": "69ca795f45f741dccd2a80707e822396122ad33d",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak specificeert de gesimuleerde RFID-lezer, de binding en de weergave met terugval.",
+      "input_sha": "b7c8168ba64e623d80b6d0d671758dabbc3ccb95",
       "output_handoff": "Nieuwe 04R-rijen voor deze stap",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Start deze stap pas na een gevalideerde C10E en houd RFID buiten iedere eerdere rij.",
+      "responsible_task": "phase4r-c10r-20260912-01",
+      "next_allowed_action": "Laat alleen de verse C10R-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": [
         "../02-product-decisions.md#addendum-of-2026-09-10",
         "../03R-technical-architecture-and-dependencies.md#addendum-van-2026-09-11"
@@ -552,17 +553,18 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c10e-20260912-01",
+      "task_id": "phase4r-c10r-20260912-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C10E",
+      "chunk": "C10R",
       "status": "in_progress",
-      "input_sha": "69ca795f45f741dccd2a80707e822396122ad33d",
+      "input_sha": "b7c8168ba64e623d80b6d0d671758dabbc3ccb95",
       "write_set": [
-        "private:phase4r:c10e:mes",
-        "private:phase4r:c10e:ignition",
-        "private:phase4r:c10e:platform",
-        "private:phase4r:c10e:index",
-        "private:phase4r:c10e:traceability"
+        "private:phase4r:c10r:contracts",
+        "private:phase4r:c10r:simulation",
+        "private:phase4r:c10r:mes",
+        "private:phase4r:c10r:mes-web-ui",
+        "private:phase4r:c10r:index",
+        "private:phase4r:c10r:traceability"
       ]
     }
   ],
