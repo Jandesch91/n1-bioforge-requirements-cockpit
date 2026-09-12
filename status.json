@@ -323,7 +323,7 @@
       "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "output_handoff": "Exacte complete-control-, interlock-, degradation- en row-local UI-tests",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c10-20260912-01",
+      "responsible_task": "phase4r-c10-20260912-02",
       "next_allowed_action": "Laat alleen de verse C10-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md", "../06R-review-findings.md"]
     },
@@ -380,7 +380,7 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c10-20260912-01",
+      "task_id": "phase4r-c10-20260912-02",
       "role": "Requirements / Test Designer",
       "chunk": "C10",
       "status": "in_progress",
@@ -391,7 +391,6 @@
         "private:phase4r:c10:simulation",
         "private:phase4r:c10:ignition",
         "private:phase4r:c10:mes",
-        "private:phase4r:c10:mes-web-ui",
         "private:phase4r:c10:platform",
         "private:phase4r:c10:index",
         "private:phase4r:c10:traceability"
