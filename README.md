@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 4R C08 — verse requirementtaak actief<br>
-> **Grens:** C01 t/m C07 zijn duurzaam gevalideerd (inclusief correcties); C08 is gestart<br>
+> Phase 4R C09 — verse requirementtaak actief<br>
+> **Grens:** C01 t/m C08 zijn duurzaam gevalideerd; C09 is gestart<br>
 > **Wat de mens nu doet:** Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.<br>
-> **Volgende toegestane actie:** Valideer en commit alleen geldige C08-output; start daarna pas een verse C09-taak.
+> **Volgende toegestane actie:** Valideer en commit alleen geldige C09-output; vóór C10 volgt eerst een kleine 3R-aanvulling voor de demoschakelaar.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
@@ -45,7 +45,7 @@ flowchart TB
 
 ## YOU ARE HERE en geplande chunkvolgorde
 
-Chunk **`C08`** is actief. `C09` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
+Chunk **`C09`** is actief. `C10` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 55, "rankSpacing": 65, "htmlLabels": true}}}%%
@@ -59,13 +59,13 @@ flowchart TB
     chunk_5["5 · C05<br/>MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden<br/>✅ Goedgekeurd / klaar"]
     chunk_6["6 · C06<br/>Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace<br/>✅ Goedgekeurd / klaar"]
     chunk_7["7 · C07<br/>Duurzame history en audit combineren met afzonderlijke operatorauthority<br/>✅ Goedgekeurd / klaar"]
-    chunk_8["8 · C08<br/>Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt<br/>🔵 Bezig"]
-    chunk_9["9 · C09 · ⏭ VOLGENDE<br/>Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken<br/>❌ Changes required"]
-    chunk_10["10 · C10<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>❌ Changes required"]
+    chunk_8["8 · C08<br/>Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt<br/>✅ Goedgekeurd / klaar"]
+    chunk_9["9 · C09<br/>Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken<br/>🔵 Bezig"]
+    chunk_10["10 · C10 · ⏭ VOLGENDE<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>❌ Changes required"]
     chunk_11["11 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
     chunk_12["12 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>C08<br/>Volgende: C09"]
-    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> current_marker --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
+    current_marker["🔵 YOU ARE HERE<br/>C09<br/>Volgende: C10"]
+    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> current_marker --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -81,8 +81,8 @@ flowchart TB
     class chunk_5 approved
     class chunk_6 approved
     class chunk_7 approved
-    class chunk_8 inprogress
-    class chunk_9 changes
+    class chunk_8 approved
+    class chunk_9 inprogress
     class chunk_10 changes
     class chunk_11 changes
     class chunk_12 blocked
@@ -96,7 +96,7 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie. |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Aanvulling van 2026-09-11 (start vanuit het MES-scherm, lotregistratie, ingelogde aanroepers, latere RFID-lezer) is door de mens goedgekeurd. Een kleine aanvulling voor de demoschakelaar volgt vóór C10. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C07 gevalideerd; één verse C08-taak is actief. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C08 gevalideerd; één verse C09-taak is actief. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
@@ -113,8 +113,8 @@ flowchart TB
 | 5 | `C05` | MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden | `REQ-MES-036`<br>`REQ-MES-038..041`<br>`REQ-PLAT-025..027`<br>`REQ-MES-037` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c05-20260911-02 | Behoud C05 als voorganger; corrigeer daarna C06. |
 | 6 | `C06` | Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace | `toepasselijke REQ-MES-*`<br>`ERP REST-ingress-subset`<br>`row-specifieke read-only REQ-MUI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c06-20260911-03 | Behoud C06 als voorganger; start daarna één verse C07-taak. |
 | 7 | `C07` | Duurzame history en audit combineren met afzonderlijke operatorauthority | `persistence-subset REQ-MES-*`<br>`REQ-MES-037 en REQ-PLAT-026 (uit C05)`<br>`manual-control REQ-BC-*`<br>`action-subset REQ-HMI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c07-20260911-02 | Behoud C07 als voorganger. |
-| 8 | `C08` | Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt | `REQ-MES-042..045`<br>`REQ-INT-*`<br>`REQ-ERP-*`<br>`uitsluitend backlog/replay-gerelateerde REQ-MUI-*` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c08-20260912-02 | Laat alleen de verse C08-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
-| 9 | `C09` | Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken | `contextuele REQ-MUI-*`<br>`contextuele REQ-HMI-*`<br>`late REQ-PLAT-059`<br>`nieuw owner-local auth-ID indien betekenis wijzigt` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Ken eerst lokale auth/routes toe en verbind ze pas daarna in expliciete late verificatierijen. |
+| 8 | `C08` | Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt | `REQ-MES-042..045`<br>`REQ-INT-*`<br>`REQ-ERP-*`<br>`uitsluitend backlog/replay-gerelateerde REQ-MUI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c08-20260912-02 | Behoud C08 als voorganger; start daarna één verse C09-taak. |
+| 9 | `C09` | Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken | `contextuele REQ-MUI-*`<br>`contextuele REQ-HMI-*`<br>`late REQ-PLAT-059`<br>`nieuw owner-local auth-ID indien betekenis wijzigt` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c09-20260912-01 | Laat alleen de verse C09-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
 | 10 | `C10` | Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening | `resterende REQ-AUT-*`<br>`resterende REQ-SIM-*`<br>`resterende REQ-BC-*`<br>`REQ-MES-031`<br>`row-local REQ-HMI/MUI-* hardening` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Regeneer na de vroege owner-local chunks en houd failure modes expliciet en meetbaar. |
 | 11 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Specificeer eerst de non-destructieve candidate; plan geen reset of Worker vóór goedgekeurde Phase 6 en voltooide Phase 7. |
 | 12 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ⛔ Geblokkeerd | Independent Reviewer<br>Nog geen verse taak | Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review. |

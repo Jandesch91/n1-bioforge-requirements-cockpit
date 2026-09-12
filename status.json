@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C08 — verse requirementtaak actief",
+    "title": "Phase 4R C09 — verse requirementtaak actief",
     "status": "in_progress",
-    "active_chunk": "C08",
-    "next_chunk": "C09",
-    "current_boundary": "C01 t/m C07 zijn duurzaam gevalideerd (inclusief correcties); C08 is gestart",
+    "active_chunk": "C09",
+    "next_chunk": "C10",
+    "current_boundary": "C01 t/m C08 zijn duurzaam gevalideerd; C09 is gestart",
     "what_human_does_next": "Geen actie nodig; de orchestrator stopt zelf bij een menselijke of gebruiksgrens.",
-    "next_allowed_action": "Valideer en commit alleen geldige C08-output; start daarna pas een verse C09-taak."
+    "next_allowed_action": "Valideer en commit alleen geldige C09-output; vóór C10 volgt eerst een kleine 3R-aanvulling voor de demoschakelaar."
   },
   "phases": [
     {
@@ -103,7 +103,7 @@
       "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": ["../06R-review-findings.md", "../03R-technical-architecture-and-dependencies.md"],
-      "status_note": "C01 t/m C07 gevalideerd; één verse C08-taak is actief."
+      "status_note": "C01 t/m C08 gevalideerd; één verse C09-taak is actief."
     },
     {
       "id": "phase-5r",
@@ -284,13 +284,14 @@
       "visible_value": "Enterprise-events zijn herstelbaar zonder het MES-kernpad of vroege schermen te blokkeren.",
       "req_scope": ["REQ-MES-042..045", "REQ-INT-*", "REQ-ERP-*", "uitsluitend backlog/replay-gerelateerde REQ-MUI-*"],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak houdt REQ-INT-004 bij de finale demo en geeft UI-rijen alleen gebruikte resilience-voorgangers.",
+      "status": "approved",
+      "blocker": "Geen; de C08-handoff is duurzaam gevalideerd. REQ-INT-004 blijft bij de finale demo.",
       "input_sha": "2ddcb9845ed02967c64fc297ad9cfe24c28d5291",
+      "output_sha": "72e9fd0c44cf716d638a3d111bfdf474561b15fb",
       "output_handoff": "Vroege owner-local Kafka/ERP-rijen, latere resilience-rijen en afzonderlijke UI-consumers",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c08-20260912-02",
-      "next_allowed_action": "Laat alleen de verse C08-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C08 als voorganger; start daarna één verse C09-taak.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
     {
@@ -300,13 +301,13 @@
       "visible_value": "Dezelfde gebruiker beweegt begrijpelijk tussen MES en Ignition zonder dat één app de andere blokkeert.",
       "req_scope": ["contextuele REQ-MUI-*", "contextuele REQ-HMI-*", "late REQ-PLAT-059", "nieuw owner-local auth-ID indien betekenis wijzigt"],
       "current_phase": "phase-4r",
-      "status": "changes_required",
-      "blocker": "REQ-PLAT-059 was ten onrechte Ready en lokale authenticatie, navigatie en gedeelde sessie waren vermengd.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak scheidt lokale auth van navigatie en houdt REQ-PLAT-059 als late gate.",
+      "input_sha": "72e9fd0c44cf716d638a3d111bfdf474561b15fb",
       "output_handoff": "Afzonderlijke owner-local auth/routes plus late connected navigation- en shared-sessiongates",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": null,
-      "next_allowed_action": "Ken eerst lokale auth/routes toe en verbind ze pas daarna in expliciete late verificatierijen.",
+      "responsible_task": "phase4r-c09-20260912-01",
+      "next_allowed_action": "Laat alleen de verse C09-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies"]
     },
     {
@@ -378,19 +379,17 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c08-20260912-02",
+      "task_id": "phase4r-c09-20260912-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C08",
+      "chunk": "C09",
       "status": "in_progress",
-      "input_sha": "2ddcb9845ed02967c64fc297ad9cfe24c28d5291",
+      "input_sha": "72e9fd0c44cf716d638a3d111bfdf474561b15fb",
       "write_set": [
-        "private:phase4r:c08:enterprise-event-integration",
-        "private:phase4r:c08:erp-mock",
-        "private:phase4r:c08:mes",
-        "private:phase4r:c08:mes-web-ui",
-        "private:phase4r:c08:platform",
-        "private:phase4r:c08:index",
-        "private:phase4r:c08:traceability"
+        "private:phase4r:c09:mes-web-ui",
+        "private:phase4r:c09:ignition",
+        "private:phase4r:c09:platform",
+        "private:phase4r:c09:index",
+        "private:phase4r:c09:traceability"
       ]
     }
   ],
