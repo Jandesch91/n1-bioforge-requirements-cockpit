@@ -9,7 +9,7 @@
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
-- Snapshot: `2026-09-11`
+- Snapshot: `2026-09-12`
 - Scope: Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.
 
 ## Zeven fasen en teruglus
@@ -113,7 +113,7 @@ flowchart TB
 | 5 | `C05` | MES-schema rechtstreeks bewijzen en het daarna veilig toepassen en seeden | `REQ-MES-036`<br>`REQ-MES-038..041`<br>`REQ-PLAT-025..027`<br>`REQ-MES-037` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c05-20260911-02 | Behoud C05 als voorganger; corrigeer daarna C06. |
 | 6 | `C06` | Order, identiteit, dispatch, outbox en een minimale read-only MES-workspace | `toepasselijke REQ-MES-*`<br>`ERP REST-ingress-subset`<br>`row-specifieke read-only REQ-MUI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c06-20260911-03 | Behoud C06 als voorganger; start daarna één verse C07-taak. |
 | 7 | `C07` | Duurzame history en audit combineren met afzonderlijke operatorauthority | `persistence-subset REQ-MES-*`<br>`REQ-MES-037 en REQ-PLAT-026 (uit C05)`<br>`manual-control REQ-BC-*`<br>`action-subset REQ-HMI-*` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c07-20260911-02 | Behoud C07 als voorganger. |
-| 8 | `C08` | Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt | `REQ-MES-042..045`<br>`REQ-INT-*`<br>`REQ-ERP-*`<br>`uitsluitend backlog/replay-gerelateerde REQ-MUI-*` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c08-20260911-01 | Laat alleen de verse C08-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
+| 8 | `C08` | Kafka-businessfacts en ERP-projectie, met resilience alleen waar die gebruikt wordt | `REQ-MES-042..045`<br>`REQ-INT-*`<br>`REQ-ERP-*`<br>`uitsluitend backlog/replay-gerelateerde REQ-MUI-*` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c08-20260912-02 | Laat alleen de verse C08-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
 | 9 | `C09` | Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken | `contextuele REQ-MUI-*`<br>`contextuele REQ-HMI-*`<br>`late REQ-PLAT-059`<br>`nieuw owner-local auth-ID indien betekenis wijzigt` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Ken eerst lokale auth/routes toe en verbind ze pas daarna in expliciete late verificatierijen. |
 | 10 | `C10` | Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening | `resterende REQ-AUT-*`<br>`resterende REQ-SIM-*`<br>`resterende REQ-BC-*`<br>`REQ-MES-031`<br>`row-local REQ-HMI/MUI-* hardening` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Regeneer na de vroege owner-local chunks en houd failure modes expliciet en meetbaar. |
 | 11 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ❌ Changes required | Requirements/Test Designer<br>Nog geen verse taak | Specificeer eerst de non-destructieve candidate; plan geen reset of Worker vóór goedgekeurde Phase 6 en voltooide Phase 7. |

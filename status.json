@@ -4,7 +4,7 @@
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
     "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
-    "snapshot_date": "2026-09-11",
+    "snapshot_date": "2026-09-12",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
     "publication": {
@@ -289,7 +289,7 @@
       "input_sha": "2ddcb9845ed02967c64fc297ad9cfe24c28d5291",
       "output_handoff": "Vroege owner-local Kafka/ERP-rijen, latere resilience-rijen en afzonderlijke UI-consumers",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c08-20260911-01",
+      "responsible_task": "phase4r-c08-20260912-02",
       "next_allowed_action": "Laat alleen de verse C08-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": ["../03R-technical-architecture-and-dependencies.md#bewijsgrenzen-en-worker-ownership-r6r-001", "../06R-review-findings.md#r6r-001--the-acyclic-looking-graph-still-contains-forward-evidence-dependencies", "../06R-review-findings.md#r6r-006--blanket-ui-predecessors-postpone-the-learning-slice-behind-unrelated-resilience"]
     },
@@ -378,7 +378,7 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c08-20260911-01",
+      "task_id": "phase4r-c08-20260912-02",
       "role": "Requirements / Test Designer",
       "chunk": "C08",
       "status": "in_progress",
