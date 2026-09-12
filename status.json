@@ -56,7 +56,7 @@
     "title": "Phase 4R C11 — finale kandidaat actief",
     "status": "in_progress",
     "active_chunk": "C11",
-    "next_chunk": null,
+    "next_chunk": "GATE",
     "current_boundary": "C01 t/m C10, de eerste end-to-end run en de RFID-stap zijn duurzaam gevalideerd; C11 is gestart",
     "what_human_does_next": "Geen actie nodig; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming.",
     "next_allowed_action": "Valideer C11; daarna volgt een begrensde Phase-2-aanvulling met de nieuwe productkeuzes, dan Phase 5R en een verse onafhankelijke review."

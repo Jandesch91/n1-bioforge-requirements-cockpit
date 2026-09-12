@@ -13,11 +13,11 @@ flowchart TB
     chunk_9["9 · C09<br/>Contextnavigatie en gedeelde sessie nadat beide applicaties lokaal werken<br/>✅ Goedgekeurd / klaar"]
     chunk_10["10 · C10<br/>Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening<br/>✅ Goedgekeurd / klaar"]
     chunk_11["11 · C10E<br/>Eén complete batch door de echte keten heen<br/>✅ Goedgekeurd / klaar"]
-    chunk_12["12 · C10R<br/>Gesimuleerde RFID-lotdetectie als derde registratiemethode<br/>🔵 Bezig"]
-    chunk_13["13 · C11 · ⏭ VOLGENDE<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>❌ Changes required"]
-    chunk_14["14 · GATE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>C10R<br/>Volgende: C11"]
-    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> current_marker --> chunk_12 --> chunk_13 --> chunk_14
+    chunk_12["12 · C10R<br/>Gesimuleerde RFID-lotdetectie als derde registratiemethode<br/>✅ Goedgekeurd / klaar"]
+    chunk_13["13 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>🔵 Bezig"]
+    chunk_14["14 · GATE · ⏭ VOLGENDE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
+    current_marker["🔵 YOU ARE HERE<br/>C11<br/>Volgende: GATE"]
+    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12 --> current_marker --> chunk_13 --> chunk_14
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -37,7 +37,7 @@ flowchart TB
     class chunk_9 approved
     class chunk_10 approved
     class chunk_11 approved
-    class chunk_12 inprogress
-    class chunk_13 changes
+    class chunk_12 approved
+    class chunk_13 inprogress
     class chunk_14 blocked
     class current_marker current
