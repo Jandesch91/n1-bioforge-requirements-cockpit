@@ -53,11 +53,11 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C11 — finale kandidaat actief",
+    "title": "Phase 4R C11b — apart geautoriseerde reset en demo actief",
     "status": "in_progress",
     "active_chunk": "C11",
     "next_chunk": "GATE",
-    "current_boundary": "C01 t/m C10, de eerste end-to-end run en de RFID-stap zijn duurzaam gevalideerd; C11 is gestart",
+    "current_boundary": "C01 t/m C10, C10E, C10R en de niet-destructieve kandidaat zijn gevalideerd; C11b specificeert reset en demo",
     "what_human_does_next": "Geen actie nodig; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming.",
     "next_allowed_action": "Valideer C11; daarna volgt een begrensde Phase-2-aanvulling met de nieuwe productkeuzes, dan Phase 5R en een verse onafhankelijke review."
   },
@@ -501,7 +501,7 @@
       "input_sha": "936ba0cf575ee59b520e8a4cd2beb8577692de0e",
       "output_handoff": "Finale non-destructive gates, late no-cost test en expliciete reset/demo-autorisatiegrenzen",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c11-20260913-02",
+      "responsible_task": "phase4r-c11-20260913-03",
       "next_allowed_action": "Laat alleen de verse C11-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": [
         "../03R-technical-architecture-and-dependencies.md#verplichte-downstreamregel-voor-phase-5r-en-phase-7",
@@ -554,16 +554,16 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c11-20260913-02",
+      "task_id": "phase4r-c11-20260913-03",
       "role": "Requirements / Test Designer",
       "chunk": "C11",
       "status": "in_progress",
-      "input_sha": "936ba0cf575ee59b520e8a4cd2beb8577692de0e",
+      "input_sha": "3fe875051a7089e0ff2adb1f191b108221b85357",
       "write_set": [
-        "private:phase4r:c11a:platform",
-        "private:phase4r:c11a:enterprise-event-integration",
-        "private:phase4r:c11a:index",
-        "private:phase4r:c11a:traceability"
+        "private:phase4r:c11b:platform",
+        "private:phase4r:c11b:batch-control",
+        "private:phase4r:c11b:index",
+        "private:phase4r:c11b:traceability"
       ]
     }
   ],
