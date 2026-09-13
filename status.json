@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 5R — kleine planupdate na de correctie",
-    "status": "in_progress",
-    "active_chunk": null,
+    "title": "Phase 6 — verse onafhankelijke review actief",
+    "status": "independent_review",
+    "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "Phase 4R is compleet en gecorrigeerd; het plan wordt bijgewerkt vóór de menselijke goedkeuring",
-    "what_human_does_next": "Keur straks het leveringsplan expliciet goed.",
-    "next_allowed_action": "Valideer de planupdate, vraag menselijke goedkeuring en start daarna één verse Phase-6 review."
+    "current_boundary": "Phase 1 t/m 5R zijn geregenereerd en vastgelegd; één verse review beoordeelt het geheel op SHA b197abc",
+    "what_human_does_next": "Lees straks de dispositie; keur het plan pas definitief goed na die uitspraak.",
+    "next_allowed_action": "Registreer de reviewuitspraak. Phase 7 mag alleen bij APPROVED op exact dezelfde SHA én expliciete menselijke adoptie."
   },
   "phases": [
     {
@@ -122,30 +122,29 @@
       "number": "5R",
       "role": "Delivery Planner",
       "plain_language": "Zet goedgekeurde requirements in kleine, uitvoerbare dependency-volgorde.",
-      "status": "in_progress",
+      "status": "approved",
       "input_sha": "a2d10c7711b34ab3e680ddd51b3a836aa502fb0b",
       "handoff": "../05R-delivery-plan-and-working-method.md",
       "evidence": [
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "status_note": "Het plan is geregenereerd; een kleine update verwerkt de gecorrigeerde voorgangerscel. Daarna vraagt het expliciete menselijke goedkeuring."
+      "status_note": "Het plan is geregenereerd en door de mens in principe goedgekeurd. De mens neemt het definitieve besluit na de onafhankelijke review, die het plan expliciet extra kritisch bekijkt."
     },
     {
       "id": "phase-6",
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "changes_required",
+      "status": "independent_review",
       "display_kind": "independent_review",
-      "input_sha": "edade537d55fad42bd4ad5cf1a80b1ebc32f06d5",
-      "handoff": "../06R-review-findings.md",
+      "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
+      "handoff": "../06R2-review-findings.md",
       "evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md"
       ],
-      "return_to_phase": "phase-3r",
-      "status_note": "06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd."
+      "status_note": "Eén genuinely verse review beoordeelt het volledige pakket op exact deze SHA. De reviewer repareert niets."
     },
     {
       "id": "phase-7",
@@ -572,13 +571,13 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "blocked",
-      "blocker": "C01..C11 hebben nog geen geregenereerde Phase-4R-uitkomst; Phase 5R en een verse onafhankelijke review ontbreken.",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "blocker": "Geen; de verse onafhankelijke review loopt op exact de planning-SHA b197abc.",
+      "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
       "output_handoff": "Nieuwe Phase-6-reviewdispositie op exact dezelfde planning-SHA",
       "responsible_role": "Independent Reviewer",
-      "responsible_task": null,
-      "next_allowed_action": "Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review.",
+      "responsible_task": "phase6-20260913-01",
+      "next_allowed_action": "Registreer de dispositie ongewijzigd; bij CHANGES REQUIRED keert de staat terug naar de vroegste defecte fase.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
@@ -606,14 +605,13 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase5r-update-20260913-02",
-      "role": "Delivery Planner",
-      "chunk": null,
+      "task_id": "phase6-20260913-01",
+      "role": "Independent Reviewer",
+      "chunk": "GATE",
       "status": "in_progress",
-      "input_sha": "09e93cb0e011cac0e2fecad21d6fdac0b8bba5d4",
+      "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
       "write_set": [
-        "private:phase5r:delivery-plan",
-        "private:phase5r:resume-point"
+        "private:phase6:review-findings"
       ]
     }
   ],
