@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R — kleine correctie van één voorgangerscel",
+    "title": "Phase 5R — kleine planupdate na de correctie",
     "status": "in_progress",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "Het plan is geschreven; één voorgangerscel wordt gecorrigeerd voordat de review start",
+    "current_boundary": "Phase 4R is compleet en gecorrigeerd; het plan wordt bijgewerkt vóór de menselijke goedkeuring",
     "what_human_does_next": "Keur straks het leveringsplan expliciet goed.",
-    "next_allowed_action": "Valideer de correctie, werk het plan bij en start daarna één verse Phase-6 review."
+    "next_allowed_action": "Valideer de planupdate, vraag menselijke goedkeuring en start daarna één verse Phase-6 review."
   },
   "phases": [
     {
@@ -108,14 +108,14 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "in_progress",
+      "status": "approved",
       "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": [
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "C01 t/m C13 zijn gevalideerd. Eén voorgangerscel (REQ-BC-016) wordt begrensd gecorrigeerd nadat de planner een verborgen late afhankelijkheid vond."
+      "status_note": "C01 t/m C13 zijn geregenereerd en gevalideerd (378 rijen). Eén voorgangerscel is daarna gecorrigeerd nadat de planner een verborgen late afhankelijkheid vond."
     },
     {
       "id": "phase-5r",
@@ -129,7 +129,7 @@
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "status_note": "Het plan is geregenereerd op de afgeronde Phase-4R-set. Eén item is geblokkeerd op een voorgangerscel die nog wordt gecorrigeerd; daarna volgt een korte planupdate."
+      "status_note": "Het plan is geregenereerd; een kleine update verwerkt de gecorrigeerde voorgangerscel. Daarna vraagt het expliciete menselijke goedkeuring."
     },
     {
       "id": "phase-6",
@@ -606,15 +606,14 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-uq1-20260913-01",
-      "role": "Requirements / Test Designer",
+      "task_id": "phase5r-update-20260913-02",
+      "role": "Delivery Planner",
       "chunk": null,
       "status": "in_progress",
-      "input_sha": "75df5fed64fd2c5c83c6b84ac31670c832798965",
+      "input_sha": "09e93cb0e011cac0e2fecad21d6fdac0b8bba5d4",
       "write_set": [
-        "private:phase4r:uq1:batch-control",
-        "private:phase4r:uq1:index",
-        "private:phase4r:uq1:traceability"
+        "private:phase5r:delivery-plan",
+        "private:phase5r:resume-point"
       ]
     }
   ],
