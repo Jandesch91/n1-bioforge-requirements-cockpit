@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 4R C13 — walkthrough uitbreiden<br>
-> **Grens:** Het hele 04R-pakket is geregenereerd; alleen de uitgebreide walkthrough ontbreekt nog<br>
-> **Wat de mens nu doet:** Geen actie nodig; de open productvraag over "klaar" is beantwoord.<br>
-> **Volgende toegestane actie:** Valideer C13; daarna volgen Phase 5R en een verse onafhankelijke review.
+> Phase 5R — verse deliveryplanner actief<br>
+> **Grens:** Phase 4R is compleet (378 rijen); het leveringsplan wordt opnieuw opgebouwd<br>
+> **Wat de mens nu doet:** Keur straks het geregenereerde leveringsplan expliciet goed.<br>
+> **Volgende toegestane actie:** Valideer het plan; start daarna één genuinely verse Phase-6 review op exact dezelfde planning-SHA.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
@@ -23,8 +23,8 @@ flowchart TB
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
     phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
     phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
-    phase_4r["4R · Requirements/Test Designer<br/>🔵 Bezig"]
-    phase_5r["5R · Delivery Planner<br/>⛔ Geblokkeerd"]
+    phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
+    phase_5r["5R · Delivery Planner<br/>🔵 Bezig"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
     phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
@@ -45,7 +45,7 @@ flowchart TB
 
 ## YOU ARE HERE en geplande chunkvolgorde
 
-Chunk **`C13`** is actief. `GATE` blijft de eerstvolgende kandidaat en mag pas na validatie starten. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
+Er is nu **geen requirementchunk actief**. `GATE` is de eerstvolgende toegestane chunk. De roadmap gebruikt één verticale baan en toont de vaste dependencyvolgorde expliciet.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 55, "rankSpacing": 65, "htmlLabels": true}}}%%
@@ -66,10 +66,10 @@ flowchart TB
     chunk_12["12 · C10R<br/>Gesimuleerde RFID-lotdetectie als derde registratiemethode<br/>✅ Goedgekeurd / klaar"]
     chunk_13["13 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>✅ Goedgekeurd / klaar"]
     chunk_14["14 · C12<br/>Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo<br/>✅ Goedgekeurd / klaar"]
-    chunk_15["15 · C13<br/>De walkthrough uitgebreid met de nieuwe schermen<br/>🔵 Bezig"]
+    chunk_15["15 · C13<br/>De walkthrough uitgebreid met de nieuwe schermen<br/>✅ Goedgekeurd / klaar"]
     chunk_16["16 · GATE · ⏭ VOLGENDE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>⛔ Geblokkeerd"]
-    current_marker["🔵 YOU ARE HERE<br/>C13<br/>Volgende: GATE"]
-    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12 --> chunk_13 --> chunk_14 --> current_marker --> chunk_15 --> chunk_16
+    current_marker["🔵 YOU ARE HERE<br/>geen requirementchunk actief<br/>Volgende: GATE"]
+    chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12 --> chunk_13 --> chunk_14 --> chunk_15 --> current_marker --> chunk_16
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -92,7 +92,7 @@ flowchart TB
     class chunk_12 approved
     class chunk_13 approved
     class chunk_14 approved
-    class chunk_15 inprogress
+    class chunk_15 approved
     class chunk_16 blocked
     class current_marker current
 ```
@@ -104,8 +104,8 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Beide aanvullingen zijn door de mens goedgekeurd. De tweede voegt acht MES-schermen en de batchstatus toe als een increment ná de demo; de demo zelf houdt haar goedgekeurde scope en plaats. |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
-| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C12 zijn gevalideerd; C13 breidt alleen de walkthrough uit. Daarna is Phase 4R compleet. |
-| 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
+| 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle chunks C01 t/m C13 zijn geregenereerd en gevalideerd: 378 actieve rijen, geen rij ongeregenereerd. Dit is nog geen onafhankelijke goedkeuring. |
+| 5R | Delivery Planner | 🔵 Bezig | Volledige regeneratie actief op de afgeronde Phase-4R-set; de oude plan- en hervattingstekst geldt als afgekeurd bewijs. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
 
@@ -128,7 +128,7 @@ flowchart TB
 | 12 | `C10R` | Gesimuleerde RFID-lotdetectie als derde registratiemethode | `Contracts RFID-topic/payload`<br>`Simulation RFID-reader`<br>`MES RFID-binding`<br>`connected RFID-verificatie`<br>`RFID-weergave in de MES-UI` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c10r-20260912-01 | Behoud C10R als voorganger; start daarna de finale kandidaat. |
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
 | 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c12c-20260913-01 | Behoud C12 als voorganger; herspecificeer daarna de walkthrough. |
-| 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Laat alleen de verse C13-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
+| 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Behoud C13 als voorganger; Phase 4R is compleet. |
 | 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ⛔ Geblokkeerd | Independent Reviewer<br>Nog geen verse taak | Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review. |
 
 ## Statuslegenda

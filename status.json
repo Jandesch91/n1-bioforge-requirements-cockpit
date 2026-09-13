@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C13 — walkthrough uitbreiden",
+    "title": "Phase 5R — verse deliveryplanner actief",
     "status": "in_progress",
-    "active_chunk": "C13",
+    "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "Het hele 04R-pakket is geregenereerd; alleen de uitgebreide walkthrough ontbreekt nog",
-    "what_human_does_next": "Geen actie nodig; de open productvraag over \"klaar\" is beantwoord.",
-    "next_allowed_action": "Valideer C13; daarna volgen Phase 5R en een verse onafhankelijke review."
+    "current_boundary": "Phase 4R is compleet (378 rijen); het leveringsplan wordt opnieuw opgebouwd",
+    "what_human_does_next": "Keur straks het geregenereerde leveringsplan expliciet goed.",
+    "next_allowed_action": "Valideer het plan; start daarna één genuinely verse Phase-6 review op exact dezelfde planning-SHA."
   },
   "phases": [
     {
@@ -108,28 +108,28 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "in_progress",
-      "input_sha": "241f4452fbb205f9449165790ba9e1f0b61c31a3",
+      "status": "approved",
+      "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": [
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "C01 t/m C12 zijn gevalideerd; C13 breidt alleen de walkthrough uit. Daarna is Phase 4R compleet."
+      "status_note": "Alle chunks C01 t/m C13 zijn geregenereerd en gevalideerd: 378 actieve rijen, geen rij ongeregenereerd. Dit is nog geen onafhankelijke goedkeuring."
     },
     {
       "id": "phase-5r",
       "number": "5R",
       "role": "Delivery Planner",
       "plain_language": "Zet goedgekeurde requirements in kleine, uitvoerbare dependency-volgorde.",
-      "status": "blocked",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "status": "in_progress",
+      "input_sha": "a2d10c7711b34ab3e680ddd51b3a836aa502fb0b",
       "handoff": "../05R-delivery-plan-and-working-method.md",
       "evidence": [
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "status_note": "Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd."
+      "status_note": "Volledige regeneratie actief op de afgeronde Phase-4R-set; de oude plan- en hervattingstekst geldt als afgekeurd bewijs."
     },
     {
       "id": "phase-6",
@@ -547,17 +547,18 @@
         "REQ-MUI-019-identiteit"
       ],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de goedgekeurde demo blijft ongewijzigd en wordt eerst bewezen.",
+      "status": "approved",
+      "blocker": "Geen; de uitgebreide walkthrough is duurzaam gevalideerd en de goedgekeurde demo blijft ongewijzigd en wordt eerst bewezen.",
       "input_sha": "119dcb1df7b276baa29b10b616091ef1bb6ea2b8",
       "output_handoff": "Uitgebreide walkthrough-rijen en de bijbehorende identiteitsbeslissingen",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c13-20260913-01",
-      "next_allowed_action": "Laat alleen de verse C13-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C13 als voorganger; Phase 4R is compleet.",
       "durable_evidence": [
         "../03R-technical-architecture-and-dependencies.md#addendum-van-2026-09-13",
         "../02-product-decisions.md#addendum-of-2026-09-13"
-      ]
+      ],
+      "output_sha": "a2d10c7711b34ab3e680ddd51b3a836aa502fb0b"
     },
     {
       "id": "GATE",
@@ -605,17 +606,14 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c13-20260913-01",
-      "role": "Requirements / Test Designer",
-      "chunk": "C13",
+      "task_id": "phase5r-20260913-01",
+      "role": "Delivery Planner",
+      "chunk": null,
       "status": "in_progress",
-      "input_sha": "119dcb1df7b276baa29b10b616091ef1bb6ea2b8",
+      "input_sha": "a2d10c7711b34ab3e680ddd51b3a836aa502fb0b",
       "write_set": [
-        "private:phase4r:c13:platform",
-        "private:phase4r:c13:mes",
-        "private:phase4r:c13:mes-web-ui",
-        "private:phase4r:c13:index",
-        "private:phase4r:c13:traceability"
+        "private:phase5r:delivery-plan",
+        "private:phase5r:resume-point"
       ]
     }
   ],
