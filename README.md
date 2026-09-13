@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 5R — verse deliveryplanner actief<br>
-> **Grens:** Phase 4R is compleet (378 rijen); het leveringsplan wordt opnieuw opgebouwd<br>
-> **Wat de mens nu doet:** Keur straks het geregenereerde leveringsplan expliciet goed.<br>
-> **Volgende toegestane actie:** Valideer het plan; start daarna één genuinely verse Phase-6 review op exact dezelfde planning-SHA.
+> Phase 4R — kleine correctie van één voorgangerscel<br>
+> **Grens:** Het plan is geschreven; één voorgangerscel wordt gecorrigeerd voordat de review start<br>
+> **Wat de mens nu doet:** Keur straks het leveringsplan expliciet goed.<br>
+> **Volgende toegestane actie:** Valideer de correctie, werk het plan bij en start daarna één verse Phase-6 review.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
@@ -23,7 +23,7 @@ flowchart TB
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
     phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
     phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
-    phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
+    phase_4r["4R · Requirements/Test Designer<br/>🔵 Bezig"]
     phase_5r["5R · Delivery Planner<br/>🔵 Bezig"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
     phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
@@ -104,8 +104,8 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Beide aanvullingen zijn door de mens goedgekeurd. De tweede voegt acht MES-schermen en de batchstatus toe als een increment ná de demo; de demo zelf houdt haar goedgekeurde scope en plaats. |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
-| 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle chunks C01 t/m C13 zijn geregenereerd en gevalideerd: 378 actieve rijen, geen rij ongeregenereerd. Dit is nog geen onafhankelijke goedkeuring. |
-| 5R | Delivery Planner | 🔵 Bezig | Volledige regeneratie actief op de afgeronde Phase-4R-set; de oude plan- en hervattingstekst geldt als afgekeurd bewijs. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C13 zijn gevalideerd. Eén voorgangerscel (REQ-BC-016) wordt begrensd gecorrigeerd nadat de planner een verborgen late afhankelijkheid vond. |
+| 5R | Delivery Planner | 🔵 Bezig | Het plan is geregenereerd op de afgeronde Phase-4R-set. Eén item is geblokkeerd op een voorgangerscel die nog wordt gecorrigeerd; daarna volgt een korte planupdate. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
 
