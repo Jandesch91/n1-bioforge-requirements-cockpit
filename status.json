@@ -144,7 +144,8 @@
         "../06-review-findings.md",
         "../06R-review-findings.md"
       ],
-      "status_note": "Eén genuinely verse review beoordeelt het volledige pakket op exact deze SHA. De reviewer repareert niets."
+      "status_note": "Eén genuinely verse review beoordeelt het volledige pakket op exact SHA b197abc; de reviewer repareert niets. De retourpijl toont nog de vorige uitspraak (06R) tot de nieuwe dispositie is vastgelegd.",
+      "return_to_phase": "phase-3r"
     },
     {
       "id": "phase-7",
