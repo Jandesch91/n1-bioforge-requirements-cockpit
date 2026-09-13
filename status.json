@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C11b — apart geautoriseerde reset en demo actief",
+    "title": "Phase 2 — productaanvulling voor een scope-uitbreiding ná de demo",
     "status": "in_progress",
-    "active_chunk": "C11",
+    "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "C01 t/m C10, C10E, C10R en de niet-destructieve kandidaat zijn gevalideerd; C11b specificeert reset en demo",
-    "what_human_does_next": "Geen actie nodig; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming.",
-    "next_allowed_action": "Valideer C11; daarna volgt een begrensde Phase-2-aanvulling met de nieuwe productkeuzes, dan Phase 5R en een verse onafhankelijke review."
+    "current_boundary": "C01 t/m C11 zijn duurzaam gevalideerd; negen rijen krijgen een nieuw increment ná de demo",
+    "what_human_does_next": "Keur straks de Phase-2-aanvulling en daarna de Phase-3R-aanvulling expliciet goed.",
+    "next_allowed_action": "Valideer de Phase-2-aanvulling; daarna volgen een 3R-aanvulling, het nieuwe increment C12, Phase 5R en een verse onafhankelijke review."
   },
   "phases": [
     {
@@ -80,14 +80,14 @@
       "number": "2",
       "role": "Product Outcome Grill",
       "plain_language": "Bevestigt zichtbare uitkomsten, grenzen en menselijke keuzes.",
-      "status": "approved",
+      "status": "in_progress",
       "input_sha": "2bc934750fb14d73800773932886777871704ad3",
       "handoff": "../02-product-decisions.md",
       "evidence": [
         "../02-product-decisions.md",
         "../README.md"
       ],
-      "status_note": "Aanvulling van 2026-09-10 is op 2026-09-11 door de mens goedgekeurd, inclusief een latere gesimuleerde RFID-lotdetectie."
+      "status_note": "Tweede begrensde aanvulling actief: de besturingskeuzes en een scope-uitbreiding van acht MES-schermen plus batchstatus, geplaatst ná de demo. Daarna is opnieuw menselijke goedkeuring nodig."
     },
     {
       "id": "phase-3r",
@@ -115,7 +115,7 @@
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "C01 t/m C10, C10E en C10R gevalideerd; C11 (finale kandidaat) is de laatste actieve chunk."
+      "status_note": "C01 t/m C11 zijn gevalideerd. Negen rijen blijven in Release 1 en komen in een nieuw increment C12 ná de demo, eerst via Phase 2 en 3R."
     },
     {
       "id": "phase-5r",
@@ -496,17 +496,18 @@
         "EN-DEMO-001"
       ],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; de verse taak specificeert eerst de niet-destructieve kandidaat en het kosteloosheidsbewijs, en pas daarna de apart geautoriseerde reset en demo.",
+      "status": "approved",
+      "blocker": "Geen; de niet-destructieve kandidaat, het kosteloosheidsbewijs en de apart geautoriseerde reset/demo zijn duurzaam gevalideerd.",
       "input_sha": "936ba0cf575ee59b520e8a4cd2beb8577692de0e",
       "output_handoff": "Finale non-destructive gates, late no-cost test en expliciete reset/demo-autorisatiegrenzen",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c11-20260913-03",
-      "next_allowed_action": "Laat alleen de verse C11-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming.",
       "durable_evidence": [
         "../03R-technical-architecture-and-dependencies.md#verplichte-downstreamregel-voor-phase-5r-en-phase-7",
         "../06R-review-findings.md#r6r-003--worker-handoff-precedes-canonical-scope-integration"
-      ]
+      ],
+      "output_sha": "fcdea8cffdc93fe79f93f26571d333c1cba38aad"
     },
     {
       "id": "GATE",
@@ -554,16 +555,13 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c11-20260913-03",
-      "role": "Requirements / Test Designer",
-      "chunk": "C11",
+      "task_id": "phase2-addendum2-20260913-01",
+      "role": "Product Outcome Grill",
+      "chunk": null,
       "status": "in_progress",
-      "input_sha": "3fe875051a7089e0ff2adb1f191b108221b85357",
+      "input_sha": "fcdea8cffdc93fe79f93f26571d333c1cba38aad",
       "write_set": [
-        "private:phase4r:c11b:platform",
-        "private:phase4r:c11b:batch-control",
-        "private:phase4r:c11b:index",
-        "private:phase4r:c11b:traceability"
+        "private:phase2:product-record"
       ]
     }
   ],
