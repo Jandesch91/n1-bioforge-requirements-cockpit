@@ -2,8 +2,8 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 4R C12 — werkomgeving ná de demo actief<br>
-> **Grens:** C01 t/m C11 zijn duurzaam gevalideerd; C12 specificeert de werkomgeving die ná de demo komt<br>
+> Phase 4R C12b — de acht MES-schermen actief<br>
+> **Grens:** C01 t/m C11 en het C12-schemadeel zijn gevalideerd; C12b specificeert de acht schermen<br>
 > **Wat de mens nu doet:** Geen actie nodig; vóór Phase 5R volgt nog één vraag over wat "klaar" betekent voor dit increment.<br>
 > **Volgende toegestane actie:** Valideer C12a en daarna C12b; daarna volgen de latere walkthrough-herspecificatie, Phase 5R en een verse onafhankelijke review.
 
@@ -125,7 +125,7 @@ flowchart TB
 | 11 | `C10E` | Eén complete batch door de echte keten heen | `connected gate-rij`<br>`REQ-HMI-025`<br>`REQ-HMI-029`<br>`REQ-MES-030` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c10e-20260912-01 | Behoud C10E als voorganger; start daarna de RFID-stap. |
 | 12 | `C10R` | Gesimuleerde RFID-lotdetectie als derde registratiemethode | `Contracts RFID-topic/payload`<br>`Simulation RFID-reader`<br>`MES RFID-binding`<br>`connected RFID-verificatie`<br>`RFID-weergave in de MES-UI` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c10r-20260912-01 | Behoud C10R als voorganger; start daarna de finale kandidaat. |
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
-| 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c12-20260913-01 | Laat alleen de verse C12a-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
+| 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c12-20260913-02 | Laat alleen de verse C12b-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
 | 15 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ⛔ Geblokkeerd | Independent Reviewer<br>Nog geen verse taak | Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review. |
 
 ## Statuslegenda
