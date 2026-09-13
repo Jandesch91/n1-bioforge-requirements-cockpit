@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 3R — derde begrensde aanvulling actief (werkomgeving ná de demo)",
+    "title": "Phase 4R C12 — werkomgeving ná de demo actief",
     "status": "in_progress",
-    "active_chunk": null,
+    "active_chunk": "C12",
     "next_chunk": "GATE",
-    "current_boundary": "C01 t/m C11 zijn duurzaam gevalideerd; negen rijen krijgen een nieuw increment ná de demo",
-    "what_human_does_next": "Keur straks de derde Phase-3R-aanvulling expliciet goed.",
-    "next_allowed_action": "Valideer de 3R-aanvulling; start C12 pas na menselijke goedkeuring."
+    "current_boundary": "C01 t/m C11 zijn duurzaam gevalideerd; C12 specificeert de werkomgeving die ná de demo komt",
+    "what_human_does_next": "Geen actie nodig; vóór Phase 5R volgt nog één vraag over wat \"klaar\" betekent voor dit increment.",
+    "next_allowed_action": "Valideer C12a en daarna C12b; daarna volgen de latere walkthrough-herspecificatie, Phase 5R en een verse onafhankelijke review."
   },
   "phases": [
     {
@@ -94,14 +94,14 @@
       "number": "3R",
       "role": "Ownership/Dependency Grill",
       "plain_language": "Bepaalt wie beslist, wat eerst moet bestaan en waar bewijsgrenzen liggen.",
-      "status": "in_progress",
+      "status": "approved",
       "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5",
       "handoff": "../03R-technical-architecture-and-dependencies.md",
       "evidence": [
         "../03R-technical-architecture-and-dependencies.md",
         "../README.md"
       ],
-      "status_note": "Derde begrensde aanvulling actief: eigendom van opgeslagen taken/stappen en excepties, het rolmodel en de plaatsing van het increment ná de demo. Daarna is opnieuw menselijke goedkeuring nodig."
+      "status_note": "Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo."
     },
     {
       "id": "phase-4r",
@@ -115,7 +115,7 @@
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "C01 t/m C11 zijn gevalideerd. Negen rijen blijven in Release 1 en komen in een nieuw increment C12 ná de demo, eerst via Phase 2 en 3R."
+      "status_note": "C01 t/m C11 zijn gevalideerd; C12 (werkomgeving ná de demo) is de laatste chunk."
     },
     {
       "id": "phase-5r",
@@ -510,8 +510,32 @@
       "output_sha": "fcdea8cffdc93fe79f93f26571d333c1cba38aad"
     },
     {
-      "id": "GATE",
+      "id": "C12",
       "sequence": 14,
+      "plain_language": "Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo",
+      "visible_value": "Dagelijks werk, uitzonderingen en batchstatus zijn bruikbaar op het scherm, zonder de demo uit te stellen.",
+      "req_scope": [
+        "REQ-MES-003",
+        "REQ-MUI-004/005/006/008/009/010/011/016",
+        "nieuwe taak/stap- en exception-tabellen",
+        "nieuwe Contracts- en Platform-IDs"
+      ],
+      "current_phase": "phase-4r",
+      "status": "in_progress",
+      "blocker": "Geen; de verse taak werkt binnen de goedgekeurde Phase-2- en Phase-3R-aanvullingen van 2026-09-13.",
+      "input_sha": "fcdea8cffdc93fe79f93f26571d333c1cba38aad",
+      "output_handoff": "Nieuwe 04R-rijen voor de werkomgeving, geplaatst ná EN-DEMO-001",
+      "responsible_role": "Requirements/Test Designer",
+      "responsible_task": "phase4r-c12-20260913-01",
+      "next_allowed_action": "Laat alleen de verse C12a-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "durable_evidence": [
+        "../02-product-decisions.md#addendum-of-2026-09-13",
+        "../03R-technical-architecture-and-dependencies.md#addendum-van-2026-09-13"
+      ]
+    },
+    {
+      "id": "GATE",
+      "sequence": 15,
       "plain_language": "Eén integraal en onafhankelijk goedgekeurd planningspakket",
       "visible_value": "Een mens kan één betrouwbare baseline adopteren zonder losse branches of chatgeheugen te combineren.",
       "req_scope": [
@@ -555,13 +579,17 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase3r-addendum3-20260913-01",
-      "role": "Ownership / Dependency Grill",
-      "chunk": null,
+      "task_id": "phase4r-c12-20260913-01",
+      "role": "Requirements / Test Designer",
+      "chunk": "C12",
       "status": "in_progress",
       "input_sha": "fcdea8cffdc93fe79f93f26571d333c1cba38aad",
       "write_set": [
-        "private:phase3r:architecture-record"
+        "private:phase4r:c12a:contracts",
+        "private:phase4r:c12a:mes",
+        "private:phase4r:c12a:platform",
+        "private:phase4r:c12a:index",
+        "private:phase4r:c12a:traceability"
       ]
     }
   ],
