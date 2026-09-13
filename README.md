@@ -9,7 +9,7 @@
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
-- Snapshot: `2026-09-12`
+- Snapshot: `2026-09-13`
 - Scope: Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.
 
 ## Zeven fasen en teruglus
@@ -122,7 +122,7 @@ flowchart TB
 | 10 | `C10` | Volledige controlflow, interlock, veilige degradatie en resterende UI-hardening | `resterende REQ-AUT-*`<br>`resterende REQ-SIM-*`<br>`resterende REQ-BC-*`<br>`REQ-MES-031`<br>`row-local REQ-HMI/MUI-* hardening` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c10-20260912-03 | Behoud C10 als voorganger; start daarna de eerste end-to-end verificatie. |
 | 11 | `C10E` | Eén complete batch door de echte keten heen | `connected gate-rij`<br>`REQ-HMI-025`<br>`REQ-HMI-029`<br>`REQ-MES-030` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c10e-20260912-01 | Behoud C10E als voorganger; start daarna de RFID-stap. |
 | 12 | `C10R` | Gesimuleerde RFID-lotdetectie als derde registratiemethode | `Contracts RFID-topic/payload`<br>`Simulation RFID-reader`<br>`MES RFID-binding`<br>`connected RFID-verificatie`<br>`RFID-weergave in de MES-UI` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c10r-20260912-01 | Behoud C10R als voorganger; start daarna de finale kandidaat. |
-| 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c11-20260912-01 | Laat alleen de verse C11-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
+| 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | 🔵 Bezig | Requirements/Test Designer<br>phase4r-c11-20260913-02 | Laat alleen de verse C11-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff. |
 | 14 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ⛔ Geblokkeerd | Independent Reviewer<br>Nog geen verse taak | Blijf geblokkeerd tot 4R en 5R volledig zijn geregenereerd; start daarna één verse onafhankelijke review. |
 
 ## Statuslegenda

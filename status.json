@@ -4,7 +4,7 @@
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
     "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
-    "snapshot_date": "2026-09-12",
+    "snapshot_date": "2026-09-13",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
     "publication": {
@@ -501,7 +501,7 @@
       "input_sha": "936ba0cf575ee59b520e8a4cd2beb8577692de0e",
       "output_handoff": "Finale non-destructive gates, late no-cost test en expliciete reset/demo-autorisatiegrenzen",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c11-20260912-01",
+      "responsible_task": "phase4r-c11-20260913-02",
       "next_allowed_action": "Laat alleen de verse C11-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": [
         "../03R-technical-architecture-and-dependencies.md#verplichte-downstreamregel-voor-phase-5r-en-phase-7",
@@ -554,21 +554,16 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c11-20260912-01",
+      "task_id": "phase4r-c11-20260913-02",
       "role": "Requirements / Test Designer",
       "chunk": "C11",
       "status": "in_progress",
       "input_sha": "936ba0cf575ee59b520e8a4cd2beb8577692de0e",
       "write_set": [
-        "private:phase4r:c11:platform",
-        "private:phase4r:c11:enterprise-event-integration",
-        "private:phase4r:c11:batch-control",
-        "private:phase4r:c11:erp-mock",
-        "private:phase4r:c11:ignition",
-        "private:phase4r:c11:mes",
-        "private:phase4r:c11:mes-web-ui",
-        "private:phase4r:c11:index",
-        "private:phase4r:c11:traceability"
+        "private:phase4r:c11a:platform",
+        "private:phase4r:c11a:enterprise-event-integration",
+        "private:phase4r:c11a:index",
+        "private:phase4r:c11a:traceability"
       ]
     }
   ],
