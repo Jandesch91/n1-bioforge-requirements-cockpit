@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 2 — productaanvulling voor een scope-uitbreiding ná de demo<br>
+> Phase 3R — derde begrensde aanvulling actief (werkomgeving ná de demo)<br>
 > **Grens:** C01 t/m C11 zijn duurzaam gevalideerd; negen rijen krijgen een nieuw increment ná de demo<br>
-> **Wat de mens nu doet:** Keur straks de Phase-2-aanvulling en daarna de Phase-3R-aanvulling expliciet goed.<br>
-> **Volgende toegestane actie:** Valideer de Phase-2-aanvulling; daarna volgen een 3R-aanvulling, het nieuwe increment C12, Phase 5R en een verse onafhankelijke review.
+> **Wat de mens nu doet:** Keur straks de derde Phase-3R-aanvulling expliciet goed.<br>
+> **Volgende toegestane actie:** Valideer de 3R-aanvulling; start C12 pas na menselijke goedkeuring.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `092d1ee6225a71e1783ef6d22096d334b493ba7f`
@@ -21,8 +21,8 @@ De hoofdlijn staat bewust verticaal met ruime afstand. Alleen de reviewbeslissin
 flowchart TB
     %% A vertical main lane prevents crossing arrows. The review return uses one side lane.
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
-    phase_2["2 · Product Outcome Grill<br/>🔵 Bezig"]
-    phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_3r["3R · Ownership/Dependency Grill<br/>🔵 Bezig"]
     phase_4r["4R · Requirements/Test Designer<br/>🔵 Bezig"]
     phase_5r["5R · Delivery Planner<br/>⛔ Geblokkeerd"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
@@ -98,8 +98,8 @@ flowchart TB
 | Fase | Rol | Status | Betekenis nu |
 |---|---|---|---|
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
-| 2 | Product Outcome Grill | 🔵 Bezig | Tweede begrensde aanvulling actief: de besturingskeuzes en een scope-uitbreiding van acht MES-schermen plus batchstatus, geplaatst ná de demo. Daarna is opnieuw menselijke goedkeuring nodig. |
-| 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Beide aanvullingen (2026-09-11 en 2026-09-12) zijn door de mens goedgekeurd. De demoschakelaar en de drie startcondities zijn geplaatst; Simulation rapporteert, Batch-Control beslist. |
+| 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Beide aanvullingen zijn door de mens goedgekeurd. De tweede voegt acht MES-schermen en de batchstatus toe als een increment ná de demo; de demo zelf houdt haar goedgekeurde scope en plaats. |
+| 3R | Ownership/Dependency Grill | 🔵 Bezig | Derde begrensde aanvulling actief: eigendom van opgeslagen taken/stappen en excepties, het rolmodel en de plaatsing van het increment ná de demo. Daarna is opnieuw menselijke goedkeuring nodig. |
 | 4R | Requirements/Test Designer | 🔵 Bezig | C01 t/m C11 zijn gevalideerd. Negen rijen blijven in Release 1 en komen in een nieuw increment C12 ná de demo, eerst via Phase 2 en 3R. |
 | 5R | Delivery Planner | ⛔ Geblokkeerd | Volledige regeneratie is pas toegestaan nadat de nieuwe Phase 4R is gevalideerd. |
 | 6 | Independent Reviewer | ❌ Changes required | 06R blijft CHANGES REQUIRED. De 3R-correctie is uitgevoerd; 4R en 5R zijn nog niet opnieuw gegenereerd. |
