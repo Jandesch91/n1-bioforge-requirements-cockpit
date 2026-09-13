@@ -54,7 +54,7 @@
   },
   "you_are_here": {
     "title": "Phase 6 — verse onafhankelijke review actief",
-    "status": "independent_review",
+    "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
     "current_boundary": "Phase 1 t/m 5R zijn geregenereerd en vastgelegd; één verse review beoordeelt het geheel op SHA b197abc",
@@ -136,7 +136,7 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "independent_review",
+      "status": "in_progress",
       "display_kind": "independent_review",
       "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
       "handoff": "../06R2-review-findings.md",
