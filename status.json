@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C12c — kleine correctie na de menselijke antwoorden",
+    "title": "Phase 4R C13 — walkthrough uitbreiden",
     "status": "in_progress",
-    "active_chunk": "C12",
+    "active_chunk": "C13",
     "next_chunk": "GATE",
-    "current_boundary": "Het hele 04R-pakket is geregenereerd; C12c verwerkt drie menselijke antwoorden",
+    "current_boundary": "Het hele 04R-pakket is geregenereerd; alleen de uitgebreide walkthrough ontbreekt nog",
     "what_human_does_next": "Geen actie nodig; de open productvraag over \"klaar\" is beantwoord.",
-    "next_allowed_action": "Valideer C12c; daarna volgen de walkthrough-herspecificatie, Phase 5R en een verse onafhankelijke review."
+    "next_allowed_action": "Valideer C13; daarna volgen Phase 5R en een verse onafhankelijke review."
   },
   "phases": [
     {
@@ -115,7 +115,7 @@
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "C01 t/m C11 zijn gevalideerd; C12 (werkomgeving ná de demo) is de laatste chunk."
+      "status_note": "C01 t/m C12 zijn gevalideerd; C13 breidt alleen de walkthrough uit. Daarna is Phase 4R compleet."
     },
     {
       "id": "phase-5r",
@@ -521,21 +521,47 @@
         "nieuwe Contracts- en Platform-IDs"
       ],
       "current_phase": "phase-4r",
-      "status": "in_progress",
-      "blocker": "Geen; een kleine correctie legt de blijvende vastlegging van een geweigerde start, de actieve fase en de toegankelijkheidschecks over alle schermen vast.",
+      "status": "approved",
+      "blocker": "Geen; de werkomgeving, de blijvende vastlegging van een geweigerde start, de actieve fase en de toegankelijkheidschecks zijn duurzaam gevalideerd.",
       "input_sha": "fcdea8cffdc93fe79f93f26571d333c1cba38aad",
       "output_handoff": "Nieuwe 04R-rijen voor de werkomgeving, geplaatst ná EN-DEMO-001",
       "responsible_role": "Requirements/Test Designer",
       "responsible_task": "phase4r-c12c-20260913-01",
-      "next_allowed_action": "Laat alleen de verse C12c-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "next_allowed_action": "Behoud C12 als voorganger; herspecificeer daarna de walkthrough.",
       "durable_evidence": [
         "../02-product-decisions.md#addendum-of-2026-09-13",
         "../03R-technical-architecture-and-dependencies.md#addendum-van-2026-09-13"
+      ],
+      "output_sha": "119dcb1df7b276baa29b10b616091ef1bb6ea2b8"
+    },
+    {
+      "id": "C13",
+      "sequence": 15,
+      "plain_language": "De walkthrough uitgebreid met de nieuwe schermen",
+      "visible_value": "Eén doorloop toont eerst de goedgekeurde demo en daarna het dagelijkse werk in de MES.",
+      "req_scope": [
+        "REQ-PLAT-035",
+        "REQ-PLAT-052",
+        "herbevestiging REQ-PLAT-047/062",
+        "duurzame afhandeling van een order-exception",
+        "REQ-MUI-019-identiteit"
+      ],
+      "current_phase": "phase-4r",
+      "status": "in_progress",
+      "blocker": "Geen; de goedgekeurde demo blijft ongewijzigd en wordt eerst bewezen.",
+      "input_sha": "119dcb1df7b276baa29b10b616091ef1bb6ea2b8",
+      "output_handoff": "Uitgebreide walkthrough-rijen en de bijbehorende identiteitsbeslissingen",
+      "responsible_role": "Requirements/Test Designer",
+      "responsible_task": "phase4r-c13-20260913-01",
+      "next_allowed_action": "Laat alleen de verse C13-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "durable_evidence": [
+        "../03R-technical-architecture-and-dependencies.md#addendum-van-2026-09-13",
+        "../02-product-decisions.md#addendum-of-2026-09-13"
       ]
     },
     {
       "id": "GATE",
-      "sequence": 15,
+      "sequence": 16,
       "plain_language": "Eén integraal en onafhankelijk goedgekeurd planningspakket",
       "visible_value": "Een mens kan één betrouwbare baseline adopteren zonder losse branches of chatgeheugen te combineren.",
       "req_scope": [
@@ -579,17 +605,17 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c12c-20260913-01",
+      "task_id": "phase4r-c13-20260913-01",
       "role": "Requirements / Test Designer",
-      "chunk": "C12",
+      "chunk": "C13",
       "status": "in_progress",
-      "input_sha": "cc458186e8bafc2e0ca55af905a42657ca0b027d",
+      "input_sha": "119dcb1df7b276baa29b10b616091ef1bb6ea2b8",
       "write_set": [
-        "private:phase4r:c12c:mes",
-        "private:phase4r:c12c:mes-web-ui",
-        "private:phase4r:c12c:platform",
-        "private:phase4r:c12c:index",
-        "private:phase4r:c12c:traceability"
+        "private:phase4r:c13:platform",
+        "private:phase4r:c13:mes",
+        "private:phase4r:c13:mes-web-ui",
+        "private:phase4r:c13:index",
+        "private:phase4r:c13:traceability"
       ]
     }
   ],
