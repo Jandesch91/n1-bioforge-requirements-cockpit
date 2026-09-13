@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R C12b — de acht MES-schermen actief",
+    "title": "Phase 4R C12c — kleine correctie na de menselijke antwoorden",
     "status": "in_progress",
     "active_chunk": "C12",
     "next_chunk": "GATE",
-    "current_boundary": "C01 t/m C11 en het C12-schemadeel zijn gevalideerd; C12b specificeert de acht schermen",
-    "what_human_does_next": "Geen actie nodig; vóór Phase 5R volgt nog één vraag over wat \"klaar\" betekent voor dit increment.",
-    "next_allowed_action": "Valideer C12a en daarna C12b; daarna volgen de latere walkthrough-herspecificatie, Phase 5R en een verse onafhankelijke review."
+    "current_boundary": "Het hele 04R-pakket is geregenereerd; C12c verwerkt drie menselijke antwoorden",
+    "what_human_does_next": "Geen actie nodig; de open productvraag over \"klaar\" is beantwoord.",
+    "next_allowed_action": "Valideer C12c; daarna volgen de walkthrough-herspecificatie, Phase 5R en een verse onafhankelijke review."
   },
   "phases": [
     {
@@ -522,12 +522,12 @@
       ],
       "current_phase": "phase-4r",
       "status": "in_progress",
-      "blocker": "Geen; de verse taak werkt binnen de goedgekeurde Phase-2- en Phase-3R-aanvullingen van 2026-09-13.",
+      "blocker": "Geen; een kleine correctie legt de blijvende vastlegging van een geweigerde start, de actieve fase en de toegankelijkheidschecks over alle schermen vast.",
       "input_sha": "fcdea8cffdc93fe79f93f26571d333c1cba38aad",
       "output_handoff": "Nieuwe 04R-rijen voor de werkomgeving, geplaatst ná EN-DEMO-001",
       "responsible_role": "Requirements/Test Designer",
-      "responsible_task": "phase4r-c12-20260913-02",
-      "next_allowed_action": "Laat alleen de verse C12b-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
+      "responsible_task": "phase4r-c12c-20260913-01",
+      "next_allowed_action": "Laat alleen de verse C12c-taak de gedeclareerde private requirementsbestanden bijwerken en valideer daarna de volledige diff.",
       "durable_evidence": [
         "../02-product-decisions.md#addendum-of-2026-09-13",
         "../03R-technical-architecture-and-dependencies.md#addendum-van-2026-09-13"
@@ -579,15 +579,17 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-c12-20260913-02",
+      "task_id": "phase4r-c12c-20260913-01",
       "role": "Requirements / Test Designer",
       "chunk": "C12",
       "status": "in_progress",
-      "input_sha": "d8f695880dcf99db7e818ed407dd3769b577d6cc",
+      "input_sha": "cc458186e8bafc2e0ca55af905a42657ca0b027d",
       "write_set": [
-        "private:phase4r:c12b:mes-web-ui",
-        "private:phase4r:c12b:index",
-        "private:phase4r:c12b:traceability"
+        "private:phase4r:c12c:mes",
+        "private:phase4r:c12c:mes-web-ui",
+        "private:phase4r:c12c:platform",
+        "private:phase4r:c12c:index",
+        "private:phase4r:c12c:traceability"
       ]
     }
   ],
