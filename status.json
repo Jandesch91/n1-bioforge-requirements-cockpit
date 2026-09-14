@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — tweede uitspraak: vier begrensde punten",
-    "status": "changes_required",
+    "title": "Phase 5R — laatste begrensde plancorrecties",
+    "status": "in_progress",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "Alle eerdere bevindingen zijn bevestigd gesloten; vier nieuwe, niet-blokkerende punten worden nu gecorrigeerd",
+    "current_boundary": "De rijcorrectie is klaar; het plan verwerkt de bredere controle, de validatiezin en de verouderde verwijzing",
     "what_human_does_next": "Geen actie nodig; na de correcties volgt opnieuw een verse review en pas daarna uw adoptiebesluit.",
-    "next_allowed_action": "Corrigeer R6R3-001 in Phase 4R, daarna R6R3-002 en R6R3-004 in Phase 5R, en bied een SHA aan waarop de cockpit gelijkloopt (R6R3-003)."
+    "next_allowed_action": "Valideer de plancorrecties, breng de cockpit gelijk en bied die SHA aan een derde verse reviewer aan."
   },
   "phases": [
     {
@@ -108,28 +108,28 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "in_progress",
+      "status": "approved",
       "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": [
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "Eén rij (REQ-PLAT-070) heeft nog een mutant die een latere rij aanroept; die wordt begrensd gecorrigeerd."
+      "status_note": "Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070."
     },
     {
       "id": "phase-5r",
       "number": "5R",
       "role": "Delivery Planner",
       "plain_language": "Zet goedgekeurde requirements in kleine, uitvoerbare dependency-volgorde.",
-      "status": "changes_required",
+      "status": "in_progress",
       "input_sha": "a2d10c7711b34ab3e680ddd51b3a836aa502fb0b",
       "handoff": "../05R-delivery-plan-and-working-method.md",
       "evidence": [
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "status_note": "Drie kleine punten: de controle moet ook de negatieve testcel dekken, één validatiezin klopt niet, en het hervattingspunt noemt de verouderde uitspraak."
+      "status_note": "Begrensde update: de controle gaat ook over de negatieve testcel, één validatiezin wordt waar gemaakt en het hervattingspunt noemt de geldende uitspraak."
     },
     {
       "id": "phase-6",
@@ -605,7 +605,19 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [],
+  "active_tasks": [
+    {
+      "task_id": "phase5r-r6r3-20260914-01",
+      "role": "Delivery Planner",
+      "chunk": null,
+      "status": "in_progress",
+      "input_sha": "4d605215b49dbb2ce0e38675c47412678381a8f2",
+      "write_set": [
+        "private:phase5r:delivery-plan",
+        "private:phase5r:resume-point"
+      ]
+    }
+  ],
   "history": [
     {
       "label": "Phase 3",
