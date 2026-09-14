@@ -53,11 +53,11 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — CHANGES REQUIRED; begrensde correcties lopen",
-    "status": "changes_required",
+    "title": "Phase 4R — begrensde correcties na de review",
+    "status": "in_progress",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De onafhankelijke review op b197abc vroeg vier begrensde correcties; niets is goedgekeurd of geadopteerd",
+    "current_boundary": "De review vroeg vier begrensde correcties; de twee requirementbevindingen worden nu gecorrigeerd",
     "what_human_does_next": "Geen actie nodig; na de correcties volgt één nieuwe verse review en pas daarna uw adoptiebesluit.",
     "next_allowed_action": "Corrigeer R6R2-001 en R6R2-002 in Phase 4R, daarna R6R2-003 in Phase 5R; start vervolgens één nieuwe verse Phase-6 review."
   },
@@ -108,7 +108,7 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "changes_required",
+      "status": "in_progress",
       "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": [
@@ -605,7 +605,21 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [],
+  "active_tasks": [
+    {
+      "task_id": "phase4r-r6r2-20260914-01",
+      "role": "Requirements / Test Designer",
+      "chunk": null,
+      "status": "in_progress",
+      "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
+      "write_set": [
+        "private:phase4r:r6r2:automation",
+        "private:phase4r:r6r2:mes-web-ui",
+        "private:phase4r:r6r2:index",
+        "private:phase4r:r6r2:traceability"
+      ]
+    }
+  ],
   "history": [
     {
       "label": "Phase 3",
