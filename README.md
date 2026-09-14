@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 5R — begrensde plancorrectie na de review<br>
-> **Grens:** De requirementbevindingen zijn gecorrigeerd; het plan verwerkt nu de titels en het nieuwe item<br>
-> **Wat de mens nu doet:** Geen actie nodig; na de correcties volgt één nieuwe verse review en pas daarna uw adoptiebesluit.<br>
-> **Volgende toegestane actie:** Valideer de plancorrectie en start daarna één nieuwe verse Phase-6 review op de gecorrigeerde SHA.
+> Phase 4R — laatste begrensde correctie (UQ-2)<br>
+> **Grens:** Alle reviewbevindingen zijn verwerkt; één extra vondst van de nieuwe plancontrole wordt nu gecorrigeerd<br>
+> **Wat de mens nu doet:** Geen actie nodig; daarna volgt één nieuwe verse review en pas dan uw adoptiebesluit.<br>
+> **Volgende toegestane actie:** Corrigeer UQ-2, deblokkeer het item in het plan en start daarna één nieuwe verse Phase-6 review.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `b197abc5d75ab03492a5025f9bc41f0637c8a232`
@@ -23,8 +23,8 @@ flowchart TB
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
     phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
     phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
-    phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
-    phase_5r["5R · Delivery Planner<br/>🔵 Bezig"]
+    phase_4r["4R · Requirements/Test Designer<br/>🔵 Bezig"]
+    phase_5r["5R · Delivery Planner<br/>❌ Changes required"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
     phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
@@ -104,8 +104,8 @@ flowchart TB
 | 1 | Current-State Auditor | ✅ Goedgekeurd / klaar |  |
 | 2 | Product Outcome Grill | ✅ Goedgekeurd / klaar | Beide aanvullingen zijn door de mens goedgekeurd. De tweede voegt acht MES-schermen en de batchstatus toe als een increment ná de demo; de demo zelf houdt haar goedgekeurde scope en plaats. |
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
-| 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | De twee requirementbevindingen van de review zijn gecorrigeerd: REQ-AUT-001 is versmald en het hernieuwde-start-bewijs kreeg het nieuwe ID REQ-AUT-016; REQ-MUI-009 en REQ-MUI-010 verbruiken nu alleen wat hun eigen voorgangers bewijzen. |
-| 5R | Delivery Planner | 🔵 Bezig | Bounded correctie actief: vier verkeerde itemtitels, één nieuw item voor REQ-AUT-016, één voorgangerscorrectie en een extra controle dat geen test een requirement van een later item aanhaalt. |
+| 4R | Requirements/Test Designer | 🔵 Bezig | De twee reviewbevindingen zijn gecorrigeerd. De nieuwe plancontrole vond daarna nog één rij (REQ-MES-003) waarvan de test een later item aanhaalt; die wordt nu begrensd gecorrigeerd. Alles vóór de demo is niet geraakt. |
+| 5R | Delivery Planner | ❌ Changes required | Het plan is gecorrigeerd (titels, nieuw item, extra controle). Eén item blijft geblokkeerd tot de laatste requirementcorrectie klaar is; dat item ligt ná de demo. |
 | 6 | Independent Reviewer | ❌ Changes required | De verse review van 2026-09-14 op SHA b197abc luidt CHANGES REQUIRED met vier bevindingen, alle begrensd te corrigeren. De vroegste defecte fase is 4R, daarna een beperkte 5R-aanpassing. De ordening, de Worker-gate en RESUME-HERE zijn wel in orde bevonden. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
 
