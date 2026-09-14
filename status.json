@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 4R — laatste begrensde correctie (UQ-2)",
+    "title": "Phase 5R — item vrijgeven na de laatste correctie",
     "status": "in_progress",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "Alle reviewbevindingen zijn verwerkt; één extra vondst van de nieuwe plancontrole wordt nu gecorrigeerd",
+    "current_boundary": "Alle bevindingen zijn gecorrigeerd; het plan geeft het laatste geblokkeerde item vrij",
     "what_human_does_next": "Geen actie nodig; daarna volgt één nieuwe verse review en pas dan uw adoptiebesluit.",
-    "next_allowed_action": "Corrigeer UQ-2, deblokkeer het item in het plan en start daarna één nieuwe verse Phase-6 review."
+    "next_allowed_action": "Valideer de vrijgave en start daarna één nieuwe verse Phase-6 review op de gecorrigeerde SHA."
   },
   "phases": [
     {
@@ -108,28 +108,28 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "in_progress",
+      "status": "approved",
       "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": [
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "De twee reviewbevindingen zijn gecorrigeerd. De nieuwe plancontrole vond daarna nog één rij (REQ-MES-003) waarvan de test een later item aanhaalt; die wordt nu begrensd gecorrigeerd. Alles vóór de demo is niet geraakt."
+      "status_note": "Alle requirementbevindingen zijn gecorrigeerd: de twee uit de review en de extra vondst UQ-2 van de nieuwe plancontrole. Geen rij verloor een garantie."
     },
     {
       "id": "phase-5r",
       "number": "5R",
       "role": "Delivery Planner",
       "plain_language": "Zet goedgekeurde requirements in kleine, uitvoerbare dependency-volgorde.",
-      "status": "changes_required",
+      "status": "in_progress",
       "input_sha": "a2d10c7711b34ab3e680ddd51b3a836aa502fb0b",
       "handoff": "../05R-delivery-plan-and-working-method.md",
       "evidence": [
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "status_note": "Het plan is gecorrigeerd (titels, nieuw item, extra controle). Eén item blijft geblokkeerd tot de laatste requirementcorrectie klaar is; dat item ligt ná de demo."
+      "status_note": "Laatste begrensde update: het geblokkeerde item wordt vrijgegeven en de controles worden opnieuw gedraaid."
     },
     {
       "id": "phase-6",
@@ -607,15 +607,14 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase4r-uq2-20260914-01",
-      "role": "Requirements / Test Designer",
+      "task_id": "phase5r-uq2-20260914-01",
+      "role": "Delivery Planner",
       "chunk": null,
       "status": "in_progress",
-      "input_sha": "6ad6f4f54e2b7619658badf43aea51e840e61b8b",
+      "input_sha": "f553e166964a6bdd6928a5673888653e1a9082df",
       "write_set": [
-        "private:phase4r:uq2:mes",
-        "private:phase4r:uq2:index",
-        "private:phase4r:uq2:traceability"
+        "private:phase5r:delivery-plan",
+        "private:phase5r:resume-point"
       ]
     }
   ],
