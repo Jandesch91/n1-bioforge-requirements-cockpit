@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — nieuwe verse review op de gecorrigeerde SHA",
-    "status": "in_progress",
-    "active_chunk": "GATE",
+    "title": "Phase 6 — tweede uitspraak: vier begrensde punten",
+    "status": "changes_required",
+    "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "Alle bevindingen van de vorige review zijn gecorrigeerd; een andere verse reviewer beoordeelt nu SHA defb5ca",
-    "what_human_does_next": "Lees straks de nieuwe dispositie; bij goedkeuring beslist u over adoptie.",
-    "next_allowed_action": "Registreer de dispositie. Phase 7 mag alleen bij APPROVED op exact dezelfde SHA én expliciete menselijke adoptie."
+    "current_boundary": "Alle eerdere bevindingen zijn bevestigd gesloten; vier nieuwe, niet-blokkerende punten worden nu gecorrigeerd",
+    "what_human_does_next": "Geen actie nodig; na de correcties volgt opnieuw een verse review en pas daarna uw adoptiebesluit.",
+    "next_allowed_action": "Corrigeer R6R3-001 in Phase 4R, daarna R6R3-002 en R6R3-004 in Phase 5R, en bied een SHA aan waarop de cockpit gelijkloopt (R6R3-003)."
   },
   "phases": [
     {
@@ -108,43 +108,43 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "approved",
+      "status": "in_progress",
       "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": [
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "Alle requirementbevindingen zijn gecorrigeerd: de twee uit de review en de extra vondst UQ-2 van de nieuwe plancontrole. Geen rij verloor een garantie."
+      "status_note": "Eén rij (REQ-PLAT-070) heeft nog een mutant die een latere rij aanroept; die wordt begrensd gecorrigeerd."
     },
     {
       "id": "phase-5r",
       "number": "5R",
       "role": "Delivery Planner",
       "plain_language": "Zet goedgekeurde requirements in kleine, uitvoerbare dependency-volgorde.",
-      "status": "approved",
+      "status": "changes_required",
       "input_sha": "a2d10c7711b34ab3e680ddd51b3a836aa502fb0b",
       "handoff": "../05R-delivery-plan-and-working-method.md",
       "evidence": [
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "status_note": "Het plan is gecorrigeerd en het laatste geblokkeerde item is vrijgegeven; de eigen controles melden nul overtredingen. De mens besluit definitief na de nieuwe review."
+      "status_note": "Drie kleine punten: de controle moet ook de negatieve testcel dekken, één validatiezin klopt niet, en het hervattingspunt noemt de verouderde uitspraak."
     },
     {
       "id": "phase-6",
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "in_progress",
+      "status": "changes_required",
       "display_kind": "independent_review",
       "input_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea",
       "handoff": "../06R3-review-findings.md",
       "evidence": [
-        "../06R2-review-findings.md",
-        "../06R-review-findings.md"
+        "../06R3-review-findings.md",
+        "../06R2-review-findings.md"
       ],
-      "status_note": "Een tweede, andere verse reviewer beoordeelt het gecorrigeerde pakket op exact SHA defb5ca. De reviewer die de vorige bevindingen schreef, beoordeelt zijn eigen correcties niet.",
+      "status_note": "De tweede verse review op SHA defb5ca bevestigt dat alle eerdere bevindingen gesloten zijn en meldt vier nieuwe, niet-blokkerende punten. Ordening en plan zijn opnieuw in orde bevonden.",
       "return_to_phase": "phase-4r"
     },
     {
@@ -572,19 +572,19 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "in_progress",
-      "blocker": "Geen; de nieuwe verse review loopt op de gecorrigeerde SHA.",
+      "status": "changes_required",
+      "blocker": "Tweede review: CHANGES REQUIRED met vier begrensde punten; daarna volgt opnieuw een verse review.",
       "input_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea",
-      "output_handoff": "../06R2-review-findings.md",
+      "output_handoff": "../06R3-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260914-02",
-      "next_allowed_action": "Registreer de nieuwe dispositie ongewijzigd; bij APPROVED volgt uw expliciete adoptiebesluit, pas daarna Phase 7.",
+      "next_allowed_action": "Corrigeer de vier punten en bied daarna een SHA aan waarop ook de cockpit klopt.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "output_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232"
+      "output_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea"
     }
   ],
   "orchestrator_protocol": [
@@ -605,18 +605,7 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [
-    {
-      "task_id": "phase6-20260914-02",
-      "role": "Independent Reviewer",
-      "chunk": "GATE",
-      "status": "in_progress",
-      "input_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea",
-      "write_set": [
-        "private:phase6:review-findings-2"
-      ]
-    }
-  ],
+  "active_tasks": [],
   "history": [
     {
       "label": "Phase 3",
