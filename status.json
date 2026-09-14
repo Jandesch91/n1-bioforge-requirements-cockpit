@@ -3,8 +3,8 @@
   "metadata": {
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
-    "input_sha": "092d1ee6225a71e1783ef6d22096d334b493ba7f",
-    "snapshot_date": "2026-09-13",
+    "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
+    "snapshot_date": "2026-09-14",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
     "publication": {
@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — verse onafhankelijke review actief",
-    "status": "in_progress",
-    "active_chunk": "GATE",
+    "title": "Phase 6 — CHANGES REQUIRED; begrensde correcties lopen",
+    "status": "changes_required",
+    "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "Phase 1 t/m 5R zijn geregenereerd en vastgelegd; één verse review beoordeelt het geheel op SHA b197abc",
-    "what_human_does_next": "Lees straks de dispositie; keur het plan pas definitief goed na die uitspraak.",
-    "next_allowed_action": "Registreer de reviewuitspraak. Phase 7 mag alleen bij APPROVED op exact dezelfde SHA én expliciete menselijke adoptie."
+    "current_boundary": "De onafhankelijke review op b197abc vroeg vier begrensde correcties; niets is goedgekeurd of geadopteerd",
+    "what_human_does_next": "Geen actie nodig; na de correcties volgt één nieuwe verse review en pas daarna uw adoptiebesluit.",
+    "next_allowed_action": "Corrigeer R6R2-001 en R6R2-002 in Phase 4R, daarna R6R2-003 in Phase 5R; start vervolgens één nieuwe verse Phase-6 review."
   },
   "phases": [
     {
@@ -108,44 +108,44 @@
       "number": "4R",
       "role": "Requirements/Test Designer",
       "plain_language": "Maakt per observable gedrag een scherp requirement, exacte test en echte voorgangers.",
-      "status": "approved",
+      "status": "changes_required",
       "input_sha": "2c86f2e6991f28641f4491f88920a2a0618ed5d1",
       "handoff": "../04R-requirements-and-tests/README.md",
       "evidence": [
         "../06R-review-findings.md",
         "../03R-technical-architecture-and-dependencies.md"
       ],
-      "status_note": "C01 t/m C13 zijn geregenereerd en gevalideerd (378 rijen). Eén voorgangerscel is daarna gecorrigeerd nadat de planner een verborgen late afhankelijkheid vond."
+      "status_note": "Twee bevindingen: één blokkerend (de test van REQ-AUT-001 verbruikt gedrag dat pas veel later wordt bewezen) en één belangrijke (REQ-MUI-009 vraagt een besturingselement uit REQ-MUI-010). Beide zijn begrensd te corrigeren."
     },
     {
       "id": "phase-5r",
       "number": "5R",
       "role": "Delivery Planner",
       "plain_language": "Zet goedgekeurde requirements in kleine, uitvoerbare dependency-volgorde.",
-      "status": "approved",
+      "status": "changes_required",
       "input_sha": "a2d10c7711b34ab3e680ddd51b3a836aa502fb0b",
       "handoff": "../05R-delivery-plan-and-working-method.md",
       "evidence": [
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "status_note": "Het plan is geregenereerd en door de mens in principe goedgekeurd. De mens neemt het definitieve besluit na de onafhankelijke review, die het plan expliciet extra kritisch bekijkt."
+      "status_note": "Eén bevinding: vier itemtitels in blok 17 beschrijven andere requirements dan ze dragen. De ordening zelf is uitputtend gecontroleerd en foutloos bevonden."
     },
     {
       "id": "phase-6",
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "in_progress",
+      "status": "changes_required",
       "display_kind": "independent_review",
       "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
       "handoff": "../06R2-review-findings.md",
       "evidence": [
-        "../06-review-findings.md",
+        "../06R2-review-findings.md",
         "../06R-review-findings.md"
       ],
-      "status_note": "Eén genuinely verse review beoordeelt het volledige pakket op exact SHA b197abc; de reviewer repareert niets. De retourpijl toont nog de vorige uitspraak (06R) tot de nieuwe dispositie is vastgelegd.",
-      "return_to_phase": "phase-3r"
+      "status_note": "De verse review van 2026-09-14 op SHA b197abc luidt CHANGES REQUIRED met vier bevindingen, alle begrensd te corrigeren. De vroegste defecte fase is 4R, daarna een beperkte 5R-aanpassing. De ordening, de Worker-gate en RESUME-HERE zijn wel in orde bevonden.",
+      "return_to_phase": "phase-4r"
     },
     {
       "id": "phase-7",
@@ -572,18 +572,19 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "in_progress",
-      "blocker": "Geen; de verse onafhankelijke review loopt op exact de planning-SHA b197abc.",
+      "status": "changes_required",
+      "blocker": "De verse review luidt CHANGES REQUIRED op SHA b197abc; vier begrensde correcties zijn nodig vóór een nieuwe verse review.",
       "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
-      "output_handoff": "Nieuwe Phase-6-reviewdispositie op exact dezelfde planning-SHA",
+      "output_handoff": "../06R2-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260913-01",
-      "next_allowed_action": "Registreer de dispositie ongewijzigd; bij CHANGES REQUIRED keert de staat terug naar de vroegste defecte fase.",
+      "next_allowed_action": "Corrigeer eerst de twee 4R-bevindingen, daarna de 5R-titels; start pas daarna één nieuwe verse review.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
         "../README.md"
-      ]
+      ],
+      "output_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232"
     }
   ],
   "orchestrator_protocol": [
@@ -604,18 +605,7 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [
-    {
-      "task_id": "phase6-20260913-01",
-      "role": "Independent Reviewer",
-      "chunk": "GATE",
-      "status": "in_progress",
-      "input_sha": "b197abc5d75ab03492a5025f9bc41f0637c8a232",
-      "write_set": [
-        "private:phase6:review-findings"
-      ]
-    }
-  ],
+  "active_tasks": [],
   "history": [
     {
       "label": "Phase 3",
