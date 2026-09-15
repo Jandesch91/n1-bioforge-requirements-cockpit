@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — nieuwe verse onafhankelijke review actief",
-    "status": "in_progress",
-    "active_chunk": "GATE",
+    "title": "PAUSED — PROVIDER USAGE GUARD >= 90%",
+    "status": "human_gate",
+    "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De twee begrensde correcties zijn voltooid; een andere verse reviewer beoordeelt nu de exact uitgelijnde SHA",
-    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
-    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
+    "current_boundary": "De verse review is geregistreerd maar niet gestart; de laatste geldige SHA en alle correcties zijn veilig bewaard",
+    "what_human_does_next": "Start later een nieuwe orchestrator-invocation, of laat een andere provider direct vanaf de duurzame handoff overnemen.",
+    "next_allowed_action": "Controleer bij een nieuwe invocation eerst PAUSE en providergebruik; start daarna pas de geregistreerde verse review als alle vensters dit toestaan."
   },
   "phases": [
     {
@@ -136,7 +136,7 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "in_progress",
+      "status": "human_gate",
       "display_kind": "independent_review",
       "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
       "handoff": "../06R4-review-findings.md",
@@ -145,7 +145,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "De twee begrensde 06R4-boekhoudingsbevindingen zijn gecorrigeerd; een andere verse reviewer beoordeelt nu exact SHA 8c17d16 en repareert niets.",
+      "status_note": "De twee begrensde 06R4-boekhoudingsbevindingen zijn gecorrigeerd. De nieuwe verse review op exact SHA 8c17d16 is geregistreerd maar niet gestart wegens de provider-gebruiksgrens.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -573,13 +573,13 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "in_progress",
-      "blocker": "De geldende uitspraak blijft CHANGES REQUIRED totdat de nieuwe verse reviewer de exact uitgelijnde SHA beoordeelt.",
+      "status": "human_gate",
+      "blocker": "Veilige provider-gebruikspauze; er is geen actieve child en de geldende uitspraak blijft CHANGES REQUIRED.",
       "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
       "output_handoff": "../06R4-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260915-05",
-      "next_allowed_action": "Laat de verse reviewer SHA 8c17d16 beoordelen; registreer de uitspraak ongewijzigd.",
+      "next_allowed_action": "Start bij een verse invocation alleen na nieuwe PAUSE- en providergebruikchecks; een andere provider mag direct overnemen.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
@@ -606,18 +606,7 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [
-    {
-      "task_id": "phase6-20260915-05",
-      "role": "Independent Reviewer",
-      "chunk": "GATE",
-      "status": "in_progress",
-      "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
-      "write_set": [
-        "private:phase6:review-findings-5"
-      ]
-    }
-  ],
+  "active_tasks": [],
   "history": [
     {
       "label": "Phase 3",
