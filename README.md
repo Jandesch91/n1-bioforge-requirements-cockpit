@@ -2,14 +2,14 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 6 — derde verse review actief<br>
-> **Grens:** Alle bevindingen zijn gecorrigeerd; een derde verse reviewer beoordeelt de commit waarin ook de cockpit gelijkloopt<br>
-> **Wat de mens nu doet:** Geen actie nodig; lees straks de derde uitspraak.<br>
-> **Volgende toegestane actie:** Start één verse Phase-6 review op deze commit. Phase 7 vraagt APPROVED op exact dezelfde SHA plus expliciete menselijke adoptie.
+> Phase 6 — verse onafhankelijke review hervat<br>
+> **Grens:** De eerdere reviewtaak stopte zonder output; één nieuwe verse reviewer beoordeelt dezelfde ongewijzigde planning-SHA<br>
+> **Wat de mens nu doet:** Geen actie nodig; lees straks de onafhankelijke uitspraak.<br>
+> **Volgende toegestane actie:** Voltooi één verse Phase-6 review op dezelfde planning-SHA. Phase 7 vraagt APPROVED op exact die SHA plus expliciete menselijke adoptie.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
-- Snapshot: `2026-09-14`
+- Snapshot: `2026-09-15`
 - Scope: Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.
 
 ## Zeven fasen en teruglus
@@ -106,7 +106,7 @@ flowchart TB
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
 | 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070. |
 | 5R | Delivery Planner | ✅ Goedgekeurd / klaar | Plan gecorrigeerd: de controle dekt nu ook de negatieve testcel (nul overtredingen), de validatiezin klopt, en het hervattingspunt verwijst naar de geldende uitspraak. |
-| 6 | Independent Reviewer | 🔵 Bezig | Derde verse review actief op de gecorrigeerde commit; de reviewers van 06R2 en 06R3 beoordelen hun eigen correcties niet. |
+| 6 | Independent Reviewer | 🔵 Bezig | Een gestopte reviewtaak leverde geen output; een nieuwe verse reviewer beoordeelt dezelfde gecorrigeerde planning-SHA en repareert niets. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
 
 ## Dependency-gedreven requirementchunks
@@ -129,7 +129,7 @@ flowchart TB
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
 | 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c12c-20260913-01 | Behoud C12 als voorganger; herspecificeer daarna de walkthrough. |
 | 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Behoud C13 als voorganger; Phase 4R is compleet. |
-| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Independent Reviewer<br>phase6-20260914-03 | Laat één derde verse reviewer deze commit beoordelen; registreer die uitspraak ongewijzigd. |
+| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Independent Reviewer<br>phase6-20260915-04 | Laat één verse reviewer dezelfde planning-SHA beoordelen; registreer die uitspraak ongewijzigd. |
 
 ## Statuslegenda
 

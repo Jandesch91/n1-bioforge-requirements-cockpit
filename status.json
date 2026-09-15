@@ -4,7 +4,7 @@
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
     "input_sha": "(deze commit)",
-    "snapshot_date": "2026-09-14",
+    "snapshot_date": "2026-09-15",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
     "publication": {
@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — derde verse review actief",
+    "title": "Phase 6 — verse onafhankelijke review hervat",
     "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "Alle bevindingen zijn gecorrigeerd; een derde verse reviewer beoordeelt de commit waarin ook de cockpit gelijkloopt",
-    "what_human_does_next": "Geen actie nodig; lees straks de derde uitspraak.",
-    "next_allowed_action": "Start één verse Phase-6 review op deze commit. Phase 7 vraagt APPROVED op exact dezelfde SHA plus expliciete menselijke adoptie."
+    "current_boundary": "De eerdere reviewtaak stopte zonder output; één nieuwe verse reviewer beoordeelt dezelfde ongewijzigde planning-SHA",
+    "what_human_does_next": "Geen actie nodig; lees straks de onafhankelijke uitspraak.",
+    "next_allowed_action": "Voltooi één verse Phase-6 review op dezelfde planning-SHA. Phase 7 vraagt APPROVED op exact die SHA plus expliciete menselijke adoptie."
   },
   "phases": [
     {
@@ -144,7 +144,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "Derde verse review actief op de gecorrigeerde commit; de reviewers van 06R2 en 06R3 beoordelen hun eigen correcties niet.",
+      "status_note": "Een gestopte reviewtaak leverde geen output; een nieuwe verse reviewer beoordeelt dezelfde gecorrigeerde planning-SHA en repareert niets.",
       "return_to_phase": "phase-4r"
     },
     {
@@ -577,8 +577,8 @@
       "input_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea",
       "output_handoff": "../06R3-review-findings.md",
       "responsible_role": "Independent Reviewer",
-      "responsible_task": "phase6-20260914-03",
-      "next_allowed_action": "Laat één derde verse reviewer deze commit beoordelen; registreer die uitspraak ongewijzigd.",
+      "responsible_task": "phase6-20260915-04",
+      "next_allowed_action": "Laat één verse reviewer dezelfde planning-SHA beoordelen; registreer die uitspraak ongewijzigd.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
@@ -607,13 +607,13 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase6-20260914-03",
+      "task_id": "phase6-20260915-04",
       "role": "Independent Reviewer",
       "chunk": "GATE",
       "status": "in_progress",
       "input_sha": "a5c25d8f9667e814a485890dfa998204a9051260",
       "write_set": [
-        "private:phase6:review-findings-3"
+        "docs/planning/release-1-reconciliation/06R4-review-findings.md"
       ]
     }
   ],
