@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 6 — verse onafhankelijke review hervat<br>
-> **Grens:** De eerdere reviewtaak stopte zonder output; één nieuwe verse reviewer beoordeelt dezelfde ongewijzigde planning-SHA<br>
-> **Wat de mens nu doet:** Geen actie nodig; lees straks de onafhankelijke uitspraak.<br>
-> **Volgende toegestane actie:** Voltooi één verse Phase-6 review op dezelfde planning-SHA. Phase 7 vraagt APPROVED op exact die SHA plus expliciete menselijke adoptie.
+> Phase 6 — begrensde governancecorrectie actief<br>
+> **Grens:** De onafhankelijke review vindt de requirements en het plan inhoudelijk goed, maar vraagt twee begrensde correcties in status- en cockpitboekhouding<br>
+> **Wat de mens nu doet:** Geen actie nodig; de begrensde documentatiecorrectie en daarna een nieuwe verse review blijven nodig.<br>
+> **Volgende toegestane actie:** Corrigeer alleen de twee governancebevindingen en laat daarna een andere verse reviewer de nieuw aangeboden SHA beoordelen.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
@@ -25,14 +25,14 @@ flowchart TB
     phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
     phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
     phase_5r["5R · Delivery Planner<br/>✅ Goedgekeurd / klaar"]
-    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · 🔵 Bezig"]
+    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
     phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
     review_decision{"🟣 Reviewdispositie"}
     phase_6 --> review_decision
     review_decision -->|"✅ APPROVED op dezelfde SHA"| phase_7
-    review_decision -.->|"❌ terug naar vroegste defect: 4R"| return_lane["↩ Nieuwe verse taak in Requirements/Test Designer"]
-    return_lane -.-> phase_4r
+    review_decision -.->|"❌ terug naar vroegste defect: 5R"| return_lane["↩ Nieuwe verse taak in Delivery Planner"]
+    return_lane -.-> phase_5r
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef changes fill:#FDE2E1,stroke:#B42318,color:#5D1712,stroke-width:2px
     classDef blocked fill:#FDE2E1,stroke:#B42318,color:#5D1712,stroke-width:2px
@@ -67,7 +67,7 @@ flowchart TB
     chunk_13["13 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>✅ Goedgekeurd / klaar"]
     chunk_14["14 · C12<br/>Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo<br/>✅ Goedgekeurd / klaar"]
     chunk_15["15 · C13<br/>De walkthrough uitgebreid met de nieuwe schermen<br/>✅ Goedgekeurd / klaar"]
-    chunk_16["16 · GATE · ⏭ VOLGENDE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>🔵 Bezig"]
+    chunk_16["16 · GATE · ⏭ VOLGENDE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>❌ Changes required"]
     current_marker["🔵 YOU ARE HERE<br/>GATE<br/>Volgende: GATE"]
     chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12 --> chunk_13 --> chunk_14 --> chunk_15 --> current_marker --> chunk_16
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
@@ -93,7 +93,7 @@ flowchart TB
     class chunk_13 approved
     class chunk_14 approved
     class chunk_15 approved
-    class chunk_16 inprogress
+    class chunk_16 changes
     class current_marker current
 ```
 
@@ -106,7 +106,7 @@ flowchart TB
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
 | 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070. |
 | 5R | Delivery Planner | ✅ Goedgekeurd / klaar | Plan gecorrigeerd: de controle dekt nu ook de negatieve testcel (nul overtredingen), de validatiezin klopt, en het hervattingspunt verwijst naar de geldende uitspraak. |
-| 6 | Independent Reviewer | 🔵 Bezig | Een gestopte reviewtaak leverde geen output; een nieuwe verse reviewer beoordeelt dezelfde gecorrigeerde planning-SHA en repareert niets. |
+| 6 | Independent Reviewer | ❌ Changes required | CHANGES REQUIRED op a5c25d8: de requirements en het plan zijn inhoudelijk goed; alleen twee begrensde correcties in governanceboekhouding en cockpitweergave zijn nodig. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
 
 ## Dependency-gedreven requirementchunks
@@ -129,7 +129,7 @@ flowchart TB
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
 | 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c12c-20260913-01 | Behoud C12 als voorganger; herspecificeer daarna de walkthrough. |
 | 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Behoud C13 als voorganger; Phase 4R is compleet. |
-| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Independent Reviewer<br>phase6-20260915-04 | Laat één verse reviewer dezelfde planning-SHA beoordelen; registreer die uitspraak ongewijzigd. |
+| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ❌ Changes required | Fresh corrective agent<br>phase6r4-bookkeeping-20260915-01 | Corrigeer alleen R6R4-001 en R6R4-002; bied daarna één nieuwe SHA aan een andere verse reviewer aan. |
 
 ## Statuslegenda
 

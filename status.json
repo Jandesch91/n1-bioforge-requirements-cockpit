@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — verse onafhankelijke review hervat",
+    "title": "Phase 6 — begrensde governancecorrectie actief",
     "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De eerdere reviewtaak stopte zonder output; één nieuwe verse reviewer beoordeelt dezelfde ongewijzigde planning-SHA",
-    "what_human_does_next": "Geen actie nodig; lees straks de onafhankelijke uitspraak.",
-    "next_allowed_action": "Voltooi één verse Phase-6 review op dezelfde planning-SHA. Phase 7 vraagt APPROVED op exact die SHA plus expliciete menselijke adoptie."
+    "current_boundary": "De onafhankelijke review vindt de requirements en het plan inhoudelijk goed, maar vraagt twee begrensde correcties in status- en cockpitboekhouding",
+    "what_human_does_next": "Geen actie nodig; de begrensde documentatiecorrectie en daarna een nieuwe verse review blijven nodig.",
+    "next_allowed_action": "Corrigeer alleen de twee governancebevindingen en laat daarna een andere verse reviewer de nieuw aangeboden SHA beoordelen."
   },
   "phases": [
     {
@@ -136,16 +136,17 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "in_progress",
+      "status": "changes_required",
       "display_kind": "independent_review",
       "input_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea",
-      "handoff": "../06R3-review-findings.md",
+      "handoff": "../06R4-review-findings.md",
       "evidence": [
+        "../06R4-review-findings.md",
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "Een gestopte reviewtaak leverde geen output; een nieuwe verse reviewer beoordeelt dezelfde gecorrigeerde planning-SHA en repareert niets.",
-      "return_to_phase": "phase-4r"
+      "status_note": "CHANGES REQUIRED op a5c25d8: de requirements en het plan zijn inhoudelijk goed; alleen twee begrensde correcties in governanceboekhouding en cockpitweergave zijn nodig.",
+      "return_to_phase": "phase-5r"
     },
     {
       "id": "phase-7",
@@ -572,19 +573,19 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "in_progress",
-      "blocker": "De geldende uitspraak blijft CHANGES REQUIRED tot een verse review deze gecorrigeerde commit beoordeelt.",
-      "input_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea",
-      "output_handoff": "../06R3-review-findings.md",
-      "responsible_role": "Independent Reviewer",
-      "responsible_task": "phase6-20260915-04",
-      "next_allowed_action": "Laat één verse reviewer dezelfde planning-SHA beoordelen; registreer die uitspraak ongewijzigd.",
+      "status": "changes_required",
+      "blocker": "Twee begrensde governance- en cockpitcorrecties zijn nodig; requirements en delivery-planinhoud hoeven niet te worden herschreven.",
+      "input_sha": "a5c25d8f9667e814a485890dfa998204a9051260",
+      "output_handoff": "../06R4-review-findings.md",
+      "responsible_role": "Fresh corrective agent",
+      "responsible_task": "phase6r4-bookkeeping-20260915-01",
+      "next_allowed_action": "Corrigeer alleen R6R4-001 en R6R4-002; bied daarna één nieuwe SHA aan een andere verse reviewer aan.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "output_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea"
+      "output_sha": "96a3071c7465e8332acd066d01f376a6a958f3f0"
     }
   ],
   "orchestrator_protocol": [
@@ -607,13 +608,14 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase6-20260915-04",
-      "role": "Independent Reviewer",
+      "task_id": "phase6r4-bookkeeping-20260915-01",
+      "role": "Fresh corrective agent",
       "chunk": "GATE",
       "status": "in_progress",
-      "input_sha": "a5c25d8f9667e814a485890dfa998204a9051260",
+      "input_sha": "96a3071c7465e8332acd066d01f376a6a958f3f0",
       "write_set": [
-        "docs/planning/release-1-reconciliation/06R4-review-findings.md"
+        "private:planning-index",
+        "private:cockpit-generator-and-generated-views"
       ]
     }
   ],
@@ -642,6 +644,11 @@
       "label": "Phase 6R",
       "status": "changes_required",
       "handoff": "../06R-review-findings.md"
+    },
+    {
+      "label": "Phase 6R4",
+      "status": "changes_required",
+      "handoff": "../06R4-review-findings.md"
     }
   ]
 }
