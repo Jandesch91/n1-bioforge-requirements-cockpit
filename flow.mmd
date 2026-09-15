@@ -15,10 +15,18 @@ flowchart TB
     review_decision -.->|"❌ terug naar vroegste defect: 5R"| return_lane["↩ Nieuwe verse taak in Delivery Planner"]
     return_lane -.-> phase_5r
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
+    classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
+    classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
     classDef changes fill:#FDE2E1,stroke:#B42318,color:#5D1712,stroke-width:2px
     classDef blocked fill:#FDE2E1,stroke:#B42318,color:#5D1712,stroke-width:2px
+    classDef notstarted fill:#F2F4F7,stroke:#667085,color:#344054,stroke-width:2px
     classDef review fill:#EEE5FF,stroke:#6941C6,color:#321B69,stroke-width:2px
-    class phase_1,phase_2,phase_3r approved
-    class phase_4r changes
-    class phase_5r,phase_7,return_lane blocked
-    class phase_6,review_decision review
+    class phase_1 approved
+    class phase_2 approved
+    class phase_3r approved
+    class phase_4r approved
+    class phase_5r approved
+    class phase_6 changes
+    class phase_7 blocked
+    class return_lane blocked
+    class review_decision review

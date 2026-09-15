@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — begrensde governancecorrectie actief",
-    "status": "in_progress",
+    "title": "Phase 6 — begrensde correcties klaar; verse review volgt",
+    "status": "changes_required",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De onafhankelijke review vindt de requirements en het plan inhoudelijk goed, maar vraagt twee begrensde correcties in status- en cockpitboekhouding",
-    "what_human_does_next": "Geen actie nodig; de begrensde documentatiecorrectie en daarna een nieuwe verse review blijven nodig.",
-    "next_allowed_action": "Corrigeer alleen de twee governancebevindingen en laat daarna een andere verse reviewer de nieuw aangeboden SHA beoordelen."
+    "current_boundary": "De twee begrensde governance- en cockpitcorrecties zijn voltooid; de requirements en het delivery-plan bleven ongewijzigd",
+    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe verse review van de exact uitgelijnde SHA.",
+    "next_allowed_action": "Laat één andere verse reviewer de exact uitgelijnde SHA beoordelen. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
   },
   "phases": [
     {
@@ -145,7 +145,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "CHANGES REQUIRED op a5c25d8: de requirements en het plan zijn inhoudelijk goed; alleen twee begrensde correcties in governanceboekhouding en cockpitweergave zijn nodig.",
+      "status_note": "De twee begrensde 06R4-boekhoudingsbevindingen zijn gecorrigeerd; de geldende uitspraak blijft CHANGES REQUIRED totdat een andere verse reviewer de exact uitgelijnde SHA beoordeelt.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -574,12 +574,12 @@
       ],
       "current_phase": "phase-6",
       "status": "changes_required",
-      "blocker": "Twee begrensde governance- en cockpitcorrecties zijn nodig; requirements en delivery-planinhoud hoeven niet te worden herschreven.",
-      "input_sha": "a5c25d8f9667e814a485890dfa998204a9051260",
+      "blocker": "De begrensde correcties zijn klaar, maar alleen een andere verse review kan de geldende CHANGES REQUIRED-uitspraak vervangen.",
+      "input_sha": "93bc17166131eff31cae5b5b536a192fc0fb954a",
       "output_handoff": "../06R4-review-findings.md",
-      "responsible_role": "Fresh corrective agent",
-      "responsible_task": "phase6r4-bookkeeping-20260915-01",
-      "next_allowed_action": "Corrigeer alleen R6R4-001 en R6R4-002; bied daarna één nieuwe SHA aan een andere verse reviewer aan.",
+      "responsible_role": "Independent Reviewer",
+      "responsible_task": null,
+      "next_allowed_action": "Bied de uitgelijnde exacte SHA aan één andere verse reviewer aan; registreer de uitspraak ongewijzigd.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
@@ -606,19 +606,7 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [
-    {
-      "task_id": "phase6r4-bookkeeping-20260915-01",
-      "role": "Fresh corrective agent",
-      "chunk": "GATE",
-      "status": "in_progress",
-      "input_sha": "96a3071c7465e8332acd066d01f376a6a958f3f0",
-      "write_set": [
-        "private:planning-index",
-        "private:cockpit-generator-and-generated-views"
-      ]
-    }
-  ],
+  "active_tasks": [],
   "history": [
     {
       "label": "Phase 3",
