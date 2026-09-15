@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — begrensde correcties klaar; verse review volgt",
-    "status": "changes_required",
+    "title": "Phase 6 — nieuwe verse onafhankelijke review actief",
+    "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De twee begrensde governance- en cockpitcorrecties zijn voltooid; de requirements en het delivery-plan bleven ongewijzigd",
-    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe verse review van de exact uitgelijnde SHA.",
-    "next_allowed_action": "Laat één andere verse reviewer de exact uitgelijnde SHA beoordelen. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
+    "current_boundary": "De twee begrensde correcties zijn voltooid; een andere verse reviewer beoordeelt nu de exact uitgelijnde SHA",
+    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
+    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
   },
   "phases": [
     {
@@ -136,16 +136,16 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "changes_required",
+      "status": "in_progress",
       "display_kind": "independent_review",
-      "input_sha": "defb5ca22909a6f45899586f4bf85c6aaa4967ea",
+      "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
       "handoff": "../06R4-review-findings.md",
       "evidence": [
         "../06R4-review-findings.md",
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "De twee begrensde 06R4-boekhoudingsbevindingen zijn gecorrigeerd; de geldende uitspraak blijft CHANGES REQUIRED totdat een andere verse reviewer de exact uitgelijnde SHA beoordeelt.",
+      "status_note": "De twee begrensde 06R4-boekhoudingsbevindingen zijn gecorrigeerd; een andere verse reviewer beoordeelt nu exact SHA 8c17d16 en repareert niets.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -573,13 +573,13 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "changes_required",
-      "blocker": "De begrensde correcties zijn klaar, maar alleen een andere verse review kan de geldende CHANGES REQUIRED-uitspraak vervangen.",
-      "input_sha": "93bc17166131eff31cae5b5b536a192fc0fb954a",
+      "status": "in_progress",
+      "blocker": "De geldende uitspraak blijft CHANGES REQUIRED totdat de nieuwe verse reviewer de exact uitgelijnde SHA beoordeelt.",
+      "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
       "output_handoff": "../06R4-review-findings.md",
       "responsible_role": "Independent Reviewer",
-      "responsible_task": null,
-      "next_allowed_action": "Bied de uitgelijnde exacte SHA aan één andere verse reviewer aan; registreer de uitspraak ongewijzigd.",
+      "responsible_task": "phase6-20260915-05",
+      "next_allowed_action": "Laat de verse reviewer SHA 8c17d16 beoordelen; registreer de uitspraak ongewijzigd.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
@@ -606,7 +606,18 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [],
+  "active_tasks": [
+    {
+      "task_id": "phase6-20260915-05",
+      "role": "Independent Reviewer",
+      "chunk": "GATE",
+      "status": "in_progress",
+      "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
+      "write_set": [
+        "private:phase6:review-findings-5"
+      ]
+    }
+  ],
   "history": [
     {
       "label": "Phase 3",
