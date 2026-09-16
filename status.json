@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6R6 — verse onafhankelijke review actief",
-    "status": "in_progress",
-    "active_chunk": "GATE",
+    "title": "PAUSED — PROVIDER USAGE GUARD >= 90%",
+    "status": "human_gate",
+    "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De begrensde R6R5-001-correctie is voltooid; een andere verse reviewer beoordeelt nu exact checkpoint bb08bb1",
-    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
-    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
+    "current_boundary": "De Phase 6R6-review is veilig onderbroken vóór output; de laatste geldige correctiecheckpoint bb08bb1 blijft intact",
+    "what_human_does_next": "Start later een nieuwe orchestrator-invocation, of laat een andere provider direct vanaf de duurzame handoff overnemen.",
+    "next_allowed_action": "Controleer bij een nieuwe invocation eerst PAUSE en alle providergebruikvensters; voer daarna de onvoltooide review opnieuw uit in een echt verse context."
   },
   "phases": [
     {
@@ -136,7 +136,7 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "in_progress",
+      "status": "human_gate",
       "display_kind": "independent_review",
       "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
       "handoff": "../06R5-review-findings.md",
@@ -146,7 +146,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R5 gaf CHANGES REQUIRED op exact SHA 8c17d16. De enige begrensde bevinding R6R5-001 is gecorrigeerd; een andere verse reviewer beoordeelt nu exact checkpoint bb08bb1.",
+      "status_note": "06R5 gaf CHANGES REQUIRED op exact SHA 8c17d16 en R6R5-001 is gecorrigeerd. Phase 6R6 op checkpoint bb08bb1 is wegens de providergebruiksgrens vóór output onderbroken en blijft onvoltooid.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -574,13 +574,13 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "in_progress",
-      "blocker": "De geldende 06R5-uitspraak blijft CHANGES REQUIRED totdat de andere verse reviewer checkpoint bb08bb1 beoordeelt.",
+      "status": "human_gate",
+      "blocker": "Veilige provider-gebruikspauze; er is geen actieve child en geen 06R6-output. De geldende uitspraak blijft 06R5 CHANGES REQUIRED.",
       "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
       "output_handoff": "../06R5-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260916-06",
-      "next_allowed_action": "Laat de verse reviewer exact checkpoint bb08bb1 beoordelen; registreer de uitspraak ongewijzigd.",
+      "next_allowed_action": "Start alleen in een nieuwe invocation na PAUSE- en providergebruikchecks één echt verse heruitvoering op exact checkpoint bb08bb1.",
       "durable_evidence": [
         "../06R5-review-findings.md",
         "../README.md",
@@ -607,18 +607,7 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [
-    {
-      "task_id": "phase6-20260916-06",
-      "role": "Independent Reviewer",
-      "chunk": "GATE",
-      "status": "in_progress",
-      "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
-      "write_set": [
-        "docs/planning/release-1-reconciliation/06R6-review-findings.md"
-      ]
-    }
-  ],
+  "active_tasks": [],
   "history": [
     {
       "label": "Phase 3",
