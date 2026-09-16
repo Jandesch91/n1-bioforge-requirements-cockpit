@@ -6,7 +6,7 @@ flowchart TB
     phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
     phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
     phase_5r["5R · Delivery Planner<br/>✅ Goedgekeurd / klaar"]
-    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
+    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · 🔵 Bezig"]
     phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
     review_decision{"🟣 Reviewdispositie"}
@@ -26,7 +26,7 @@ flowchart TB
     class phase_3r approved
     class phase_4r approved
     class phase_5r approved
-    class phase_6 changes
+    class phase_6 inprogress
     class phase_7 blocked
     class return_lane blocked
     class review_decision review
