@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "PAUSED — PROVIDER USAGE GUARD >= 90%",
-    "status": "human_gate",
-    "active_chunk": null,
+    "title": "Phase 6R7 — verse onafhankelijke review actief",
+    "status": "in_progress",
+    "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De Phase 6R7-review is veilig onderbroken vóór output; het geldige correctiecheckpoint dfc8290 blijft intact",
-    "what_human_does_next": "Start later een nieuwe orchestrator-invocation, of laat een andere provider direct vanaf de duurzame handoff overnemen.",
-    "next_allowed_action": "Controleer bij een nieuwe invocation eerst PAUSE en alle providergebruikvensters; voer daarna de onvoltooide review opnieuw uit in een echt verse context."
+    "current_boundary": "De begrensde R6R6-001-correctie is voltooid; een andere verse reviewer beoordeelt nu exact checkpoint dfc8290",
+    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
+    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
   },
   "phases": [
     {
@@ -136,7 +136,7 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "human_gate",
+      "status": "in_progress",
       "display_kind": "independent_review",
       "input_sha": "dfc829022c8d036454c31c147e7a3f56b6ef1b67",
       "handoff": "../06R6-review-findings.md",
@@ -147,7 +147,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R6 gaf CHANGES REQUIRED op exact SHA bb08bb1 en R6R6-001 is gecorrigeerd. Phase 6R7 op checkpoint dfc8290 is wegens de providergebruiksgrens vóór output onderbroken en blijft onvoltooid.",
+      "status_note": "06R6 gaf CHANGES REQUIRED op exact SHA bb08bb1. De enige begrensde bevinding R6R6-001 is gecorrigeerd; een andere verse reviewer beoordeelt nu exact checkpoint dfc8290.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -575,13 +575,13 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "human_gate",
-      "blocker": "Veilige provider-gebruikspauze; er is geen actieve child en geen 06R7-output. De geldende uitspraak blijft 06R6 CHANGES REQUIRED.",
+      "status": "in_progress",
+      "blocker": "De geldende 06R6-uitspraak blijft CHANGES REQUIRED totdat de andere verse reviewer checkpoint dfc8290 beoordeelt.",
       "input_sha": "dfc829022c8d036454c31c147e7a3f56b6ef1b67",
       "output_handoff": "../06R6-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260916-07",
-      "next_allowed_action": "Start alleen in een nieuwe invocation na PAUSE- en providergebruikchecks één echt verse heruitvoering op exact checkpoint dfc8290.",
+      "next_allowed_action": "Laat de verse reviewer exact checkpoint dfc8290 beoordelen; registreer de uitspraak ongewijzigd.",
       "durable_evidence": [
         "../06R5-review-findings.md",
         "../README.md",
@@ -608,7 +608,18 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [],
+  "active_tasks": [
+    {
+      "task_id": "phase6-20260916-07",
+      "role": "Independent Reviewer",
+      "chunk": "GATE",
+      "status": "in_progress",
+      "input_sha": "dfc829022c8d036454c31c147e7a3f56b6ef1b67",
+      "write_set": [
+        "docs/planning/release-1-reconciliation/06R7-review-findings.md"
+      ]
+    }
+  ],
   "history": [
     {
       "label": "Phase 3",
