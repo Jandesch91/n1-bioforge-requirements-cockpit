@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6R6 — verse onafhankelijke review actief",
+    "title": "Phase 6R6 — CHANGES REQUIRED; begrensde correctie actief",
     "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De begrensde R6R5-001-correctie is voltooid; een andere verse reviewer beoordeelt nu exact checkpoint bb08bb1",
-    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
-    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
+    "current_boundary": "De verse review vond één begrensd defect in twee huidige-statusuitspraken; requirements en leveringsvolgorde blijven inhoudelijk intact",
+    "what_human_does_next": "Geen actie nodig; wacht op de begrensde correctie en daarna een nieuwe verse review.",
+    "next_allowed_action": "Corrigeer alleen R6R6-001 in de huidige-statusboekhouding; bied daarna de ongewijzigde correctie-SHA aan een andere verse reviewer aan."
   },
   "phases": [
     {
@@ -136,17 +136,18 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "in_progress",
+      "status": "changes_required",
       "display_kind": "independent_review",
       "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
-      "handoff": "../06R5-review-findings.md",
+      "handoff": "../06R6-review-findings.md",
       "evidence": [
+        "../06R6-review-findings.md",
         "../06R5-review-findings.md",
         "../06R4-review-findings.md",
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R5 gaf CHANGES REQUIRED op exact SHA 8c17d16. De enige begrensde bevinding R6R5-001 is gecorrigeerd; een andere verse reviewer beoordeelt nu exact checkpoint bb08bb1.",
+      "status_note": "06R6 gaf CHANGES REQUIRED op exact SHA bb08bb1: één begrensd current-state-boekhoudingsdefect moet worden gecorrigeerd; requirements en deliveryplan hoeven niet te worden geregenereerd.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -575,18 +576,18 @@
       ],
       "current_phase": "phase-6",
       "status": "in_progress",
-      "blocker": "De geldende 06R5-uitspraak blijft CHANGES REQUIRED totdat de andere verse reviewer checkpoint bb08bb1 beoordeelt.",
+      "blocker": "R6R6-001 vereist één begrensde correctie van twee tegenstrijdige huidige-statusuitspraken; inhoudelijke planning blijft intact.",
       "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
-      "output_handoff": "../06R5-review-findings.md",
-      "responsible_role": "Independent Reviewer",
-      "responsible_task": "phase6-20260916-06",
-      "next_allowed_action": "Laat de verse reviewer exact checkpoint bb08bb1 beoordelen; registreer de uitspraak ongewijzigd.",
+      "output_handoff": "../06R6-review-findings.md",
+      "responsible_role": "Fresh corrective documentation/governance agent",
+      "responsible_task": "phase6r6-bookkeeping-20260916-01",
+      "next_allowed_action": "Corrigeer R6R6-001 binnen de begrensde schrijfset; laat daarna een andere verse reviewer de correctie-SHA beoordelen.",
       "durable_evidence": [
         "../06R5-review-findings.md",
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "output_sha": "5a504dda00a252e3be3bc2617c56d72d5365e2f2"
+      "output_sha": "2a1a7f5967721700e8e13079f193651d1769e900"
     }
   ],
   "orchestrator_protocol": [
@@ -609,13 +610,14 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase6-20260916-06",
-      "role": "Independent Reviewer",
+      "task_id": "phase6r6-bookkeeping-20260916-01",
+      "role": "Fresh corrective documentation/governance agent",
       "chunk": "GATE",
       "status": "in_progress",
-      "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
+      "input_sha": "2a1a7f5967721700e8e13079f193651d1769e900",
       "write_set": [
-        "docs/planning/release-1-reconciliation/06R6-review-findings.md"
+        "docs/planning/release-1-reconciliation/README.md",
+        "docs/planning/release-1-reconciliation/orchestration/CLAUDE-CODE-HANDOFF.md"
       ]
     }
   ],
