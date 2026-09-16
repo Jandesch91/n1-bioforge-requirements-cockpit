@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6R6 — CHANGES REQUIRED; begrensde correctie actief",
+    "title": "Phase 6R6 — begrensde correctie voltooid; verse review volgt",
     "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De verse review vond één begrensd defect in twee huidige-statusuitspraken; requirements en leveringsvolgorde blijven inhoudelijk intact",
-    "what_human_does_next": "Geen actie nodig; wacht op de begrensde correctie en daarna een nieuwe verse review.",
-    "next_allowed_action": "Corrigeer alleen R6R6-001 in de huidige-statusboekhouding; bied daarna de ongewijzigde correctie-SHA aan een andere verse reviewer aan."
+    "current_boundary": "R6R6-001 is begrensd gecorrigeerd zonder requirements of leveringsvolgorde te wijzigen; het exacte correctiecheckpoint wordt nu gebonden",
+    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
+    "next_allowed_action": "Bind het exacte correctiecheckpoint en laat één andere verse reviewer uitsluitend dat ongewijzigde checkpoint beoordelen."
   },
   "phases": [
     {
@@ -147,7 +147,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R6 gaf CHANGES REQUIRED op exact SHA bb08bb1: één begrensd current-state-boekhoudingsdefect moet worden gecorrigeerd; requirements en deliveryplan hoeven niet te worden geregenereerd.",
+      "status_note": "06R6 gaf CHANGES REQUIRED op exact SHA bb08bb1. De enige begrensde bevinding R6R6-001 is gecorrigeerd; een andere verse reviewer moet het exacte correctiecheckpoint beoordelen.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -576,18 +576,18 @@
       ],
       "current_phase": "phase-6",
       "status": "in_progress",
-      "blocker": "R6R6-001 vereist één begrensde correctie van twee tegenstrijdige huidige-statusuitspraken; inhoudelijke planning blijft intact.",
+      "blocker": "De geldende 06R6-uitspraak blijft CHANGES REQUIRED totdat een andere verse reviewer het exacte correctiecheckpoint beoordeelt.",
       "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
       "output_handoff": "../06R6-review-findings.md",
       "responsible_role": "Fresh corrective documentation/governance agent",
       "responsible_task": "phase6r6-bookkeeping-20260916-01",
-      "next_allowed_action": "Corrigeer R6R6-001 binnen de begrensde schrijfset; laat daarna een andere verse reviewer de correctie-SHA beoordelen.",
+      "next_allowed_action": "Bind het exacte correctiecheckpoint; laat daarna een andere verse reviewer die ongewijzigde SHA beoordelen.",
       "durable_evidence": [
         "../06R5-review-findings.md",
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "output_sha": "2a1a7f5967721700e8e13079f193651d1769e900"
+      "output_sha": "49c3283459319edf94103bafc7f2ba61209576c4"
     }
   ],
   "orchestrator_protocol": [
@@ -608,19 +608,7 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [
-    {
-      "task_id": "phase6r6-bookkeeping-20260916-01",
-      "role": "Fresh corrective documentation/governance agent",
-      "chunk": "GATE",
-      "status": "in_progress",
-      "input_sha": "2a1a7f5967721700e8e13079f193651d1769e900",
-      "write_set": [
-        "docs/planning/release-1-reconciliation/README.md",
-        "docs/planning/release-1-reconciliation/orchestration/CLAUDE-CODE-HANDOFF.md"
-      ]
-    }
-  ],
+  "active_tasks": [],
   "history": [
     {
       "label": "Phase 3",
