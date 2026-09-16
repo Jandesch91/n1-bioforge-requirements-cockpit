@@ -4,7 +4,7 @@
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
     "input_sha": "(deze commit)",
-    "snapshot_date": "2026-09-15",
+    "snapshot_date": "2026-09-16",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
     "publication": {
@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6R5 — CHANGES REQUIRED; begrensde correctie actief",
-    "status": "in_progress",
+    "title": "Phase 6R5 — CHANGES REQUIRED; begrensde correctie klaar, verse review volgt",
+    "status": "changes_required",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De verse review vond één begrensd defect in de huidige-statusdocumenten; requirements en leveringsvolgorde blijven inhoudelijk intact",
-    "what_human_does_next": "Geen actie nodig; wacht op de begrensde correctie en daarna een nieuwe verse review.",
-    "next_allowed_action": "Corrigeer alleen de huidige-statusboekhouding; bied daarna de ongewijzigde correctie-SHA aan een andere verse reviewer aan."
+    "current_boundary": "Phase 4R en Phase 5R zijn compleet en technisch degelijk; de enige R6R5-001-boekhoudingscorrectie is voltooid in deze correctiecommit",
+    "what_human_does_next": "Geen actie nodig vóór de verse review; menselijke adoptie volgt alleen na APPROVED op de ongewijzigde correctiecommit.",
+    "next_allowed_action": "Laat één andere verse onafhankelijke reviewer de ongewijzigde correctiecommit beoordelen nadat de orchestrator de exacte SHA heeft gebonden."
   },
   "phases": [
     {
@@ -146,7 +146,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R5 gaf CHANGES REQUIRED op exact SHA 8c17d16: één begrensd current-state-boekhoudingsdefect moet worden gecorrigeerd; requirements en deliveryplan hoeven niet te worden geregenereerd.",
+      "status_note": "06R5 gaf CHANGES REQUIRED op exact SHA 8c17d16. De enige begrensde current-state-boekhoudingsbevinding R6R5-001 is in deze correctiecommit gecorrigeerd; requirements en deliveryplan zijn compleet en hoeven niet te worden geregenereerd.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -158,7 +158,7 @@
       "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
       "handoff": "Nog niet toegestaan",
       "evidence": [
-        "../06R-review-findings.md",
+        "../06R5-review-findings.md",
         "../README.md"
       ],
       "status_note": "Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA."
@@ -574,19 +574,19 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "in_progress",
-      "blocker": "R6R5-001 vereist één begrensde correctie van tegenstrijdige huidige-statusvelden; inhoudelijke planning blijft intact.",
+      "status": "changes_required",
+      "blocker": "De geldende 06R5-uitspraak is CHANGES REQUIRED op 8c17d16; R6R5-001 is in deze correctiecommit gecorrigeerd en wacht op één andere verse onafhankelijke review.",
       "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
       "output_handoff": "../06R5-review-findings.md",
-      "responsible_role": "Fresh corrective documentation/governance agent",
-      "responsible_task": "phase6r5-bookkeeping-20260916-01",
-      "next_allowed_action": "Corrigeer R6R5-001 binnen de begrensde schrijfset; laat daarna een andere verse reviewer de correctie-SHA beoordelen.",
+      "responsible_role": "Fresh Independent Reviewer",
+      "responsible_task": null,
+      "next_allowed_action": "Laat één andere verse onafhankelijke reviewer de ongewijzigde correctiecommit beoordelen nadat de orchestrator de exacte SHA heeft gebonden.",
       "durable_evidence": [
-        "../06-review-findings.md",
-        "../06R-review-findings.md",
-        "../README.md"
+        "../06R5-review-findings.md",
+        "../README.md",
+        "../RESUME-HERE.md"
       ],
-      "output_sha": "5a504dda00a252e3be3bc2617c56d72d5365e2f2"
+      "output_sha": "(deze commit)"
     }
   ],
   "orchestrator_protocol": [
@@ -607,25 +607,7 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [
-    {
-      "task_id": "phase6r5-bookkeeping-20260916-01",
-      "role": "Fresh corrective documentation/governance agent",
-      "chunk": "GATE",
-      "status": "in_progress",
-      "input_sha": "5a504dda00a252e3be3bc2617c56d72d5365e2f2",
-      "write_set": [
-        "docs/planning/release-1-reconciliation/README.md",
-        "docs/planning/release-1-reconciliation/RESUME-HERE.md",
-        "docs/planning/release-1-reconciliation/04R-requirements-and-tests/README.md",
-        "docs/planning/release-1-reconciliation/cockpit/status.json",
-        "docs/planning/release-1-reconciliation/cockpit/README.md",
-        "docs/planning/release-1-reconciliation/cockpit/flow.mmd",
-        "docs/planning/release-1-reconciliation/cockpit/chunks.mmd",
-        "docs/planning/release-1-reconciliation/cockpit/index.html"
-      ]
-    }
-  ],
+  "active_tasks": [],
   "history": [
     {
       "label": "Phase 3",
@@ -656,6 +638,11 @@
       "label": "Phase 6R4",
       "status": "changes_required",
       "handoff": "../06R4-review-findings.md"
+    },
+    {
+      "label": "Phase 6R5",
+      "status": "changes_required",
+      "handoff": "../06R5-review-findings.md"
     }
   ]
 }
