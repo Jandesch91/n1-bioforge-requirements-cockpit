@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6R7 — begrensde statuscorrectie voltooid; verse review volgt",
+    "title": "Phase 6R8 — verse onafhankelijke review actief",
     "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "R6R7-001 is begrensd gecorrigeerd zonder requirements of leveringsvolgorde te wijzigen; het exacte correctiecheckpoint wordt nu gebonden",
+    "current_boundary": "De begrensde R6R7-001-correctie is voltooid; een andere verse reviewer beoordeelt nu exact checkpoint d37079e",
     "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
-    "next_allowed_action": "Bind het exacte correctiecheckpoint en laat één andere verse reviewer uitsluitend dat ongewijzigde checkpoint beoordelen."
+    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
   },
   "phases": [
     {
@@ -136,9 +136,9 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "changes_required",
+      "status": "in_progress",
       "display_kind": "independent_review",
-      "input_sha": "dfc829022c8d036454c31c147e7a3f56b6ef1b67",
+      "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
       "handoff": "../06R7-review-findings.md",
       "evidence": [
         "../06R7-review-findings.md",
@@ -148,7 +148,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R7 gaf CHANGES REQUIRED op exact SHA dfc8290. De enige begrensde bevinding R6R7-001 is gecorrigeerd; een andere verse reviewer moet het exacte correctiecheckpoint beoordelen.",
+      "status_note": "06R7 gaf CHANGES REQUIRED op exact SHA dfc8290. De enige begrensde bevinding R6R7-001 is gecorrigeerd; een andere verse reviewer beoordeelt nu exact checkpoint d37079e.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -577,12 +577,12 @@
       ],
       "current_phase": "phase-6",
       "status": "in_progress",
-      "blocker": "De geldende 06R7-uitspraak blijft CHANGES REQUIRED totdat een andere verse reviewer het exacte correctiecheckpoint beoordeelt.",
-      "input_sha": "dfc829022c8d036454c31c147e7a3f56b6ef1b67",
+      "blocker": "De geldende 06R7-uitspraak blijft CHANGES REQUIRED totdat de andere verse reviewer checkpoint d37079e beoordeelt.",
+      "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
       "output_handoff": "../06R7-review-findings.md",
-      "responsible_role": "Fresh corrective documentation/governance agent",
-      "responsible_task": "phase6r7-bookkeeping-20260916-01",
-      "next_allowed_action": "Bind het exacte correctiecheckpoint; laat daarna een andere verse reviewer die ongewijzigde SHA beoordelen.",
+      "responsible_role": "Independent Reviewer",
+      "responsible_task": "phase6-20260916-08",
+      "next_allowed_action": "Laat de verse reviewer exact checkpoint d37079e beoordelen; registreer de uitspraak ongewijzigd.",
       "durable_evidence": [
         "../06R7-review-findings.md",
         "../README.md",
@@ -609,7 +609,18 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [],
+  "active_tasks": [
+    {
+      "task_id": "phase6-20260916-08",
+      "role": "Independent Reviewer",
+      "chunk": "GATE",
+      "status": "in_progress",
+      "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
+      "write_set": [
+        "docs/planning/release-1-reconciliation/06R8-review-findings.md"
+      ]
+    }
+  ],
   "history": [
     {
       "label": "Phase 3",
