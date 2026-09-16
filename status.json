@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6 — nieuwe verse onafhankelijke review actief",
+    "title": "Phase 6R5 — CHANGES REQUIRED; begrensde correctie actief",
     "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De twee begrensde correcties zijn voltooid; een andere verse reviewer beoordeelt nu de exact uitgelijnde SHA",
-    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
-    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
+    "current_boundary": "De verse review vond één begrensd defect in de huidige-statusdocumenten; requirements en leveringsvolgorde blijven inhoudelijk intact",
+    "what_human_does_next": "Geen actie nodig; wacht op de begrensde correctie en daarna een nieuwe verse review.",
+    "next_allowed_action": "Corrigeer alleen de huidige-statusboekhouding; bied daarna de ongewijzigde correctie-SHA aan een andere verse reviewer aan."
   },
   "phases": [
     {
@@ -136,16 +136,17 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "in_progress",
+      "status": "changes_required",
       "display_kind": "independent_review",
       "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
-      "handoff": "../06R4-review-findings.md",
+      "handoff": "../06R5-review-findings.md",
       "evidence": [
+        "../06R5-review-findings.md",
         "../06R4-review-findings.md",
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "De twee begrensde 06R4-boekhoudingsbevindingen zijn gecorrigeerd; een andere verse reviewer beoordeelt nu exact SHA 8c17d16 en repareert niets.",
+      "status_note": "06R5 gaf CHANGES REQUIRED op exact SHA 8c17d16: één begrensd current-state-boekhoudingsdefect moet worden gecorrigeerd; requirements en deliveryplan hoeven niet te worden geregenereerd.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -574,18 +575,18 @@
       ],
       "current_phase": "phase-6",
       "status": "in_progress",
-      "blocker": "De geldende uitspraak blijft CHANGES REQUIRED totdat de nieuwe verse reviewer de exact uitgelijnde SHA beoordeelt.",
+      "blocker": "R6R5-001 vereist één begrensde correctie van tegenstrijdige huidige-statusvelden; inhoudelijke planning blijft intact.",
       "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
-      "output_handoff": "../06R4-review-findings.md",
-      "responsible_role": "Independent Reviewer",
-      "responsible_task": "phase6-20260915-05",
-      "next_allowed_action": "Laat de verse reviewer SHA 8c17d16 beoordelen; registreer de uitspraak ongewijzigd.",
+      "output_handoff": "../06R5-review-findings.md",
+      "responsible_role": "Fresh corrective documentation/governance agent",
+      "responsible_task": "phase6r5-bookkeeping-20260916-01",
+      "next_allowed_action": "Corrigeer R6R5-001 binnen de begrensde schrijfset; laat daarna een andere verse reviewer de correctie-SHA beoordelen.",
       "durable_evidence": [
         "../06-review-findings.md",
         "../06R-review-findings.md",
         "../README.md"
       ],
-      "output_sha": "96a3071c7465e8332acd066d01f376a6a958f3f0"
+      "output_sha": "5a504dda00a252e3be3bc2617c56d72d5365e2f2"
     }
   ],
   "orchestrator_protocol": [
@@ -608,13 +609,20 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase6-20260915-05",
-      "role": "Independent Reviewer",
+      "task_id": "phase6r5-bookkeeping-20260916-01",
+      "role": "Fresh corrective documentation/governance agent",
       "chunk": "GATE",
       "status": "in_progress",
-      "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
+      "input_sha": "5a504dda00a252e3be3bc2617c56d72d5365e2f2",
       "write_set": [
-        "docs/planning/release-1-reconciliation/06R5-review-findings.md"
+        "docs/planning/release-1-reconciliation/README.md",
+        "docs/planning/release-1-reconciliation/RESUME-HERE.md",
+        "docs/planning/release-1-reconciliation/04R-requirements-and-tests/README.md",
+        "docs/planning/release-1-reconciliation/cockpit/status.json",
+        "docs/planning/release-1-reconciliation/cockpit/README.md",
+        "docs/planning/release-1-reconciliation/cockpit/flow.mmd",
+        "docs/planning/release-1-reconciliation/cockpit/chunks.mmd",
+        "docs/planning/release-1-reconciliation/cockpit/index.html"
       ]
     }
   ],
