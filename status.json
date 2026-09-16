@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6R5 — CHANGES REQUIRED; begrensde correctie klaar, verse review volgt",
-    "status": "changes_required",
+    "title": "Phase 6R6 — verse onafhankelijke review actief",
+    "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "Phase 4R en Phase 5R zijn compleet en technisch degelijk; de enige R6R5-001-boekhoudingscorrectie is voltooid in deze correctiecommit",
-    "what_human_does_next": "Geen actie nodig vóór de verse review; menselijke adoptie volgt alleen na APPROVED op de ongewijzigde correctiecommit.",
-    "next_allowed_action": "Laat één andere verse onafhankelijke reviewer de ongewijzigde correctiecommit beoordelen nadat de orchestrator de exacte SHA heeft gebonden."
+    "current_boundary": "De begrensde R6R5-001-correctie is voltooid; een andere verse reviewer beoordeelt nu exact checkpoint bb08bb1",
+    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
+    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
   },
   "phases": [
     {
@@ -136,9 +136,9 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "changes_required",
+      "status": "in_progress",
       "display_kind": "independent_review",
-      "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
+      "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
       "handoff": "../06R5-review-findings.md",
       "evidence": [
         "../06R5-review-findings.md",
@@ -146,7 +146,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R5 gaf CHANGES REQUIRED op exact SHA 8c17d16. De enige begrensde current-state-boekhoudingsbevinding R6R5-001 is in deze correctiecommit gecorrigeerd; requirements en deliveryplan zijn compleet en hoeven niet te worden geregenereerd.",
+      "status_note": "06R5 gaf CHANGES REQUIRED op exact SHA 8c17d16. De enige begrensde bevinding R6R5-001 is gecorrigeerd; een andere verse reviewer beoordeelt nu exact checkpoint bb08bb1.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -574,19 +574,19 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "changes_required",
-      "blocker": "De geldende 06R5-uitspraak is CHANGES REQUIRED op 8c17d16; R6R5-001 is in deze correctiecommit gecorrigeerd en wacht op één andere verse onafhankelijke review.",
-      "input_sha": "8c17d163eef262fe5773543e97196d23f9dbef85",
+      "status": "in_progress",
+      "blocker": "De geldende 06R5-uitspraak blijft CHANGES REQUIRED totdat de andere verse reviewer checkpoint bb08bb1 beoordeelt.",
+      "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
       "output_handoff": "../06R5-review-findings.md",
-      "responsible_role": "Fresh Independent Reviewer",
-      "responsible_task": null,
-      "next_allowed_action": "Laat één andere verse onafhankelijke reviewer de ongewijzigde correctiecommit beoordelen nadat de orchestrator de exacte SHA heeft gebonden.",
+      "responsible_role": "Independent Reviewer",
+      "responsible_task": "phase6-20260916-06",
+      "next_allowed_action": "Laat de verse reviewer exact checkpoint bb08bb1 beoordelen; registreer de uitspraak ongewijzigd.",
       "durable_evidence": [
         "../06R5-review-findings.md",
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "output_sha": "(deze commit)"
+      "output_sha": "5a504dda00a252e3be3bc2617c56d72d5365e2f2"
     }
   ],
   "orchestrator_protocol": [
@@ -607,7 +607,18 @@
     "destructive_ct240_requires_separate_human_approval": true,
     "maximum_active_writers_per_file": 1
   },
-  "active_tasks": [],
+  "active_tasks": [
+    {
+      "task_id": "phase6-20260916-06",
+      "role": "Independent Reviewer",
+      "chunk": "GATE",
+      "status": "in_progress",
+      "input_sha": "bb08bb1a7e715cbc1536d54c6854cc62a5dd5931",
+      "write_set": [
+        "docs/planning/release-1-reconciliation/06R6-review-findings.md"
+      ]
+    }
+  ],
   "history": [
     {
       "label": "Phase 3",
