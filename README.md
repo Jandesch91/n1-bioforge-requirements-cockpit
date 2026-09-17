@@ -2,14 +2,14 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 6R8 — verse onafhankelijke review actief<br>
-> **Grens:** De begrensde R6R7-001-correctie is voltooid; een andere verse reviewer beoordeelt nu exact checkpoint d37079e<br>
+> Phase 6R8 — verse onafhankelijke review hervat<br>
+> **Grens:** De eerdere poging stopte vóór output; een nieuwe verse reviewer beoordeelt nu exact checkpoint d37079e<br>
 > **Wat de mens nu doet:** Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.<br>
 > **Volgende toegestane actie:** Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
-- Snapshot: `2026-09-16`
+- Snapshot: `2026-09-17`
 - Scope: Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.
 
 ## Zeven fasen en teruglus
@@ -114,7 +114,7 @@ flowchart TB
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
 | 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070. |
 | 5R | Delivery Planner | ✅ Goedgekeurd / klaar | Plan gecorrigeerd: de controle dekt nu ook de negatieve testcel (nul overtredingen), de validatiezin klopt, en het hervattingspunt verwijst naar de geldende uitspraak. |
-| 6 | Independent Reviewer | 🔵 Bezig | 06R7 gaf CHANGES REQUIRED op exact SHA dfc8290. De enige begrensde bevinding R6R7-001 is gecorrigeerd; een andere verse reviewer beoordeelt nu exact checkpoint d37079e. |
+| 6 | Independent Reviewer | 🔵 Bezig | 06R7 gaf CHANGES REQUIRED op exact SHA dfc8290. R6R7-001 is gecorrigeerd; na een poging zonder output beoordeelt een andere verse reviewer nu exact checkpoint d37079e. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
 
 ## Dependency-gedreven requirementchunks
@@ -137,7 +137,7 @@ flowchart TB
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
 | 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c12c-20260913-01 | Behoud C12 als voorganger; herspecificeer daarna de walkthrough. |
 | 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Behoud C13 als voorganger; Phase 4R is compleet. |
-| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Independent Reviewer<br>phase6-20260916-08 | Laat de verse reviewer exact checkpoint d37079e beoordelen; registreer de uitspraak ongewijzigd. |
+| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Independent Reviewer<br>phase6-20260916-08 | Laat de nieuwe verse reviewer exact checkpoint d37079e beoordelen; registreer de uitspraak ongewijzigd. |
 
 ## Statuslegenda
 

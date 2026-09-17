@@ -4,7 +4,7 @@
     "title": "N1 BioForge Requirements Cockpit",
     "planning_branch": "codex/release-1-reconciliation",
     "input_sha": "(deze commit)",
-    "snapshot_date": "2026-09-16",
+    "snapshot_date": "2026-09-17",
     "source_of_truth": "This JSON file is the only hand-edited cockpit status source. README.md, flow.mmd, and index.html are generated.",
     "scope": "Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.",
     "publication": {
@@ -53,11 +53,11 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6R8 — verse onafhankelijke review actief",
+    "title": "Phase 6R8 — verse onafhankelijke review hervat",
     "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De begrensde R6R7-001-correctie is voltooid; een andere verse reviewer beoordeelt nu exact checkpoint d37079e",
+    "current_boundary": "De eerdere poging stopte vóór output; een nieuwe verse reviewer beoordeelt nu exact checkpoint d37079e",
     "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
     "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
   },
@@ -148,7 +148,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R7 gaf CHANGES REQUIRED op exact SHA dfc8290. De enige begrensde bevinding R6R7-001 is gecorrigeerd; een andere verse reviewer beoordeelt nu exact checkpoint d37079e.",
+      "status_note": "06R7 gaf CHANGES REQUIRED op exact SHA dfc8290. R6R7-001 is gecorrigeerd; na een poging zonder output beoordeelt een andere verse reviewer nu exact checkpoint d37079e.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -577,12 +577,12 @@
       ],
       "current_phase": "phase-6",
       "status": "in_progress",
-      "blocker": "De geldende 06R7-uitspraak blijft CHANGES REQUIRED totdat de andere verse reviewer checkpoint d37079e beoordeelt.",
+      "blocker": "De geldende 06R7-uitspraak blijft CHANGES REQUIRED totdat de nieuwe verse reviewer checkpoint d37079e beoordeelt.",
       "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
       "output_handoff": "../06R7-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260916-08",
-      "next_allowed_action": "Laat de verse reviewer exact checkpoint d37079e beoordelen; registreer de uitspraak ongewijzigd.",
+      "next_allowed_action": "Laat de nieuwe verse reviewer exact checkpoint d37079e beoordelen; registreer de uitspraak ongewijzigd.",
       "durable_evidence": [
         "../06R7-review-findings.md",
         "../README.md",
