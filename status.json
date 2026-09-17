@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "PHASE 6 APPROVED — WACHT OP EXPLICIETE MENSELIJKE ADOPTIE",
-    "status": "human_gate",
+    "title": "BASELINE GEADOPTEERD — PHASE 7 MAG LOPEN",
+    "status": "in_progress",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De verse onafhankelijke review 06R10 heeft de planningsbaseline op exact SHA 168d02d53f70797c725826eed42948fff0121d70 GOEDGEKEURD, zonder blokkerende bevindingen. Dit is de eerste goedkeuring in de reeks. De goedkeuring bindt uitsluitend aan die exacte commit. Commits daarna bevatten alleen governance-administratie: de planninginhoud op 168d02d53f70797c725826eed42948fff0121d70 is ongewijzigd, wat een opvolger controleert met `git diff 168d02d53f70797c725826eed42948fff0121d70..HEAD` over de planningsartefacten.",
-    "what_human_does_next": "Beslis expliciet of u deze goedgekeurde baseline adopteert. Goedkeuring is niet hetzelfde als adoptie: zonder uw uitdrukkelijke adoptie blijft Phase 7 dicht en mag geen Worker starten. U mag ook niets adopteren, of eerst vragen stellen.",
-    "next_allowed_action": "Wacht op de expliciete menselijke adoptiebeslissing over de goedgekeurde baseline 168d02d53f70797c725826eed42948fff0121d70. Zonder die beslissing blijven Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 geblokkeerd. De orchestrator start niets uit zichzelf."
+    "current_boundary": "De mens heeft de door 06R10 goedgekeurde planningsbaseline op exact SHA 168d02d53f70797c725826eed42948fff0121d70 op 2026-09-17 uitdrukkelijk geadopteerd (beslisrecord rij 42, letterlijk: \"Yes, I adopt it\"). Daarmee is de Phase-7-voorwaarde volledig: een verse onafhankelijke review keurde exact die ongewijzigde SHA goed, én de mens heeft die uitspraak geadopteerd. Adoptie autoriseert geen implementatie.",
+    "what_human_does_next": "Niets nu. Phase 7 voegt de goedgekeurde planning samen met de canonieke projectdocumenten. Daarna wordt u opnieuw gevraagd voordat er ook maar iets gebouwd wordt: geen Worker start op deze beslissing.",
+    "next_allowed_action": "Phase 7, de Documentation Integrator, tegen de geadopteerde baseline 168d02d53f70797c725826eed42948fff0121d70. Taak phase7-20260917-01. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240; elke destructieve CT 240-actie vraagt hoe dan ook een eigen, aparte menselijke autorisatie voor precies die operatie."
   },
   "phases": [
     {
@@ -158,7 +158,7 @@
       "number": "7",
       "role": "Documentation Integrator",
       "plain_language": "Integreert uitsluitend een onafhankelijk goedgekeurde planning in één canonieke Git-baseline.",
-      "status": "human_gate",
+      "status": "in_progress",
       "input_sha": "168d02d53f70797c725826eed42948fff0121d70",
       "handoff": "Nog niet toegestaan",
       "evidence": [
@@ -168,7 +168,7 @@
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "status_note": "De goedgekeurde planningsbaseline is exact SHA 168d02d53f70797c725826eed42948fff0121d70. Phase 7 kan pas beginnen nadat de mens die goedkeuring uitdrukkelijk heeft geadopteerd. Tot dat moment blijft Phase 7 dicht en mag geen Worker starten."
+      "status_note": "De mens heeft de goedgekeurde baseline 168d02d53f70797c725826eed42948fff0121d70 op 2026-09-17 uitdrukkelijk geadopteerd (beslisrecord rij 42). Phase 7 mag nu lopen tegen exact die SHA. Phase 7 integreert documentatie; zij bouwt niets en autoriseert geen Worker, implementatie, merge, deployment, reset, Proxmox of CT 240."
     }
   ],
   "chunks": [
@@ -582,12 +582,12 @@
       ],
       "current_phase": "phase-6",
       "status": "approved",
-      "blocker": "Geen. De gate is gehaald: 06R10 keurde exact SHA 168d02d53f70797c725826eed42948fff0121d70 goed. Wat nu ontbreekt is geen review maar een uitdrukkelijke menselijke adoptiebeslissing.",
+      "blocker": "Geen. De gate is volledig gehaald: 06R10 keurde exact SHA 168d02d53f70797c725826eed42948fff0121d70 goed en de mens heeft die uitspraak op 2026-09-17 uitdrukkelijk geadopteerd (beslisrecord rij 42).",
       "input_sha": "168d02d53f70797c725826eed42948fff0121d70",
       "output_handoff": "../06R10-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260917-11",
-      "next_allowed_action": "Leg de goedgekeurde baseline 168d02d53f70797c725826eed42948fff0121d70 aan de mens voor en wacht op een uitdrukkelijke adoptiebeslissing. Zonder die beslissing start niets.",
+      "next_allowed_action": "Phase 7 tegen de geadopteerde baseline 168d02d53f70797c725826eed42948fff0121d70. Geen Worker en geen implementatie op deze beslissing; de mens wordt opnieuw gevraagd voordat er gebouwd wordt.",
       "durable_evidence": [
         "../06R10-review-findings.md",
         "../06R9-review-findings.md",

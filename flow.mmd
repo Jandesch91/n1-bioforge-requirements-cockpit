@@ -7,7 +7,7 @@ flowchart TB
     phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
     phase_5r["5R · Delivery Planner<br/>✅ Goedgekeurd / klaar"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ✅ Goedgekeurd / klaar"]
-    phase_7["7 · Documentation Integrator<br/>🟨 Wacht op mens / keuze"]
+    phase_7["7 · Documentation Integrator<br/>🔵 Bezig"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
     review_decision{"🟣 Reviewdispositie"}
     phase_6 --> review_decision
@@ -25,5 +25,5 @@ flowchart TB
     class phase_4r approved
     class phase_5r approved
     class phase_6 approved
-    class phase_7 human
+    class phase_7 inprogress
     class review_decision review
