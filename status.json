@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "06R9 GAF CHANGES REQUIRED — TERUG NAAR PHASE 2",
-    "status": "changes_required",
+    "title": "CORRECTIE VOLTOOID — WACHT OP ÉÉN VERSE ONAFHANKELIJKE REVIEW",
+    "status": "human_gate",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De verse onafhankelijke review 06R9 beoordeelde exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 en gaf CHANGES REQUIRED. De vroegste defecte fase is Phase 2, met hetzelfde defect in Phase 3R. Requirements, tests, eigenaarschap, de afhankelijkheidsgraaf en het leveringsplan zijn opnieuw onafhankelijk gezond bevonden; er is geen regeneratie van Phase 4R of Phase 5R nodig. De review oordeelde ook dat een verse orchestrator van een andere provider de volgende toegestane actie nu uit de repository alleen kan afleiden.",
-    "what_human_does_next": "Geen actie nodig. De bevinding is begrensd en administratief: de goedgekeurde product- en architectuurrecords kondigen bovenaan nog aan dat een goedkeuring in behandeling is en dat drie productvragen openstaan, terwijl diezelfde documenten en het beslisrecord ze vastleggen als verleend en beantwoord. Er wordt niets opnieuw aan u gevraagd en er wordt geen beslissing gewijzigd.",
-    "next_allowed_action": "Eén verse agent voert de begrensde correctie phase2-r6r9-20260917-01 uit in 02-product-decisions.md en 03R-technical-architecture-and-dependencies.md, en legt daarbij elke vindplaats van elk gewijzigd feit vast. Daarna beoordeelt een andere verse onafhankelijke reviewer het resultaat. Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 blijven geblokkeerd."
+    "current_boundary": "De begrensde correctie van R6R9-001 is voltooid in deze commit — de commit die dit bestand bevat. De goedgekeurde Phase-2- en Phase-3R-records zeggen nu wat de mens werkelijk heeft goedgekeurd en beantwoord; er is geen goedkeuring verleend, geen productbeslissing gewijzigd en geen antwoord verzonnen. R6R9-002 is in dezelfde ronde gecorrigeerd. De geldende uitspraak blijft 06R9 CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 tot een andere verse reviewer uitspraak doet. Er loopt geen correctietaak en er staat geen checkpoint- of publicatiestap open.",
+    "what_human_does_next": "Geen actie nodig. Laat één andere verse onafhankelijke reviewer exact deze ongewijzigde commit beoordelen; adopteer pas daarna expliciet, en alleen als die uitspraak goedkeurt.",
+    "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, taak phase6-20260917-11, die niets repareert en waarvan de uitkomst nergens wordt voorspeld. Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 blijven geblokkeerd."
   },
   "phases": [
     {
@@ -80,28 +80,28 @@
       "number": "2",
       "role": "Product Outcome Grill",
       "plain_language": "Bevestigt zichtbare uitkomsten, grenzen en menselijke keuzes.",
-      "status": "changes_required",
+      "status": "approved",
       "input_sha": "2bc934750fb14d73800773932886777871704ad3",
       "handoff": "../02-product-decisions.md",
       "evidence": [
         "../02-product-decisions.md",
         "../README.md"
       ],
-      "status_note": "Beide aanvullingen zijn door de mens goedgekeurd en geen productvraag staat nog open. De review 06R9 stelde vast dat de oriëntatietekst van dit record dat nog tegenspreekt: de aanvulling van 2026-09-13 wordt bovenaan \"pending human approval\" genoemd terwijl hetzelfde bestand de goedkeuring van 2026-09-13 vastlegt, en de productvragen 3, 4 en 5 worden als open gepresenteerd terwijl beslisrecord 30, 31 en 35 ze beantwoorden. Begrensde correctie phase2-r6r9-20260917-01; geen productbeslissing verandert."
+      "status_note": "Beide aanvullingen zijn door de mens goedgekeurd en geen productvraag staat nog open. De door 06R9 vastgestelde tegenspraak in de oriëntatietekst is gecorrigeerd in deze commit: het record noemt de goedkeuring van 2026-09-13 als verleend en de productvragen 3, 4 en 5 als beantwoord door beslisrecord 30, 31 en 35. Historische \"stand bij het schrijven\"-tekst en elk gedateerd goedkeuringsrecord blijven ongewijzigd."
     },
     {
       "id": "phase-3r",
       "number": "3R",
       "role": "Ownership/Dependency Grill",
       "plain_language": "Bepaalt wie beslist, wat eerst moet bestaan en waar bewijsgrenzen liggen.",
-      "status": "changes_required",
+      "status": "approved",
       "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5",
       "handoff": "../03R-technical-architecture-and-dependencies.md",
       "evidence": [
         "../03R-technical-architecture-and-dependencies.md",
         "../README.md"
       ],
-      "status_note": "Alle drie de aanvullingen zijn goedgekeurd. Hetzelfde defect als in Phase 2: dit record zegt nog dat aanvulling 2 en 3 wachten op goedkeuring vóór C10 en vóór C12, terwijl beide zijn goedgekeurd en C10, C12 en C13 zijn uitgevoerd, en het houdt OQ-9 open terwijl beslisrecord 35 die vraag sluit. Begrensde correctie in dezelfde taak."
+      "status_note": "Alle drie de aanvullingen zijn goedgekeurd. Gecorrigeerd in deze commit: aanvulling 2 en 3 worden niet langer als wachtend op goedkeuring gepresenteerd, en OQ-1 t/m OQ-9 dragen elk hun sluitende beslisrecordrij — 24, 25 (waarin OQ-5 vervalt), 32, 33, 34 en 35. Het bij het schrijven vastgelegde openstaan blijft als historie behouden."
     },
     {
       "id": "phase-4r",
@@ -150,7 +150,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R9 gaf CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 en is de geldende uitspraak. Twee begrensde bevindingen: R6R9-001 over de goedgekeurde Phase-2- en Phase-3R-records, en R6R9-002 over twee statusvelden in deze cockpitbron. De review oordeelde dat de eerdere reeks 06R4–06R8, die vijf keer alleen administratie afkeurde, hiermee gesloten is en dat provider-onafhankelijke reproduceerbaarheid nu gehaald wordt. Terug naar Phase 2.",
+      "status_note": "06R9 gaf CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 en blijft de geldende uitspraak tot een andere verse reviewer uitspraak doet. Beide begrensde bevindingen zijn gecorrigeerd in deze commit: R6R9-001 in de Phase-2- en Phase-3R-records, R6R9-002 in deze cockpitbron. Er loopt geen correctietaak.",
       "return_to_phase": "phase-2"
     },
     {
@@ -580,13 +580,13 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "changes_required",
-      "blocker": "06R9 gaf CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60. De vroegste defecte fase is Phase 2, met hetzelfde defect in Phase 3R. Beide bevindingen zijn begrensd; requirements, tests en het leveringsplan blijven onafhankelijk gezond bevonden.",
+      "status": "human_gate",
+      "blocker": "De begrensde correctie van R6R9-001 is voltooid in deze commit; de geldende uitspraak blijft 06R9 CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 tot één andere verse onafhankelijke reviewer exact deze ongewijzigde commit heeft beoordeeld.",
       "input_sha": "ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60",
       "output_handoff": "../06R9-review-findings.md",
-      "responsible_role": "Product Outcome record keeper (Phase 2)",
-      "responsible_task": "phase2-r6r9-20260917-01",
-      "next_allowed_action": "Voer de begrensde correctie phase2-r6r9-20260917-01 uit met één verse agent, leg per gewijzigd feit elke vindplaats vast, en laat daarna een andere verse onafhankelijke reviewer het resultaat beoordelen.",
+      "responsible_role": "Independent Reviewer",
+      "responsible_task": "phase6-20260917-11",
+      "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert en waarvan de uitkomst nergens wordt voorspeld.",
       "durable_evidence": [
         "../06R9-review-findings.md",
         "../06R8-review-findings.md",

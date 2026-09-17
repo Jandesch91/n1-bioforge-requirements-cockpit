@@ -17,8 +17,8 @@ flowchart TB
     chunk_13["13 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>✅ Goedgekeurd / klaar"]
     chunk_14["14 · C12<br/>Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo<br/>✅ Goedgekeurd / klaar"]
     chunk_15["15 · C13<br/>De walkthrough uitgebreid met de nieuwe schermen<br/>✅ Goedgekeurd / klaar"]
-    chunk_16["16 · GATE · ⏭ VOLGENDE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>❌ Changes required"]
-    current_marker["❌ YOU ARE HERE<br/>geen requirementchunk actief<br/>Volgende: GATE"]
+    chunk_16["16 · GATE · ⏭ VOLGENDE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>🟨 Wacht op mens / keuze"]
+    current_marker["🟨 YOU ARE HERE<br/>geen requirementchunk actief<br/>Volgende: GATE"]
     chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12 --> chunk_13 --> chunk_14 --> chunk_15 --> current_marker --> chunk_16
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
@@ -26,7 +26,7 @@ flowchart TB
     classDef changes fill:#FDE2E1,stroke:#B42318,color:#5D1712,stroke-width:2px
     classDef blocked fill:#FDE2E1,stroke:#B42318,color:#5D1712,stroke-width:2px
     classDef notstarted fill:#F2F4F7,stroke:#667085,color:#344054,stroke-width:2px
-    classDef current fill:#F2F4F7,stroke:#667085,color:#344054,stroke-width:3px
+    classDef current fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:3px
     class chunk_0 approved
     class chunk_1 approved
     class chunk_2 approved
@@ -43,5 +43,5 @@ flowchart TB
     class chunk_13 approved
     class chunk_14 approved
     class chunk_15 approved
-    class chunk_16 changes
+    class chunk_16 human
     class current_marker current

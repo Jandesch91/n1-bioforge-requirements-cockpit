@@ -2,8 +2,8 @@
 flowchart TB
     %% A vertical main lane prevents crossing arrows. The review return uses one side lane.
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
-    phase_2["2 · Product Outcome Grill<br/>❌ Changes required"]
-    phase_3r["3R · Ownership/Dependency Grill<br/>❌ Changes required"]
+    phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
     phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
     phase_5r["5R · Delivery Planner<br/>✅ Goedgekeurd / klaar"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
@@ -22,8 +22,8 @@ flowchart TB
     classDef notstarted fill:#F2F4F7,stroke:#667085,color:#344054,stroke-width:2px
     classDef review fill:#EEE5FF,stroke:#6941C6,color:#321B69,stroke-width:2px
     class phase_1 approved
-    class phase_2 changes
-    class phase_3r changes
+    class phase_2 approved
+    class phase_3r approved
     class phase_4r approved
     class phase_5r approved
     class phase_6 changes
