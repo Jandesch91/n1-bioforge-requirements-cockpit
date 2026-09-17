@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "WACHT OP ÉÉN ANDERE VERSE ONAFHANKELIJKE PHASE 6-REVIEW",
-    "status": "human_gate",
+    "title": "06R9 GAF CHANGES REQUIRED — TERUG NAAR PHASE 2",
+    "status": "changes_required",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De begrensde correctie van R6R8-001 is voltooid in deze commit — de commit die dit bestand bevat, door een opvolger te herkennen als de tip van codex/release-1-reconciliation die hij leest. Er loopt geen correctietaak en er staat geen checkpoint- of publicatiestap meer open. De geldende uitspraak blijft 06R8 CHANGES REQUIRED op exact SHA d37079ed30f8fa737364f131a58b5dade7f52e81.",
-    "what_human_does_next": "Laat één andere verse onafhankelijke Phase 6-reviewer exact deze ongewijzigde commit beoordelen; adopteer pas daarna expliciet als die uitspraak goedkeurt.",
-    "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert. De uitkomst wordt nergens voorspeld, en Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 blijven geblokkeerd."
+    "current_boundary": "De verse onafhankelijke review 06R9 beoordeelde exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 en gaf CHANGES REQUIRED. De vroegste defecte fase is Phase 2, met hetzelfde defect in Phase 3R. Requirements, tests, eigenaarschap, de afhankelijkheidsgraaf en het leveringsplan zijn opnieuw onafhankelijk gezond bevonden; er is geen regeneratie van Phase 4R of Phase 5R nodig. De review oordeelde ook dat een verse orchestrator van een andere provider de volgende toegestane actie nu uit de repository alleen kan afleiden.",
+    "what_human_does_next": "Geen actie nodig. De bevinding is begrensd en administratief: de goedgekeurde product- en architectuurrecords kondigen bovenaan nog aan dat een goedkeuring in behandeling is en dat drie productvragen openstaan, terwijl diezelfde documenten en het beslisrecord ze vastleggen als verleend en beantwoord. Er wordt niets opnieuw aan u gevraagd en er wordt geen beslissing gewijzigd.",
+    "next_allowed_action": "Eén verse agent voert de begrensde correctie phase2-r6r9-20260917-01 uit in 02-product-decisions.md en 03R-technical-architecture-and-dependencies.md, en legt daarbij elke vindplaats van elk gewijzigd feit vast. Daarna beoordeelt een andere verse onafhankelijke reviewer het resultaat. Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 blijven geblokkeerd."
   },
   "phases": [
     {
@@ -80,28 +80,28 @@
       "number": "2",
       "role": "Product Outcome Grill",
       "plain_language": "Bevestigt zichtbare uitkomsten, grenzen en menselijke keuzes.",
-      "status": "approved",
+      "status": "changes_required",
       "input_sha": "2bc934750fb14d73800773932886777871704ad3",
       "handoff": "../02-product-decisions.md",
       "evidence": [
         "../02-product-decisions.md",
         "../README.md"
       ],
-      "status_note": "Beide aanvullingen zijn door de mens goedgekeurd. De tweede voegt acht MES-schermen en de batchstatus toe als een increment ná de demo; de demo zelf houdt haar goedgekeurde scope en plaats."
+      "status_note": "Beide aanvullingen zijn door de mens goedgekeurd en geen productvraag staat nog open. De review 06R9 stelde vast dat de oriëntatietekst van dit record dat nog tegenspreekt: de aanvulling van 2026-09-13 wordt bovenaan \"pending human approval\" genoemd terwijl hetzelfde bestand de goedkeuring van 2026-09-13 vastlegt, en de productvragen 3, 4 en 5 worden als open gepresenteerd terwijl beslisrecord 30, 31 en 35 ze beantwoorden. Begrensde correctie phase2-r6r9-20260917-01; geen productbeslissing verandert."
     },
     {
       "id": "phase-3r",
       "number": "3R",
       "role": "Ownership/Dependency Grill",
       "plain_language": "Bepaalt wie beslist, wat eerst moet bestaan en waar bewijsgrenzen liggen.",
-      "status": "approved",
+      "status": "changes_required",
       "input_sha": "7b761704e19502623fce9036c1f55a4efc4d0dc5",
       "handoff": "../03R-technical-architecture-and-dependencies.md",
       "evidence": [
         "../03R-technical-architecture-and-dependencies.md",
         "../README.md"
       ],
-      "status_note": "Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo."
+      "status_note": "Alle drie de aanvullingen zijn goedgekeurd. Hetzelfde defect als in Phase 2: dit record zegt nog dat aanvulling 2 en 3 wachten op goedkeuring vóór C10 en vóór C12, terwijl beide zijn goedgekeurd en C10, C12 en C13 zijn uitgevoerd, en het houdt OQ-9 open terwijl beslisrecord 35 die vraag sluit. Begrensde correctie in dezelfde taak."
     },
     {
       "id": "phase-4r",
@@ -136,11 +136,12 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "human_gate",
+      "status": "changes_required",
       "display_kind": "independent_review",
-      "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
-      "handoff": "../06R8-review-findings.md",
+      "input_sha": "ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60",
+      "handoff": "../06R9-review-findings.md",
       "evidence": [
+        "../06R9-review-findings.md",
         "../06R8-review-findings.md",
         "../06R7-review-findings.md",
         "../06R6-review-findings.md",
@@ -149,8 +150,8 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R8 gaf CHANGES REQUIRED op exact SHA d37079e en blijft de geldende uitspraak. De enige bevinding R6R8-001 is volledig gecorrigeerd in deze commit; er loopt geen correctietaak en geen review. De eerstvolgende governance-actie is één andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit.",
-      "return_to_phase": "phase-5r"
+      "status_note": "06R9 gaf CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 en is de geldende uitspraak. Twee begrensde bevindingen: R6R9-001 over de goedgekeurde Phase-2- en Phase-3R-records, en R6R9-002 over twee statusvelden in deze cockpitbron. De review oordeelde dat de eerdere reeks 06R4–06R8, die vijf keer alleen administratie afkeurde, hiermee gesloten is en dat provider-onafhankelijke reproduceerbaarheid nu gehaald wordt. Terug naar Phase 2.",
+      "return_to_phase": "phase-2"
     },
     {
       "id": "phase-7",
@@ -158,14 +159,15 @@
       "role": "Documentation Integrator",
       "plain_language": "Integreert uitsluitend een onafhankelijk goedgekeurde planning in één canonieke Git-baseline.",
       "status": "blocked",
-      "input_sha": "ffbd9d83e5604cbb02a8f83046f717be9eea4450",
+      "input_sha": null,
       "handoff": "Nog niet toegestaan",
       "evidence": [
+        "../06R9-review-findings.md",
         "../06R8-review-findings.md",
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "status_note": "Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. De geldende uitspraak is 06R8 CHANGES REQUIRED op exact SHA d37079e; die bevinding is gecorrigeerd in deze commit. Pas als één andere verse onafhankelijke review exact deze ongewijzigde commit goedkeurt én de mens die uitspraak expliciet adopteert, kan Phase 7 opengaan."
+      "status_note": "Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde ongewijzigde planning-SHA. De geldende uitspraak is 06R9 CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60. Er is nog geen goedgekeurde review en dus geen startpunt: dit veld blijft leeg tot een verse review goedkeurt en de mens die uitspraak expliciet adopteert."
     }
   ],
   "chunks": [
@@ -578,20 +580,21 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "human_gate",
-      "blocker": "De geldende uitspraak blijft 06R8 CHANGES REQUIRED op exact SHA d37079ed30f8fa737364f131a58b5dade7f52e81. De enige bevinding R6R8-001 is gecorrigeerd in deze commit; er loopt geen correctietaak en geen review, en er staat geen checkpoint- of publicatiestap open. Het pakket blijft niet-adopteerbaar tot één andere verse onafhankelijke review exact deze ongewijzigde commit beoordeelt en de mens die uitspraak expliciet adopteert.",
-      "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
-      "output_handoff": "../06R8-review-findings.md",
-      "responsible_role": "Independent Reviewer",
-      "responsible_task": "phase6-20260917-10",
-      "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert en waarvan de uitkomst nergens wordt voorspeld.",
+      "status": "changes_required",
+      "blocker": "06R9 gaf CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60. De vroegste defecte fase is Phase 2, met hetzelfde defect in Phase 3R. Beide bevindingen zijn begrensd; requirements, tests en het leveringsplan blijven onafhankelijk gezond bevonden.",
+      "input_sha": "ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60",
+      "output_handoff": "../06R9-review-findings.md",
+      "responsible_role": "Product Outcome record keeper (Phase 2)",
+      "responsible_task": "phase2-r6r9-20260917-01",
+      "next_allowed_action": "Voer de begrensde correctie phase2-r6r9-20260917-01 uit met één verse agent, leg per gewijzigd feit elke vindplaats vast, en laat daarna een andere verse onafhankelijke reviewer het resultaat beoordelen.",
       "durable_evidence": [
+        "../06R9-review-findings.md",
         "../06R8-review-findings.md",
         "../06R7-review-findings.md",
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "output_sha": "4fa2992ae669d7cf1d6df76c00a9afcd09d067f6"
+      "output_sha": null
     }
   ],
   "orchestrator_protocol": [

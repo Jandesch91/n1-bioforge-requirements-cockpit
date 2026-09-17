@@ -2,18 +2,18 @@
 flowchart TB
     %% A vertical main lane prevents crossing arrows. The review return uses one side lane.
     phase_1["1 · Current-State Auditor<br/>✅ Goedgekeurd / klaar"]
-    phase_2["2 · Product Outcome Grill<br/>✅ Goedgekeurd / klaar"]
-    phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
+    phase_2["2 · Product Outcome Grill<br/>❌ Changes required"]
+    phase_3r["3R · Ownership/Dependency Grill<br/>❌ Changes required"]
     phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
     phase_5r["5R · Delivery Planner<br/>✅ Goedgekeurd / klaar"]
-    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · 🟨 Wacht op mens / keuze"]
+    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
     phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
     review_decision{"🟣 Reviewdispositie"}
     phase_6 --> review_decision
     review_decision -->|"✅ APPROVED op dezelfde SHA"| phase_7
-    review_decision -.->|"❌ terug naar vroegste defect: 5R"| return_lane["↩ Nieuwe verse taak in Delivery Planner"]
-    return_lane -.-> phase_5r
+    review_decision -.->|"❌ terug naar vroegste defect: 2"| return_lane["↩ Nieuwe verse taak in Product Outcome Grill"]
+    return_lane -.-> phase_2
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -22,11 +22,11 @@ flowchart TB
     classDef notstarted fill:#F2F4F7,stroke:#667085,color:#344054,stroke-width:2px
     classDef review fill:#EEE5FF,stroke:#6941C6,color:#321B69,stroke-width:2px
     class phase_1 approved
-    class phase_2 approved
-    class phase_3r approved
+    class phase_2 changes
+    class phase_3r changes
     class phase_4r approved
     class phase_5r approved
-    class phase_6 human
+    class phase_6 changes
     class phase_7 blocked
     class return_lane blocked
     class review_decision review
