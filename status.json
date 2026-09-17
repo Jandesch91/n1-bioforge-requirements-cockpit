@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "Phase 6R8 — verse onafhankelijke review hervat",
+    "title": "Phase 6R8 — CHANGES REQUIRED; begrensde statuscorrectie actief",
     "status": "in_progress",
     "active_chunk": "GATE",
     "next_chunk": "GATE",
-    "current_boundary": "De eerdere poging stopte vóór output; een nieuwe verse reviewer beoordeelt nu exact checkpoint d37079e",
-    "what_human_does_next": "Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.",
-    "next_allowed_action": "Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie."
+    "current_boundary": "De verse review vond één begrensd defect in huidige status- en provider-overnameboekhouding; requirements en leveringsvolgorde blijven inhoudelijk intact",
+    "what_human_does_next": "Geen actie nodig; wacht op de begrensde correctie en daarna een nieuwe verse review.",
+    "next_allowed_action": "Corrigeer alleen R6R8-001 in de aangewezen huidige-statusingangen; bied daarna de ongewijzigde correctie-SHA aan een andere verse reviewer aan."
   },
   "phases": [
     {
@@ -136,11 +136,12 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "in_progress",
+      "status": "changes_required",
       "display_kind": "independent_review",
       "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
-      "handoff": "../06R7-review-findings.md",
+      "handoff": "../06R8-review-findings.md",
       "evidence": [
+        "../06R8-review-findings.md",
         "../06R7-review-findings.md",
         "../06R6-review-findings.md",
         "../06R5-review-findings.md",
@@ -148,7 +149,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R7 gaf CHANGES REQUIRED op exact SHA dfc8290. R6R7-001 is gecorrigeerd; na een poging zonder output beoordeelt een andere verse reviewer nu exact checkpoint d37079e.",
+      "status_note": "06R8 gaf CHANGES REQUIRED op exact SHA d37079e: één begrensd current-state/provider-overnameboekhoudingsdefect moet worden gecorrigeerd; requirements en deliveryplan hoeven niet te worden geregenereerd.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -577,18 +578,19 @@
       ],
       "current_phase": "phase-6",
       "status": "in_progress",
-      "blocker": "De geldende 06R7-uitspraak blijft CHANGES REQUIRED totdat de nieuwe verse reviewer checkpoint d37079e beoordeelt.",
+      "blocker": "R6R8-001 vereist een begrensde correctie van huidige-status- en provider-overnameboekhouding; inhoudelijke planning blijft intact.",
       "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
-      "output_handoff": "../06R7-review-findings.md",
-      "responsible_role": "Independent Reviewer",
-      "responsible_task": "phase6-20260916-08",
-      "next_allowed_action": "Laat de nieuwe verse reviewer exact checkpoint d37079e beoordelen; registreer de uitspraak ongewijzigd.",
+      "output_handoff": "../06R8-review-findings.md",
+      "responsible_role": "Fresh corrective documentation/governance agent",
+      "responsible_task": "phase6r8-bookkeeping-20260917-01",
+      "next_allowed_action": "Corrigeer R6R8-001 binnen de begrensde schrijfset; laat daarna een andere verse reviewer de correctie-SHA beoordelen.",
       "durable_evidence": [
+        "../06R8-review-findings.md",
         "../06R7-review-findings.md",
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "output_sha": "deb0625a0a5d7807239ed012351a1f13a4b0619b"
+      "output_sha": "65a6c0f79894641acebc6e89806b9bf93746ce96"
     }
   ],
   "orchestrator_protocol": [
@@ -611,13 +613,20 @@
   },
   "active_tasks": [
     {
-      "task_id": "phase6-20260916-08",
-      "role": "Independent Reviewer",
+      "task_id": "phase6r8-bookkeeping-20260917-01",
+      "role": "Fresh corrective documentation/governance agent",
       "chunk": "GATE",
       "status": "in_progress",
-      "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
+      "input_sha": "65a6c0f79894641acebc6e89806b9bf93746ce96",
       "write_set": [
-        "docs/planning/release-1-reconciliation/06R8-review-findings.md"
+        "docs/planning/release-1-reconciliation/README.md",
+        "docs/planning/release-1-reconciliation/RESUME-HERE.md",
+        "docs/planning/release-1-reconciliation/04R-requirements-and-tests/README.md",
+        "docs/planning/release-1-reconciliation/cockpit/status.json",
+        "docs/planning/release-1-reconciliation/cockpit/README.md",
+        "docs/planning/release-1-reconciliation/cockpit/flow.mmd",
+        "docs/planning/release-1-reconciliation/cockpit/chunks.mmd",
+        "docs/planning/release-1-reconciliation/cockpit/index.html"
       ]
     }
   ],
