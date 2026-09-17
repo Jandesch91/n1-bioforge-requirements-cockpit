@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "PAUSED — PROVIDER USAGE GUARD >= 90%",
+    "title": "WACHT OP ÉÉN ANDERE VERSE ONAFHANKELIJKE PHASE 6-REVIEW",
     "status": "human_gate",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De Phase 6R9-review is veilig onderbroken vóór output; het geldige correctiecheckpoint 90fdb4e blijft intact",
-    "what_human_does_next": "Start later een nieuwe orchestrator-invocation, of laat een andere provider direct vanaf de duurzame handoff overnemen.",
-    "next_allowed_action": "Controleer bij een nieuwe invocation eerst PAUSE en alle providergebruikvensters; voer daarna de onvoltooide review opnieuw uit in een echt verse context."
+    "current_boundary": "De begrensde correctie van R6R8-001 is voltooid in deze commit — de commit die dit bestand bevat, door een opvolger te herkennen als de tip van codex/release-1-reconciliation die hij leest. Er loopt geen correctietaak en er staat geen checkpoint- of publicatiestap meer open. De geldende uitspraak blijft 06R8 CHANGES REQUIRED op exact SHA d37079ed30f8fa737364f131a58b5dade7f52e81.",
+    "what_human_does_next": "Laat één andere verse onafhankelijke Phase 6-reviewer exact deze ongewijzigde commit beoordelen; adopteer pas daarna expliciet als die uitspraak goedkeurt.",
+    "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert. De uitkomst wordt nergens voorspeld, en Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 blijven geblokkeerd."
   },
   "phases": [
     {
@@ -138,7 +138,7 @@
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
       "status": "human_gate",
       "display_kind": "independent_review",
-      "input_sha": "90fdb4ee034e831adddf83b6881e9353c2bc3096",
+      "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
       "handoff": "../06R8-review-findings.md",
       "evidence": [
         "../06R8-review-findings.md",
@@ -149,7 +149,7 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R8 gaf CHANGES REQUIRED op exact SHA d37079e en R6R8-001 is gecorrigeerd. Phase 6R9 op checkpoint 90fdb4e is wegens de providergebruiksgrens vóór output onderbroken en blijft onvoltooid.",
+      "status_note": "06R8 gaf CHANGES REQUIRED op exact SHA d37079e en blijft de geldende uitspraak. De enige bevinding R6R8-001 is volledig gecorrigeerd in deze commit; er loopt geen correctietaak en geen review. De eerstvolgende governance-actie is één andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit.",
       "return_to_phase": "phase-5r"
     },
     {
@@ -162,9 +162,10 @@
       "handoff": "Nog niet toegestaan",
       "evidence": [
         "../06R8-review-findings.md",
-        "../README.md"
+        "../README.md",
+        "../RESUME-HERE.md"
       ],
-      "status_note": "Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA."
+      "status_note": "Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. De geldende uitspraak is 06R8 CHANGES REQUIRED op exact SHA d37079e; die bevinding is gecorrigeerd in deze commit. Pas als één andere verse onafhankelijke review exact deze ongewijzigde commit goedkeurt én de mens die uitspraak expliciet adopteert, kan Phase 7 opengaan."
     }
   ],
   "chunks": [
@@ -578,12 +579,12 @@
       ],
       "current_phase": "phase-6",
       "status": "human_gate",
-      "blocker": "Veilige provider-gebruikspauze; er is geen actieve child en geen 06R9-output. De geldende uitspraak blijft 06R8 CHANGES REQUIRED.",
-      "input_sha": "90fdb4ee034e831adddf83b6881e9353c2bc3096",
+      "blocker": "De geldende uitspraak blijft 06R8 CHANGES REQUIRED op exact SHA d37079ed30f8fa737364f131a58b5dade7f52e81. De enige bevinding R6R8-001 is gecorrigeerd in deze commit; er loopt geen correctietaak en geen review, en er staat geen checkpoint- of publicatiestap open. Het pakket blijft niet-adopteerbaar tot één andere verse onafhankelijke review exact deze ongewijzigde commit beoordeelt en de mens die uitspraak expliciet adopteert.",
+      "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
       "output_handoff": "../06R8-review-findings.md",
       "responsible_role": "Independent Reviewer",
-      "responsible_task": "phase6-20260917-09",
-      "next_allowed_action": "Start alleen in een nieuwe invocation na PAUSE- en providergebruikchecks één echt verse heruitvoering op exact checkpoint 90fdb4e.",
+      "responsible_task": null,
+      "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert en waarvan de uitkomst nergens wordt voorspeld.",
       "durable_evidence": [
         "../06R8-review-findings.md",
         "../06R7-review-findings.md",

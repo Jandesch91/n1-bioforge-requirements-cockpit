@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🟨 Wacht op mens / keuze — YOU ARE HERE**<br>
-> PAUSED — PROVIDER USAGE GUARD >= 90%<br>
-> **Grens:** De Phase 6R9-review is veilig onderbroken vóór output; het geldige correctiecheckpoint 90fdb4e blijft intact<br>
-> **Wat de mens nu doet:** Start later een nieuwe orchestrator-invocation, of laat een andere provider direct vanaf de duurzame handoff overnemen.<br>
-> **Volgende toegestane actie:** Controleer bij een nieuwe invocation eerst PAUSE en alle providergebruikvensters; voer daarna de onvoltooide review opnieuw uit in een echt verse context.
+> WACHT OP ÉÉN ANDERE VERSE ONAFHANKELIJKE PHASE 6-REVIEW<br>
+> **Grens:** De begrensde correctie van R6R8-001 is voltooid in deze commit — de commit die dit bestand bevat, door een opvolger te herkennen als de tip van codex/release-1-reconciliation die hij leest. Er loopt geen correctietaak en er staat geen checkpoint- of publicatiestap meer open. De geldende uitspraak blijft 06R8 CHANGES REQUIRED op exact SHA d37079ed30f8fa737364f131a58b5dade7f52e81.<br>
+> **Wat de mens nu doet:** Laat één andere verse onafhankelijke Phase 6-reviewer exact deze ongewijzigde commit beoordelen; adopteer pas daarna expliciet als die uitspraak goedkeurt.<br>
+> **Volgende toegestane actie:** Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert. De uitkomst wordt nergens voorspeld, en Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 blijven geblokkeerd.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
@@ -114,8 +114,8 @@ flowchart TB
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
 | 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070. |
 | 5R | Delivery Planner | ✅ Goedgekeurd / klaar | Plan gecorrigeerd: de controle dekt nu ook de negatieve testcel (nul overtredingen), de validatiezin klopt, en het hervattingspunt verwijst naar de geldende uitspraak. |
-| 6 | Independent Reviewer | 🟨 Wacht op mens / keuze | 06R8 gaf CHANGES REQUIRED op exact SHA d37079e en R6R8-001 is gecorrigeerd. Phase 6R9 op checkpoint 90fdb4e is wegens de providergebruiksgrens vóór output onderbroken en blijft onvoltooid. |
-| 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
+| 6 | Independent Reviewer | 🟨 Wacht op mens / keuze | 06R8 gaf CHANGES REQUIRED op exact SHA d37079e en blijft de geldende uitspraak. De enige bevinding R6R8-001 is volledig gecorrigeerd in deze commit; er loopt geen correctietaak en geen review. De eerstvolgende governance-actie is één andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit. |
+| 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. De geldende uitspraak is 06R8 CHANGES REQUIRED op exact SHA d37079e; die bevinding is gecorrigeerd in deze commit. Pas als één andere verse onafhankelijke review exact deze ongewijzigde commit goedkeurt én de mens die uitspraak expliciet adopteert, kan Phase 7 opengaan. |
 
 ## Dependency-gedreven requirementchunks
 
@@ -137,7 +137,7 @@ flowchart TB
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
 | 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c12c-20260913-01 | Behoud C12 als voorganger; herspecificeer daarna de walkthrough. |
 | 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Behoud C13 als voorganger; Phase 4R is compleet. |
-| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🟨 Wacht op mens / keuze | Independent Reviewer<br>phase6-20260917-09 | Start alleen in een nieuwe invocation na PAUSE- en providergebruikchecks één echt verse heruitvoering op exact checkpoint 90fdb4e. |
+| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🟨 Wacht op mens / keuze | Independent Reviewer<br>Nog geen verse taak | Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert en waarvan de uitkomst nergens wordt voorspeld. |
 
 ## Statuslegenda
 
