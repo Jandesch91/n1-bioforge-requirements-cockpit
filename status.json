@@ -583,7 +583,7 @@
       "input_sha": "d37079ed30f8fa737364f131a58b5dade7f52e81",
       "output_handoff": "../06R8-review-findings.md",
       "responsible_role": "Independent Reviewer",
-      "responsible_task": null,
+      "responsible_task": "phase6-20260917-10",
       "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert en waarvan de uitkomst nergens wordt voorspeld.",
       "durable_evidence": [
         "../06R8-review-findings.md",
