@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 6R8 — CHANGES REQUIRED; begrensde statuscorrectie actief<br>
-> **Grens:** De verse review vond één begrensd defect in huidige status- en provider-overnameboekhouding; requirements en leveringsvolgorde blijven inhoudelijk intact<br>
-> **Wat de mens nu doet:** Geen actie nodig; wacht op de begrensde correctie en daarna een nieuwe verse review.<br>
-> **Volgende toegestane actie:** Corrigeer alleen R6R8-001 in de aangewezen huidige-statusingangen; bied daarna de ongewijzigde correctie-SHA aan een andere verse reviewer aan.
+> Phase 6R8 — begrensde statuscorrectie voltooid; verse review volgt<br>
+> **Grens:** R6R8-001 is begrensd gecorrigeerd zonder requirements of leveringsvolgorde te wijzigen; het exacte correctiecheckpoint wordt nu gebonden<br>
+> **Wat de mens nu doet:** Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.<br>
+> **Volgende toegestane actie:** Bind het exacte correctiecheckpoint en laat één andere verse reviewer uitsluitend dat ongewijzigde checkpoint beoordelen.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
@@ -114,7 +114,7 @@ flowchart TB
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
 | 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070. |
 | 5R | Delivery Planner | ✅ Goedgekeurd / klaar | Plan gecorrigeerd: de controle dekt nu ook de negatieve testcel (nul overtredingen), de validatiezin klopt, en het hervattingspunt verwijst naar de geldende uitspraak. |
-| 6 | Independent Reviewer | ❌ Changes required | 06R8 gaf CHANGES REQUIRED op exact SHA d37079e: één begrensd current-state/provider-overnameboekhoudingsdefect moet worden gecorrigeerd; requirements en deliveryplan hoeven niet te worden geregenereerd. |
+| 6 | Independent Reviewer | ❌ Changes required | 06R8 gaf CHANGES REQUIRED op exact SHA d37079e. De enige begrensde bevinding R6R8-001 is gecorrigeerd; een andere verse reviewer moet het exacte correctiecheckpoint beoordelen. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
 
 ## Dependency-gedreven requirementchunks
@@ -137,7 +137,7 @@ flowchart TB
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
 | 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c12c-20260913-01 | Behoud C12 als voorganger; herspecificeer daarna de walkthrough. |
 | 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Behoud C13 als voorganger; Phase 4R is compleet. |
-| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Fresh corrective documentation/governance agent<br>phase6r8-bookkeeping-20260917-01 | Corrigeer R6R8-001 binnen de begrensde schrijfset; laat daarna een andere verse reviewer de correctie-SHA beoordelen. |
+| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Fresh corrective documentation/governance agent<br>phase6r8-bookkeeping-20260917-01 | Bind het exacte correctiecheckpoint; laat daarna een andere verse reviewer die ongewijzigde SHA beoordelen. |
 
 ## Statuslegenda
 
