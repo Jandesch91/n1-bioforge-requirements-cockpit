@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> Phase 6R8 — begrensde statuscorrectie voltooid; verse review volgt<br>
-> **Grens:** R6R8-001 is begrensd gecorrigeerd zonder requirements of leveringsvolgorde te wijzigen; het exacte correctiecheckpoint wordt nu gebonden<br>
+> Phase 6R9 — verse onafhankelijke review actief<br>
+> **Grens:** De begrensde R6R8-001-correctie is voltooid; een andere verse reviewer beoordeelt nu exact checkpoint 90fdb4e<br>
 > **Wat de mens nu doet:** Geen actie nodig; wacht op de nieuwe onafhankelijke uitspraak.<br>
-> **Volgende toegestane actie:** Bind het exacte correctiecheckpoint en laat één andere verse reviewer uitsluitend dat ongewijzigde checkpoint beoordelen.
+> **Volgende toegestane actie:** Voltooi de verse review en registreer de uitspraak ongewijzigd. Phase 7 blijft geblokkeerd tot APPROVED plus expliciete menselijke adoptie.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
@@ -25,7 +25,7 @@ flowchart TB
     phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
     phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
     phase_5r["5R · Delivery Planner<br/>✅ Goedgekeurd / klaar"]
-    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
+    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · 🔵 Bezig"]
     phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
     review_decision{"🟣 Reviewdispositie"}
@@ -45,7 +45,7 @@ flowchart TB
     class phase_3r approved
     class phase_4r approved
     class phase_5r approved
-    class phase_6 changes
+    class phase_6 inprogress
     class phase_7 blocked
     class return_lane blocked
     class review_decision review
@@ -114,7 +114,7 @@ flowchart TB
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. De derde plaatst opgeslagen taken/stappen en excepties, het rolmodel en het increment ná de demo. |
 | 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070. |
 | 5R | Delivery Planner | ✅ Goedgekeurd / klaar | Plan gecorrigeerd: de controle dekt nu ook de negatieve testcel (nul overtredingen), de validatiezin klopt, en het hervattingspunt verwijst naar de geldende uitspraak. |
-| 6 | Independent Reviewer | ❌ Changes required | 06R8 gaf CHANGES REQUIRED op exact SHA d37079e. De enige begrensde bevinding R6R8-001 is gecorrigeerd; een andere verse reviewer moet het exacte correctiecheckpoint beoordelen. |
+| 6 | Independent Reviewer | 🔵 Bezig | 06R8 gaf CHANGES REQUIRED op exact SHA d37079e. De enige begrensde bevinding R6R8-001 is gecorrigeerd; een andere verse reviewer beoordeelt nu exact checkpoint 90fdb4e. |
 | 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde planning-SHA. |
 
 ## Dependency-gedreven requirementchunks
@@ -137,7 +137,7 @@ flowchart TB
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
 | 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c12c-20260913-01 | Behoud C12 als voorganger; herspecificeer daarna de walkthrough. |
 | 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Behoud C13 als voorganger; Phase 4R is compleet. |
-| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Fresh corrective documentation/governance agent<br>phase6r8-bookkeeping-20260917-01 | Bind het exacte correctiecheckpoint; laat daarna een andere verse reviewer die ongewijzigde SHA beoordelen. |
+| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🔵 Bezig | Independent Reviewer<br>phase6-20260917-09 | Laat de verse reviewer exact checkpoint 90fdb4e beoordelen; registreer de uitspraak ongewijzigd. |
 
 ## Statuslegenda
 
