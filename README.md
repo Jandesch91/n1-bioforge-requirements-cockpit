@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🟨 Wacht op mens / keuze — YOU ARE HERE**<br>
-> CORRECTIE VOLTOOID — WACHT OP ÉÉN VERSE ONAFHANKELIJKE REVIEW<br>
-> **Grens:** De begrensde correctie van R6R9-001 is voltooid in deze commit — de commit die dit bestand bevat. De goedgekeurde Phase-2- en Phase-3R-records zeggen nu wat de mens werkelijk heeft goedgekeurd en beantwoord; er is geen goedkeuring verleend, geen productbeslissing gewijzigd en geen antwoord verzonnen. R6R9-002 is in dezelfde ronde gecorrigeerd. De geldende uitspraak blijft 06R9 CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 tot een andere verse reviewer uitspraak doet. Er loopt geen correctietaak en er staat geen checkpoint- of publicatiestap open.<br>
-> **Wat de mens nu doet:** Geen actie nodig. Laat één andere verse onafhankelijke reviewer exact deze ongewijzigde commit beoordelen; adopteer pas daarna expliciet, en alleen als die uitspraak goedkeurt.<br>
-> **Volgende toegestane actie:** Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, taak phase6-20260917-11, die niets repareert en waarvan de uitkomst nergens wordt voorspeld. Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 blijven geblokkeerd.
+> PHASE 6 APPROVED — WACHT OP EXPLICIETE MENSELIJKE ADOPTIE<br>
+> **Grens:** De verse onafhankelijke review 06R10 heeft de planningsbaseline op exact SHA 168d02d53f70797c725826eed42948fff0121d70 GOEDGEKEURD, zonder blokkerende bevindingen. Dit is de eerste goedkeuring in de reeks. De goedkeuring bindt uitsluitend aan die exacte commit. Commits daarna bevatten alleen governance-administratie: de planninginhoud op 168d02d53f70797c725826eed42948fff0121d70 is ongewijzigd, wat een opvolger controleert met `git diff 168d02d53f70797c725826eed42948fff0121d70..HEAD` over de planningsartefacten.<br>
+> **Wat de mens nu doet:** Beslis expliciet of u deze goedgekeurde baseline adopteert. Goedkeuring is niet hetzelfde als adoptie: zonder uw uitdrukkelijke adoptie blijft Phase 7 dicht en mag geen Worker starten. U mag ook niets adopteren, of eerst vragen stellen.<br>
+> **Volgende toegestane actie:** Wacht op de expliciete menselijke adoptiebeslissing over de goedgekeurde baseline 168d02d53f70797c725826eed42948fff0121d70. Zonder die beslissing blijven Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 geblokkeerd. De orchestrator start niets uit zichzelf.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
@@ -25,14 +25,12 @@ flowchart TB
     phase_3r["3R · Ownership/Dependency Grill<br/>✅ Goedgekeurd / klaar"]
     phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
     phase_5r["5R · Delivery Planner<br/>✅ Goedgekeurd / klaar"]
-    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ❌ Changes required"]
-    phase_7["7 · Documentation Integrator<br/>⛔ Geblokkeerd"]
+    phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ✅ Goedgekeurd / klaar"]
+    phase_7["7 · Documentation Integrator<br/>🟨 Wacht op mens / keuze"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
     review_decision{"🟣 Reviewdispositie"}
     phase_6 --> review_decision
     review_decision -->|"✅ APPROVED op dezelfde SHA"| phase_7
-    review_decision -.->|"❌ terug naar vroegste defect: 2"| return_lane["↩ Nieuwe verse taak in Product Outcome Grill"]
-    return_lane -.-> phase_2
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
     classDef inprogress fill:#DCEBFF,stroke:#2463A6,color:#12304F,stroke-width:2px
     classDef human fill:#FFF2BF,stroke:#A66B00,color:#4D3300,stroke-width:2px
@@ -45,9 +43,8 @@ flowchart TB
     class phase_3r approved
     class phase_4r approved
     class phase_5r approved
-    class phase_6 changes
-    class phase_7 blocked
-    class return_lane blocked
+    class phase_6 approved
+    class phase_7 human
     class review_decision review
 ```
 
@@ -75,7 +72,7 @@ flowchart TB
     chunk_13["13 · C11<br/>Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo<br/>✅ Goedgekeurd / klaar"]
     chunk_14["14 · C12<br/>Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo<br/>✅ Goedgekeurd / klaar"]
     chunk_15["15 · C13<br/>De walkthrough uitgebreid met de nieuwe schermen<br/>✅ Goedgekeurd / klaar"]
-    chunk_16["16 · GATE · ⏭ VOLGENDE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>🟨 Wacht op mens / keuze"]
+    chunk_16["16 · GATE · ⏭ VOLGENDE<br/>Eén integraal en onafhankelijk goedgekeurd planningspakket<br/>✅ Goedgekeurd / klaar"]
     current_marker["🟨 YOU ARE HERE<br/>geen requirementchunk actief<br/>Volgende: GATE"]
     chunk_0 --> chunk_1 --> chunk_2 --> chunk_3 --> chunk_4 --> chunk_5 --> chunk_6 --> chunk_7 --> chunk_8 --> chunk_9 --> chunk_10 --> chunk_11 --> chunk_12 --> chunk_13 --> chunk_14 --> chunk_15 --> current_marker --> chunk_16
     classDef approved fill:#D9F2E1,stroke:#1B7F3A,color:#12351D,stroke-width:2px
@@ -101,7 +98,7 @@ flowchart TB
     class chunk_13 approved
     class chunk_14 approved
     class chunk_15 approved
-    class chunk_16 human
+    class chunk_16 approved
     class current_marker current
 ```
 
@@ -114,8 +111,8 @@ flowchart TB
 | 3R | Ownership/Dependency Grill | ✅ Goedgekeurd / klaar | Alle drie de aanvullingen zijn goedgekeurd. Gecorrigeerd in deze commit: aanvulling 2 en 3 worden niet langer als wachtend op goedkeuring gepresenteerd, en OQ-1 t/m OQ-9 dragen elk hun sluitende beslisrecordrij — 24, 25 (waarin OQ-5 vervalt), 32, 33, 34 en 35. Het bij het schrijven vastgelegde openstaan blijft als historie behouden. |
 | 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070. |
 | 5R | Delivery Planner | ✅ Goedgekeurd / klaar | Plan gecorrigeerd: de controle dekt nu ook de negatieve testcel (nul overtredingen), de validatiezin klopt, en het hervattingspunt verwijst naar de geldende uitspraak. |
-| 6 | Independent Reviewer | ❌ Changes required | 06R9 gaf CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 en blijft de geldende uitspraak tot een andere verse reviewer uitspraak doet. Beide begrensde bevindingen zijn gecorrigeerd in deze commit: R6R9-001 in de Phase-2- en Phase-3R-records, R6R9-002 in deze cockpitbron. Er loopt geen correctietaak. |
-| 7 | Documentation Integrator | ⛔ Geblokkeerd | Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde ongewijzigde planning-SHA. De geldende uitspraak is 06R9 CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60. Er is nog geen goedgekeurde review en dus geen startpunt: dit veld blijft leeg tot een verse review goedkeurt en de mens die uitspraak expliciet adopteert. |
+| 6 | Independent Reviewer | ✅ Goedgekeurd / klaar | 06R10 gaf APPROVED op exact SHA 168d02d53f70797c725826eed42948fff0121d70, zonder blokkerende bevindingen en met zeven niet-blokkerende observaties. De reviewer leidde de structurele cijfers zelf af, hield beide open beoordelingskwesties in stand en bevestigde dat de vijf nog openstaande chunkvragen terecht open zijn gelaten. De goedkeuring autoriseert niets: adoptie is een aparte, uitdrukkelijke menselijke beslissing. |
+| 7 | Documentation Integrator | 🟨 Wacht op mens / keuze | De goedgekeurde planningsbaseline is exact SHA 168d02d53f70797c725826eed42948fff0121d70. Phase 7 kan pas beginnen nadat de mens die goedkeuring uitdrukkelijk heeft geadopteerd. Tot dat moment blijft Phase 7 dicht en mag geen Worker starten. |
 
 ## Dependency-gedreven requirementchunks
 
@@ -137,7 +134,7 @@ flowchart TB
 | 13 | `C11` | Een niet-destructieve releasecandidate, kosteloosheidsbewijs en pas daarna reset en demo | `REQ-INT-004`<br>`final-gate REQ-PLAT-*`<br>`EN-DEMO-READY-001`<br>`EN-DEMO-001` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c11-20260913-03 | Behoud C11 als voorganger; elke destructieve CT 240-handeling vraagt later een aparte expliciete toestemming. |
 | 14 | `C12` | Een MES-werkomgeving voor operator, supervisor en reviewer, ná de demo | `REQ-MES-003`<br>`REQ-MUI-004/005/006/008/009/010/011/016`<br>`nieuwe taak/stap- en exception-tabellen`<br>`nieuwe Contracts- en Platform-IDs` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c12c-20260913-01 | Behoud C12 als voorganger; herspecificeer daarna de walkthrough. |
 | 15 | `C13` | De walkthrough uitgebreid met de nieuwe schermen | `REQ-PLAT-035`<br>`REQ-PLAT-052`<br>`herbevestiging REQ-PLAT-047/062`<br>`duurzame afhandeling van een order-exception`<br>`REQ-MUI-019-identiteit` | ✅ Goedgekeurd / klaar | Requirements/Test Designer<br>phase4r-c13-20260913-01 | Behoud C13 als voorganger; Phase 4R is compleet. |
-| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | 🟨 Wacht op mens / keuze | Independent Reviewer<br>phase6-20260917-11 | Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert en waarvan de uitkomst nergens wordt voorspeld. |
+| 16 | `GATE` | Eén integraal en onafhankelijk goedgekeurd planningspakket | `alle actieve Release-1-rijen`<br>`traceability`<br>`Phase-5R-plan`<br>`Phase-7-adoptieprocedure` | ✅ Goedgekeurd / klaar | Independent Reviewer<br>phase6-20260917-11 | Leg de goedgekeurde baseline 168d02d53f70797c725826eed42948fff0121d70 aan de mens voor en wacht op een uitdrukkelijke adoptiebeslissing. Zonder die beslissing start niets. |
 
 ## Statuslegenda
 

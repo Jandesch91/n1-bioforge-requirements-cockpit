@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "CORRECTIE VOLTOOID — WACHT OP ÉÉN VERSE ONAFHANKELIJKE REVIEW",
+    "title": "PHASE 6 APPROVED — WACHT OP EXPLICIETE MENSELIJKE ADOPTIE",
     "status": "human_gate",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De begrensde correctie van R6R9-001 is voltooid in deze commit — de commit die dit bestand bevat. De goedgekeurde Phase-2- en Phase-3R-records zeggen nu wat de mens werkelijk heeft goedgekeurd en beantwoord; er is geen goedkeuring verleend, geen productbeslissing gewijzigd en geen antwoord verzonnen. R6R9-002 is in dezelfde ronde gecorrigeerd. De geldende uitspraak blijft 06R9 CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 tot een andere verse reviewer uitspraak doet. Er loopt geen correctietaak en er staat geen checkpoint- of publicatiestap open.",
-    "what_human_does_next": "Geen actie nodig. Laat één andere verse onafhankelijke reviewer exact deze ongewijzigde commit beoordelen; adopteer pas daarna expliciet, en alleen als die uitspraak goedkeurt.",
-    "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, taak phase6-20260917-11, die niets repareert en waarvan de uitkomst nergens wordt voorspeld. Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 blijven geblokkeerd."
+    "current_boundary": "De verse onafhankelijke review 06R10 heeft de planningsbaseline op exact SHA 168d02d53f70797c725826eed42948fff0121d70 GOEDGEKEURD, zonder blokkerende bevindingen. Dit is de eerste goedkeuring in de reeks. De goedkeuring bindt uitsluitend aan die exacte commit. Commits daarna bevatten alleen governance-administratie: de planninginhoud op 168d02d53f70797c725826eed42948fff0121d70 is ongewijzigd, wat een opvolger controleert met `git diff 168d02d53f70797c725826eed42948fff0121d70..HEAD` over de planningsartefacten.",
+    "what_human_does_next": "Beslis expliciet of u deze goedgekeurde baseline adopteert. Goedkeuring is niet hetzelfde als adoptie: zonder uw uitdrukkelijke adoptie blijft Phase 7 dicht en mag geen Worker starten. U mag ook niets adopteren, of eerst vragen stellen.",
+    "next_allowed_action": "Wacht op de expliciete menselijke adoptiebeslissing over de goedgekeurde baseline 168d02d53f70797c725826eed42948fff0121d70. Zonder die beslissing blijven Phase 7, elke Worker, implementatie, merge, deployment, reset, Proxmox en CT 240 geblokkeerd. De orchestrator start niets uit zichzelf."
   },
   "phases": [
     {
@@ -136,11 +136,12 @@
       "number": "6",
       "role": "Independent Reviewer",
       "plain_language": "Beoordeelt de complete planning in een verse taak en repareert niets.",
-      "status": "changes_required",
+      "status": "approved",
       "display_kind": "independent_review",
-      "input_sha": "ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60",
-      "handoff": "../06R9-review-findings.md",
+      "input_sha": "168d02d53f70797c725826eed42948fff0121d70",
+      "handoff": "../06R10-review-findings.md",
       "evidence": [
+        "../06R10-review-findings.md",
         "../06R9-review-findings.md",
         "../06R8-review-findings.md",
         "../06R7-review-findings.md",
@@ -150,24 +151,24 @@
         "../06R3-review-findings.md",
         "../06R2-review-findings.md"
       ],
-      "status_note": "06R9 gaf CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 en blijft de geldende uitspraak tot een andere verse reviewer uitspraak doet. Beide begrensde bevindingen zijn gecorrigeerd in deze commit: R6R9-001 in de Phase-2- en Phase-3R-records, R6R9-002 in deze cockpitbron. Er loopt geen correctietaak.",
-      "return_to_phase": "phase-2"
+      "status_note": "06R10 gaf APPROVED op exact SHA 168d02d53f70797c725826eed42948fff0121d70, zonder blokkerende bevindingen en met zeven niet-blokkerende observaties. De reviewer leidde de structurele cijfers zelf af, hield beide open beoordelingskwesties in stand en bevestigde dat de vijf nog openstaande chunkvragen terecht open zijn gelaten. De goedkeuring autoriseert niets: adoptie is een aparte, uitdrukkelijke menselijke beslissing."
     },
     {
       "id": "phase-7",
       "number": "7",
       "role": "Documentation Integrator",
       "plain_language": "Integreert uitsluitend een onafhankelijk goedgekeurde planning in één canonieke Git-baseline.",
-      "status": "blocked",
-      "input_sha": null,
+      "status": "human_gate",
+      "input_sha": "168d02d53f70797c725826eed42948fff0121d70",
       "handoff": "Nog niet toegestaan",
       "evidence": [
+        "../06R10-review-findings.md",
         "../06R9-review-findings.md",
         "../06R8-review-findings.md",
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "status_note": "Onmogelijk vóór een goedgekeurde Phase 6 op dezelfde ongewijzigde planning-SHA. De geldende uitspraak is 06R9 CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60. Er is nog geen goedgekeurde review en dus geen startpunt: dit veld blijft leeg tot een verse review goedkeurt en de mens die uitspraak expliciet adopteert."
+      "status_note": "De goedgekeurde planningsbaseline is exact SHA 168d02d53f70797c725826eed42948fff0121d70. Phase 7 kan pas beginnen nadat de mens die goedkeuring uitdrukkelijk heeft geadopteerd. Tot dat moment blijft Phase 7 dicht en mag geen Worker starten."
     }
   ],
   "chunks": [
@@ -580,21 +581,22 @@
         "Phase-7-adoptieprocedure"
       ],
       "current_phase": "phase-6",
-      "status": "human_gate",
-      "blocker": "De begrensde correctie van R6R9-001 is voltooid in deze commit; de geldende uitspraak blijft 06R9 CHANGES REQUIRED op exact SHA ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60 tot één andere verse onafhankelijke reviewer exact deze ongewijzigde commit heeft beoordeeld.",
-      "input_sha": "ac8d743f0850e2dbbcfe73aa311fcc9537ca0a60",
-      "output_handoff": "../06R9-review-findings.md",
+      "status": "approved",
+      "blocker": "Geen. De gate is gehaald: 06R10 keurde exact SHA 168d02d53f70797c725826eed42948fff0121d70 goed. Wat nu ontbreekt is geen review maar een uitdrukkelijke menselijke adoptiebeslissing.",
+      "input_sha": "168d02d53f70797c725826eed42948fff0121d70",
+      "output_handoff": "../06R10-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260917-11",
-      "next_allowed_action": "Eén andere verse onafhankelijke Phase 6-review van exact deze ongewijzigde commit, die niets repareert en waarvan de uitkomst nergens wordt voorspeld.",
+      "next_allowed_action": "Leg de goedgekeurde baseline 168d02d53f70797c725826eed42948fff0121d70 aan de mens voor en wacht op een uitdrukkelijke adoptiebeslissing. Zonder die beslissing start niets.",
       "durable_evidence": [
+        "../06R10-review-findings.md",
         "../06R9-review-findings.md",
         "../06R8-review-findings.md",
         "../06R7-review-findings.md",
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "output_sha": null
+      "output_sha": "168d02d53f70797c725826eed42948fff0121d70"
     }
   ],
   "orchestrator_protocol": [
