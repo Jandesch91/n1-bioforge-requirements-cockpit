@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> PHASE 7 — CONFLICTEN WORDEN STUK VOOR STUK OPGELOST<br>
-> **Grens:** De mens koos op 2026-09-18 "case by case" (beslisrecord rij 43): elk van de achttien benoemde Phase-7-conflicten wordt afzonderlijk opgelost. Wat de orchestrator als vastgelegde integratiebeslissing kan oplossen — een oordeel over hóé een verplichting wordt afgehandeld, geen wijziging van een requirement — doet hij, met redenering en bewijs, ter beoordeling door de volgende verse reviewer. Alles wat het goedgekeurde pakket zou wijzigen of requirementtekst zou moeten verzinnen, gaat terug naar de mens.<br>
-> **Wat de mens nu doet:** Niets nu. U krijgt alleen de gevallen voorgelegd die echt van u zijn, in gewone taal en met een aanbeveling erbij. De geadopteerde baseline blijft ongewijzigd.<br>
-> **Volgende toegestane actie:** Classificeer de achttien benoemde conflicten: welke de orchestrator zelf als integratiebeslissing mag oplossen en welke terug naar de mens moeten. Geen integratiechunk is geautoriseerd voor een item waarvan de conflicten nog niet zijn beslecht. Phase 7 mag geen requirementtekst verzinnen.
+> ALLE ACHTTIEN CONFLICTEN BESLECHT — INTEGRATIE KAN BEGINNEN<br>
+> **Grens:** Alle achttien benoemde Phase-7-conflicten zijn beoordeeld en vastgelegd in 07-conflict-dispositions.md: achttien zijn integratiebeslissingen die de orchestrator onder beslisrecord rij 43 mag nemen, nul vereisen een menselijke beslissing. Geen enkele aanbeveling wijzigt het goedgekeurde pakket of schrijft requirementtekst. De scepsis die aan het kind was opgedragen loonde: het ernstigste inventarisitem G-03 bleek een verkeerd gelezen kolom — de requirementtekst van REQ-PLAT-063/064/065 bestaat gewoon — wat negen van de twaalf chunks deblokkeert.<br>
+> **Wat de mens nu doet:** Niets nu. U wordt opnieuw gevraagd voordat er gebouwd wordt, en onmiddellijk als een integratiechunk alsnog op iets stuit dat het goedgekeurde pakket zou wijzigen.<br>
+> **Volgende toegestane actie:** Autoriseer de integratiechunks één voor één in de volgorde van de inventaris, te beginnen met de vijf die geen eigen open vraag hebben. Elke chunk krijgt één canoniek document als eigenaar en een eigen verklaarde write set. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
