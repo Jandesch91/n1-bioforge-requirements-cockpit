@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "BASELINE GEADOPTEERD — PHASE 7 MAG LOPEN",
-    "status": "in_progress",
+    "title": "PHASE 7 STAP 1 KLAAR — ÉÉN MENSELIJKE KEUZE NODIG",
+    "status": "human_gate",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De mens heeft de door 06R10 goedgekeurde planningsbaseline op exact SHA 168d02d53f70797c725826eed42948fff0121d70 op 2026-09-17 uitdrukkelijk geadopteerd (beslisrecord rij 42, letterlijk: \"Yes, I adopt it\"). Daarmee is de Phase-7-voorwaarde volledig: een verse onafhankelijke review keurde exact die ongewijzigde SHA goed, én de mens heeft die uitspraak geadopteerd. Adoptie autoriseert geen implementatie.",
-    "what_human_does_next": "Niets nu. Phase 7 voegt de goedgekeurde planning samen met de canonieke projectdocumenten. Daarna wordt u opnieuw gevraagd voordat er ook maar iets gebouwd wordt: geen Worker start op deze beslissing.",
-    "next_allowed_action": "Phase 7, de Documentation Integrator, tegen de geadopteerde baseline 168d02d53f70797c725826eed42948fff0121d70. Taak phase7-20260917-01. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240; elke destructieve CT 240-actie vraagt hoe dan ook een eigen, aparte menselijke autorisatie voor precies die operatie."
+    "current_boundary": "Phase 7 stap 1, de integratie-inventaris, is af: 118 verplichtingen, waarvan er 84 pas door de eigen zoektocht van het kind boven water kwamen en 34 uit de expliciete lijst van het plan. De maat van Phase 7 is 164 requirement-ID's zonder canoniek document: 82 daarvan bestaan al op de goedgekeurde broncommit en worden overgezet, 82 zijn nieuw. Er is niets geïntegreerd. Vier conflicten en veertien onduidelijkheden zijn benoemd en bewust niet opgelost.",
+    "what_human_does_next": "Eén keuze: mogen die onduidelijkheden worden opgelost door het goedgekeurde planningspakket zelf te wijzigen — dan vervalt de goedkeuring van 168d02d53f70797c725826eed42948fff0121d70 en zijn een nieuwe review én een nieuwe adoptie nodig — of moet Phase 7 ze oplossen als vastgelegde integratiebeslissingen, waarbij de geadopteerde baseline onaangeroerd blijft?",
+    "next_allowed_action": "Wacht op die keuze. Geen integratiechunk is geautoriseerd tot zij beantwoord is. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240."
   },
   "phases": [
     {
@@ -158,7 +158,7 @@
       "number": "7",
       "role": "Documentation Integrator",
       "plain_language": "Integreert uitsluitend een onafhankelijk goedgekeurde planning in één canonieke Git-baseline.",
-      "status": "in_progress",
+      "status": "human_gate",
       "input_sha": "168d02d53f70797c725826eed42948fff0121d70",
       "handoff": "Nog niet toegestaan",
       "evidence": [
@@ -168,7 +168,7 @@
         "../README.md",
         "../RESUME-HERE.md"
       ],
-      "status_note": "De mens heeft de goedgekeurde baseline 168d02d53f70797c725826eed42948fff0121d70 op 2026-09-17 uitdrukkelijk geadopteerd (beslisrecord rij 42). Phase 7 mag nu lopen tegen exact die SHA. Phase 7 integreert documentatie; zij bouwt niets en autoriseert geen Worker, implementatie, merge, deployment, reset, Proxmox of CT 240."
+      "status_note": "Stap 1 van Phase 7 is klaar en vastgelegd in 07-integration-obligations.md. De inventaris toont dat het plan de omvang onderschatte: ook vier aanwezige moduledocumenten zijn de verkeerde versie, AGENTS.md is zelf voorwerp van Phase 7, en AGENTS.md verwijst elke Worker naar een pad dat op geen van beide lijnen bestaat. De drie ontbrekende modules bestaan wél op de goedgekeurde broncommit, dus zij worden overgezet in plaats van geschreven. Voor er iets geïntegreerd wordt, moet de mens één keuze maken over het oplossen van de benoemde conflicten."
     }
   ],
   "chunks": [
@@ -587,7 +587,7 @@
       "output_handoff": "../06R10-review-findings.md",
       "responsible_role": "Independent Reviewer",
       "responsible_task": "phase6-20260917-11",
-      "next_allowed_action": "Phase 7 tegen de geadopteerde baseline 168d02d53f70797c725826eed42948fff0121d70. Geen Worker en geen implementatie op deze beslissing; de mens wordt opnieuw gevraagd voordat er gebouwd wordt.",
+      "next_allowed_action": "Wacht op de menselijke keuze over hoe de benoemde Phase-7-conflicten worden opgelost. Daarna worden de integratiechunks één voor één geautoriseerd.",
       "durable_evidence": [
         "../06R10-review-findings.md",
         "../06R9-review-findings.md",
