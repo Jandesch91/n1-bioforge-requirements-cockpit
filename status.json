@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "PHASE 7 STAP 1 KLAAR — ÉÉN MENSELIJKE KEUZE NODIG",
-    "status": "human_gate",
+    "title": "PHASE 7 — CONFLICTEN WORDEN STUK VOOR STUK OPGELOST",
+    "status": "in_progress",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "Phase 7 stap 1, de integratie-inventaris, is af: 118 verplichtingen, waarvan er 84 pas door de eigen zoektocht van het kind boven water kwamen en 34 uit de expliciete lijst van het plan. De maat van Phase 7 is 164 requirement-ID's zonder canoniek document: 82 daarvan bestaan al op de goedgekeurde broncommit en worden overgezet, 82 zijn nieuw. Er is niets geïntegreerd. Vier conflicten en veertien onduidelijkheden zijn benoemd en bewust niet opgelost.",
-    "what_human_does_next": "Eén keuze: mogen die onduidelijkheden worden opgelost door het goedgekeurde planningspakket zelf te wijzigen — dan vervalt de goedkeuring van 168d02d53f70797c725826eed42948fff0121d70 en zijn een nieuwe review én een nieuwe adoptie nodig — of moet Phase 7 ze oplossen als vastgelegde integratiebeslissingen, waarbij de geadopteerde baseline onaangeroerd blijft?",
-    "next_allowed_action": "Wacht op die keuze. Geen integratiechunk is geautoriseerd tot zij beantwoord is. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240."
+    "current_boundary": "De mens koos op 2026-09-18 \"case by case\" (beslisrecord rij 43): elk van de achttien benoemde Phase-7-conflicten wordt afzonderlijk opgelost. Wat de orchestrator als vastgelegde integratiebeslissing kan oplossen — een oordeel over hóé een verplichting wordt afgehandeld, geen wijziging van een requirement — doet hij, met redenering en bewijs, ter beoordeling door de volgende verse reviewer. Alles wat het goedgekeurde pakket zou wijzigen of requirementtekst zou moeten verzinnen, gaat terug naar de mens.",
+    "what_human_does_next": "Niets nu. U krijgt alleen de gevallen voorgelegd die echt van u zijn, in gewone taal en met een aanbeveling erbij. De geadopteerde baseline blijft ongewijzigd.",
+    "next_allowed_action": "Classificeer de achttien benoemde conflicten: welke de orchestrator zelf als integratiebeslissing mag oplossen en welke terug naar de mens moeten. Geen integratiechunk is geautoriseerd voor een item waarvan de conflicten nog niet zijn beslecht. Phase 7 mag geen requirementtekst verzinnen."
   },
   "phases": [
     {
@@ -158,7 +158,7 @@
       "number": "7",
       "role": "Documentation Integrator",
       "plain_language": "Integreert uitsluitend een onafhankelijk goedgekeurde planning in één canonieke Git-baseline.",
-      "status": "human_gate",
+      "status": "in_progress",
       "input_sha": "168d02d53f70797c725826eed42948fff0121d70",
       "handoff": "Nog niet toegestaan",
       "evidence": [
