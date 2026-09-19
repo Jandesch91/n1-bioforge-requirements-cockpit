@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> ALLE ACHTTIEN CONFLICTEN BESLECHT — INTEGRATIE KAN BEGINNEN<br>
-> **Grens:** Alle achttien benoemde Phase-7-conflicten zijn beoordeeld en vastgelegd in 07-conflict-dispositions.md: achttien zijn integratiebeslissingen die de orchestrator onder beslisrecord rij 43 mag nemen, nul vereisen een menselijke beslissing. Geen enkele aanbeveling wijzigt het goedgekeurde pakket of schrijft requirementtekst. De scepsis die aan het kind was opgedragen loonde: het ernstigste inventarisitem G-03 bleek een verkeerd gelezen kolom — de requirementtekst van REQ-PLAT-063/064/065 bestaat gewoon — wat negen van de twaalf chunks deblokkeert.<br>
-> **Wat de mens nu doet:** Niets nu. U wordt opnieuw gevraagd voordat er gebouwd wordt, en onmiddellijk als een integratiechunk alsnog op iets stuit dat het goedgekeurde pakket zou wijzigen.<br>
-> **Volgende toegestane actie:** Autoriseer de integratiechunks één voor één in de volgorde van de inventaris, te beginnen met de vijf die geen eigen open vraag hebben. Elke chunk krijgt één canoniek document als eigenaar en een eigen verklaarde write set. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
+> PHASE 7 — CHUNK I7-01 GEDAAN: BEIDE LIJNEN STAAN NU OP ÉÉN REF<br>
+> **Grens:** De eerste integratiechunk I7-01 is klaar: zestien documenten zijn letterlijk overgezet vanaf de goedgekeurde broncommit f3656bf, byte voor byte identiek (exit test: nul regels verschil). Zeven bestaande documenten waren de verouderde versie en zijn vervangen — eerst bewezen dat geen enkel requirement-ID uit de checkout ontbrak aan de bron — en negen ontbrekende documenten bestaan nu, waaronder de MES Web UI-, Enterprise Event Integration- en ERP-Mock-modules. De geadopteerde planningsbaseline is ongewijzigd.<br>
+> **Wat de mens nu doet:** Niets nu. De volgende chunks breiden de overgezette documenten uit met de 82 nieuwe requirement-ID's. U wordt gevraagd voordat er gebouwd wordt, en onmiddellijk als een chunk iets raakt dat het goedgekeurde pakket zou wijzigen.<br>
+> **Volgende toegestane actie:** Autoriseer de volgende integratiechunk. I7-02 (Contracts), I7-04 (Simulation), I7-05 (Batch-Control) en I7-08 (ERP Mock) hebben geen eigen open vraag. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
