@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> PHASE 7 — CHUNK I7-01 GEDAAN: BEIDE LIJNEN STAAN NU OP ÉÉN REF<br>
-> **Grens:** De eerste integratiechunk I7-01 is klaar: zestien documenten zijn letterlijk overgezet vanaf de goedgekeurde broncommit f3656bf, byte voor byte identiek (exit test: nul regels verschil). Zeven bestaande documenten waren de verouderde versie en zijn vervangen — eerst bewezen dat geen enkel requirement-ID uit de checkout ontbrak aan de bron — en negen ontbrekende documenten bestaan nu, waaronder de MES Web UI-, Enterprise Event Integration- en ERP-Mock-modules. De geadopteerde planningsbaseline is ongewijzigd.<br>
-> **Wat de mens nu doet:** Niets nu. De volgende chunks breiden de overgezette documenten uit met de 82 nieuwe requirement-ID's. U wordt gevraagd voordat er gebouwd wordt, en onmiddellijk als een chunk iets raakt dat het goedgekeurde pakket zou wijzigen.<br>
-> **Volgende toegestane actie:** Autoriseer de volgende integratiechunk. I7-02 (Contracts), I7-04 (Simulation), I7-05 (Batch-Control) en I7-08 (ERP Mock) hebben geen eigen open vraag. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
+> PHASE 7 GEÏNTEGREERD EN GEVERIFIEERD — 95 RIJEN WORDEN AANGEVULD<br>
+> **Grens:** Alle twaalf integratiechunks zijn af en alle vier de exittests slagen: de requirementdefinities in de canonieke modules gingen van 226 naar 390, exact gelijk aan de 390 levende 04R-rijen, en de geadopteerde planningsbaseline is onaangeroerd. De verificatie vond wél dat 95 overgezette canonieke rijen minder tekst dragen dan hun goedgekeurde rij — waaronder REQ-BC-020, waar de goedgekeurde rij eist dat een reset weigert zolang een interlock actief is. De mens koos op 2026-09-20 (beslisrecord rij 44): vul alle 95 aan.<br>
+> **Wat de mens nu doet:** Niets nu. U wordt opnieuw gevraagd voordat er gebouwd wordt. De aanvulling verandert geen goedgekeurde betekenis; zij zet de goedgekeurde tekst letterlijk in het canonieke document.<br>
+> **Volgende toegestane actie:** Stel de definitieve lijst van 95 rijen vast met bewijs, en voer daarna per module begrensde P7-E-aanvullingen uit: de goedgekeurde tekst letterlijk in de bestaande rij, mechanisch geverifieerd, elke gewijzigde regel verantwoord. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
