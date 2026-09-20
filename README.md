@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> PHASE 7 GEÏNTEGREERD EN GEVERIFIEERD — 95 RIJEN WORDEN AANGEVULD<br>
-> **Grens:** Alle twaalf integratiechunks zijn af en alle vier de exittests slagen: de requirementdefinities in de canonieke modules gingen van 226 naar 390, exact gelijk aan de 390 levende 04R-rijen, en de geadopteerde planningsbaseline is onaangeroerd. De verificatie vond wél dat 95 overgezette canonieke rijen minder tekst dragen dan hun goedgekeurde rij — waaronder REQ-BC-020, waar de goedgekeurde rij eist dat een reset weigert zolang een interlock actief is. De mens koos op 2026-09-20 (beslisrecord rij 44): vul alle 95 aan.<br>
-> **Wat de mens nu doet:** Niets nu. U wordt opnieuw gevraagd voordat er gebouwd wordt. De aanvulling verandert geen goedgekeurde betekenis; zij zet de goedgekeurde tekst letterlijk in het canonieke document.<br>
-> **Volgende toegestane actie:** Stel de definitieve lijst van 95 rijen vast met bewijs, en voer daarna per module begrensde P7-E-aanvullingen uit: de goedgekeurde tekst letterlijk in de bestaande rij, mechanisch geverifieerd, elke gewijzigde regel verantwoord. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
+> 97 CANONIEKE RIJEN WORDEN AANGEVULD — VEILIGHEIDSRIJEN EERST<br>
+> **Grens:** De definitieve lijst telt 97 rijen, niet 95; het verschil is verklaard en bewust niet weggepoetst. 46 daarvan dragen een veiligheids-, autorisatie- of destructieve voorwaarde, waaronder elf die de eis missen dat een volledige reset tegen CT240 aparte, uitdrukkelijke menselijke autorisatie vraagt op het moment zelf. De mens koos op 2026-09-20 (beslisrecord rij 45): behoud wat het meeste zegt — letterlijk overnemen waar beide teksten hetzelfde zeggen, beide teksten behouden waar de module iets vastlegt dat de goedgekeurde rij niet noemt, en nooit echte inhoud vervangen door een verwijzing.<br>
+> **Wat de mens nu doet:** Niets nu. U wordt opnieuw gevraagd voordat er gebouwd wordt.<br>
+> **Volgende toegestane actie:** Voer de P7-E-aanvullingen per module uit, de 46 veiligheidsrijen eerst, te beginnen met de Platform-reset/demo-groep en Batch-Control. Inhoud behouden, niets verzinnen, elke gewijzigde regel verantwoord en elke aanvulling mechanisch geverifieerd. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
