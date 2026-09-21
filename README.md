@@ -2,10 +2,10 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> 97 CANONIEKE RIJEN WORDEN AANGEVULD — VEILIGHEIDSRIJEN EERST<br>
-> **Grens:** De definitieve lijst telt 97 rijen, niet 95; het verschil is verklaard en bewust niet weggepoetst. 46 daarvan dragen een veiligheids-, autorisatie- of destructieve voorwaarde, waaronder elf die de eis missen dat een volledige reset tegen CT240 aparte, uitdrukkelijke menselijke autorisatie vraagt op het moment zelf. De mens koos op 2026-09-20 (beslisrecord rij 45): behoud wat het meeste zegt — letterlijk overnemen waar beide teksten hetzelfde zeggen, beide teksten behouden waar de module iets vastlegt dat de goedgekeurde rij niet noemt, en nooit echte inhoud vervangen door een verwijzing.<br>
+> INTEGRATIEREVIEW: NOT READY — BLOKKERS EN VEILIGHEIDSTESTS WORDEN GESLOTEN<br>
+> **Grens:** Op verzoek van de mens is een onafhankelijke integratiereview van de canonieke documenten uitgevoerd. Uitspraak: NOT READY, met vijf HIGH-bevindingen die de mechanische verificatie niet kon zien, omdat het geen ontbrekende bytes zijn maar gebreken in wat een Worker mag lezen. AGENTS.md staat exact drie bestanden toe, en de canonieke modules bevatten niet genoeg om hun eigen tests uit te voeren: de Batch-Control-Worker die de stale-PV-interlock bouwt vindt de drempelwaarde van 3.000 ms alleen in een module die hij niet mag openen. De meting telt 80 testgaten, niet 65; Batch-Control was nooit geteld.<br>
 > **Wat de mens nu doet:** Niets nu. U wordt opnieuw gevraagd voordat er gebouwd wordt.<br>
-> **Volgende toegestane actie:** Voer de P7-E-aanvullingen per module uit, de 46 veiligheidsrijen eerst, te beginnen met de Platform-reset/demo-groep en Batch-Control. Inhoud behouden, niets verzinnen, elke gewijzigde regel verantwoord en elke aanvulling mechanisch geverifieerd. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
+> **Volgende toegestane actie:** Sluit de vijf blokkerende bevindingen en de twintig niet-bevroren veiligheidsrijen (beslisrecord rij 46). Daarna hertest, de drie geregistreerde defecten, en het eerste werkitem aantoonbaar gereed. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
