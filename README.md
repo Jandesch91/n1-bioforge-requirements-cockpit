@@ -2,14 +2,14 @@
 # N1 BioForge Requirements Cockpit
 
 > **🔵 Bezig — YOU ARE HERE**<br>
-> INTEGRATIEREVIEW: NOT READY — BLOKKERS EN VEILIGHEIDSTESTS WORDEN GESLOTEN<br>
-> **Grens:** Op verzoek van de mens is een onafhankelijke integratiereview van de canonieke documenten uitgevoerd. Uitspraak: NOT READY, met vijf HIGH-bevindingen die de mechanische verificatie niet kon zien, omdat het geen ontbrekende bytes zijn maar gebreken in wat een Worker mag lezen. AGENTS.md staat exact drie bestanden toe, en de canonieke modules bevatten niet genoeg om hun eigen tests uit te voeren: de Batch-Control-Worker die de stale-PV-interlock bouwt vindt de drempelwaarde van 3.000 ms alleen in een module die hij niet mag openen. De meting telt 80 testgaten, niet 65; Batch-Control was nooit geteld.<br>
-> **Wat de mens nu doet:** Niets nu. U wordt opnieuw gevraagd voordat er gebouwd wordt.<br>
-> **Volgende toegestane actie:** Sluit de vijf blokkerende bevindingen en de twintig niet-bevroren veiligheidsrijen (beslisrecord rij 46). Daarna hertest, de drie geregistreerde defecten, en het eerste werkitem aantoonbaar gereed. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
+> NOT READY — GEPAUZEERD OP EEN VEILIG CHECKPOINT, 19 VAN 20 VEILIGHEIDSRIJEN GESLOTEN<br>
+> **Grens:** De twee werkstromen die beslisrecord rij 46 toestond zijn bijna klaar. Alle vijf blokkerende HIGH-bevindingen van de integratiereview zijn gesloten: de leesset in AGENTS.md is uitgebreid van drie naar vijf bestanden, zodat een Worker de drempelwaarden kan vinden die zijn eigen tests nodig hebben — gekozen boven het kopiëren van 27 waarden naar vijf modules, omdat kopieën gaan afwijken. Van de twintig veiligheidsrijen zijn er 19 gesloten; er is er nog één over. De uitspraak van de integratiereview blijft NOT READY: het sluiten van bevindingen draait die uitspraak niet zelf om, dat kan alleen een verse onafhankelijke review. Het werk staat nu stil op een veilig checkpoint: Claude Code op de host is bijgewerkt zodat een nieuwer model gekozen kan worden, en dat vereist een verse sessie. Er was niets onderweg toen dat gebeurde — de werkmap was schoon en alles was gepusht, in beide repositories. Er gaat dus niets verloren.<br>
+> **Wat de mens nu doet:** Een verse sessie starten. Inhoudelijk hoeft u niets te beslissen: u wordt opnieuw gevraagd voordat er gebouwd wordt.<br>
+> **Volgende toegestane actie:** De laatste veiligheidsrij sluiten, daarna de verificatie opnieuw uitvoeren over de gewijzigde documenten, de drie geregistreerde defecten sluiten, en van het eerste werkitem aantoonbaar maken dat het gereed is. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
-- Snapshot: `2026-09-17`
+- Snapshot: `2026-09-26`
 - Scope: Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.
 
 ## Zeven fasen en teruglus
