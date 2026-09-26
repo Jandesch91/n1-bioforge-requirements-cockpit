@@ -53,13 +53,13 @@
     }
   },
   "you_are_here": {
-    "title": "NOT READY — GEPAUZEERD OP EEN VEILIG CHECKPOINT, 19 VAN 20 VEILIGHEIDSRIJEN GESLOTEN",
-    "status": "in_progress",
+    "title": "NOT READY — ALLE 20 VEILIGHEIDSRIJEN GESLOTEN; WACHT OP UW KEUZES VOOR DE BOUW",
+    "status": "human_gate",
     "active_chunk": null,
     "next_chunk": "GATE",
-    "current_boundary": "De twee werkstromen die beslisrecord rij 46 toestond zijn bijna klaar. Alle vijf blokkerende HIGH-bevindingen van de integratiereview zijn gesloten: de leesset in AGENTS.md is uitgebreid van drie naar vijf bestanden, zodat een Worker de drempelwaarden kan vinden die zijn eigen tests nodig hebben — gekozen boven het kopiëren van 27 waarden naar vijf modules, omdat kopieën gaan afwijken. Van de twintig veiligheidsrijen zijn er 19 gesloten; er is er nog één over. De uitspraak van de integratiereview blijft NOT READY: het sluiten van bevindingen draait die uitspraak niet zelf om, dat kan alleen een verse onafhankelijke review. Het werk staat nu stil op een veilig checkpoint: Claude Code op de host is bijgewerkt zodat een nieuwer model gekozen kan worden, en dat vereist een verse sessie. Er was niets onderweg toen dat gebeurde — de werkmap was schoon en alles was gepusht, in beide repositories. Er gaat dus niets verloren.",
-    "what_human_does_next": "Een verse sessie starten. Inhoudelijk hoeft u niets te beslissen: u wordt opnieuw gevraagd voordat er gebouwd wordt.",
-    "next_allowed_action": "De laatste veiligheidsrij sluiten, daarna de verificatie opnieuw uitvoeren over de gewijzigde documenten, de drie geregistreerde defecten sluiten, en van het eerste werkitem aantoonbaar maken dat het gereed is. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240."
+    "current_boundary": "Beide werkstromen die beslisrecord rij 46 toestond zijn klaar: de vijf blokkerende HIGH-bevindingen en alle twintig niet-bevroren veiligheidsrijen. Een verse, onafhankelijke verificatie heeft de gewijzigde documenten opnieuw nagelopen: alle 390 requirement-ID's staan in precies één moduledocument, de goedgekeurde planning is byte voor byte onveranderd, en elke gewijzigde regel is herleidbaar. Zij vond ook twee fouten in AGENTS.md, die de orchestrator zelf had ingevoerd; die zijn verbeterd en opnieuw onafhankelijk gecontroleerd. Het eerste werkitem (W-CTR-01, het gedeelde contractenpakket) is punt voor punt nagelopen tegen de Definition of Ready en is inhoudelijk gereed. De uitspraak van de integratiereview blijft NOT READY: het sluiten van bevindingen draait die uitspraak niet zelf om.",
+    "what_human_does_next": "Een paar keuzes maken voordat er gebouwd wordt: of de bekende Automation-kwestie (H4.4) het bouwen van blok 1 niet tegenhoudt, of een zinnetje in het MES-schemahoofdstuk (D2) mag worden verduidelijkt, en vanaf welke branch de eerste Worker start. Daarna, apart, of item 1 mag starten.",
+    "next_allowed_action": "Wachten op de mens. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240."
   },
   "phases": [
     {
@@ -162,13 +162,13 @@
       "input_sha": "168d02d53f70797c725826eed42948fff0121d70",
       "handoff": "Nog niet toegestaan",
       "evidence": [
-        "../06R10-review-findings.md",
-        "../06R9-review-findings.md",
-        "../06R8-review-findings.md",
-        "../README.md",
-        "../RESUME-HERE.md"
+        "../07-integration-report.md",
+        "../08-pre-build-readiness-plan.md",
+        "../09-test-coverage-gap.md",
+        "../07R-integration-review-findings.md",
+        "../06R10-review-findings.md"
       ],
-      "status_note": "Stap 1 van Phase 7 is klaar en vastgelegd in 07-integration-obligations.md. De inventaris toont dat het plan de omvang onderschatte: ook vier aanwezige moduledocumenten zijn de verkeerde versie, AGENTS.md is zelf voorwerp van Phase 7, en AGENTS.md verwijst elke Worker naar een pad dat op geen van beide lijnen bestaat. De drie ontbrekende modules bestaan wél op de goedgekeurde broncommit, dus zij worden overgezet in plaats van geschreven. Voor er iets geïntegreerd wordt, moet de mens één keuze maken over het oplossen van de benoemde conflicten."
+      "status_note": "Phase 7 is inhoudelijk afgerond: de canonieke documenten zijn geïntegreerd (P7-E, 97 rijen), de vijf HIGH-bevindingen van de integratiereview zijn gesloten, en de twintig veiligheidsrijen hebben nu tests die hun veiligheidsclausules controleren (P7-T). Een verse verificatie (I7-13) bevestigt ID-dekking en een onveranderde planning. Het startpunt voor de bouw wacht op de keuzes van de mens."
     }
   ],
   "chunks": [
