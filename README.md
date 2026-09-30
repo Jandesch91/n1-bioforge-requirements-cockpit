@@ -2,14 +2,14 @@
 # N1 BioForge Requirements Cockpit
 
 > **🟨 Wacht op mens / keuze — YOU ARE HERE**<br>
-> NOT READY — ALLE 20 VEILIGHEIDSRIJEN GESLOTEN; WACHT OP UW KEUZES VOOR DE BOUW<br>
-> **Grens:** Beide werkstromen die beslisrecord rij 46 toestond zijn klaar: de vijf blokkerende HIGH-bevindingen en alle twintig niet-bevroren veiligheidsrijen. Een verse, onafhankelijke verificatie heeft de gewijzigde documenten opnieuw nagelopen: alle 390 requirement-ID's staan in precies één moduledocument, de goedgekeurde planning is byte voor byte onveranderd, en elke gewijzigde regel is herleidbaar. Zij vond ook twee fouten in AGENTS.md, die de orchestrator zelf had ingevoerd; die zijn verbeterd en opnieuw onafhankelijk gecontroleerd. Het eerste werkitem (W-CTR-01, het gedeelde contractenpakket) is punt voor punt nagelopen tegen de Definition of Ready en is inhoudelijk gereed. De uitspraak van de integratiereview blijft NOT READY: het sluiten van bevindingen draait die uitspraak niet zelf om.<br>
-> **Wat de mens nu doet:** Een paar keuzes maken voordat er gebouwd wordt: of de bekende Automation-kwestie (H4.4) het bouwen van blok 1 niet tegenhoudt, of een zinnetje in het MES-schemahoofdstuk (D2) mag worden verduidelijkt, en vanaf welke branch de eerste Worker start. Daarna, apart, of item 1 mag starten.<br>
-> **Volgende toegestane actie:** Wachten op de mens. Geen Worker, geen implementatie, geen merge, deployment, reset, Proxmox of CT 240.
+> KLAAR VOOR DE BOUW — WACHT OP UW MERGE NAAR MAIN<br>
+> **Grens:** Alles wat u vóór de bouw wilde sluiten is gesloten (beslissingen 47–65). Elke requirement draagt nu zijn volledige goedgekeurde test (zowel 'moet werken' als 'moet falen') in zijn eigen document; de testen voor uw persoonlijke goedkeuring vóór elke destructieve CT 240-actie, de Automation-hoofdstukken en de laatste reviewbevindingen zijn door u goedgekeurd en toegepast; alle testdata staat in het document dat haar gebruikt. Een verse, onafhankelijke eindverificatie slaagde op alle zeven punten, en de kleine restpunten zijn daarna gesloten en opnieuw gecontroleerd. De goedgekeurde planning zelf is byte voor byte onveranderd.<br>
+> **Wat de mens nu doet:** De planningsbranch samenvoegen met main op GitHub (een eenvoudige fast-forward; de orchestrator geeft de exacte klikken). Daarna, apart, beslissen of bouwitem 1 (het gedeelde contractenpakket) mag starten.<br>
+> **Volgende toegestane actie:** Wachten op de mens. Geen Worker, geen implementatie, geen merge door een agent, geen deployment, reset, Proxmox of CT 240.
 
 - Planning branch: `codex/release-1-reconciliation`
 - Input-SHA: `(deze commit)`
-- Snapshot: `2026-09-26`
+- Snapshot: `2026-09-30`
 - Scope: Planning and specification only; no application code, runtime, deployment, pull request, merge, or CT 240 action.
 
 ## Zeven fasen en teruglus
@@ -26,7 +26,7 @@ flowchart TB
     phase_4r["4R · Requirements/Test Designer<br/>✅ Goedgekeurd / klaar"]
     phase_5r["5R · Delivery Planner<br/>✅ Goedgekeurd / klaar"]
     phase_6["6 · Independent Reviewer<br/>🟣 Onafhankelijke review · ✅ Goedgekeurd / klaar"]
-    phase_7["7 · Documentation Integrator<br/>🔵 Bezig"]
+    phase_7["7 · Documentation Integrator<br/>✅ Goedgekeurd / klaar"]
     phase_1 --> phase_2 --> phase_3r --> phase_4r --> phase_5r --> phase_6
     review_decision{"🟣 Reviewdispositie"}
     phase_6 --> review_decision
@@ -44,7 +44,7 @@ flowchart TB
     class phase_4r approved
     class phase_5r approved
     class phase_6 approved
-    class phase_7 inprogress
+    class phase_7 approved
     class review_decision review
 ```
 
@@ -112,7 +112,7 @@ flowchart TB
 | 4R | Requirements/Test Designer | ✅ Goedgekeurd / klaar | Alle requirementbevindingen van beide reviews zijn gecorrigeerd; de laatste betrof één mutant in de negatieve test van REQ-PLAT-070. |
 | 5R | Delivery Planner | ✅ Goedgekeurd / klaar | Plan gecorrigeerd: de controle dekt nu ook de negatieve testcel (nul overtredingen), de validatiezin klopt, en het hervattingspunt verwijst naar de geldende uitspraak. |
 | 6 | Independent Reviewer | ✅ Goedgekeurd / klaar | 06R10 gaf APPROVED op exact SHA 168d02d53f70797c725826eed42948fff0121d70, zonder blokkerende bevindingen en met zeven niet-blokkerende observaties. De reviewer leidde de structurele cijfers zelf af, hield beide open beoordelingskwesties in stand en bevestigde dat de vijf nog openstaande chunkvragen terecht open zijn gelaten. De goedkeuring autoriseert niets: adoptie is een aparte, uitdrukkelijke menselijke beslissing. |
-| 7 | Documentation Integrator | 🔵 Bezig | Phase 7 is inhoudelijk afgerond: de canonieke documenten zijn geïntegreerd (P7-E, 97 rijen), de vijf HIGH-bevindingen van de integratiereview zijn gesloten, en de twintig veiligheidsrijen hebben nu tests die hun veiligheidsclausules controleren (P7-T). Een verse verificatie (I7-13) bevestigt ID-dekking en een onveranderde planning. Het startpunt voor de bouw wacht op de keuzes van de mens. |
+| 7 | Documentation Integrator | ✅ Goedgekeurd / klaar | Phase 7 is inhoudelijk afgerond: de canonieke documenten zijn geïntegreerd (P7-E, 97 rijen), de vijf HIGH-bevindingen van de integratiereview zijn gesloten, en de twintig veiligheidsrijen hebben nu tests die hun veiligheidsclausules controleren (P7-T). Een verse verificatie (I7-13) bevestigt ID-dekking en een onveranderde planning. Het startpunt voor de bouw wacht op de keuzes van de mens. |
 
 ## Dependency-gedreven requirementchunks
 
